@@ -17,8 +17,8 @@ share: true
 
 ### Selected Past Talks and Academic Activities while doing my PhD study:
 
- - July 31-Aug 5, 2016: Gordon Research Conference -- Quantum Entanglement, New States of Matter, and Correlated Dynamics, Easton, MA, USA. (poster)
- - July 30-31, 2016: Gordon Research Seminar -- Quantum Simulation, Entanglement and Dynamics of Condensed Matter Systems and Field Theories, Easton, MA, USA. (poster)
+ - July 31-Aug 5, 2016: [Gordon Research Conference -- Quantum Entanglement, New States of Matter, and Correlated Dynamics](https://www.grc.org/programs.aspx?id=14962), Easton, MA, USA. (poster)
+ - July 30-31, 2016: [Gordon Research Seminar -- Quantum Simulation, Entanglement and Dynamics of Condensed Matter Systems and Field Theories](https://www.grc.org/programs.aspx?id=16636), Easton, MA, USA. (poster)
  - Feb 18-20, 2016: 18th annual SQuInT workshop, Albuquerque, NM, USA. (poster)
  - Dec 29-30, 2015: Academic visit and a Seminar talk in IPhy, CAS @ Beijing, China.
  - Dec 25-26, 2015: Academic visit and a Seminar talk in Hefei National Lab of Microscale Matter Physics, USTC @ Hefei, China.

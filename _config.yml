@@ -28,7 +28,7 @@ navigation: # For the navigation menu. Don't use index.html. urls should end wit
     url: /
   - text: Research
     url: /research/
-  - text: Publications and Activities
+  - text: Vita
     url: /pubs/
   - text: Community
     url: /community/

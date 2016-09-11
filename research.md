@@ -29,7 +29,7 @@ Stay tuned!
 
 ## Current Research Group and Main Collaborators
 
- - Current research group: [Dr. Ivan Deutsch's theoretical group] in [CQuIC](http://cquic.org/), University of New Mexico.
+ - Current research group: [Deutsch Group](http://cquic.unm.edu/deutsch-group/) in [CQuIC](http://cquic.org/), University of New Mexico.
  - [Dr. Poul Jessen's Quantum Information and Control Group](http://w3.arizona.edu/~lascool/) (experimental)--mainly with group member [David Melchior](http://www.optics.arizona.edu/academics/students/profile/david-melchior)), from the University of Arizona (College of Optical Sciences and an established node of [CQuIC](http://cquic.org)).
  - [Dr. Yuan-Yu Jau](http://physics.unm.edu/pandaweb/people/person.php?personID=1276) and [Grant Biedermann](http://physics.unm.edu/pandaweb/people/person.php?personID=971)'s experimental group from the [Sandia National Labs on Quantum Systems](http://www.sandia.gov/mstc/quantum/index.html).
  - [Dr. Luis A. Orozco's Quantum Optics and Francium Spectroscopy group](http://www.physics.umd.edu/rgroups/amo/orozco/) (experimental)--mainly with group member [Pablo Solano](http://jqi.umd.edu/people/pablo-solano) and his fellows, from the [Joint Quantum Institute](http://jqi.umd.edu/), University of Maryland.

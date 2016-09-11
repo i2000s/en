@@ -65,7 +65,7 @@ scholar:
   style: assets/bibliography/APS_Qi.csl
   locale: en
 
-  sort_by: year
+  sort_by: year, month
   order: descending
 
   source: assets/bibliography

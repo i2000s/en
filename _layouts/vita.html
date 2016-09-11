@@ -1,35 +1,42 @@
+---
+layout: default
+---
+{% capture true_path %}{{ page.path }}{% endcapture %} <!-- | replace '_posts/', '' -->
+{% capture page_modified %}{{ true_path | git_mod }}{% endcapture %}
+<div class="row cv">
+<div class="col-md-7 col-md-offset-1 col-sm-9">
+  <article>
 
-  {% include header.html %}
+    {{ content }}
 
-      <div class="row">
-        <div class="span6 offset2">
-        <style>
-          .cv {
-                font-size: 13px;
-                line-height: 18px;
-                text-align: justify;         
-          }
-           .cv ul, ol { 
-                margin-left: 0;
-                margin-bottom: 30px;
-                list-style: none;
-          }
-           .cv li {
-                margin-bottom: 10px;
-          }
-          .cv strong {
-            font-weight: bolder;
-          }
+  </article>
+</div>
+<div class="col-md-4 col-sm-3" style="border-left: 1px solid #eee;"><!-- sidebar -->
+  <p><small> Updated: <time
+            datetime="{{ true_path | git_mod }}"
+            property="dc:modified">{{ true_path | git_mod | date_to_string }}</time></small>
+  <br/>
+  <tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/{{site.author.github}}/{{ site.repo }}/commit/{{true_path | git_sha }}/{{ true_path }}"> {{ true_path | git_sha | truncate: 7, "" }}</a></tiny>
+  </p>
+  <h4>Profiles and Metrics</h4>
+  <p>
+  <i class="ai ai-impactstory"></i><a href="https://impactstory.org/u/0000-0002-3357-089X"> ImpactStory </a>
+  <br/>
+  <i class="ai ai-google-scholar"></i><a href="http://scholar.google.com/citations?hl=en&user={{site.author.gscholar}}"> Google Scholar </a>
+  <br/>
+  <i class="ai ai-orcid"></i><a property="http://purl.org/spar/datacite/orcid"
+     href="https://orcid.org/0000-0002-3357-089X"
+     {{"https://orcid.org/0000-0002-3357-089X" | track_link}} > ORCID: 0000-0002-3357-089X</a>
+  </p>
+  <br/>
+  <br/>
+  <p></i><a href="http://i2000s.github.io/CV-XiaodongQi.pdf"
+     onclick="var that=this;
+     _gaq.push(['_trackEvent','Download','PDF',this.href]);
+     setTimeout(function(){location.href=that.href;},200);
+     return false;" class = "btn btn-default"><i class="fa fa-file-text-o fa-1x"></i> Download PDF</a>
+  </p>
 
-        </style>
-          <div class="cv">
-            {{ content }}
-          </div>
-        </div>
-      </div>
 
-
-
-  {% include footer.html %}
-
-    
+</div>
+</div>

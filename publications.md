@@ -9,13 +9,13 @@ image:
 share: true
 ---
 
-## Visits and presentations
+# Visits and presentations
 
-### Up-coming:
+## Up-coming:
 
  - PhD post-candidate annual talk has been scheduled on Nov 16th, 2016.
 
-### Selected Past Talks and Academic Activities while doing my PhD study:
+## Selected Past Talks and Academic Activities while doing my PhD study:
 
  - July 31-Aug 5, 2016: [Gordon Research Conference -- Quantum Entanglement, New States of Matter, and Correlated Dynamics](https://www.grc.org/programs.aspx?id=14962), Easton, MA, USA. (poster)
  - July 30-31, 2016: [Gordon Research Seminar -- Quantum Simulation, Entanglement and Dynamics of Condensed Matter Systems and Field Theories](https://www.grc.org/programs.aspx?id=16636), Easton, MA, USA. (poster)
@@ -42,13 +42,13 @@ share: true
  - Feb, 2013: the 15th SQuInT Workshop @ Santa Barbara, CA, USA.
  - Oct, 2012: CQuIC seminar talk on my previous cavity-QED study, @ Albuquerque, NM, USA.
 
-## Publications
+# Publications
 
-### Articles
+## Articles
 
  {% bibliography --file QiPublications --query @article %}
 
-### Theses
+## Theses
 
  {% bibliography --file QiPublications --query @phdthesis %}
  {% bibliography --file QiPublications --query @mastersthesis %}

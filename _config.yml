@@ -67,6 +67,8 @@ scholar:
 
   sort_by: year, month
   order: descending
+  bibliography_list_attributes:
+    reversed: "reversed" # This reverses the numbering of publications in the sorted group.
 
   source: assets/bibliography
   bibliography: QiPublications

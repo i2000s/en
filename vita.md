@@ -7,15 +7,26 @@ image:
   feature: /assets/img/qi2016.jpg
 share: true
 ---
+## Upcoming event:
+
+ - PhD post-candidate annual talk has been scheduled on Nov 16th, 2016.
 
 # Employment
 
 - 2012-current: Research Assistant, Center for Quantum Information and Control, University of New Mexico, Albuquerque, NM, USA 87131.
 
-## Upcoming event:
 
- - PhD post-candidate annual talk has been scheduled on Nov 16th, 2016.
+# Publications
 
+## Articles
+
+ {% bibliography --file QiPublications --query @article %}
+
+## Theses
+
+ {% bibliography --file QiPublications --query @phdthesis %}
+ {% bibliography --file QiPublications --query @mastersthesis %}
+ 
 # Selected Talks and Conferences:
 
  - July 31-Aug 5, 2016: [Gordon Research Conference -- Quantum Entanglement, New States of Matter, and Correlated Dynamics](https://www.grc.org/programs.aspx?id=14962), Easton, MA, USA. (poster)
@@ -44,14 +55,3 @@ share: true
  - Oct, 2012: CQuIC seminar talk on my previous cavity-QED study, @ Albuquerque, NM, USA. ([slides](https://github.com/i2000s/2013CollectiveEffects/releases))
  - May, 2009: Dehua Li, Xiaodong Qi and  Shenggang Liu. "A theoretical analysis of optical-to-THz conversion efficiency via optical rectification". IONS China 2009. (poster)
  - Nov, 2008:  Dehua Li, Xiaodong Qi, Zhou Wei, Jin Tao and Shenggang Liu, "[Optical-to-THz conversion efficiency analysis and comparison of ZnTe, DAST, LiNbO3 crystals](http://dx.doi.org/10.1117/12.821583)", Proc. SPIE 7277, Photonics and Optoelectronics Meetings (POEM) 2008: Terahertz Science and Technology, 727715 (InProcessing online June 03, 2009).
-
-# Publications
-
-## Articles
-
- {% bibliography --file QiPublications --query @article %}
-
-## Theses
-
- {% bibliography --file QiPublications --query @phdthesis %}
- {% bibliography --file QiPublications --query @mastersthesis %}

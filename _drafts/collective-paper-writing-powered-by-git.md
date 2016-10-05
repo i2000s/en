@@ -46,10 +46,12 @@ Next, I will need to synchronize every branch of the paper repo to include the n
 ```
 git fetch origin
 git merge origin/master
-git submodule --init --remote
+git submodule --init --recursive --remote
 ```
 Notice that I use the switch `--remote` just to make sure I always use the latest hash point of the bibliography repo on the `NanofiberPaper` branch.
 Without this switch, the submodule will always use the hash point recorded in the `.gitsubmodule` config file.
+The `--recursive` switch applies operations on all children submodules recursively if there are more than one layer of submodules.
+This switch can be applied to other `git submodule` commands as well, and the depth of submodules can be controlled using the `--depth` parameter.  
 
 After all of these initialization settings, one can use bash scripts to automate daily updates and synchronize changes to the remote repo.
 The submodule is now used as a subfolder as well as an independent Git repo in the paper repo, and all changes from the submodule can be pushed to the `Archive` repo and should also be recorded in the paper repo for new changes in the submodule as well.
@@ -63,7 +65,7 @@ The command to publish local submodule changes and tell the paper repository tha
 git push --recurse-submodules=on-demand
 ```
 This command will try to merge changes to the upstream repo of the submodule. If there is any conflicts, it will stop for manual fixes.
-Without the trial of merge due to changes, one can replace the parameter of `push` to `--recurse-submodule=check`. Once git found a change, it will stop and tell users to check changes manually.
+Without the trial of merge due to changes, one can replace the parameter of `push` to `--recurse-submodule=check`. Once git finds a change, it will stop and tell users to check changes manually.
 To manually solve a conflict in the submodule or to merge a submodule change, one has to go into the submodule folder to fix the problem or do the merge as for a separated repo, and then in the main repo, add and commit the changes from the submodule folder.
 The `push` command in the main repo will synchronize the `.gitsubmodule` file to the remote repo which has the hash point of the submodule for which the main repo is used.
 If a `push` command is only committed in the submodule folder, it only synchronize the changes in the submodule repo without affecting the main repo on its top--not even to record this submodule change to the main repo's remote.

@@ -1,6 +1,6 @@
 {% capture true_path %}{{ page.path }}{% endcapture %} <!-- | replace '_posts/', '' -->
 {% capture page_modified %}{{ true_path | git_mod }}{% endcapture %}
-<aside prefix="og:http://ogp.me/ns/article#">
+<aside prefix="og:https://ogp.me/ns/article#">
   <p> <i class="glyphicon glyphicon-calendar"></i><small>
     <time datetime="{{ page.date }}"
     property="dc:created">{{ page.date | date_to_string }}</time></small></p>
@@ -21,7 +21,7 @@
   <p><i class="glyphicon glyphicon-list"></i> Posted in
     {% for category in page.categories %}
       <a rel="dc:subject" class="category"
-         href="/categories.html#{{ category | cgi_escape }}">{{ category }}</a>
+         href="{{site.url}}/categories.html#{{ category | cgi_escape }}">{{ category }}</a>
     {% unless page.categories.last == category %}, {% endunless %}
     {% endfor %}</p>
 
@@ -29,7 +29,7 @@
     {% for tag in page.tags %}
     <!-- http://schema.org/BlogPosting/keywords -->
     <a rel="og:tag" class="tag"
-       href="/tags.html#{{ tag | cgi_escape }}">#{{ tag }}</a>{% unless page.tags.last == tag %}, {% endunless %}
+       href="{{site.url}}/tags.html#{{ tag | cgi_escape }}">#{{ tag }}</a>{% unless page.tags.last == tag %}, {% endunless %}
     {% endfor %}</p>
 
    <br/>
@@ -42,7 +42,7 @@
 
 <br /><br />
 <div style="font-weight:bold; text-align:center;font-size:1.0em;">
- <i class="glyphicon glyphicon-chevron-left"></i> <a href="/archives.html">Archieves by date,</a>
- <i class="glyphicon glyphicon-list"></i> <a href="/categories.html">by category,</a>
- <!--<i class="glyphicon glyphicon-tag"></i>--> <a href="/tags.html">by tag.</a>
+ <i class="glyphicon glyphicon-chevron-left"></i> <a href="{{site.url}}/archives.html">Archieves by date,</a>
+ <i class="glyphicon glyphicon-list"></i> <a href="{{site.url}}/categories.html">by category,</a>
+ <!--<i class="glyphicon glyphicon-tag"></i>--> <a href="{{site.url}}/tags.html">by tag.</a>
 </div>

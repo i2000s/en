@@ -2,25 +2,25 @@
          <div class="row">
             <div class="col-md-7 col-xs-9">
               <div class="row">
-               <a href="mailto:{{site.author.email}}" onClick="recordOutboundLink(this, 'Outbound Links', 'email'); return false;"><img src="/assets/img/icon-email.png" height="48px" alt="email"> </a>
-               <a href="https://github.com/{{site.author.github}}" onClick="recordOutboundLink(this, 'Outbound Links', 'Github'); return false;"><img src="/assets/img/icon-github.png" height="40px" alt="github"> </a>
-               <a href="https://plus.google.com/{{site.author.gplus}}"><img src="/assets/img/icon-gplus.png" height="40px" alt="G+"></a>
-               <a href="https://www.facebook.com/{{site.author.facebook}}"><img src="/assets/img/icon-facebook.png" height="42px" alt="facebook"></a>
-               <a href="https://scholar.google.com/citations?user={{site.author.gscholar}}=en"><img src="/assets/img/icon-scholar.png" height="40px" alt="GoogleScholar"></a>
-               <a href="https://twitter.com/{{site.author.twitter}}"><img src="/assets/img/icon-twitter.png" height="45px" alt="Twitter"></a>
-               <a href="https://www.linkedin.com/in/{{site.author.linkedin}}"><img src="/assets/img/icon-linkedin.png" height="40px" alt="LinkedIn"></a>
-               <a href="/atom.xml" onClick="recordOutboundLink(this, 'Outbound Links', 'RSS'); return false;"><img src="/assets/img/icon-rss.png" height="40px" alt="feed"></a>
-               <a href="https://physics.stackexchange.com/users/{{site.author.stackexchangephy}}"><img src="/assets/img/icon-stackoverflow.png" height="40px" alt="Physics Stackexchange"></a>
+               <a href="mailto:{{site.author.email}}" onClick="recordOutboundLink(this, 'Outbound Links', 'email'); return false;"><img src="{{site.url}}/assets/img/icon-email.png" height="48px" alt="email"> </a>
+               <a href="https://github.com/{{site.author.github}}" onClick="recordOutboundLink(this, 'Outbound Links', 'Github'); return false;"><img src="{{site.url}}/assets/img/icon-github.png" height="40px" alt="github"> </a>
+               <a href="https://plus.google.com/{{site.author.gplus}}"><img src="{{site.url}}/assets/img/icon-gplus.png" height="40px" alt="G+"></a>
+               <a href="https://www.facebook.com/{{site.author.facebook}}"><img src="{{site.url}}/assets/img/icon-facebook.png" height="42px" alt="facebook"></a>
+               <a href="https://scholar.google.com/citations?user={{site.author.gscholar}}=en"><img src="{{site.url}}/assets/img/icon-scholar.png" height="40px" alt="GoogleScholar"></a>
+               <a href="https://twitter.com/{{site.author.twitter}}"><img src="{{site.url}}/assets/img/icon-twitter.png" height="45px" alt="Twitter"></a>
+               <a href="https://www.linkedin.com/in/{{site.author.linkedin}}"><img src="{{site.url}}/assets/img/icon-linkedin.png" height="40px" alt="LinkedIn"></a>
+               <a href="/atom.xml" onClick="recordOutboundLink(this, 'Outbound Links', 'RSS'); return false;"><img src="{{site.url}}/assets/img/icon-rss.png" height="40px" alt="feed"></a>
+               <a href="https://physics.stackexchange.com/users/{{site.author.stackexchangephy}}"><img src="{{site.url}}/assets/img/icon-stackoverflow.png" height="40px" alt="Physics Stackexchange"></a>
                <iframe class="github-btn" src="//ghbtns.com/github-btn.html?user={{site.orgname}}&repo={{site.repo}}&type=star&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="150px" height="40px" style="vertical-align:middle; margin-top:9px;"></iframe>
               </div>
               <div class="row">
-                <span> &nbsp; </span> <span><a href="/CV-XiaodongQi.pdf"
+                <span> &nbsp; </span> <span><a href="{{site.url}}/CV-XiaodongQi.pdf"
                   onclick="var that=this;
                   _gaq.push(['_trackEvent','Download','PDF',this.href]);
                   setTimeout(function(){location.href=that.href;},200);
                   return false;" class = "btn btn-default"><i class="fa fa-file-text-o fa-1x"></i> CV of Xiaodong Qi</a></span>
                 <br><img alt="Creative Commons License" style="border-width:0" align="right" src="https://licensebuttons.net/l/by/3.0/88x31.png" />
-                <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Content</span> is licensed under the
+                <span xmlns:dct="https://purl.org/dc/terms/" property="dct:title">Content</span> is licensed under the
                 <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</a> or otherwise specified.
                 <br>
               </div>
@@ -28,7 +28,7 @@
 
            <div class="col-md-4 col-xs-3">
               <div class="row team-member" style="margin-top:-35px">
-              <img class="img-responsive img-thumbnail img-circle" width="200px" alt="" src="/assets/img/qi2016.jpg" align="middle">
+              <img class="img-responsive img-thumbnail img-circle" width="200px" alt="" src="{{site.url}}/assets/img/qi2016.jpg" align="middle">
               </div>
            </div>
          </div>

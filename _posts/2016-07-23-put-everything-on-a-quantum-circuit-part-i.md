@@ -9,9 +9,9 @@ categories:
     - notebook
 ---
 ## Preface
-This series of notes is initially written for [Amit Jamadagni](https://github.com/amitjamadagni) and [Xiuzhe Luo](https://github.com/Roger-luo) who have been working on the [JuliaQuantum organization](http://juliaquantum.github.io)'s [Base.jl](https://github.com/JuliaQuantum/QuBase.jl),
+This series of notes is initially written for [Amit Jamadagni](https://github.com/amitjamadagni) and [Xiuzhe Luo](https://github.com/Roger-luo) who have been working on the [JuliaQuantum organization](https://juliaquantum.github.io)'s [Base.jl](https://github.com/JuliaQuantum/QuBase.jl),
 [QuDynamics.jl](https://github.com/JuliaQuantum/QuDynamics.jl) and [QuCmp.jl](https://github.com/JuliaQuantum/QuCmp.jl) projects individually.
-Amit has put intensive efforts on framing out the basic [Julia](http://julialang.org) libraries on basic quantum type system, the time evolution of quantum systems
+Amit has put intensive efforts on framing out the basic [Julia](https://julialang.org) libraries on basic quantum type system, the time evolution of quantum systems
 and the idea of propagators.
 Xiuzhe as a junior undergraduate physics student just started the QuCmp.jl project to build some fundamental Julia libraries for quantum computing (adiabatic quantum computing, quantum circuit model and others).
 I try to outline in the notes some theoretical foundations on quantum dynamics (especially for open quantum systems) and its link to simulating quantum computing models (especially on the circuit model) with the hope to conclude the following points:
@@ -167,7 +167,7 @@ For example, in a homodyne detection case{% cite Wiseman1993Interpretation --fil
 For a balanced beam splitter, the two output branches yield the combined and subtracted signals in detection, which are the $\hat{X}$ and $\hat{P}$ quadratures in the phase plane.
 
 <center>
- ![Fig 1. Beam splitter for homodyne and heterodyne detections.](/assets/img/homodyneheterodyne_beamsplitter.svg)
+ ![Fig 1. Beam splitter for homodyne and heterodyne detections.]({{site.url}}/assets/img/homodyneheterodyne_beamsplitter.svg)
 
 <br> <br>
 </center>
@@ -235,7 +235,7 @@ I will also touch the base of some mathematical fundation in the next part.
 
 
 With the basic stochastic language introduced, we are ready to explore more complicated differential equations and start appreciating the nature of quantum measurements and how all of these can be connected to the quantum circuit model.
-Content is mainly based on my hand-written lecture notes taught by my supervisor [Ivan Deutsch](http://cquic.unm.edu/deutsch-group/) and my daily journals on reading, meeting and playing.
+Content is mainly based on my hand-written lecture notes taught by my supervisor [Ivan Deutsch](https://cquic.unm.edu/deutsch-group/) and my daily journals on reading, meeting and playing.
 I hope the following notes can help understand those content intuitively.
 
 
@@ -251,6 +251,6 @@ another layer of operations on operators.
 Superoperator notations have been widely used to describe the evolution of open
 quantum systems where the concept of propagator can be fully characterized.
 [^a]: For mixed states, the state of the system cannot be written as a signle pure state, $\ket{\Psi}$ any more, in general. Instead, a density operator $\hat{\rho}=\sum_i p_i\ketbra{\Psi_i}{\Psi_i}$ as an ensemble decomposition of pure states, $\ket{\Psi_i}$, is used to characterize the system, where $p_i$ is the probability of being in the $\ket{\Psi_i}$ state.
-[^b]: Also see the [Quantum stochastic calculus](https://en.wikipedia.org/wiki/Quantum_stochastic_calculus) page for a quick review created by [Jonathan Gross](http://www.unm.edu/~jagross/) for a [Quantum Optics wikipedia project](http://iciq.github.io/entangle/WikipediaProject.html).
+[^b]: Also see the [Quantum stochastic calculus](https://en.wikipedia.org/wiki/Quantum_stochastic_calculus) page for a quick review created by [Jonathan Gross](https://www.unm.edu/~jagross/) for a [Quantum Optics wikipedia project](https://iciq.github.io/entangle/WikipediaProject.html).
 [^c]: We will use this fact in my future notes on deriving quantum dynamic equations symbolically for general scenarios.
-[^d]: A brief summary on the relation between Lindblad equations and CP-map can be found in [Jess Riedel's blog](http://blog.jessriedel.com/2014/07/26/lindblad-equation-is-differential-form-of-cp-map/).
+[^d]: A brief summary on the relation between Lindblad equations and CP-map can be found in [Jess Riedel's blog](https://blog.jessriedel.com/2014/07/26/lindblad-equation-is-differential-form-of-cp-map/).

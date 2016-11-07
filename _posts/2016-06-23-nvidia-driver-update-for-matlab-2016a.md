@@ -6,7 +6,7 @@ tags:
 category:
     - computer
 ---
-When the Matlab 2016a was released initially, the [openGL render was not compatible with some NVidia drivers in Linux](http://askubuntu.com/questions/765455/how-to-run-matlab-2016a-with-nvidia-drivers-of-gtx-960-in-ubuntu-16-04).
+When the Matlab 2016a was released initially, the [openGL render was not compatible with some NVidia drivers in Linux](//askubuntu.com/questions/765455/how-to-run-matlab-2016a-with-nvidia-drivers-of-gtx-960-in-ubuntu-16-04).
 Recently, I have noticed that the last update of NVidia-367 driver has fixed this problem.
 
 To install the nvidia-367 driver in Ubuntu 16.04, you need to uninstall the previous nvidia driver first:

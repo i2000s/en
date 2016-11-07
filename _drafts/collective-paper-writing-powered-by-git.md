@@ -13,6 +13,7 @@ There are some formatting problems in using different versions of JabRef in usin
 It would be nice to let files always read by the latest version of JabRef (v3.x) for compatibility of formatting.
 In the mean time, following a few recommendations may help in decreasing the number changes if different software or versions of JabRef have to be used between collaborator.
 See [these database setting for JabRef](http://help.jabref.org/en/SharedBibFile), for example.
+Alternatively, there are some tools as illustrated on [Stackexchange](http://unix.stackexchange.com/questions/31266/how-to-sort-by-whatever-key-bibtex-entries-in-bib-file) to sort out bibtex entries if other bibliography management software like Mendeley is used.
 
 Cleaning up loose objects in Git repositories:
 =============================================

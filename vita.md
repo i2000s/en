@@ -9,7 +9,7 @@ share: true
 ---
 ## Upcoming event:
 
- - PhD post-candidate annual talk has been scheduled on Nov 16th, 2016.
+ - SQuInT 2017 talk (Spin Squeezing on Nanophotonic Waveguides), Baton Rouge, Louisiana, February 23-25, 2017.
 
 # Employment
 
@@ -26,9 +26,10 @@ share: true
 
  {% bibliography --file QiPublications --query @phdthesis %}
  {% bibliography --file QiPublications --query @mastersthesis %}
- 
+
 # Selected Talks and Conferences:
 
+ - Nov 16th, 2016: Annual research report, CQuIC @ Albuquerque, NM, USA.
  - July 31-Aug 5, 2016: [Gordon Research Conference -- Quantum Entanglement, New States of Matter, and Correlated Dynamics](https://www.grc.org/programs.aspx?id=14962), Easton, MA, USA. (poster)
  - July 30-31, 2016: [Gordon Research Seminar -- Quantum Simulation, Entanglement and Dynamics of Condensed Matter Systems and Field Theories](https://www.grc.org/programs.aspx?id=16636), Easton, MA, USA. (poster)
  - Feb 18-20, 2016: [18th Annual SQuInT workshop](http://physics.unm.edu/SQuInT/2016/abstracts.php?person_id=376), Albuquerque, NM, USA. (poster)

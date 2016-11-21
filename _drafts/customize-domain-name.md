@@ -16,3 +16,9 @@ I use the `redirects.rb` plugin as illustrated on [this page](http://www.carlboe
 Or, you can use the `Jekyll-redirect-from` [plugin](https://github.com/jekyll/jekyll-redirect-from) to forward a previous link to the current URL.
 The other option is to simply add the original URL to the *permalinks*: item in the YAML header for each post, and then Jekyll would use that URL instead of the automatically generated permalink structure.
 Some of the benefits of sticking to permanent links and more details on keeping links updated using this template can be found on [Carl Boettiger's labnotebook](http://www.carlboettiger.info/2013/05/31/notebook-features-digital-archiving.html).
+
+Centralize information from sub-repos:
+======================================
+Once the website is branched out with separated repos (sub-repos, in our case), it would be nice to collect some key information on the front page.
+Some ideas of collecting/redirecting tags and categories of posts have been outlined in [Carl Boetigger's labnotebook](http://www.carlboettiger.info/2015/01/01/notebook-maintenance-and-scaling.html).
+The only difference in my case is that I am using sub-repos for pages in different languages and for different projects rather than for posts archived in every year.

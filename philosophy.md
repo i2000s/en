@@ -2,6 +2,7 @@
 layout: default
 title: Philosophy
 subtitle: Facilitating better science
+exclude_from_search: true
 ---
 
 ## Openness in research and teaching
@@ -15,8 +16,8 @@ leads to better tools, materials, and results.
 
  - My *open lab notebook* is hosted on this site
  - I post and discuss interesting results on [Google+](https://plus.google.com/u/0/+XiaodongQi/posts)
-[comment]: # (- I post my [teaching materials on Github](/teaching.html))
- - I post my [research code on Github](/code.html)
+[comment]: # (- I post my [teaching materials on Github]({{ site.baseurl }}/teaching.html))
+ - I post my [research code on Github]({{ site.baseurl }}/code.html)
 [comment]: # (- I have published some grant proposals on Figshare:)
 [comment]: # (   * [Wave Propagation for Next-Generation Supercomputers](http://dx.doi.org/10.6084/m9.figshare.639182),)
 [comment]: # (   * [Positive Numerical Solution of Differential Equations](http://dx.doi.org/10.6084/m9.figshare.639184),)
@@ -24,7 +25,7 @@ leads to better tools, materials, and results.
  - I participate in the [Stack Exchange for Scientific Computing](http://scicomp.stackexchange.com)
  - I participate in the [Stack Exchange for Academia](http://academia.stackexchange.com)
 
-See also: [posts tagged with **open-science**](/tags.html#open-science)
+See also: [posts tagged with **open-science**]({{ site.baseurl }}/tags.html#open-science)
 
 
 ## Scientific software and reproducibility
@@ -41,7 +42,7 @@ it is essential that we strive for a standard of reproducibility.
 [comment]: # ([available](http://bitbucket.org/i2000s).  Where reasonable,)
 [comment]: # (I try to make the code well-documented and easy to use.)
 
-See also: [posts tagged with **reproducible-research**](/tags.html#reproducible-research)
+See also: [posts tagged with **reproducible-research**]({{ site.baseurl }}/tags.html#reproducible-research)
 
 
 ## Scientific publishing and journal pricing
@@ -58,9 +59,9 @@ for reasons outlined
 I place preprints of all my manuscripts on the [arXiv](http://www.arxiv.org)
 when I submit them for publication.  Where allowed by the publisher, I put the
 final version of my published papers on my site, downloadable from
-[my publications page](/publications.html).
+[my publications page]({{ site.baseurl }}/publications.html).
 
 See also:
 
- - [posts tagged with **scientific-publishing**](/tags.html#scientific-publishing)
- - [posts tagged with **open-access**](/tags.html#open-access)
+ - [posts tagged with **scientific-publishing**]({{ site.baseurl }}/tags.html#scientific-publishing)
+ - [posts tagged with **open-access**]({{ site.baseurl }}/tags.html#open-access)

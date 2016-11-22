@@ -1,8 +1,9 @@
 ---
 title : Sitemap
 ---
-{% for page in site.pages %} 
-http://i2000s.github.io{{ page.url }} {% endfor %}
 
-{% for post in site.posts %} 
-http://i2000s.github.io{{ post.url }} {% endfor %}
+{% for page in site.pages %}
+{{site.url}}{{site.baseurl}}{{ page.url }} {% endfor %}
+
+{% for post in site.posts %}
+{{site.url}}{{site.baseurl}}{{ post.url }} {% endfor %}

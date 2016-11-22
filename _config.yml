@@ -19,6 +19,7 @@ author :
     - name: ICIQ
     - name: JuliaCN
 url: https://www.qixiaodong.tk
+baseurl: /en
 disqus:
   sitename: qxd # This is the shortname of the disqus site id to display disqus comments below posts.
 addthis:  # Get an account at www.addthis.com. You may need to at least enable the Sharing Sidebar and Sharing Buttons functions to fully use our design.
@@ -41,7 +42,6 @@ twitter_api: yes
 analytics: UA-74657818-1 ## Google Analytics key UA-46730871-1(in _includes/analytics.html and search.html)
 baiduid: cAv3dLIDps # Baidu site verification ID. Used in metadata.html.
 baidutongji: a9ed76232076b69dc6afb79ece4d351d # This is for collecting statistical data of visiting from Baidu. Used in analytics.html.
-baseurl: '/'
 lsi: True # Possibly for generating related posts with gsl and classifier packages.
 show_drafts: false
 
@@ -49,7 +49,7 @@ show_drafts: false
 gitstamps: yes
 username: i2000s
 orgname: i2000s # This is used to identify the category of GitHub repository. Use username for personal repository.
-repo: i2000s.github.io # used in linking commit history and auto-deploy the site on travis-CI. The repository address will be identified as https://username:GH_TOKEN@github.com/orgname/repo.git defined in Rakefile.
+repo: en # used in linking commit history and auto-deploy the site on travis-CI. The repository address will be identified as https://username:GH_TOKEN@github.com/orgname/repo.git defined in Rakefile.
 sourcebranch: dev # used in linking commit history.
 
 source: .

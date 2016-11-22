@@ -6,10 +6,10 @@ title : Atom Feed
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>{{ site.title }}</title>
- <link href="{{ site.production_url }}/exploringquantumworld.xml" rel="self"/>
- <link href="{{ site.production_url }}"/>
+ <link href="{{ site.url }}{{ site.baseurl }}/exploringquantumworld.xml" rel="self"/>
+ <link href="{{ site.url }}{{ site.baseurl }}"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>{{ site.production_url }}</id>
+ <id>{{ site.url }}{{ site.baseurl }}</id>
  <author>
    <name>{{ site.author.name }}</name>
    <email>{{ site.author.email }}</email>
@@ -18,9 +18,9 @@ title : Atom Feed
  {% for post in site.categories.notebook %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="{{ site.production_url }}{{ post.url }}"/>
+   <link href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>h{{ site.production_url }}{{ post.id }}</id>
+   <id>{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}

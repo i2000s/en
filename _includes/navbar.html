@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{site.url}}/README.html"><i class="glyphicon glyphicon-info-sign"></i></a>
+      <a class="navbar-brand" href="{{site.url}}{{ site.baseurl }}/README.html"><i class="glyphicon glyphicon-info-sign"></i></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -23,7 +23,7 @@
             {% if page.url == '/' and item.url == '/' %}
                 {% assign class = 'active' %}
             {% endif %}
-            <li class="{{ class }}"><a href="{{ item.url }}">{{ item.text }}</a></li>
+            <li class="{{ class }}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.text }}</a></li>
          {% endfor %}
         </ul>
       <!-- Search site using Google's index -->

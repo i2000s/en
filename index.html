@@ -1,6 +1,6 @@
 ---
 layout: barefooter
-permalink: /
+permalink: /en/
 title: Xiaodong Qi's NoteBlog
 subtitle: Exploring the Open Quantum World
 description: Xiaodong Qi's NoteBlogs and CV. Mostly relates to his research done at the Center for Quantum Information and Control (CQuIC), University of New Mexico.
@@ -16,9 +16,9 @@ description: Xiaodong Qi's NoteBlogs and CV. Mostly relates to his research done
   </div>
   <div class="row">
     <div style="font-weight:bold; text-align:center;font-size:1.2em;">
-     <i class="glyphicon glyphicon-chevron-left"></i> <a href="/archives.html">Archives by date, </a>
-     <i class="glyphicon glyphicon-list"></i> <a href="/categories.html">by category, </a>
-     <i class="glyphicon glyphicon-tag"></i> <a href="/tags.html">by tag</a>
+     <i class="glyphicon glyphicon-chevron-left"></i> <a href="{{ site.baseurl }}/archives.html">Archives by date, </a>
+     <i class="glyphicon glyphicon-list"></i> <a href="{{ site.baseurl }}/categories.html">by category, </a>
+     <i class="glyphicon glyphicon-tag"></i> <a href="{{ site.baseurl }}/tags.html">by tag</a>
     </div>
   </div>
      <br>
@@ -26,14 +26,14 @@ description: Xiaodong Qi's NoteBlogs and CV. Mostly relates to his research done
     <div class="col-md-4 col-sm-3">
       <div class="row">
         <ul class="unstyled">
-          <li style="margin:-10px"> <img alt="QR Code" src="/assets/img/qrcode.33561508.png" align="left"></li>
+          <li style="margin:-10px"> <img alt="QR Code" src="{{ site.baseurl }}/assets/img/qrcode.33561508.png" align="left"></li>
         </ul>
       </div>
       <div class="row">Scan to load on your mobile device.</div>
     </div>
     <div class="col-md-8 col-sm-9">
         <br>
-       <p style="text-align:left; align:center;font-size:1.2em"><a href="/CV-XiaodongQi.pdf" onclick="var that=this;
+       <p style="text-align:left; align:center;font-size:1.2em"><a href="{{ site.baseurl }}/CV-XiaodongQi.pdf" onclick="var that=this;
        _gaq.push(['_trackEvent','Download','PDF',this.href]);
        setTimeout(function(){location.href=that.href;},200);
        return false;" class = "btn btn-default"><i class="fa fa-file-text-o fa-1x"></i>My CV in PDF.</a></p>
@@ -47,15 +47,15 @@ description: Xiaodong Qi's NoteBlogs and CV. Mostly relates to his research done
        </div>
         <br>
        <div class="row" style="margin-left:-5px">
-           <a href="mailto:{{site.author.email}}" onClick="recordOutboundLink(this, 'Outbound Links', 'email'); return false;"><img src="/assets/img/icon-email.png" height="48px" alt="email"> </a>
-           <a href="https://github.com/{{site.author.github}}" onClick="recordOutboundLink(this, 'Outbound Links', 'Github'); return false;"><img src="/assets/img/icon-github.png" height="40px" alt="github"> </a>
-           <a href="https://plus.google.com/{{site.author.gplus}}"><img src="/assets/img/icon-gplus.png" height="40px" alt="G+"></a>
-           <a href="https://www.facebook.com/{{site.author.facebook}}"><img src="/assets/img/icon-facebook.png" height="42px" alt="facebook"></a>
-           <a href="https://scholar.google.com/citations?user={{site.author.gscholar}}=en"><img src="/assets/img/icon-scholar.png" height="40px" alt="GoogleScholar"></a>
-           <a href="https://twitter.com/{{site.author.twitter}}"><img src="/assets/img/icon-twitter.png" height="45px" alt="Twitter"></a>
-           <a href="https://www.linkedin.com/in/{{site.author.linkedin}}"><img src="/assets/img/icon-linkedin.png" height="40px" alt="LinkedIn"></a>
-           <a href="/atom.xml" onClick="recordOutboundLink(this, 'Outbound Links', 'RSS'); return false;"><img src="/assets/img/icon-rss.png" height="40px" alt="feed"></a>
-           <!--<a href="https://physics.stackexchange.com/users/{{site.author.stackexchangephy}}"><img src="/assets/img/icon-stackoverflow.png" height="40px" alt="Physics Stackexchange"></a>-->
+           <a href="mailto:{{site.author.email}}" onClick="recordOutboundLink(this, 'Outbound Links', 'email'); return false;"><img src="{{ site.baseurl }}/assets/img/icon-email.png" height="48px" alt="email"> </a>
+           <a href="https://github.com/{{site.author.github}}" onClick="recordOutboundLink(this, 'Outbound Links', 'Github'); return false;"><img src="{{ site.baseurl }}/assets/img/icon-github.png" height="40px" alt="github"> </a>
+           <a href="https://plus.google.com/{{site.author.gplus}}"><img src="{{ site.baseurl }}/assets/img/icon-gplus.png" height="40px" alt="G+"></a>
+           <a href="https://www.facebook.com/{{site.author.facebook}}"><img src="{{ site.baseurl }}/assets/img/icon-facebook.png" height="42px" alt="facebook"></a>
+           <a href="https://scholar.google.com/citations?user={{site.author.gscholar}}=en"><img src="{{ site.baseurl }}/assets/img/icon-scholar.png" height="40px" alt="GoogleScholar"></a>
+           <a href="https://twitter.com/{{site.author.twitter}}"><img src="{{ site.baseurl }}/assets/img/icon-twitter.png" height="45px" alt="Twitter"></a>
+           <a href="https://www.linkedin.com/in/{{site.author.linkedin}}"><img src="{{ site.baseurl }}/assets/img/icon-linkedin.png" height="40px" alt="LinkedIn"></a>
+           <a href="{{ site.baseurl }}/atom.xml" onClick="recordOutboundLink(this, 'Outbound Links', 'RSS'); return false;"><img src="{{ site.baseurl }}/assets/img/icon-rss.png" height="40px" alt="feed"></a>
+           <!--<a href="https://physics.stackexchange.com/users/{{site.author.stackexchangephy}}"><img src="{{ site.baseurl }}/assets/img/icon-stackoverflow.png" height="40px" alt="Physics Stackexchange"></a>-->
            <iframe class="github-btn" src="//ghbtns.com/github-btn.html?user={{site.orgname}}&repo={{site.repo}}&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="40px" style="vertical-align:middle; margin-top:17px;"></iframe>
       </div>
      <!-- <br><br><br> -->
@@ -72,14 +72,14 @@ description: Xiaodong Qi's NoteBlogs and CV. Mostly relates to his research done
   <b>Xiaodong Qi</b> (<span font="sans-serif">戚晓东</span>)<br>
 
   <div class="team-member">
-  <img class="img-responsive img-circle" alt="" src="/assets/img/qi2016.jpg" align="right" width=200px>
+  <img class="img-responsive img-circle" alt="" src="{{ site.baseurl }}/assets/img/qi2016.jpg" align="right" width=200px>
   </div>
 
   I am a PhD candidate of
   <a href="http://cquic.org">the Center for Quantum Information and Control (CQuIC)</a> at University of New Mexico (<a href="http://www.unm.edu">UNM</a>), where
   I am doing theoretical study with <a href="http://cquic.unm.edu/deutsch-group/">Prof. Ivan Deutsch</a>.
   <br>
-  Most of my time, I concentrate on <a href="/research.html">research</a>.
+  Most of my time, I concentrate on <a href="{{ site.baseurl }}/research.html">research</a>.
   I decode the mathematical rhythms of the dance of photons with matter (atoms, nano-scale objects and macro-scale photonic structures)--they are sometimes powerful, sometimes silky, in general harmonic, vivid, colorful, romantic and marvelous yet with a bit of mystery.
   My earliest study began with the energetic nature of light, and was discovering novel approaches to generate bright and coherent light in a given pace (frequency) based on the resonant play of light with well structured crystals and semiconductor structures.
   Later, I appreciate the other aspect of the light more than ever before, that is to employ weak light as the carry of information, and again via the dance with atoms on some nano-scale structures.

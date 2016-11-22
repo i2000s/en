@@ -1,10 +1,10 @@
 ---
 layout: vita
-permalink: /pubs/
+permalink: /en/pubs/
 title: Vita
 tags: publications
 image:
-  feature: /assets/img/qi2016.jpg
+  feature: {{site.baseurl}}/assets/img/qi2016.jpg
 share: true
 ---
 ## Upcoming event:

@@ -3,6 +3,8 @@ layout: vita
 permalink: /en/pubs/
 title: Vita
 tags: publications
+image:
+  feature: "{{site.baseurl}}/assets/img/qi2016.jpg"
 share: true
 ---
 ## Upcoming event:

@@ -16,6 +16,8 @@ I use the `redirects.rb` plugin as illustrated on [this page](http://www.carlboe
 Or, you can use the `Jekyll-redirect-from` [plugin](https://github.com/jekyll/jekyll-redirect-from) to forward a previous link to the current URL.
 The other option is to simply add the original URL to the *permalinks*: item in the YAML header for each post, and then Jekyll would use that URL instead of the automatically generated permalink structure.
 Some of the benefits of sticking to permanent links and more details on keeping links updated using this template can be found on [Carl Boettiger's labnotebook](http://www.carlboettiger.info/2013/05/31/notebook-features-digital-archiving.html).
+Notice that permalink can only provide a relative link to the current repo file structure and is hard to redirect to a higher level URL from the new repo.
+For the same reason, when a page is cloned to a subrepo from the head repo, the permalink of the page--if defined in YAML--shouldn't be changed yet will be automatically put in the new folder of the virtual whole website.
 
 Centralize information from sub-repos:
 ======================================

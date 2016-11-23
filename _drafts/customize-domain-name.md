@@ -12,7 +12,9 @@ The `redirect.html` layout file should have set up the correct 301 permanent red
 
 Redirect URLs:
 =============
-I use the `redirects.rb` plugin as illustrated on [this page](http://www.carlboettiger.info/2012/09/19/migrating-from-wordpress-to-jekyll.html).
+I used a 301 redirect technique [illustrated on the CSS-trick website](https://css-tricks.com/redirect-web-page/) with javascript and HTML meta script on the old link location.
+You can find my template on the [main website](https://github.com/i2000s/i2000s.github.io.git)/`_post` folder.
+You may also be able to use the `redirects.rb` plugin as illustrated on [this page](http://www.carlboettiger.info/2012/09/19/migrating-from-wordpress-to-jekyll.html).
 Or, you can use the `Jekyll-redirect-from` [plugin](https://github.com/jekyll/jekyll-redirect-from) to forward a previous link to the current URL.
 The other option is to simply add the original URL to the *permalinks*: item in the YAML header for each post, and then Jekyll would use that URL instead of the automatically generated permalink structure.
 Some of the benefits of sticking to permanent links and more details on keeping links updated using this template can be found on [Carl Boettiger's labnotebook](http://www.carlboettiger.info/2013/05/31/notebook-features-digital-archiving.html).

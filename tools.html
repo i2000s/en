@@ -200,14 +200,16 @@ var _hmt = _hmt || [];
 <p>Most papers are kept in private repositories on <a href="http://cquic-github.github.io">CQuIC@GitHub</a> and <a href="http://bitbucket.org">Bitbucket</a>. My coauthors and I use <strong>Git</strong> to allow us to work remotely on a paper and merge our changes. If a coauthor is not comfortable with Git, papers are kept on <strong>Dropbox</strong>.</p>
 <h2 id="reading-papers">Reading papers</h2>
 <p>I keep abreast of the literature using <a href="">Inoreader</a> (an RSS feed reader) with subscriptions to about a dozen arXiv and journal feeds. I have a few alerts set up on <a href="http://scholar.google.com">Google Scholar</a>, which I also use for finding specific papers. See the post on <a href="http://www.davidketcheson.info/2011/10/27/searching-scientific-literature.html">Searching the Scientific Literature</a>.</p>
-<h2 id="presentations">Presentations</h2>
+<h2 id="presentations-and-multimedia">Presentations and multimedia</h2>
 <p>Lately, I write most presentations in <strong>Powerpoint</strong>. I use <a href="http://texpoint.necula.org/">texpoint</a> to typeset equations onto slides.<br />For drawn diagrams and graphics, I use <a href="https://www.omnigroup.com/omnigraffle">Omnigraffle</a> and <a href="https://inkscape.org/">Inkscape</a>.</p>
+<p>For 3D modeling and animations, I am starting with <a href="http://www.blender.org/">Blender</a> and used <a href="http://www.povray.org/">Pov-Ray</a> before due to my colleagues.</p>
 <h2 id="code">Code</h2>
-<p>Most of my coding is done with Matlab or Vim in Python or Julia. I also use the following:</p>
+<p>Most of my coding is done with Matlab because most of collaborators use it and my university–UNM–provides it for free to me as the original home of Matlab. I also use the following:</p>
 <ol type="1">
-<li>IPython and IJulia. For interactive running and debugging.</li>
-<li>The Jupyter notebook (formerly IPython notebook). For organizing, recording, and sharing code with animations and mathematics.</li>
+<li>The Jupyter notebook (formerly IPython and IJulia notebook). For interactive running and debugging. And for organizing, recording, and sharing code with animations and mathematics.</li>
 <li><a href="http://github.com">Github</a> and <a href="http://bitbucket.com">BitBucket</a>. For collaborative code development.</li>
+<li><a href="https://www.eclipse.org/">Eclipse</a> for C and Java programming IDE. Used once for Arduio and others.</li>
+<li><a href="http://www.vim.org">Vim</a> for plain programming.</li>
 </ol>
 <h2 id="plotting">Plotting</h2>
 <p><a href="http://matlab.com">Matlab</a>, <a href="http://matplotlib.org/">Matplotlib</a> and <a href="https://github.com/clawpack/visclaw">VisClaw</a>.</p>
@@ -226,6 +228,10 @@ var _hmt = _hmt || [];
 <li><a href="https://panic.com/coda/">Coda</a>.<br /></li>
 <li><a href="http://wordpress.org/">Wordpress</a>. For the <a href="http://cquic.unm.edu">CQuIC website</a> I participated to build.</li>
 </ol>
+<h2 id="computers">computers</h2>
+<p>Being a quantum information scientist, I have been developing a deep interest in both software and hardware of computers and artificial intelligence. Sometimes, I also need to do hard computing jobs on nanophotonics and many-body quantum simulations. So, I run Linux on Lenovo Thinkpads, workstations from my work place, cloud servers and clusters. The reason I use Thinkpads as my personal computers is mainly because it has a strong traditional Linux community support. Otherwise, running Linux will be extremely painful to handle hardware driver issues and to optimize performance. Specifically, I run Ubuntu on my personal computers for work. I also use OneNote on Windows to take notes and synchronize them on OneDrive. My current working machines include a Thinkpad P50 mobile workstation (CPU i7-6700HQ, GPU M1000M, 64GB RAM) and a Thinkpad Tablet 2 (for notes taking mainly). I use a 64GB RAM for simulating large quantum systems and for virtual machines to run Windows OS (Windows Insider free preview version) inside of Linux sometimes in case of editing my notes and synchronizing my Youdao wordbook. In the past or as backups, I also have convenient Thinkpad X61 Tablet (fixed from a trashed one in a low cost and worked like a tank) and X200 Tablet to combine the notes taking, travelers’ computer and hard-computing functions in one.</p>
+<p>To reduce power consuming and increase battery life using Linux on Thinkpads, I use <a href="http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html">TLP</a> on top of <a href="https://github.com/mkottman/acpi_call">acpi_call</a> (you may want <a href="http://www.thinkwiki.org/wiki/Tp_smapi">tp-smapi</a> instead if the CPU was produced earlier than the Ivy Bridge times) and <a href="http://www.thinkwiki.org/wiki/Tpacpi-bat">acpi-bat</a> to set up battery charging thresholds and save power usage. I only need to edit the TLP config file at <code>/etc/default/tlp</code>, run <code>sudo tlp start</code> for the first time and forget about it. I was also using <a href="https://wiki.archlinux.org/index.php/powertop">powertop</a> with the <code>--auto-tune</code> switch for power saving on battery before. Linux kernel is not very good on power management and driver compatibility for closed-source designed hardware, and there is usually a delay of support on most advanced hardware. For example, Skylake mobile CPUs were not supported until Linux kernel v4.4 (half a year after the CPU release) and continuously get worse performance than under Windows OS on deep-sleeping optimization of mobile device modules for a long time (you can find the PC-state using powertop). Be sure to consider this factor when you want to install Linux on a new computer.</p>
+<p>For workstations, I have configured <a href="http://www.dell.com/us/business/p/precision-t7910-workstation/pd">Dell Precision 7910</a> for <a href="http://cquic.unm.edu">CQuIC</a> from the companies that the university policy allows. There may be better choices. Again, Ubuntu OS was installed for its being popular in the research center. But I have some experience of using CentOS on a cluster in the earlier days which along side with Scientific Linux OS may be a better choice for dedicated high-performance computing.</p>
 <div class="references">
 
 </div>

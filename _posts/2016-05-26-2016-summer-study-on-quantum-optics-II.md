@@ -5,7 +5,6 @@ tags:
     - summer study
     - quantum optics
 categories: community
-redirects: ["/2016/05/26/"]
 ---
 
 As usual, I will organize/participate a summer study this year.

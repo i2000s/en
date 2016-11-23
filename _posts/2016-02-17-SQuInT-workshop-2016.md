@@ -7,7 +7,6 @@ tags:
     - presentation
     - nanofiber
 categories: community
-redirects: ["/2016/02/17/"]
 ---
 
 I am going to present our recent work in [the 18th SQuInT Workshop](http://physics.unm.edu/SQuInT/2016/index.php) at Albuquerque, NM, USA.

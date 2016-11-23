@@ -5,6 +5,7 @@ subtitle: including examples!
 tags:
     - python
     - documentation
+categories: work-efficiency
 ---
 
 This is step 4 in your journey toward [rock-solid scientific Python code]({% post_url 2015-05-10-rock_solid_code %}).
@@ -59,5 +60,5 @@ That's easy: when you start writing a new function, before you write the code it
 
 Now go to [step five]({% post_url 2015-05-15-write_tests %}).
 
-#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/14/write_docstrings.html](http://www.davidketcheson.info/2015/05/14/write_docstrings.html) 
+#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/14/write_docstrings.html](http://www.davidketcheson.info/2015/05/14/write_docstrings.html)
 under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

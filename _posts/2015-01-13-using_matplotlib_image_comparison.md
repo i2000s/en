@@ -6,6 +6,7 @@ tags:
     - python
     - matplotlib
     - testing
+categories: work-efficiency
 ---
 
 A few years ago I was introduced to the idea of testing the scientific code I write,

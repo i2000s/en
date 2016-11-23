@@ -6,7 +6,8 @@ tags:
     - Julia
     - quantum dynamics
 categories:
-    - notebook
+    - labnotebook
+redirects: ["/2016/07/23/"]
 ---
 ## Preface
 This series of notes is initially written for [Amit Jamadagni](https://github.com/amitjamadagni) and [Xiuzhe Luo](https://github.com/Roger-luo) who have been working on the [JuliaQuantum organization](https://juliaquantum.github.io)'s [Base.jl](https://github.com/JuliaQuantum/QuBase.jl),

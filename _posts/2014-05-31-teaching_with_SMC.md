@@ -3,7 +3,7 @@ layout: post
 title: Teaching with SageMathCloud
 name: Teaching with SageMathCloud
 tags: ipython teaching sagemathcloud
-categories: blog-post
+categories: community
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2014/05/31/teaching_with_SMC.html).
 

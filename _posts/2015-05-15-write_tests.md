@@ -4,6 +4,7 @@ title: Step 5 - write tests
 tags:
     - python
     - testing
+categories: work-efficiency
 ---
 
 This is step 5 in your journey toward [rock-solid scientific Python code]({% post_url 2015-05-10-rock_solid_code %}): **write tests**.
@@ -49,5 +50,5 @@ From now on, just make it a habit to add a docstring and a doctest whenever you 
 
 [Continue to step six]({% post_url 2015-05-16-track_issues %}).
 
-#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/15/write_tests.html](http://www.davidketcheson.info/2015/05/15/write_tests.html) 
+#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/15/write_tests.html](http://www.davidketcheson.info/2015/05/15/write_tests.html)
 under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

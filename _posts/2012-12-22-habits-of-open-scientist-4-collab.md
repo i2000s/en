@@ -4,7 +4,7 @@ title: Open scientific collaboration
 name: Open scientific collaboration
 subtitle: "7 habits of the open scientist: habit #4"
 tags: open-science stackexchange
-categories: blog-post
+categories: community
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2012/12/22/habits-of-open-scientist-4-collab.html).
 

@@ -8,6 +8,7 @@ tags:
     - version-control
     - open-science
     - git
+categories: work-efficiency community
 ---
 This is step 2 in your journey toward [rock-solid scientific Python code]({% post_url 2015-05-10-rock_solid_code %}).
 

@@ -4,7 +4,7 @@ title: A curious upwind implicit scheme for advection
 name: A curious upwind implicit scheme for advection
 subtitle: Understanding the CFL condition
 tags: numerical-analysis CFL-condition advection hyperbolic-PDEs
-categories: notebook
+categories: labnotebook
 ---
 Note: This post was originally published on the KAUST Mathwiki [here](https://mathwiki.kaust.edu.sa/david/A%20curious%20upwind%20implicit%20scheme%20for%20advection) (login required) by [David Ketcheson](http://www.davidketcheson.info/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html).
 

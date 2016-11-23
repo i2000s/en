@@ -4,7 +4,7 @@ title: Giving a math talk using IPython notebook slides and Wakari
 name:  Giving a math talk using IPython notebook slides and Wakari
 subtitle: A first attempt
 tags: python ipython conference presentation
-categories: blog-post
+categories: work-efficiency
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2013/09/21/ipython_notebook_slides_talks.html).
 

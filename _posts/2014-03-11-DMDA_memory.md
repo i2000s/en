@@ -4,6 +4,7 @@ time:      2014-03-11
 title:     The PETSc DMDA is not lightweight
 subtitle:  (unless Yokozuna is lightweight)
 tags:      blog-post petsc pyclaw memory profiling
+categories: labnotebook
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2014/03/11/DMDA_memory.html).
 

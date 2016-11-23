@@ -3,8 +3,8 @@ layout: post
 title: Open access is about open access, not journals
 name: Open access is about open access, not journals
 subtitle: Just do it yourself
-tags:
-categories: blog-post
+tags: open-access
+categories: community
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2013/12/13/open_access_means_open_access.html).
 

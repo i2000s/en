@@ -3,7 +3,7 @@ layout: post
 title: Dispersion relations for linear systems of PDEs
 name: Dispersion relations
 tags: wave-equation PDE mathematical-exposition
-categories: notebook
+categories: labnotebook
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2014/05/28/dispersion_relations.html).
 

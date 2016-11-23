@@ -7,6 +7,7 @@ tags:
     - reproducibility
     - documentation
     - version-control
+categories: work-efficiency
 ---
 
 Much of my research is based on computer code.  My code has bugs.  

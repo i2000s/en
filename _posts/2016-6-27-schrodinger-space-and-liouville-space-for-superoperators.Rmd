@@ -1,10 +1,11 @@
 ---
 title: Schrodinger space and Liouville space for superoperators in simulating quantum dynamics
 layout: post
-category: quantum
+categories: labnotebook
 tags:
   - julia
-output: 
+  - quantum
+output:
   md_document:
     variant: markdown_github
 ---

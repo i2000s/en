@@ -6,6 +6,7 @@ tags:
     - reproducibility
     - version-control
     - git
+categories: work-efficiency
 ---
 
 Welcome to step 1 in [your training as a scientific Python code ninja]({% post_url 2015-05-10-rock_solid_code %}): version control.  This is not going to be an in-depth course, so if you're already using distributed version control (like Git or Mercurial), feel free to skip ahead to [step 2]({% post_url 2015-05-12-code_in_the_open %}).

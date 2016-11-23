@@ -4,7 +4,7 @@ title: HyperPython
 name: HyperPython
 subtitle: A quick and dirty introduction to solving hyperbolic conservation laws
 tags: hyperbolic-PDEs pyclaw ipython teaching
-categories: blog-post
+categories: community
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2014/05/28/hyperpython.html).
 

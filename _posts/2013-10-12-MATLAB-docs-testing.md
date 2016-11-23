@@ -4,7 +4,7 @@ title: Documentation, testing, and default arguments for your MATLAB packages
 name: Documentation, testing, and default arguments for your MATLAB packages
 subtitle: Helping MATLAB be a little more like Python
 tags: python matlab testing documentation software RK-Opt
-categories: blog-post
+categories: work-efficiency
 ---
 Note: this post was originally written by [David Ketcheson](http://www.davidketcheson.info/2013/10/12/MATLAB-docs-testing.html).
 

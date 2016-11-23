@@ -6,6 +6,8 @@ tags:
     - poster
     - presentation
     - nanofiber
+categories: community
+redirects: ["/2016/02/17/"]
 ---
 
 I am going to present our recent work in [the 18th SQuInT Workshop](http://physics.unm.edu/SQuInT/2016/index.php) at Albuquerque, NM, USA.
@@ -23,6 +25,6 @@ While optical fibers have been used for primary quantum communications, atom-fib
 
 - Since I am also serving for a few other duties recently, this poster was made in a hurry and was not well organized in a normal order. You may want to talk to me or contact me if you find an error or anywhere confusing.
 
-- More details can be found in our publication: [X. Qi, B. Q. Baragiola, P. S. Jessen, and I. H. Deutsch, Phys. Rev. A 93, 023817 (2016)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817). ArXiv online: [https://arxiv.org/abs/1509.02625](https://arxiv.org/abs/1509.02625). The full title is ***Dispersive response of atoms trapped near the surface of an optical nanofiber with applications to quantum nondemolition measurement and spin squeezing***. 
+- More details can be found in our publication: [X. Qi, B. Q. Baragiola, P. S. Jessen, and I. H. Deutsch, Phys. Rev. A 93, 023817 (2016)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817). ArXiv online: [https://arxiv.org/abs/1509.02625](https://arxiv.org/abs/1509.02625). The full title is ***Dispersive response of atoms trapped near the surface of an optical nanofiber with applications to quantum nondemolition measurement and spin squeezing***.
 
 Thanks for your interest, and hopefully see you in SQuInT!

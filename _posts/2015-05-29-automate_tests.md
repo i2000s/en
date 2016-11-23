@@ -5,6 +5,7 @@ tags:
     - python
     - testing
     - automation
+categories: work-efficiency
 ---
 
 Welcome to step 7 in [your training as a scientific Python code ninja]({% post_url 2015-05-10-rock_solid_code %}): **test automation**.
@@ -64,5 +65,5 @@ you might want to add to your README.  Your rule now should be:
 
 **Always run the tests before you commit code.**
 
-#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/29/automate_tests.html](http://www.davidketcheson.info/2015/05/29/automate_tests.html) 
+#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/29/automate_tests.html](http://www.davidketcheson.info/2015/05/29/automate_tests.html)
 under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

@@ -5,6 +5,7 @@ tags:
     - python
     - reproducibility
     - documentation
+categories: work-efficiency
 ---
 
 Welcome to step 6 in [your training as a scientific Python code ninja]({% post_url 2015-05-10-rock_solid_code %}): **issue tracking**.
@@ -96,5 +97,5 @@ of useful improvements that could be made.
 
 [Continue to step seven]({% post_url 2015-05-29-automate_tests %}).
 
-#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/16/track_issues.html](http://www.davidketcheson.info/2015/05/16/track_issues.html) 
+#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/16/track_issues.html](http://www.davidketcheson.info/2015/05/16/track_issues.html)
 under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

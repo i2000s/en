@@ -2,11 +2,12 @@
 layout: post
 title: Blogging with notebooks and Jekyll
 subtitle: easy-peasy
-categories: notebook
+categories: work-efficiency
 tags:
   - Jupyter
   - knitr
   - Jekyll
+redirects: ["/2012/10/11/"]
 ---
 First off, if you know [KnitR](https://github.com/yihui/knitr-jekyll), you can write code in R markdown directly and then compile in R/RStudio to generate the blog post easily.
 My blog repo has the knitr plugin installed and you can use `Python`, `Mathlab` and even `Julia` engines to compile code lines.

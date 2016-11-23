@@ -4,7 +4,7 @@
  <title>The NoteBlog of Xiaodong Qi</title>
  <link href="https://www.qixiaodong.tk/en/atom.xml" rel="self"/>
  <link href="https://www.qixiaodong.tk/en"/>
- <updated>2016-11-22T10:52:44+00:00</updated>
+ <updated>2016-11-23T01:55:28+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -964,25 +964,6 @@ nose.main()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;That’s it! Since examples are the best documentation, you can check out my working setup &lt;a href=&quot;https://github.com/ketch/griddle&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150113using_matplotlib_image_comparison.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/01/13/using_matplotlib_image_comparison.html&quot;&gt;http://www.davidketcheson.info/2015/01/13/using_matplotlib_image_comparison.html&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Teaching in the open</title>
-   <link href="https://www.qixiaodong.tk/en/2014/07/18/teaching_in_the_open.html"/>
-   <updated>2014-07-18T00:00:00+00:00</updated>
-   <id>/2014/07/18/teaching_in_the_open</id>
-   <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2014/07/18/teaching_in_the_open.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you examine the menu bar above, you’ll notice that my site has a new top-level page: &lt;a href=&quot;/teaching.html&quot;&gt;Teaching&lt;/a&gt;. This is a direct result of my attending &lt;a href=&quot;http://www.youtube.com/watch?v=1e26rp6qPbA&amp;amp;t=26m12s&quot;&gt;Greg Wilson’s inspiring keynote at Scipy 2014&lt;/a&gt;. That link will take you to the key (for me) part of the talk, but I recommend watching the whole thing. His message is: massive collaboration is the real revolution. Michael Nielsen made the same statement in &lt;em&gt;Reinventing Discovery&lt;/em&gt;; here Greg applies this statement to university education, and asks:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Why don’t instructors open-source their teaching materials?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This new page is my own effort to enable that revolution. In fact, I’ve been gradually putting my teaching materials online for the past couple of years, without giving it much thought. The teaching page collects all the resources I’ve made available in one place.&lt;/p&gt;
-&lt;p&gt;Something even more exciting in this vein is coming in the fall. If you want to know a little about it, watch &lt;a href=&quot;http://www.youtube.com/watch?v=TWxwKDT88GU&amp;amp;t=56m2s&quot;&gt;the last few minutes of Lorena Barba’s excellent Scipy keynote on computational thinking and teaching&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Stay tuned.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 
 &lt;/div&gt;

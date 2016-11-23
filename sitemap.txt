@@ -13,10 +13,7 @@ https://www.qixiaodong.tk/en/archives
 https://www.qixiaodong.tk/en/atom.xml 
 https://www.qixiaodong.tk/en/categories 
 https://www.qixiaodong.tk/en/community/ 
-https://www.qixiaodong.tk/en/exploringquantumworld.xml 
 https://www.qixiaodong.tk/en/ 
-https://www.qixiaodong.tk/en/noteblog 
-https://www.qixiaodong.tk/en/noteblog.xml 
 https://www.qixiaodong.tk/en/notebooks 
 https://www.qixiaodong.tk/en/philosophy 
 https://www.qixiaodong.tk/en/research/ 
@@ -25,7 +22,12 @@ https://www.qixiaodong.tk/en/sitemap.txt
 https://www.qixiaodong.tk/en/tags 
 https://www.qixiaodong.tk/en/tools 
 https://www.qixiaodong.tk/en/pubs/ 
+https://www.qixiaodong.tk/en/2012/10/11/ 
 https://www.qixiaodong.tk/en/2012/10/17/ 
+https://www.qixiaodong.tk/en/2016/02/17/ 
+https://www.qixiaodong.tk/en/2016/05/26/ 
+https://www.qixiaodong.tk/en/2016/06/23/ 
+https://www.qixiaodong.tk/en/2016/07/23/ 
 
 
 https://www.qixiaodong.tk/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html 
@@ -41,7 +43,6 @@ https://www.qixiaodong.tk/en/2015/05/12/code_in_the_open.html
 https://www.qixiaodong.tk/en/2015/05/11/use_version_control.html 
 https://www.qixiaodong.tk/en/2015/05/10/rock_solid_code.html 
 https://www.qixiaodong.tk/en/2015/01/13/using_matplotlib_image_comparison.html 
-https://www.qixiaodong.tk/en/2014/07/18/teaching_in_the_open.html 
 https://www.qixiaodong.tk/en/2014/05/31/teaching_with_SMC.html 
 https://www.qixiaodong.tk/en/2014/05/28/hyperpython.html 
 https://www.qixiaodong.tk/en/2014/05/28/dispersion_relations.html 

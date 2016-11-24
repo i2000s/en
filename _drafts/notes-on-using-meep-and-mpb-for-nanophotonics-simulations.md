@@ -23,9 +23,18 @@ A tutorial of using MEEP can be found in its [official website](http://ab-initio
 
 Python-meep:
 ===========
-To install MEEP, Harminv and their dependencies followed by the Python-MEEP interface, I used [this script](https://github.com/FilipDominec/python-meep-install).
+To install MEEP, Harminv and their dependencies followed by the Python-MEEP interface, I used [this python-meep-install script](https://github.com/FilipDominec/python-meep-install).
 Utilities and examples can be found on [Filip Dominec's repo](https://github.com/FilipDominec/python-meep-utils).
 Some notes with MEEP v1.2 can be found on [Filip Dominec's website](http://f.dominec.eu/meep/).
+
+One issue I have encountered in my installation was that I had been using Anaconda to manage Python installations and actually Python v3 was my default version, which doesn't work using the python-meep-install script.
+One workaround was to delete the lines in the `~/.bashrc` code regarding the `anaconda` code path and replaced with
+```bash
+export PATH=/usr/bin:$PATH
+alias python=python2
+alias python3=python3.5
+```
+where I had pointed `python2` to python 2.7 in the `/usr/bin` folder before and the python 3.5 was also in the same folder.
 
 
 Codes for simulation wave propagation in rectangular or similar waveguides using MEEP:

@@ -47,7 +47,8 @@ description: Xiaodong Qi's NoteBlogs and CV. Mostly relates to his research done
        </div>
         <br>
        <div class="row" style="margin-left:-5px">
-           {% include socialbuttons_nostackexchangephy.html %}
+           {% include socialbuttons_nostackexchangephy_nostarcount.html %}
+           {% if site.repo %}<iframe class="github-btn" src="//ghbtns.com/github-btn.html?user={{site.orgname}}&repo={{site.repo}}&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="40px" style="vertical-align:middle; margin-top:17px;"></iframe>{% endif %}
        </div>
      <!-- <br><br><br> -->
     </div>

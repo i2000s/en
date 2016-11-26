@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#"> <!-- namespaces used in metadata.html -->
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="{{ page.description }}">
     {% if site.author.OtherName %}
     <meta name="author" content="{{site.author.name}} | {{site.author.OtherName}}">
     {% else %}
     <meta name="author" content="{{site.author.name}}">
     {% endif %}
+    {% include metadata.html %}
     {% include analytics.html %}
+    <!-- Help the browser identify the RSS feed automatically -->
+    <link rel="alternate" type="application/rss+xml" title="{{site.title}}" href="{{ site.baseurl }}/atom.xml" />
     <!-- Le styles -->
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/quattrocento-sans" type="text/css"/>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rosario" type="text/css"/>

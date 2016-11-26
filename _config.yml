@@ -1,5 +1,5 @@
-title : The NoteBlog of Xiaodong Qi
-tagline: Exploring Quantum World
+title : A Notebook of Xiaodong Qi's
+tagline: Exploring the Quantum World
 author :
   name : Xiaodong Qi
   givenName: Xiaodong
@@ -19,6 +19,7 @@ author :
     - name: ICIQ
     - name: JuliaCN
 url: https://www.qixiaodong.tk
+purl: https://purl.org/qxd # This is the PURL domain registered on PURL.org for this site. If a PURL is not registered, please put the url value here or edite the /_include/metadate.html file with site.purl replaced with site.url.
 baseurl: /en
 disqus:
   sitename: qxd # This is the shortname of the disqus site id to display disqus comments below posts.

@@ -169,10 +169,14 @@ var _hmt = _hmt || [];
          
         </ul>
       <!-- Search site using Google's index -->
-        <form class="navbar-form navbar-right" role="search" method="get" action="https://google.com/search">
+        <form class="navbar-form navbar-right" role="search" method="get" action="//duckduckgo.com/">
           <div class="form-group">
-            <input type="hidden" name="q" value="site:https://www.qixiaodong.tk" />
-            <input type="text" class="form-control search-query" name="q" placeholder="Search this site"/>
+            <input type="hidden" name="sites" value="https://www.qixiaodong.tk" />
+            <input type="hidden" value="1" name="kh"></input> <!-- To turn on https -->
+            <input type="hidden" value="1" name="kn"></input> <!-- To open up a new window -->
+            <input type="hidden" value="1" name="kac"></input> <!-- To turn on auto-suggestion -->
+            <input type="hidden" value="e" name="ky"></input> <!-- Color of highlights. or write out the color code you want, e.g. %23395323 (%23 is an encoded # char). -->
+            <input type="text" class="form-control search-query" type="search" name="q" placeholder="Search this site"/>
           </div>
           <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
        </form>
@@ -267,8 +271,8 @@ $(document).ready(function() {
     property="dc:created">06 Dec 2012</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2016-07-30 01:51:34 +0000"
-            property="dc:modified">30 Jul 2016</time></small></p>
+            datetime="2016-09-07 19:46:49 +0000"
+            property="dc:modified">07 Sep 2016</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
@@ -316,7 +320,7 @@ $(document).ready(function() {
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/4c840524355ccec1de601ad1afb2672fdab59c91/_posts/2012-12-06-reproducible-research-standard.md"> 4c84052</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/029a2be3cad012dac8f2676e8c686680461c53cc/_posts/2012-12-06-reproducible-research-standard.md"> 029a2be</a></tiny></p>
 </aside>
 
 <br /><br />

@@ -24,6 +24,7 @@ More on Docker:
 - [an introduction to Docker for reproducible research](http://www.carlboettiger.info/assets/files/pubs/10.1145/2723872.2723882.pdf).
 - [Reproducible research environments with Docker](http://www.carlboettiger.info/2014/08/25/reproducible-research-environments-with-Docker.html).
 - [A typical workflow with Docker on a cloud machine](http://www.carlboettiger.info/2015/12/17/docker-workflows.html).
+- [How to remove docker images and containers](http://tecadmin.net/remove-docker-images-and-containers/#).
 
 Hosting Jekyll website with Docker:
 - [simple website with Jekyll and Docker](http://habd.as/simple-websites-jekyll-docker/).

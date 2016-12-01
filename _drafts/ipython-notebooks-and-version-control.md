@@ -22,12 +22,23 @@ However, there are some significant obstacles:
 2.  In other cases one wants to keep two versions of teaching notebooks
     -- one with the answers and one without.  In this case, the first version should be private,
     while the second can be public.
-2.  Output images are embedded in the file as huge lines of text.  This is nice in that the 
+2.  Output images are embedded in the file as huge lines of text.  This is nice in that the
     notebook is self-contained and portable, but it means that in any notebook with images,
     most of the file is not human-readable.  In particular, if the image changes in any way,
     a diff will be totally useless.
 
 My solution to problem 1 is to put the notebooks with output up as gists (examples)
 and to always clear all output before committing a new version of a notebook.
+One can use a pre-save hook to strip output as explained on the [Jupyter notebook docs]( http://jupyter-notebook.readthedocs.io/en/latest/extending/savehooks.html).
 
-Tools available: nbdiff, nbstripout.
+Other tools available: nbdiff, [nbstripout](https://github.com/kynan/nbstripout).
+
+A discussion on IJulia notebooks can be found [here](https://discourse.julialang.org/t/whats-your-strategy-to-version-control-your-ijulia-notebook/664/6).
+To save outputs for nbviewer and other purposes, one can rerun and notebook or edit the `execution_count` in the Jupyter notebook before versioning.
+This way, all the output cells will be numbered in a correct order and numbers.
+To simply rerun the notebook, here is one example code from the discussion for IJulia notebook:
+```
+jupyter = IJulia.jupyter
+notebook = "example.ipynb"
+run(`$jupyter nbconvert --to notebook --execute $notebook --output $notebook`)
+```

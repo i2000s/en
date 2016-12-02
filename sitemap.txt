@@ -9,6 +9,7 @@ layout: default
     
 https://www.qixiaodong.tk/en/R.xml 
 https://www.qixiaodong.tk/en/README 
+https://www.qixiaodong.tk/en/notebooks/SystemAdmin 
 https://www.qixiaodong.tk/en/archives 
 https://www.qixiaodong.tk/en/atom.xml 
 https://www.qixiaodong.tk/en/categories 

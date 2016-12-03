@@ -1,7 +1,7 @@
 ---
 title: My SQuInT 2017 talk
 layout: post
-category: research
+category: labnotebook
 tags:
   - SQuInT
 ---
@@ -10,7 +10,7 @@ tags:
 
 ***Authors***: Xiaodong Qi, Jongmin Lee, Yuan-Yu Jau, and Ivan H. Deutsch
 
-***Abstract***: 
+***Abstract***:
 Strong coupling between atoms and photons is a prerequisite for quantum information processing protocols ranging from quantum metrology to quantum communication and computation.
 This strong coupling effect can be achieved using nanophotonic waveguides whereby an ensemble of atoms are trapped in the evanescent field.
 In this talk, I will present our recent progress in the theoretical study of implementing spin squeezing using optical nanofibers (ONF) and square waveguides (SWG) with both birefringence and Faraday interactions as QND measurement.

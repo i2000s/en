@@ -1,7 +1,7 @@
 ---
 title: Configuring the blog system and the open notebooks
 layout: post
-category: website
+category: work-efficiency
 tags:
   - jekyll
   - docker

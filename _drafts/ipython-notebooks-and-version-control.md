@@ -4,7 +4,7 @@ title: Tools for IPython notebooks and version control
 name: Tools for IPython notebooks and version control
 subtitle: A work in progress
 tags: IPython notebook version-control tools
-categories: blog-post
+categories: work-efficiency
 ---
 
 As readers of this blog will know, I use the IPython notebook heavily in my teaching and research.

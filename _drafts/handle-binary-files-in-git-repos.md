@@ -1,7 +1,7 @@
 ---
 title: Handle large binary files in a git repository
 layout: post
-category: computer
+category: work-efficiency
 tags:
   - git
 ---
@@ -23,4 +23,4 @@ This tool only works on Linux maybe.
 Need to use rsyn and other tools to synchronize large files to places outside the repo, and only track the symlink of large files in the repo.
 - Use `git lfs`. See [official site](https://git-lfs.github.com/?utm_source=github_site&utm_medium=blog&utm_campaign=gitlfs). Seems works well with GitHub projects. GitHub users get 1G free storage space.
 - Use `git submodule`. See [Git book examples](http://alx.github.io/gitbook/5_submodules.html).
-Large files are in the submodules and can be uploaded somewhere else. 
+Large files are in the submodules and can be uploaded somewhere else.

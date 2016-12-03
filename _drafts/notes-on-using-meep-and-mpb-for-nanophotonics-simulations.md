@@ -1,7 +1,7 @@
 ---
 title: Notes on using MEEP and MPB for nanophotonics simulations
 layout: post
-category: tools
+category: work-efficiency
 tags:
   - meep
   - mpb

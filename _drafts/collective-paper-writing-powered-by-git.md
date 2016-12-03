@@ -2,7 +2,7 @@
 layout: post
 title: Collaborative paper writing powered by Git
 tags: git paper-writing
-categories: notes
+categories: labnotebook
 ---
 
 Problems with different versions of JabRef:

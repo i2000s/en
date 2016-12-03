@@ -4,13 +4,13 @@ title: "Quick tutorial: Extrapolation for initial value ODEs"
 name: "Quick tutorial: Extrapolation for initial value ODEs"
 subtitle: An algorithmic view
 tags: numerical-analysis ODE extrapolation
-categories: notebook
+categories: labnotebook
 ---
 I've been playing around with extrapolation methods a lot lately.
 They're fun because they provide a fully-automated way to achieve
 high order accuracy with one-step numerical methods.
 
-Extrapolation is a relatively old and well-studied technique for 
+Extrapolation is a relatively old and well-studied technique for
 high order accurate numerical integration.  The mathematical
 basis for extrapolation of initial value ODEs is explained very nicely in a
 number of elementary (undergraduate) numerical analysis texts, and more deeply

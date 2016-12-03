@@ -1,9 +1,10 @@
 ---
 title: Efficiently handling high dimensional quantum systems on a classical computer
 layout: post
-category: quantum
+category: labnotebook
 tags:
   - julia
+  - quantum
 ---
 
 It is very challenging to handle a large quantum system due to the tensor nature of quantum mechanics.

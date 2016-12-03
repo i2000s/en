@@ -1,7 +1,7 @@
 ---
 title: Secure and Customize github pages with your own domain name
 layout: post
-category: website
+category: work-efficiency
 tags:
   - jekyll
 ---

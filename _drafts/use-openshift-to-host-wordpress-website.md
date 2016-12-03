@@ -3,7 +3,7 @@ layout: post
 title: Use OpenShift to host Wordpress website
 subtitle: A note for the ICIQ website
 tags: website wordpress
-categories: notes
+categories: labnotebook
 ---
 Main instruction is [here part I](https://code.tutsplus.com/tutorials/running-wordpress-on-openshift-an-introduction--cms-20058) and [part II](https://code.tutsplus.com/tutorials/running-wordpress-on-openshift-part-2--cms-19947).
 

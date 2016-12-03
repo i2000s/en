@@ -7,7 +7,7 @@ tags:
     - quantum circuits
     - quantum measurements
 categories:
-    - notebook
+    - labnotebook
 ---
 
 

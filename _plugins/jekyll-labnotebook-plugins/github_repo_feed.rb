@@ -6,7 +6,7 @@ require 'nokogiri'  # Parse HTML
 # By Xiaodong Qi, based on the github_feed.rb plugin.
 
 module Jekyll
-  class GithubFeed < Liquid::Tag
+  class GithubRepoFeed < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
       input = text.split(/, */ )

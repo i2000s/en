@@ -292,7 +292,7 @@ description: Xiaodong's self-described contribution to the community.
       <img src="{{site.url}}{{ site.baseurl }}/assets/img/icon-github.png" alt="github"> Coding </a></h4>
        <div class="excerpt" height="300px">
            <div class="scroll">
-                {% github_feed i2000s, 5 %}
+                {% github_feed site.author.github, 5 %}
            </div>
        </div>
     </div>
@@ -301,7 +301,7 @@ description: Xiaodong's self-described contribution to the community.
         <h4><a property="account" href="https://twitter.com/{{site.author.twitter}}" onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); return false;"><img src="{{ site.baseurl }}/assets/img/icon-twitter.png" height=45px alt="Twitter"> Discussing </a></h4>
         <div class="excerpt" height="300px">
             <div class="scroll">
-                {% twitter_feed i2000s, 5 %}
+                {% twitter_feed site.author.twitter, 5 %}
             </div>
         </div>
      </div>
@@ -310,10 +310,10 @@ description: Xiaodong's self-described contribution to the community.
   <div class="row">
     <div class="col-md-4 col-xs-11">
      <h4> <a href="https://github.com/i2000s" onClick="recordOutboundLink(this, 'Outbound Links', 'Github'); return false;" >
-      <i class="glyphicons glyphicon-book" /> Reading </a></h4>
+      <i class="glyphicon glyphicon-book" height=45px /> Reading </a></h4>
        <div class="excerpt" height="300px">
            <div class="scroll">
-                {% github_repo_feed i2000s, Archive, 5 %}
+                {% github_repo_feed site.author.github, site.author.readingrepo, 5 %}
            </div>
        </div>
     </div>

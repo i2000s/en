@@ -5,6 +5,14 @@ title: Some notes on computer system administration
 
 # Linux/Ubuntu OS
 
+## Ubuntu 16.04 becomes too slow to shut down
+This problem occurs when I freshly installed the Ubuntu 16.04 Gnome system.
+Whenever I press the Shutdown button on the Power Off menu, it will take up to 1min 30sec to respond.
+
+Turns out, it is related to the CUPS remote printers from the cups-browsed service which automatically add network printers to the computer.
+I don't need this automatic printer adding function and hence disabled this service, and then everything works fine again.
+Reference is [here](http://askubuntu.com/questions/760952/slow-shutdown-on-ubuntu-16-04-lts-stopping-thermal-daemon-running-fit-make-remo).
+
 ## Unable to mount NTFS disks automatically on startup.
 When the Ubuntu 16.04 started, I got the following error message:
 ```
@@ -24,3 +32,4 @@ sudo ntfsfix /dev/sdb4
 
 The root cause of this issue might be related to the fast-booting feature of Windows 10.
 Therefore, to fix it for all future events, the fast-booting feature should be turned off as instructed [here](http://superuser.com/questions/1152001/shutdown-windows-10-truly-for-a-dual-booting-system).
+A detailed explanation on this issue can be found [here](http://askubuntu.com/questions/145902/unable-to-mount-windows-ntfs-filesystem-due-to-hibernation).

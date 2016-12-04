@@ -11,7 +11,7 @@ tags:
 [Q&A](http://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository).
 
 Valid methods:
-- Use `git filter-branch` to delete data from history. See [removing data from a git repository](http://blog.gbacon.com/2009/08/git-shrinking-subversion-import.html).
+- Use `git filter-branch` to delete data from history. See [removing data from a git repository](http://blog.gbacon.com/2009/08/git-shrinking-subversion-import.html). Or, refer to the *Pruning history* section of the labnotebook [here](http://www.carlboettiger.info/2015/01/01/notebook-maintenance-and-scaling.html).
 - Use the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/), a simpler, faster alternative to `git filter-branch` specifically designed for removing unwanted files from Git history.
 
 # Track large binary files in repo

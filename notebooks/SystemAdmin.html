@@ -198,6 +198,9 @@ var _hmt = _hmt || [];
 
       <div class="row">
         <h1 id="linuxubuntu-os">Linux/Ubuntu OS</h1>
+<h2 id="ubuntu-16.04-becomes-too-slow-to-shut-down">Ubuntu 16.04 becomes too slow to shut down</h2>
+<p>This problem occurs when I freshly installed the Ubuntu 16.04 Gnome system. Whenever I press the Shutdown button on the Power Off menu, it will take up to 1min 30sec to respond.</p>
+<p>Turns out, it is related to the CUPS remote printers from the cups-browsed service which automatically add network printers to the computer. I don’t need this automatic printer adding function and hence disabled this service, and then everything works fine again. Reference is <a href="http://askubuntu.com/questions/760952/slow-shutdown-on-ubuntu-16-04-lts-stopping-thermal-daemon-running-fit-make-remo">here</a>.</p>
 <h2 id="unable-to-mount-ntfs-disks-automatically-on-startup.">Unable to mount NTFS disks automatically on startup.</h2>
 <p>When the Ubuntu 16.04 started, I got the following error message:</p>
 <pre><code>Unable to access “My Drive”
@@ -210,8 +213,8 @@ Windows fully (no hibernation or fast restarting), or mount the volume
 read-only with the &#39;ro&#39; mount option</code></pre>
 <p>A solution according to <a href="http://askubuntu.com/questions/462381/cant-mount-ntfs-drive-the-disk-contains-an-unclean-file-system">this source</a> is to run the following command, for example,</p>
 <pre><code>sudo ntfsfix /dev/sdb4</code></pre>
-<p>The root cause of this issue might be related to the fast-booting feature of Windows 10. Therefore, to fix it for all future events, the fast-booting feature should be turned off as instructed <a href="http://superuser.com/questions/1152001/shutdown-windows-10-truly-for-a-dual-booting-system">here</a>.</p>
-<div class="references">
+<p>The root cause of this issue might be related to the fast-booting feature of Windows 10. Therefore, to fix it for all future events, the fast-booting feature should be turned off as instructed <a href="http://superuser.com/questions/1152001/shutdown-windows-10-truly-for-a-dual-booting-system">here</a>. A detailed explanation on this issue can be found <a href="http://askubuntu.com/questions/145902/unable-to-mount-windows-ntfs-filesystem-due-to-hibernation">here</a>.</p>
+<div id="refs" class="references">
 
 </div>
 

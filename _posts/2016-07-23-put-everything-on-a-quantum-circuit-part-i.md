@@ -60,7 +60,7 @@ $$\begin{align}
 \end{align}$$
 if only considering the single jump operator $\hat{L}_\mu$ applied in a small period of time, $dt$.
 We call $\hat{L}_\mu$ a jump operator because it projects the quantum state towards some eigenstate of the operator randomly.
-For example, we could let $ \\hat{L}_i = \\sigma_z $ for a spin-$1/2$ system, which means $\hat{L}_i$ will tend to project the system onto one of its eigenstate for spin number $\pm \frac{1}{2}$ in the z-basis.
+For example, we could let $ \hat{L}_i = \sigma_z $ for a spin-$1/2$ system, which means $\hat{L}_i$ will tend to project the system onto one of its eigenstate for spin number $\pm \frac{1}{2}$ in the z-basis.
 To give a concrete sense of physics, this type of jump operators could corresponding to a magnetic field interaction--the one as we know in the [Stern-Gerlach experiment](https://en.wikipedia.org/wiki/Stern%E2%80%93Gerlach_experiment).
 
 We can formally define a set of Krause operators

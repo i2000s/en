@@ -1,1 +1,1 @@
-Sitemap: https://www.qixiaodong.tk/en/sitemap.txt
+Sitemap: https://www.qixiaodong.tk/en/sitemap.xml

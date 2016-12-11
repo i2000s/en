@@ -42,13 +42,13 @@ In short, what I'm about to show you will allow you to:
 
 So here it is: my 12-step program to writing scientific code that you can believe in:
 
-1. [Use version control]({% post_url 2015-05-11-use_version_control %})
-2. [Put your code in the cloud, in the open]({% post_url 2015-05-12-code_in_the_open %})
-3. [Add a README and a License]({% post_url 2015-05-13-add_a_readme %})
-4. [Write docstrings]({% post_url 2015-05-14-write_docstrings %})
-5. [Write  tests]({% post_url 2015-05-15-write_tests %})
-6. [Keep track of issues]({% post_url 2015-05-16-track_issues %})
-7. [Automate the tests]({% post_url 2015-05-29-automate_tests %})
+1. [Use version control]({{site.baseurl}}{% post_url 2015-05-11-use_version_control %})
+2. [Put your code in the cloud, in the open]({{site.baseurl}}{% post_url 2015-05-12-code_in_the_open %})
+3. [Add a README and a License]({{site.baseurl}}{% post_url 2015-05-13-add_a_readme %})
+4. [Write docstrings]({{site.baseurl}}{% post_url 2015-05-14-write_docstrings %})
+5. [Write  tests]({{site.baseurl}}{% post_url 2015-05-15-write_tests %})
+6. [Keep track of issues]({{site.baseurl}}{% post_url 2015-05-16-track_issues %})
+7. [Automate the tests]({{site.baseurl}}{% post_url 2015-05-29-automate_tests %})
 8. Automate the build (*coming soon*)
 9. Use continuous integration (*coming soon*)
 10. Monitor test coverage (*coming soon*)
@@ -99,7 +99,7 @@ If you're asking this, go read [Donoho et. al.'s paper on reproducible computing
 
 > "*Error is ubiquitous in scientific computing, and one needs to work very diligently and energetically to eliminate it.*"
 
-Okay, what are you waiting for?  Go read [step one]({% post_url 2015-05-11-use_version_control %})!
+Okay, what are you waiting for?  Go read [step one]({{site.baseurl}}{% post_url 2015-05-11-use_version_control %})!
 
 #### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/10/rock_solid_code.html](http://www.davidketcheson.info/2015/05/10/rock_solid_code.html)
  under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

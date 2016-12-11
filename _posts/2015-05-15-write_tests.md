@@ -7,7 +7,7 @@ tags:
 categories: work-efficiency
 ---
 
-This is step 5 in your journey toward [rock-solid scientific Python code]({% post_url 2015-05-10-rock_solid_code %}): **write tests**.
+This is step 5 in your journey toward [rock-solid scientific Python code]({{site.baseurl}}{% post_url 2015-05-10-rock_solid_code %}): **write tests**.
 
 Tests?  Ugh.
 
@@ -48,7 +48,7 @@ From now on, just make it a habit to add a docstring and a doctest whenever you 
 
 [Here's what my demo repository looks like at this stage](https://github.com/ketch/rock-solid-code-demo/blob/13ab3f8af4e6be813eaee512897948e4c5a178a7/factor.py).
 
-[Continue to step six]({% post_url 2015-05-16-track_issues %}).
+[Continue to step six]({{site.baseurl}}{% post_url 2015-05-16-track_issues %}).
 
 #### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/15/write_tests.html](http://www.davidketcheson.info/2015/05/15/write_tests.html)
 under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

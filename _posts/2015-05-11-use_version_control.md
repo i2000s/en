@@ -9,7 +9,7 @@ tags:
 categories: work-efficiency
 ---
 
-Welcome to step 1 in [your training as a scientific Python code ninja]({% post_url 2015-05-10-rock_solid_code %}): version control.  This is not going to be an in-depth course, so if you're already using distributed version control (like Git or Mercurial), feel free to skip ahead to [step 2]({% post_url 2015-05-12-code_in_the_open %}).
+Welcome to step 1 in [your training as a scientific Python code ninja]({{site.baseurl}}{% post_url 2015-05-10-rock_solid_code %}): version control.  This is not going to be an in-depth course, so if you're already using distributed version control (like Git or Mercurial), feel free to skip ahead to [step 2]({{site.baseurl}}{% post_url 2015-05-12-code_in_the_open %}).
 
 
 ## [Life before version control](http://phdcomics.com/comics.php?f=1531)
@@ -58,7 +58,7 @@ To get a much better idea, take 15 minutes and go read the [first software carpe
 
 You can get by for awhile with just the few git commands listed above.  Eventually, you will want to go beyond what is described in the Software Carpentry lesson.  When you do, it's worth reading an extended introduction [like this one](http://git-scm.com/book/en/v2).
 
-[Continue to step two]({% post_url 2015-05-12-code_in_the_open %}).
+[Continue to step two]({{site.baseurl}}{% post_url 2015-05-12-code_in_the_open %}).
 
 ## Extra credit: Don't copy-paste
 Version control is really just one tool that will help you with a general principle of code development:

@@ -8,7 +8,7 @@ tags:
 categories: work-efficiency
 ---
 
-This is step 4 in your journey toward [rock-solid scientific Python code]({% post_url 2015-05-10-rock_solid_code %}).
+This is step 4 in your journey toward [rock-solid scientific Python code]({{site.baseurl}}{% post_url 2015-05-10-rock_solid_code %}).
 
 Steps 1-3 were language-agnostic, but now I'm going to assume you're using
 Python.  The Python language has a built-in feature for documenting functions,
@@ -58,7 +58,7 @@ Here's what to do:
 
 That's easy: when you start writing a new function, before you write the code itself, add the docstring.  Make it a habit!  Of course, you can come back and refine the docstring as necessary after writing the code.
 
-Now go to [step five]({% post_url 2015-05-15-write_tests %}).
+Now go to [step five]({{site.baseurl}}{% post_url 2015-05-15-write_tests %}).
 
 #### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/14/write_docstrings.html](http://www.davidketcheson.info/2015/05/14/write_docstrings.html)
 under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

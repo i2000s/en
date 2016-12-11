@@ -167,7 +167,7 @@ For example, in a homodyne detection case{% cite Wiseman1993Interpretation --fil
 For a balanced beam splitter, the two output branches yield the combined and subtracted signals in detection, which are the $\hat{X}$ and $\hat{P}$ quadratures in the phase plane.
 
 <center>
- ![Fig 1. Beam splitter for homodyne and heterodyne detections.]({{site.url}}/assets/img/homodyneheterodyne_beamsplitter.svg)
+ ![Fig 1. Beam splitter for homodyne and heterodyne detections.]({{site.baseurl}}/assets/img/homodyneheterodyne_beamsplitter.svg)
 
 <br> <br>
 </center>

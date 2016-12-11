@@ -8,7 +8,7 @@ tags:
 categories: work-efficiency
 ---
 
-Welcome to step 7 in [your training as a scientific Python code ninja]({% post_url 2015-05-10-rock_solid_code %}): **test automation**.
+Welcome to step 7 in [your training as a scientific Python code ninja]({{site.baseurl}}{% post_url 2015-05-10-rock_solid_code %}): **test automation**.
 
 Tests are extremely useful, as long as you run them.  Unfortunately, a common
 pattern in many projects is this:
@@ -26,7 +26,7 @@ automatic.  This step is about making the tests run with a single command;
 step 8 is about having a machine run them whenever you commit code, without
 any action on your part.
 
-As a matter of fact, in [Step 5]({% post_url 2015-05-15-write_tests %}) we
+As a matter of fact, in [Step 5]({{site.baseurl}}{% post_url 2015-05-15-write_tests %}) we
 set things up so that the tests in one file could by run with a single
 command.  But eventually, you will have tests in multiple files.  Besides
 doctests, you may write additional tests.  If you need to type 10, or even

@@ -56,7 +56,7 @@ Schedule and progress
     * [X] From Yuan-Yu's book: chapters 6-9.
 * [X] Skip June 13th-19th for more research work to be done. Then from June 20th-26th:
     * [X] Wrap up on Yuan-Yu's book.
-    * [X] A blog post on some essential points. See [this one]({{ site.url }}/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html) and more to come.
+    * [X] A blog post on some essential points. See [this one]({{site.baseurl}}/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html) and more to come.
     * [X] Discuss with Nikolas as our visitor on symbolic calculus and quantum simulations in Julia.
 
 A side note: I have to skip a month for preparing the workshop/conference and JuliaQuantum activities.

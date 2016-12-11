@@ -10,7 +10,7 @@ tags:
     - git
 categories: work-efficiency community
 ---
-This is step 2 in your journey toward [rock-solid scientific Python code]({% post_url 2015-05-10-rock_solid_code %}).
+This is step 2 in your journey toward [rock-solid scientific Python code]({{site.baseurl}}{% post_url 2015-05-10-rock_solid_code %}).
 
 So you have your code under version control.  Nice.  But it's sitting there on your computer.  How do you share it with somebody else?  And if they improve it, how do you incorporate their changes?
 
@@ -39,7 +39,7 @@ be there waiting for you.  The result should look something like [my demo](https
 To learn more about using Github, take a few minutes to read the [Software Carpentry
 lesson](http://www.software-carpentry.org/v5/novice/git/02-collab.html).
 
-Now [go on to step three]({% post_url 2015-05-13-add_a_readme %}).
+Now [go on to step three]({{site.baseurl}}{% post_url 2015-05-13-add_a_readme %}).
 
 #### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/12/code_in_the_open.html](http://www.davidketcheson.info/2015/05/12/code_in_the_open.html)
  under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

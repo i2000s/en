@@ -8,7 +8,7 @@ tags:
 categories: work-efficiency
 ---
 
-Welcome to step 6 in [your training as a scientific Python code ninja]({% post_url 2015-05-10-rock_solid_code %}): **issue tracking**.
+Welcome to step 6 in [your training as a scientific Python code ninja]({{site.baseurl}}{% post_url 2015-05-10-rock_solid_code %}): **issue tracking**.
 
 Look at you!  You've got your nice code with some docstrings and tests, and you're
 humming along analyzing data, simulating widgets, and whatnot.  In the middle of it
@@ -51,7 +51,7 @@ As usual, this should only take two minutes.
    If you can't think of any, either you haven't been using the code much or you're not thinking
    very hard.
 2. Go to your project's page in Github and click the issues button on the right side:
-   ![](/assets/img/github-issues-button.png)
+   ![]({{site.baseurl}}/assets/img/github-issues-button.png)
 3. Click that big green "New Issue" button.  Give the issue a title and an explanation.
    If it's a bug, write down the exact sequence of commands that triggers it.
 4. Click "Submit new issue".
@@ -95,7 +95,7 @@ open a lot more issues than I close.  That's okay -- the issue tracker is not a 
 that has to be fully completed at some point.  It's just a way of keeping track
 of useful improvements that could be made.
 
-[Continue to step seven]({% post_url 2015-05-29-automate_tests %}).
+[Continue to step seven]({{site.baseurl}}{% post_url 2015-05-29-automate_tests %}).
 
 #### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/16/track_issues.html](http://www.davidketcheson.info/2015/05/16/track_issues.html)
 under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

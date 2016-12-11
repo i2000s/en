@@ -5,10 +5,10 @@ tags:
     - open-science
 categories: work-efficiency community
 ---
-This is step 3 in your journey toward [rock-solid scientific Python code]({% post_url 2015-05-10-rock_solid_code %}).
+This is step 3 in your journey toward [rock-solid scientific Python code]({{site.baseurl}}{% post_url 2015-05-10-rock_solid_code %}).
 
-So your code is [under version control]({% post_url 2015-05-11-use_version_control %}) and it's
-[floating up there in the cloud]({% post_url 2015-05-12-code_in_the_open %}).
+So your code is [under version control]({{site.baseurl}}{% post_url 2015-05-11-use_version_control %}) and it's
+[floating up there in the cloud]({{site.baseurl}}{% post_url 2015-05-12-code_in_the_open %}).
 In principle, someone else could use it.  But how will they know it's there?
 How will they know what it does, and how to install and use it?
 
@@ -32,7 +32,7 @@ One good example of a README file is [here](https://github.com/github/markup/blo
 
 Note: it's also possible (and even easier) to add a README directly on Github, by clicking that nice green button:
 
-![](/assets/img/github-readme-button.png)
+![]({{site.baseurl}}/assets/img/github-readme-button.png)
 
 Nice work!  Now others (or your future self) stand a decent chance of being
 able to use your code.  But they may not want to use it in exactly the same way
@@ -71,7 +71,7 @@ Here's what to do:
 That's it!  Other folks can now legally adapt your code for their own purposes.
 
 Congratulations on making it this far.  Now go to
-[step four]({% post_url 2015-05-14-write_docstrings %}).
+[step four]({{site.baseurl}}{% post_url 2015-05-14-write_docstrings %}).
 
 
 # Extra credit: Contributing.md and Thanks.md

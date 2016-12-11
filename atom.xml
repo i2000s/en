@@ -2,9 +2,9 @@
 <feed xmlns="https://www.w3.org/2005/Atom">
 
  <title>A Notebook of Xiaodong Qi's</title>
- <link href="https://www.qixiaodong.tk/en/atom.xml" rel="self"/>
- <link href="https://www.qixiaodong.tk/en"/>
- <updated>2016-12-11T10:58:05+00:00</updated>
+ <link href="/en/atom.xml" rel="self"/>
+ <link href="/en"/>
+ <updated>2016-12-11T11:12:03+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -14,7 +14,7 @@
  
  <entry>
    <title>Put everything on a quantum circuit--part I</title>
-   <link href="https://www.qixiaodong.tk/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html"/>
+   <link href="/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html"/>
    <updated>2016-07-23T00:00:00+00:00</updated>
    <id>/2016/07/23/put-everything-on-a-quantum-circuit-part-i</id>
    <content type="html">&lt;h2 id=&quot;preface&quot;&gt;Preface&lt;/h2&gt;
@@ -418,7 +418,7 @@ dW = randn(step).*dt;&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>NVidia Linux driver update fixed the openGL problem of Matlab 2016a</title>
-   <link href="https://www.qixiaodong.tk/en/2016/06/23/nvidia-driver-update-for-matlab-2016a.html"/>
+   <link href="/en/2016/06/23/nvidia-driver-update-for-matlab-2016a.html"/>
    <updated>2016-06-23T00:00:00+00:00</updated>
    <id>/2016/06/23/nvidia-driver-update-for-matlab-2016a</id>
    <content type="html">&lt;p&gt;When the Matlab 2016a was released initially, the &lt;a href=&quot;//askubuntu.com/questions/765455/how-to-run-matlab-2016a-with-nvidia-drivers-of-gtx-960-in-ubuntu-16-04&quot;&gt;openGL render was not compatible with some NVidia drivers in Linux&lt;/a&gt;. Recently, I have noticed that the last update of NVidia-367 driver has fixed this problem.&lt;/p&gt;
@@ -455,7 +455,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>2016 summer study on selected topics in Quantum Optics</title>
-   <link href="https://www.qixiaodong.tk/en/2016/05/26/2016-summer-study-on-quantum-optics-II.html"/>
+   <link href="/en/2016/05/26/2016-summer-study-on-quantum-optics-II.html"/>
    <updated>2016-05-26T00:00:00+00:00</updated>
    <id>/2016/05/26/2016-summer-study-on-quantum-optics-II</id>
    <content type="html">&lt;p&gt;As usual, I will organize/participate a summer study this year. Since there are a lot of things going on this summer and &lt;a href=&quot;http://cquic.unm.edu/deutsch-group/&quot;&gt;Prof. Ivan Deutsch&lt;/a&gt; here in UNM is actually hosting review sessions on Quantum Optics I this summer, I was thinking to have the following focus for my self-organized summer study:&lt;/p&gt;
@@ -521,7 +521,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>SQuInT Workshop 2016</title>
-   <link href="https://www.qixiaodong.tk/en/2016/02/17/SQuInT-workshop-2016.html"/>
+   <link href="/en/2016/02/17/SQuInT-workshop-2016.html"/>
    <updated>2016-02-17T00:00:00+00:00</updated>
    <id>/2016/02/17/SQuInT-workshop-2016</id>
    <content type="html">&lt;p&gt;I am going to present our recent work in &lt;a href=&quot;http://physics.unm.edu/SQuInT/2016/index.php&quot;&gt;the 18th SQuInT Workshop&lt;/a&gt; at Albuquerque, NM, USA. Below you can find my poster.&lt;/p&gt;
@@ -551,7 +551,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Step 7 - Automate the tests</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/29/automate_tests.html"/>
+   <link href="/en/2015/05/29/automate_tests.html"/>
    <updated>2015-05-29T00:00:00+00:00</updated>
    <id>/2015/05/29/automate_tests</id>
    <content type="html">&lt;p&gt;Welcome to step 7 in &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: &lt;strong&gt;test automation&lt;/strong&gt;.&lt;/p&gt;
@@ -585,7 +585,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Step 6 - Keep track of issues</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/16/track_issues.html"/>
+   <link href="/en/2015/05/16/track_issues.html"/>
    <updated>2015-05-16T00:00:00+00:00</updated>
    <id>/2015/05/16/track_issues</id>
    <content type="html">&lt;p&gt;Welcome to step 6 in &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: &lt;strong&gt;issue tracking&lt;/strong&gt;.&lt;/p&gt;
@@ -631,7 +631,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Step 5 - write tests</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/15/write_tests.html"/>
+   <link href="/en/2015/05/15/write_tests.html"/>
    <updated>2015-05-15T00:00:00+00:00</updated>
    <id>/2015/05/15/write_tests</id>
    <content type="html">&lt;p&gt;This is step 5 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;: &lt;strong&gt;write tests&lt;/strong&gt;.&lt;/p&gt;
@@ -667,7 +667,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Step 4 - write docstrings</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/14/write_docstrings.html"/>
+   <link href="/en/2015/05/14/write_docstrings.html"/>
    <updated>2015-05-14T00:00:00+00:00</updated>
    <id>/2015/05/14/write_docstrings</id>
    <content type="html">&lt;p&gt;This is step 4 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
@@ -712,7 +712,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Step 3 - Add a README and a License</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/13/add_a_readme.html"/>
+   <link href="/en/2015/05/13/add_a_readme.html"/>
    <updated>2015-05-13T00:00:00+00:00</updated>
    <id>/2015/05/13/add_a_readme</id>
    <content type="html">&lt;p&gt;This is step 3 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
@@ -772,7 +772,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Step 2 - Code in the open</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/12/code_in_the_open.html"/>
+   <link href="/en/2015/05/12/code_in_the_open.html"/>
    <updated>2015-05-12T00:00:00+00:00</updated>
    <id>/2015/05/12/code_in_the_open</id>
    <content type="html">&lt;p&gt;This is step 2 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
@@ -803,7 +803,7 @@ git push -u origin master&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Step 1 - Use version control</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/11/use_version_control.html"/>
+   <link href="/en/2015/05/11/use_version_control.html"/>
    <updated>2015-05-11T00:00:00+00:00</updated>
    <id>/2015/05/11/use_version_control</id>
    <content type="html">&lt;p&gt;Welcome to step 1 in &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: version control. This is not going to be an in-depth course, so if you’re already using distributed version control (like Git or Mercurial), feel free to skip ahead to &lt;a href=&quot;/2015/05/12/code_in_the_open.html&quot;&gt;step 2&lt;/a&gt;.&lt;/p&gt;
@@ -854,7 +854,7 @@ git add project_file2
  
  <entry>
    <title>12 steps toward rock-solid scientific Python code</title>
-   <link href="https://www.qixiaodong.tk/en/2015/05/10/rock_solid_code.html"/>
+   <link href="/en/2015/05/10/rock_solid_code.html"/>
    <updated>2015-05-10T00:00:00+00:00</updated>
    <id>/2015/05/10/rock_solid_code</id>
    <content type="html">&lt;p&gt;Much of my research is based on computer code. My code has bugs.&lt;/p&gt;
@@ -927,7 +927,7 @@ git add project_file2
  
  <entry>
    <title>Testing whether your code produces the correct plots -- in Python and on Travis</title>
-   <link href="https://www.qixiaodong.tk/en/2015/01/13/using_matplotlib_image_comparison.html"/>
+   <link href="/en/2015/01/13/using_matplotlib_image_comparison.html"/>
    <updated>2015-01-13T00:00:00+00:00</updated>
    <id>/2015/01/13/using_matplotlib_image_comparison</id>
    <content type="html">&lt;p&gt;A few years ago I was introduced to the idea of testing the scientific code I write, and now I am a huge fan of this approach. It saves huge amounts of time and vastly improves the quality of my research by helping me catch bugs early and often. I use &lt;a href=&quot;https://nose.readthedocs.org/en/latest/&quot;&gt;nose&lt;/a&gt; for automatically finding and running all the tests. I use &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis&lt;/a&gt; to automatically run the tests every time I update the code – or issue a pull request – on Github.&lt;/p&gt;
@@ -980,7 +980,7 @@ nose.main()&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Teaching with SageMathCloud</title>
-   <link href="https://www.qixiaodong.tk/en/2014/05/31/teaching_with_SMC.html"/>
+   <link href="/en/2014/05/31/teaching_with_SMC.html"/>
    <updated>2014-05-31T00:00:00+00:00</updated>
    <id>/2014/05/31/teaching_with_SMC</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2014/05/31/teaching_with_SMC.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1019,7 +1019,7 @@ nose.main()&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>HyperPython</title>
-   <link href="https://www.qixiaodong.tk/en/2014/05/28/hyperpython.html"/>
+   <link href="/en/2014/05/28/hyperpython.html"/>
    <updated>2014-05-28T00:00:00+00:00</updated>
    <id>/2014/05/28/hyperpython</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2014/05/28/hyperpython.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1044,7 +1044,7 @@ nose.main()&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Dispersion relations for linear systems of PDEs</title>
-   <link href="https://www.qixiaodong.tk/en/2014/05/28/dispersion_relations.html"/>
+   <link href="/en/2014/05/28/dispersion_relations.html"/>
    <updated>2014-05-28T00:00:00+00:00</updated>
    <id>/2014/05/28/dispersion_relations</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2014/05/28/dispersion_relations.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1149,7 +1149,7 @@ A_2 &amp;amp; = \begin{pmatrix}
  
  <entry>
    <title>The PETSc DMDA is not lightweight</title>
-   <link href="https://www.qixiaodong.tk/en/2014/03/11/DMDA_memory.html"/>
+   <link href="/en/2014/03/11/DMDA_memory.html"/>
    <updated>2014-03-11T00:00:00+00:00</updated>
    <id>/2014/03/11/DMDA_memory</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2014/03/11/DMDA_memory.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1250,7 +1250,7 @@ Line #    Mem usage    Increment   Line Contents
  
  <entry>
    <title>The Schrodinger equation is not a reaction-diffusion equation</title>
-   <link href="https://www.qixiaodong.tk/en/2014/02/22/schrodinger-is-not-diffusion.html"/>
+   <link href="/en/2014/02/22/schrodinger-is-not-diffusion.html"/>
    <updated>2014-02-22T00:00:00+00:00</updated>
    <id>/2014/02/22/schrodinger-is-not-diffusion</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2014/02/22/schrodinger-is-not-diffusion.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1276,7 +1276,7 @@ u_t &amp;amp; = v.
  
  <entry>
    <title>Open access is about open access, not journals</title>
-   <link href="https://www.qixiaodong.tk/en/2013/12/13/open_access_means_open_access.html"/>
+   <link href="/en/2013/12/13/open_access_means_open_access.html"/>
    <updated>2013-12-13T00:00:00+00:00</updated>
    <id>/2013/12/13/open_access_means_open_access</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2013/12/13/open_access_means_open_access.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1304,7 +1304,7 @@ u_t &amp;amp; = v.
  
  <entry>
    <title>A Tale of Two Theorems</title>
-   <link href="https://www.qixiaodong.tk/en/2013/10/14/CFL-disk.html"/>
+   <link href="/en/2013/10/14/CFL-disk.html"/>
    <updated>2013-10-14T00:00:00+00:00</updated>
    <id>/2013/10/14/CFL-disk</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2013/10/14/CFL-disk.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1350,7 +1350,7 @@ u_t &amp;amp; = v.
  
  <entry>
    <title>Documentation, testing, and default arguments for your MATLAB packages</title>
-   <link href="https://www.qixiaodong.tk/en/2013/10/12/MATLAB-docs-testing.html"/>
+   <link href="/en/2013/10/12/MATLAB-docs-testing.html"/>
    <updated>2013-10-12T00:00:00+00:00</updated>
    <id>/2013/10/12/MATLAB-docs-testing</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2013/10/12/MATLAB-docs-testing.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1380,7 +1380,7 @@ if nargin&amp;lt;4 eps=1.e-10; end&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Giving a math talk using IPython notebook slides and Wakari</title>
-   <link href="https://www.qixiaodong.tk/en/2013/09/21/ipython_notebook_slides_talks.html"/>
+   <link href="/en/2013/09/21/ipython_notebook_slides_talks.html"/>
    <updated>2013-09-21T00:00:00+00:00</updated>
    <id>/2013/09/21/ipython_notebook_slides_talks</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2013/09/21/ipython_notebook_slides_talks.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1403,7 +1403,7 @@ if nargin&amp;lt;4 eps=1.e-10; end&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Open scientific collaboration</title>
-   <link href="https://www.qixiaodong.tk/en/2012/12/22/habits-of-open-scientist-4-collab.html"/>
+   <link href="/en/2012/12/22/habits-of-open-scientist-4-collab.html"/>
    <updated>2012-12-22T00:00:00+00:00</updated>
    <id>/2012/12/22/habits-of-open-scientist-4-collab</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/12/22/habits-of-open-scientist-4-collab.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1430,7 +1430,7 @@ if nargin&amp;lt;4 eps=1.e-10; end&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Adopting the Reproducible Research Standard</title>
-   <link href="https://www.qixiaodong.tk/en/2012/12/06/reproducible-research-standard.html"/>
+   <link href="/en/2012/12/06/reproducible-research-standard.html"/>
    <updated>2012-12-06T00:00:00+00:00</updated>
    <id>/2012/12/06/reproducible-research-standard</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/12/06/reproducible-research-standard.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1465,7 +1465,7 @@ if nargin&amp;lt;4 eps=1.e-10; end&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>The parallel EPPEER code</title>
-   <link href="https://www.qixiaodong.tk/en/2012/10/17/eppeer.html"/>
+   <link href="/en/2012/10/17/eppeer.html"/>
    <updated>2012-10-17T00:00:00+00:00</updated>
    <id>/2012/10/17/eppeer</id>
    <content type="html">&lt;p&gt;Note: this post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/10/17/eppeer.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1517,7 +1517,7 @@ gfortran -fopenmp ivprkp.o ivpepp.o mbod4h.o ivp_pmain.f90
  
  <entry>
    <title>Blogging with notebooks and Jekyll</title>
-   <link href="https://www.qixiaodong.tk/en/2012/10/11/blogging-with-notebooks-and-jekyll.html"/>
+   <link href="/en/2012/10/11/blogging-with-notebooks-and-jekyll.html"/>
    <updated>2012-10-11T00:00:00+00:00</updated>
    <id>/2012/10/11/blogging-with-notebooks-and-jekyll</id>
    <content type="html">&lt;p&gt;First off, if you know &lt;a href=&quot;https://github.com/yihui/knitr-jekyll&quot;&gt;KnitR&lt;/a&gt;, you can write code in R markdown directly and then compile in R/RStudio to generate the blog post easily. My blog repo has the knitr plugin installed and you can use &lt;code&gt;Python&lt;/code&gt;, &lt;code&gt;Mathlab&lt;/code&gt; and even &lt;code&gt;Julia&lt;/code&gt; engines to compile code lines. More information can be found in &lt;a href=&quot;http://yihui.name/knitr/&quot;&gt;Yihui Xie’s site&lt;/a&gt;.&lt;/p&gt;
@@ -1569,7 +1569,7 @@ mv ${fname}.md ~/labnotebook/_posts/${dt}-${fname}.md&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Internal stability of Runge-Kutta methods</title>
-   <link href="https://www.qixiaodong.tk/en/2012/10/11/Internal_stability.html"/>
+   <link href="/en/2012/10/11/Internal_stability.html"/>
    <updated>2012-10-11T00:00:00+00:00</updated>
    <id>/2012/10/11/Internal_stability</id>
    <content type="html">&lt;p&gt;Note: this post was generated from an iPython notebook. You can &lt;a href=&quot;https://github.com/ketch/nodepy/blob/master/examples/Internal_stability.ipynb&quot;&gt;download the notebook from github&lt;/a&gt; and execute all the code yourself. This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/10/11/Internal_stability.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1947,7 +1947,7 @@ ______|________________________
  
  <entry>
    <title>A curious upwind implicit scheme for advection</title>
-   <link href="https://www.qixiaodong.tk/en/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html"/>
+   <link href="/en/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html"/>
    <updated>2012-10-11T00:00:00+00:00</updated>
    <id>/2012/10/11/A_curious_upwind_implicit_scheme_for_advection</id>
    <content type="html">&lt;p&gt;Note: This post was originally published on the KAUST Mathwiki &lt;a href=&quot;https://mathwiki.kaust.edu.sa/david/A%20curious%20upwind%20implicit%20scheme%20for%20advection&quot;&gt;here&lt;/a&gt; (login required) by &lt;a href=&quot;http://www.davidketcheson.info/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html&quot;&gt;David Ketcheson&lt;/a&gt;.&lt;/p&gt;
@@ -1983,7 +1983,7 @@ ______|________________________
  
  <entry>
    <title>7 Habits of the Open Scientist #3: Pre-publication dissemination of research</title>
-   <link href="https://www.qixiaodong.tk/en/2012/08/22/habits-of-open-scientist-3-pre.html"/>
+   <link href="/en/2012/08/22/habits-of-open-scientist-3-pre.html"/>
    <updated>2012-08-22T00:00:00+00:00</updated>
    <id>/2012/08/22/habits-of-open-scientist-3-pre</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/08/03/habits-of-open-scientist-3.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt;.
@@ -1994,7 +1994,7 @@ ______|________________________
  
  <entry>
    <title>7 Habits of the Open Scientist: #2 -- Reproducible Research</title>
-   <link href="https://www.qixiaodong.tk/en/2012/08/03/habits-of-open-scientist-2.html"/>
+   <link href="/en/2012/08/03/habits-of-open-scientist-2.html"/>
    <updated>2012-08-03T00:00:00+00:00</updated>
    <id>/2012/08/03/habits-of-open-scientist-2</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/08/03/habits-of-open-scientist-2.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt;.
@@ -2005,7 +2005,7 @@ ______|________________________
  
  <entry>
    <title>7 Habits of the Open Scientist: #1 -- Open publishing</title>
-   <link href="https://www.qixiaodong.tk/en/2012/08/01/habits-of-open-scientist-1-open.html"/>
+   <link href="/en/2012/08/01/habits-of-open-scientist-1-open.html"/>
    <updated>2012-08-01T00:00:00+00:00</updated>
    <id>/2012/08/01/habits-of-open-scientist-1-open</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/08/01/habits-of-open-scientist-1-open.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt;.
@@ -2016,7 +2016,7 @@ ______|________________________
  
  <entry>
    <title>7 Habits of the Open Scientist</title>
-   <link href="https://www.qixiaodong.tk/en/2012/07/31/habits-of-open-scientist.html"/>
+   <link href="/en/2012/07/31/habits-of-open-scientist.html"/>
    <updated>2012-07-31T00:00:00+00:00</updated>
    <id>/2012/07/31/habits-of-open-scientist</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/07/31/habits-of-open-scientist.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt;.
@@ -2027,7 +2027,7 @@ ______|________________________
  
  <entry>
    <title>Can a region of absolute stability be rectangular?</title>
-   <link href="https://www.qixiaodong.tk/en/2012/03/17/can-region-of-absolute-stability-be.html"/>
+   <link href="/en/2012/03/17/can-region-of-absolute-stability-be.html"/>
    <updated>2012-03-17T00:00:00+00:00</updated>
    <id>/2012/03/17/can-region-of-absolute-stability-be</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2012/03/17/can-region-of-absolute-stability-be.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt;.
@@ -2038,7 +2038,7 @@ ______|________________________
  
  <entry>
    <title>Managing publication lists in HTML</title>
-   <link href="https://www.qixiaodong.tk/en/2011/10/28/managing-publication-lists-in-html.html"/>
+   <link href="/en/2011/10/28/managing-publication-lists-in-html.html"/>
    <updated>2011-10-28T00:00:00+00:00</updated>
    <id>/2011/10/28/managing-publication-lists-in-html</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2011/10/28/managing-publication-lists-in-html.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt; and updated to my case.
@@ -2056,7 +2056,7 @@ I have customized one version under my &lt;a href=&quot;https://github.com/i2000
  
  <entry>
    <title>How to edit all files containing a particular string</title>
-   <link href="https://www.qixiaodong.tk/en/2011/06/27/how-to-edit-all-files-containing.html"/>
+   <link href="/en/2011/06/27/how-to-edit-all-files-containing.html"/>
    <updated>2011-06-27T00:00:00+00:00</updated>
    <id>/2011/06/27/how-to-edit-all-files-containing</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2011/06/27/how-to-edit-all-files-containing.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt;.
@@ -2067,7 +2067,7 @@ It&#39;s often useful to be able to automatically open all files with a particul
  
  <entry>
    <title>How do shock waves behave in inhomogeneous materials?</title>
-   <link href="https://www.qixiaodong.tk/en/2011/05/29/how-do-shocks-behave-in-inhomogeneous.html"/>
+   <link href="/en/2011/05/29/how-do-shocks-behave-in-inhomogeneous.html"/>
    <updated>2011-05-29T00:00:00+00:00</updated>
    <id>/2011/05/29/how-do-shocks-behave-in-inhomogeneous</id>
    <content type="html">Note: This post was originally written by &lt;a href=&quot;http://www.davidketcheson.info/2011/05/29/how-do-shocks-behave-in-inhomogeneous.html&quot; target=&quot;_blank&quot;&gt;David Ketcheson&lt;/a&gt;.

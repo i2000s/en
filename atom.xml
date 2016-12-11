@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2016-12-11T11:12:03+00:00</updated>
+ <updated>2016-12-11T11:31:33+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -95,7 +95,7 @@ d\ket{\Psi} &amp;amp;= \left( -\frac{i}{\hbar}\hat{H}_{eff} + \frac{1}{2}\sum_{\
 &lt;center&gt;
  
 &lt;figure&gt;
-&lt;img src=&quot;https://www.qixiaodong.tk/assets/img/homodyneheterodyne_beamsplitter.svg&quot; alt=&quot;Fig 1. Beam splitter for homodyne and heterodyne detections.&quot; /&gt;&lt;figcaption&gt;Fig 1. Beam splitter for homodyne and heterodyne detections.&lt;/figcaption&gt;
+&lt;img src=&quot;/en/assets/img/homodyneheterodyne_beamsplitter.svg&quot; alt=&quot;Fig 1. Beam splitter for homodyne and heterodyne detections.&quot; /&gt;&lt;figcaption&gt;Fig 1. Beam splitter for homodyne and heterodyne detections.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;br&gt; &lt;br&gt;
 &lt;/center&gt;
@@ -508,7 +508,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;[X] Skip June 13th-19th for more research work to be done. Then from June 20th-26th:
 &lt;ul&gt;
 &lt;li&gt;[X] Wrap up on Yuan-Yu’s book.&lt;/li&gt;
-&lt;li&gt;[X] A blog post on some essential points. See &lt;a href=&quot;https://www.qixiaodong.tk/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html&quot;&gt;this one&lt;/a&gt; and more to come.&lt;/li&gt;
+&lt;li&gt;[X] A blog post on some essential points. See &lt;a href=&quot;/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html&quot;&gt;this one&lt;/a&gt; and more to come.&lt;/li&gt;
 &lt;li&gt;[X] Discuss with Nikolas as our visitor on symbolic calculus and quantum simulations in Julia.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -554,7 +554,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2015/05/29/automate_tests.html"/>
    <updated>2015-05-29T00:00:00+00:00</updated>
    <id>/2015/05/29/automate_tests</id>
-   <content type="html">&lt;p&gt;Welcome to step 7 in &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: &lt;strong&gt;test automation&lt;/strong&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Welcome to step 7 in &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: &lt;strong&gt;test automation&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Tests are extremely useful, as long as you run them. Unfortunately, a common pattern in many projects is this:&lt;/p&gt;
 &lt;ol type=&quot;1&quot;&gt;
 &lt;li&gt;Tests are written and run by the person who wrote them.&lt;/li&gt;
@@ -562,7 +562,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;The new code breaks the tests. By the time somebody notices, it’s too much trouble to go back and figure out where things went wrong, much less how to fix them.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;How do you avoid this? You make running the tests dead simple and fully automatic. This step is about making the tests run with a single command; step 8 is about having a machine run them whenever you commit code, without any action on your part.&lt;/p&gt;
-&lt;p&gt;As a matter of fact, in &lt;a href=&quot;/2015/05/15/write_tests.html&quot;&gt;Step 5&lt;/a&gt; we set things up so that the tests in one file could by run with a single command. But eventually, you will have tests in multiple files. Besides doctests, you may write additional tests. If you need to type 10, or even 3 commands to run them all, there will be a mental barrier and eventually you’ll get lazy.&lt;/p&gt;
+&lt;p&gt;As a matter of fact, in &lt;a href=&quot;/en/2015/05/15/write_tests.html&quot;&gt;Step 5&lt;/a&gt; we set things up so that the tests in one file could by run with a single command. But eventually, you will have tests in multiple files. Besides doctests, you may write additional tests. If you need to type 10, or even 3 commands to run them all, there will be a mental barrier and eventually you’ll get lazy.&lt;/p&gt;
 &lt;h1 id=&quot;nose&quot;&gt;nose&lt;/h1&gt;
 &lt;p&gt;There are a number of test automation tools for Python, but to keep things simple I will focus on the one I know best: &lt;a href=&quot;https://nose.readthedocs.org/en/latest/&quot;&gt;nose&lt;/a&gt;. Nose does one simple thing: it automatically finds all the tests in your project and runs them. How does it know where the tests are? Well, it can easily recognize doctests, and it will also pick up any function whose name contains “test” and that is in file whose name contains “test”.&lt;/p&gt;
 &lt;h1 id=&quot;what-to-do&quot;&gt;What to do:&lt;/h1&gt;
@@ -588,7 +588,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2015/05/16/track_issues.html"/>
    <updated>2015-05-16T00:00:00+00:00</updated>
    <id>/2015/05/16/track_issues</id>
-   <content type="html">&lt;p&gt;Welcome to step 6 in &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: &lt;strong&gt;issue tracking&lt;/strong&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Welcome to step 6 in &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: &lt;strong&gt;issue tracking&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Look at you! You’ve got your nice code with some docstrings and tests, and you’re humming along analyzing data, simulating widgets, and whatnot. In the middle of it all, you realize that your regression analysis function breaks if you feed it more than 57 data points. And wouldn’t it be nice if it made a plot in addition to just printing out the correlation coefficient? And it would all be easier to use if your functions had default values for some of their arguments.&lt;/p&gt;
 &lt;p&gt;But you can’t stop to (fix that bug)/(add that feature)/(refactor that function) right now – you’re deep in all that beautiful data! Besides, maybe nobody will ever try to use this script with more than 57 data values. What should you do?&lt;/p&gt;
 &lt;h2 id=&quot;raise-an-issue.&quot;&gt;Raise an issue.&lt;/h2&gt;
@@ -610,7 +610,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As usual, this should only take two minutes.&lt;/p&gt;
 &lt;ol type=&quot;1&quot;&gt;
 &lt;li&gt;Think of at least one or two bugs, potential features, or improvements related to your project code. If you can’t think of any, either you haven’t been using the code much or you’re not thinking very hard.&lt;/li&gt;
-&lt;li&gt;Go to your project’s page in Github and click the issues button on the right side: &lt;img src=&quot;/assets/img/github-issues-button.png&quot; /&gt;&lt;/li&gt;
+&lt;li&gt;Go to your project’s page in Github and click the issues button on the right side: &lt;img src=&quot;/en/assets/img/github-issues-button.png&quot; /&gt;&lt;/li&gt;
 &lt;li&gt;Click that big green “New Issue” button. Give the issue a title and an explanation. If it’s a bug, write down the exact sequence of commands that triggers it.&lt;/li&gt;
 &lt;li&gt;Click “Submit new issue”.&lt;/li&gt;
 &lt;li&gt;(for the future) When you eventually get around to solving the issue, you can mark it as “Closed”. This doesn’t delete it, but it removes it from the list of “Open” issues.&lt;/li&gt;
@@ -620,7 +620,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;It’s nice that you can keep your reminder list there in the issue tracker, but you may be worried about exposing all the shortcomings of your code in public. Don’t be! It’s much better to have them out in the open than to get surprised by them. In fact, the real magic happens when other people start reporting issues. If other people start using your code, you’ll find that somehow they run into a lot more problems than you do. Why? Because there are all kinds of unstated assumptions in your head that silently went into your code – but your users know nothing about them. So they will stress your code in completely different ways and help you find all sorts of wonderful bugs. They may even fix some of them for you – but that’s another subject. Just remember to be grateful – it’s easy to get your feathers ruffled when someone points out a flaw in your code, but in fact they are doing you a service.&lt;/p&gt;
 &lt;p&gt;This goes both ways. Your code almost certainly relies on a host of other projects, many of which are on Github or other servers with an issue tracker. Do you use Pandas, numpy, scipy, or scikit-learn? The next time you run into what might be a bug in those packages, be proactive. Of course you should first check Stack Overflow, but if it seems like a bug to you, you can go raise an issue on the project’s issue tracker. That’s right, anybody in the world can raise an issue – you don’t need to be one of the project developers. Just remember to be polite, and &lt;a href=&quot;http://coenjacobs.me/effective-bug-reports-on-github/&quot;&gt;follow a few best practices&lt;/a&gt; when you report an issue.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/ketch/rock-solid-code-demo/issues&quot;&gt;Here’s what the issues page for my demo project looks like&lt;/a&gt; after raising a couple of issues. And &lt;a href=&quot;https://github.com/clawpack/pyclaw/issues&quot;&gt;here’s the issue tracker for a larger collaborative project&lt;/a&gt;. In academic research, I find that I open a lot more issues than I close. That’s okay – the issue tracker is not a to-do list that has to be fully completed at some point. It’s just a way of keeping track of useful improvements that could be made.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2015/05/29/automate_tests.html&quot;&gt;Continue to step seven&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/en/2015/05/29/automate_tests.html&quot;&gt;Continue to step seven&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150516track_issues.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/16/track_issues.html&quot;&gt;http://www.davidketcheson.info/2015/05/16/track_issues.html&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
@@ -634,7 +634,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2015/05/15/write_tests.html"/>
    <updated>2015-05-15T00:00:00+00:00</updated>
    <id>/2015/05/15/write_tests</id>
-   <content type="html">&lt;p&gt;This is step 5 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;: &lt;strong&gt;write tests&lt;/strong&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This is step 5 in your journey toward &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;: &lt;strong&gt;write tests&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Tests? Ugh.&lt;/p&gt;
 &lt;p&gt;I hear you. Writing tests is not an inherently fun process. However, the alternative is debugging, staring at code and thinking real hard about what could be wrong, and more debugging. I’ll take writing tests any day of the week.&lt;/p&gt;
 &lt;p&gt;You may still not be convinced. Fortunately, I don’t have to convince you, because I’m not going to ask you to write tests in this step. As a matter of fact, I tricked you into writing tests in step 4. Remember those examples you put in your docstring?&lt;/p&gt;
@@ -656,7 +656,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Doctests are certainly not all there is to testing in Python, but for me they are a minimal-effort approach that makes my code much more reliable. If you add a docstring with a doctest to each function and module in your code, you’ll spend a lot less time debugging later on. I bet you’ll also find some bugs as you add the doctests.&lt;/p&gt;
 &lt;p&gt;From now on, just make it a habit to add a docstring and a doctest whenever you write a new function. Your future self will thank you.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/ketch/rock-solid-code-demo/blob/13ab3f8af4e6be813eaee512897948e4c5a178a7/factor.py&quot;&gt;Here’s what my demo repository looks like at this stage&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2015/05/16/track_issues.html&quot;&gt;Continue to step six&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/en/2015/05/16/track_issues.html&quot;&gt;Continue to step six&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150515write_tests.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/15/write_tests.html&quot;&gt;http://www.davidketcheson.info/2015/05/15/write_tests.html&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
@@ -670,7 +670,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2015/05/14/write_docstrings.html"/>
    <updated>2015-05-14T00:00:00+00:00</updated>
    <id>/2015/05/14/write_docstrings</id>
-   <content type="html">&lt;p&gt;This is step 4 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This is step 4 in your journey toward &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Steps 1-3 were language-agnostic, but now I’m going to assume you’re using Python. The Python language has a built-in feature for documenting functions, classes, and modules; it is the &lt;strong&gt;docstring&lt;/strong&gt;. A docstring for a very simple function looks like this:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode python&quot;&gt;&lt;code class=&quot;sourceCode python&quot;&gt;&lt;span class=&quot;kw&quot;&gt;def&lt;/span&gt; square(x):
     &lt;span class=&quot;co&quot;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
@@ -701,7 +701,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/ketch/rock-solid-code-demo/blob/3784b04109b2ca92633a788cc02562898064282c/factor.py&quot;&gt;Here’s what my demo repository looks like at this stage&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&quot;when-should-i-write-docstrings&quot;&gt;When should I write docstrings?&lt;/h1&gt;
 &lt;p&gt;That’s easy: when you start writing a new function, before you write the code itself, add the docstring. Make it a habit! Of course, you can come back and refine the docstring as necessary after writing the code.&lt;/p&gt;
-&lt;p&gt;Now go to &lt;a href=&quot;/2015/05/15/write_tests.html&quot;&gt;step five&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now go to &lt;a href=&quot;/en/2015/05/15/write_tests.html&quot;&gt;step five&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150514write_docstrings.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/14/write_docstrings.html&quot;&gt;http://www.davidketcheson.info/2015/05/14/write_docstrings.html&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
@@ -715,8 +715,8 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2015/05/13/add_a_readme.html"/>
    <updated>2015-05-13T00:00:00+00:00</updated>
    <id>/2015/05/13/add_a_readme</id>
-   <content type="html">&lt;p&gt;This is step 3 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So your code is &lt;a href=&quot;/2015/05/11/use_version_control.html&quot;&gt;under version control&lt;/a&gt; and it’s &lt;a href=&quot;/2015/05/12/code_in_the_open.html&quot;&gt;floating up there in the cloud&lt;/a&gt;. In principle, someone else could use it. But how will they know it’s there? How will they know what it does, and how to install and use it?&lt;/p&gt;
+   <content type="html">&lt;p&gt;This is step 3 in your journey toward &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So your code is &lt;a href=&quot;/en/2015/05/11/use_version_control.html&quot;&gt;under version control&lt;/a&gt; and it’s &lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;floating up there in the cloud&lt;/a&gt;. In principle, someone else could use it. But how will they know it’s there? How will they know what it does, and how to install and use it?&lt;/p&gt;
 &lt;h1 id=&quot;you-need-a-readme-file.&quot;&gt;You need a README file.&lt;/h1&gt;
 &lt;p&gt;A README is minimalist documentation – just what is absolutely necessary for someone to start using your code. Most often, that someone is your future self, who has forgotten things. Here’s what to do:&lt;/p&gt;
 &lt;ol type=&quot;1&quot;&gt;
@@ -736,7 +736,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;p&gt;Note: it’s also possible (and even easier) to add a README directly on Github, by clicking that nice green button:&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src=&quot;/assets/img/github-readme-button.png&quot; /&gt;
+&lt;img src=&quot;/en/assets/img/github-readme-button.png&quot; /&gt;
 &lt;/figure&gt;
 &lt;p&gt;Nice work! Now others (or your future self) stand a decent chance of being able to use your code. But they may not want to use it in exactly the same way you do. In fact, there’s a good chance they may want to modify it, or incorporate it into some other code they have. By default, copyright laws don’t allow them to do that. If you want others to be able to use your code for their purposes…&lt;/p&gt;
 &lt;h1 id=&quot;you-need-a-license-file.&quot;&gt;You need a License file.&lt;/h1&gt;
@@ -754,7 +754,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Commit and push the file to Github.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;That’s it! Other folks can now legally adapt your code for their own purposes.&lt;/p&gt;
-&lt;p&gt;Congratulations on making it this far. Now go to &lt;a href=&quot;/2015/05/14/write_docstrings.html&quot;&gt;step four&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Congratulations on making it this far. Now go to &lt;a href=&quot;/en/2015/05/14/write_docstrings.html&quot;&gt;step four&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&quot;extra-credit-contributing.md-and-thanks.md&quot;&gt;Extra credit: Contributing.md and Thanks.md&lt;/h1&gt;
 &lt;p&gt;It’s great that other people can now make improvements to your code. It would be even better if they sent those improvements back to you! To encourage that, you should add a Contributing.md file to tell them what your standards for acceptable code are and what the process is for adding code to your repository. Github provides a &lt;a href=&quot;https://raw.githubusercontent.com/contribute-md/contribute-md-template/master/contribute.md&quot;&gt;standard template for such a file&lt;/a&gt;, though for small projects you can provide something much simpler. Some good examples of contributing files are:&lt;/p&gt;
 &lt;ul&gt;
@@ -775,7 +775,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2015/05/12/code_in_the_open.html"/>
    <updated>2015-05-12T00:00:00+00:00</updated>
    <id>/2015/05/12/code_in_the_open</id>
-   <content type="html">&lt;p&gt;This is step 2 in your journey toward &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;This is step 2 in your journey toward &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;rock-solid scientific Python code&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;So you have your code under version control. Nice. But it’s sitting there on your computer. How do you share it with somebody else? And if they improve it, how do you incorporate their changes?&lt;/p&gt;
 &lt;p&gt;Version control is your first tool in this regard, too. Your second tool is Github (or Bitbucket, Google Code, etc.). Github is a website that will keep a backup copy of your code for free, and will allow others to download it, change it, and send you their changes. If that sounds great, read on. If you’re scared to put your code in the open because somebody might read it, ponder on &lt;a href=&quot;http://www.siam.org/news/news.php?id=2064&quot;&gt;this&lt;/a&gt; and then read on.&lt;/p&gt;
 &lt;h2 id=&quot;two-minutes-to-open-code&quot;&gt;Two minutes to open code&lt;/h2&gt;
@@ -792,7 +792,7 @@ git remote add origin git@github.com:username/projectname.git
 git push -u origin master&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Tada! You’ve just “pushed” your code to Github where it is made available to all the world! As a bonus, you can sleep soundly knowing that if your office floods and your house burns down tomorrow, your code will still be there waiting for you. The result should look something like &lt;a href=&quot;https://github.com/ketch/rock-solid-code-demo&quot;&gt;my demo&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To learn more about using Github, take a few minutes to read the &lt;a href=&quot;http://www.software-carpentry.org/v5/novice/git/02-collab.html&quot;&gt;Software Carpentry lesson&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Now &lt;a href=&quot;/2015/05/13/add_a_readme.html&quot;&gt;go on to step three&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now &lt;a href=&quot;/en/2015/05/13/add_a_readme.html&quot;&gt;go on to step three&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150512code_in_the_open.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/12/code_in_the_open.html&quot;&gt;http://www.davidketcheson.info/2015/05/12/code_in_the_open.html&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
@@ -806,7 +806,7 @@ git push -u origin master&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2015/05/11/use_version_control.html"/>
    <updated>2015-05-11T00:00:00+00:00</updated>
    <id>/2015/05/11/use_version_control</id>
-   <content type="html">&lt;p&gt;Welcome to step 1 in &lt;a href=&quot;/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: version control. This is not going to be an in-depth course, so if you’re already using distributed version control (like Git or Mercurial), feel free to skip ahead to &lt;a href=&quot;/2015/05/12/code_in_the_open.html&quot;&gt;step 2&lt;/a&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Welcome to step 1 in &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: version control. This is not going to be an in-depth course, so if you’re already using distributed version control (like Git or Mercurial), feel free to skip ahead to &lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;step 2&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;life-before-version-control&quot;&gt;&lt;a href=&quot;http://phdcomics.com/comics.php?f=1531&quot;&gt;Life before version control&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Programs change. That script I wrote last week to process my data needs to be adapted to a new file format or to produce a different kind of analysis. So I copy it to a new file and make some changes. I add a few lines and comment out others. The next week, I copy everything to a new directory so I can apply the code to a new project. A couple of months later, I realize that I have a mess of seven different directories, each with a dozen almost-identically-named files, and I am no longer sure which is the latest or what file does what. I spend a lot of time searching through and comparing the various files and directories to find what I need.&lt;/p&gt;
 &lt;p&gt;Meanwhile, I email some version of the script to my collaborator, who also copies and modifies it. Each of us makes different improvements to it. I’d like to have one version with all the improvements, but how to extract the right bits from all the copies?&lt;/p&gt;
@@ -832,7 +832,7 @@ git add project_file2
 &lt;pre&gt;&lt;code&gt;git log&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To get a much better idea, take 15 minutes and go read the &lt;a href=&quot;http://www.software-carpentry.org/v5/novice/git/01-backup.html&quot;&gt;first software carpentry lesson on version control&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can get by for awhile with just the few git commands listed above. Eventually, you will want to go beyond what is described in the Software Carpentry lesson. When you do, it’s worth reading an extended introduction &lt;a href=&quot;http://git-scm.com/book/en/v2&quot;&gt;like this one&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2015/05/12/code_in_the_open.html&quot;&gt;Continue to step two&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;Continue to step two&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;extra-credit-dont-copy-paste&quot;&gt;Extra credit: Don’t copy-paste&lt;/h2&gt;
 &lt;p&gt;Version control is really just one tool that will help you with a general principle of code development:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -874,13 +874,13 @@ git add project_file2
 &lt;h2 id=&quot;twelve-baby-steps&quot;&gt;Twelve (baby) steps&lt;/h2&gt;
 &lt;p&gt;So here it is: my 12-step program to writing scientific code that you can believe in:&lt;/p&gt;
 &lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;/2015/05/11/use_version_control.html&quot;&gt;Use version control&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2015/05/12/code_in_the_open.html&quot;&gt;Put your code in the cloud, in the open&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2015/05/13/add_a_readme.html&quot;&gt;Add a README and a License&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2015/05/14/write_docstrings.html&quot;&gt;Write docstrings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2015/05/15/write_tests.html&quot;&gt;Write tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2015/05/16/track_issues.html&quot;&gt;Keep track of issues&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/2015/05/29/automate_tests.html&quot;&gt;Automate the tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/en/2015/05/11/use_version_control.html&quot;&gt;Use version control&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;Put your code in the cloud, in the open&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/en/2015/05/13/add_a_readme.html&quot;&gt;Add a README and a License&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/en/2015/05/14/write_docstrings.html&quot;&gt;Write docstrings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/en/2015/05/15/write_tests.html&quot;&gt;Write tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/en/2015/05/16/track_issues.html&quot;&gt;Keep track of issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/en/2015/05/29/automate_tests.html&quot;&gt;Automate the tests&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Automate the build (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;Use continuous integration (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;Monitor test coverage (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
@@ -916,7 +916,7 @@ git add project_file2
 &lt;blockquote&gt;
 &lt;p&gt;“&lt;em&gt;Error is ubiquitous in scientific computing, and one needs to work very diligently and energetically to eliminate it.&lt;/em&gt;”&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Okay, what are you waiting for? Go read &lt;a href=&quot;/2015/05/11/use_version_control.html&quot;&gt;step one&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Okay, what are you waiting for? Go read &lt;a href=&quot;/en/2015/05/11/use_version_control.html&quot;&gt;step one&lt;/a&gt;!&lt;/p&gt;
 &lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150510rock_solid_code.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/10/rock_solid_code.html&quot;&gt;http://www.davidketcheson.info/2015/05/10/rock_solid_code.html&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;

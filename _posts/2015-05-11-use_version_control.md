@@ -54,7 +54,7 @@ and
 
     git log
 
-To get a much better idea, take 15 minutes and go read the [first software carpentry lesson on version control](http://www.software-carpentry.org/v5/novice/git/01-backup.html).
+To get a much better idea, take 15 minutes and go read the [first software carpentry lesson on version control](http://swcarpentry.github.io/git-novice/).
 
 You can get by for awhile with just the few git commands listed above.  Eventually, you will want to go beyond what is described in the Software Carpentry lesson.  When you do, it's worth reading an extended introduction [like this one](http://git-scm.com/book/en/v2).
 
@@ -72,5 +72,5 @@ In practice, this means things like:
 - If you need to apply some code to two different projects, don't copy the file.  Put it on your path.
 
 
-#### Note: this post was originally written by David Ketcheson and posted at [http://www.davidketcheson.info/2015/05/11/use_version_control.html](http://www.davidketcheson.info/2015/05/11/use_version_control.html)
+#### Note: this post is modified on top of David Ketcheson's post at [http://www.davidketcheson.info/2015/05/11/use_version_control.html](http://www.davidketcheson.info/2015/05/11/use_version_control.html)
  under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/deed.en_US).

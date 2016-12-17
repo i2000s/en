@@ -4,13 +4,31 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2016-12-11T11:31:33+00:00</updated>
+ <updated>2016-12-17T06:49:16+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
    <email>i2000s@hotmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>My SQuInT 2017 talk</title>
+   <link href="/en/2016/12/16/squint-2017-talk.html"/>
+   <updated>2016-12-16T00:00:00+00:00</updated>
+   <id>/2016/12/16/squint-2017-talk</id>
+   <content type="html">&lt;p&gt;My submission has been accepted to be presented as a talk at the &lt;a href=&quot;http://physics.unm.edu/SQuInT/2017/index.php&quot;&gt;SQuInT Workshop&lt;/a&gt; and is currently on the program schedule.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Day, Date&lt;/em&gt;&lt;/strong&gt;: Friday, February 24, 2017&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Time, Session&lt;/em&gt;&lt;/strong&gt;: 2:45 pm - 3:15 pm, Session 8 Quantum optics theory&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Title&lt;/em&gt;&lt;/strong&gt;: Spin squeezing on nanophotonic waveguides&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Authors&lt;/em&gt;&lt;/strong&gt;: Xiaodong Qi, Jongmin Lee, Yuan-Yu Jau, and Ivan H. Deutsch&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Abstract&lt;/em&gt;&lt;/strong&gt;: Strong coupling between atoms and photons is a prerequisite for quantum information processing protocols ranging from quantum metrology to quantum communication and computation. This strong coupling effect can be achieved using nanophotonic waveguides whereby an ensemble of atoms are trapped in the evanescent field. In this talk, I will present our recent progress in the theoretical study of implementing spin squeezing using optical nanofibers (ONF) and square waveguides (SWG) with both birefringence and Faraday interactions as QND measurement. Various geometries of protocols will be discussed based on the analysis of optical depth per atom on ONF and SWG platforms. In calculating the spin squeezing parameter, we have established a set of stochastic master equations to describe the individual and collective spin dynamics. Our simulation shows that ~10 dB of spin squeezing can be reached with a few thousands of atoms on these nanophotonic waveguides. Using the fundamental TE and TM modes, the SWG could generate more spin squeezing compared to the ONF platform. Our result can be generalized to other nanophotonic platforms, for the implementation of non-Gaussian states, and to improve quantum sensing precision using spin squeezing techniques.&lt;/p&gt;
+&lt;p&gt;Feel free to comment below or email me if you have any questions or suggestions.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Put everything on a quantum circuit--part I</title>
@@ -830,7 +848,7 @@ git add project_file2
 &lt;pre&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git log&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To get a much better idea, take 15 minutes and go read the &lt;a href=&quot;http://www.software-carpentry.org/v5/novice/git/01-backup.html&quot;&gt;first software carpentry lesson on version control&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To get a much better idea, take 15 minutes and go read the &lt;a href=&quot;http://swcarpentry.github.io/git-novice/&quot;&gt;first software carpentry lesson on version control&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can get by for awhile with just the few git commands listed above. Eventually, you will want to go beyond what is described in the Software Carpentry lesson. When you do, it’s worth reading an extended introduction &lt;a href=&quot;http://git-scm.com/book/en/v2&quot;&gt;like this one&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;Continue to step two&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;extra-credit-dont-copy-paste&quot;&gt;Extra credit: Don’t copy-paste&lt;/h2&gt;
@@ -844,7 +862,7 @@ git add project_file2
 &lt;li&gt;Don’t comment/uncomment lines of code in order to control the behavior of your code. Instead, use “if” statements and function arguments.&lt;/li&gt;
 &lt;li&gt;If you need to apply some code to two different projects, don’t copy the file. Put it on your path.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150511use_version_control.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/11/use_version_control.html&quot;&gt;http://www.davidketcheson.info/2015/05/11/use_version_control.html&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;note-this-post-is-modified-on-top-of-david-ketchesons-post-at-httpwww.davidketcheson.info20150511use_version_control.html&quot;&gt;Note: this post is modified on top of David Ketcheson’s post at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/11/use_version_control.html&quot;&gt;http://www.davidketcheson.info/2015/05/11/use_version_control.html&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 

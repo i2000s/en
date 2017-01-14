@@ -222,6 +222,17 @@ read-only with the &#39;ro&#39; mount option</code></pre>
 <p>A solution according to <a href="http://askubuntu.com/questions/462381/cant-mount-ntfs-drive-the-disk-contains-an-unclean-file-system">this source</a> is to run the following command, for example,</p>
 <pre><code>sudo ntfsfix /dev/sdb4</code></pre>
 <p>The root cause of this issue might be related to the fast-booting feature of Windows 10. Therefore, to fix it for all future events, the fast-booting feature should be turned off as instructed <a href="http://superuser.com/questions/1152001/shutdown-windows-10-truly-for-a-dual-booting-system">here</a>. A detailed explanation on this issue can be found <a href="http://askubuntu.com/questions/145902/unable-to-mount-windows-ntfs-filesystem-due-to-hibernation">here</a>.</p>
+<h1 id="notes-on-using-some-common-tools">Notes on using some common tools</h1>
+<h2 id="git">Git</h2>
+<ul>
+<li><p>One of the common scenario of using Git is to make fixes to a repo <em>A</em> not belonging to me but I have already customized the source in the repo for my personal usage before hand. In this case, I can make a new branch called <em>patch-1</em>, for example, in my personal repo just for the fix:</p>
+<pre><code>git remote add A &lt;url of A&gt;
+git fetch A
+git checkout -b patch-1 A/patch-1</code></pre>
+<p>Once I commit all necessary fixes, I can make a pull request through the web interface of the Git repository. After the PR is merged, I can then delete the <em>patch-1</em> branch remotely and locally by</p>
+<pre><code>git push origin --delete patch-1
+$ git branch -d patch-1</code></pre></li>
+</ul>
 <div class="references">
 
 </div>

@@ -15,9 +15,10 @@ categories: community
 
 
 # Version control and publications
-[Good Enough Practices in Scientific Computing](https://arxiv.org/abs/1609.00037).
-[Open science framework](http://osf.io/).
-[Github and Zenodo integration for citable work](https://guides.github.com/activities/citable-code/).
+- [Good Enough Practices in Scientific Computing](https://arxiv.org/abs/1609.00037).
+- [Open science framework](http://osf.io/).
+- [Github and Zenodo integration for citable work](https://guides.github.com/activities/citable-code/).
+- [Elsevier and Mendeley Data repositories](https://www.journals.elsevier.com/data-in-brief/policies-and-guidelines/public-repositories-to-store-and-find-data).
 
 
 # Maintenance, outreach and the integration for future projects

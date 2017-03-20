@@ -12,7 +12,8 @@ My research involves theoretical studies on the strong coupling between atoms an
 My current focus is the nanofiber trapped cold atom system.
 This study was initially motivated as an upgrade to the free space atom-light quantum interface platforms implemented in cold atom labs towards a stronger coupling between atoms and light.
 
-{% include image.html img="/en/assets/img/NanofiberModeMatching.png" width="680px" title="Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems" caption="Fig 1. Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems. Figure is adapted from <a href='http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817' target='_blank'>X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)</a>." %}
+<center>
+{% include image.html img="/en/assets/img/NanofiberModeMatching.png" width="400px" title="Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems" caption="Fig 1. Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems. Figure is adapted from <a href='http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817' target='_blank'>X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)</a>." %}
 <br><br></center>
 
 As shown in the figure above, to enhance the coupling strength between an atomic ensemble and light propagated in free space as a Gaussian laser beam, one can either focus the laser beam very tightly so that the few atoms at the beam waist could couple to the optical field strongly (as shown in subfigure (a)), or by using a less focused laser beam so that more atoms can be coupled to the light (as shown in (b)).

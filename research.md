@@ -30,10 +30,10 @@ My current on-going theory research projects include the following and are open 
  - Optical pumping on the nanofiber platform for atomic state preparation.
  - Atomic cooling protocols on the trapped atomic ensemble on nanofiber.
  - Other nanophotonic waveguides towards even better atom-light interface based on our new understanding of measurement-based atom-light coupling.
- - Optical lattices in the strong coupling regime. 
+ - Optical lattices in the strong coupling regime.
 
 <center>
-{% include image.html img="/en/assets/img/NanofiberScheme.png" width="680px" title="Spectroscopy on a nanofiber-trapped atom ensemble system" caption="Fig 1. Polarization spectroscopy on an optical nanofiber coupled atomic ensemble system. Figure is adapted from <a href='http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817' target='_blank'>X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)</a>." %}
+{% include image.html img="/en/assets/img/NanofiberScheme.png" width="680px" title="Spectroscopy on a nanofiber-trapped atom ensemble system" caption="Fig 2. Polarization spectroscopy on an optical nanofiber coupled atomic ensemble system. Figure is adapted from <a href='http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817' target='_blank'>X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)</a>." %}
 <br><br></center>
 
 In addition, through establishing the theoretical foundation of light-atom interaction on the nanofiber platform, I hope to reach the regime of nonlinear interaction between photons for quantum simulations/computations/communications,

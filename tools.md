@@ -91,4 +91,7 @@ Be sure to consider this factor when you want to install Linux on a new computer
 
 For workstations, I have configured [Dell Precision 7910](http://www.dell.com/us/business/p/precision-t7910-workstation/pd) for [CQuIC](http://cquic.unm.edu) from the companies that the university policy allows. There may be better choices.
 Again, Ubuntu OS was installed for its being popular in the research center.
-But I have some experience of using CentOS on a cluster in the earlier days which along side with Scientific Linux OS may be a better choice for dedicated high-performance computing.  
+But I have some experience of using CentOS on a cluster in the earlier days which along side with Scientific Linux OS may be a better choice for dedicated high-performance computing.
+
+
+## Some notes on computer system administration and tool using can be found [here](/en/notebooks/SystemAdmin.html). 

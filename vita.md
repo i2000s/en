@@ -9,7 +9,7 @@ share: true
 ---
 ## Upcoming event:
 
- - SQuInT 2017 talk (Spin Squeezing on Nanophotonic Waveguides), Baton Rouge, Louisiana, February 23-25, 2017.
+ - June 9, 2017 from 9:24 AM–9:36 AM: [DAMOP 2017 presentation](http://meetings.aps.org/Meeting/DAMOP17/Session/T7.8), Sacramento, California. 
 
 # Employment
 
@@ -29,6 +29,7 @@ share: true
 
 # Selected Talks and Conferences:
 
+ - February 23-25, 2017: [SQuInT 2017 talk](/en/2016/12/16/squint-2017-talk.html) ([Spin Squeezing on Nanophotonic Waveguides](http://physics.unm.edu/SQuInT/2017/abstracts.php?person_id=480)), Baton Rouge, Louisiana, USA.
  - Nov 16th, 2016: Annual research report, CQuIC @ Albuquerque, NM, USA.
  - July 31-Aug 5, 2016: [Gordon Research Conference -- Quantum Entanglement, New States of Matter, and Correlated Dynamics](https://www.grc.org/programs.aspx?id=14962), Easton, MA, USA. (poster)
  - July 30-31, 2016: [Gordon Research Seminar -- Quantum Simulation, Entanglement and Dynamics of Condensed Matter Systems and Field Theories](https://www.grc.org/programs.aspx?id=16636), Easton, MA, USA. (poster)

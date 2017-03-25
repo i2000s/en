@@ -13,6 +13,8 @@ Turns out, it is related to the CUPS remote printers from the cups-browsed servi
 I don't need this automatic printer adding function and hence disabled this service, and then everything works fine again.
 Reference is [here](http://askubuntu.com/questions/760952/slow-shutdown-on-ubuntu-16-04-lts-stopping-thermal-daemon-running-fit-make-remo).
 
+*Update*: Without disabling the `CUPS` service, this bug seems having been fixed with `cups-filters` v1.11.4-1 yet not released in the official Ubuntu 16.04 repository. A workaround solution to install the latest version of `cups-filters` and its dependencies can be found in [this solution](http://askubuntu.com/a/896655/390708). 
+
 ## Unable to mount NTFS disks automatically on startup.
 When the Ubuntu 16.04 started, I got the following error message:
 ```
@@ -33,6 +35,22 @@ sudo ntfsfix /dev/sdb4
 The root cause of this issue might be related to the fast-booting feature of Windows 10.
 Therefore, to fix it for all future events, the fast-booting feature should be turned off as instructed [here](http://superuser.com/questions/1152001/shutdown-windows-10-truly-for-a-dual-booting-system).
 A detailed explanation on this issue can be found [here](http://askubuntu.com/questions/145902/unable-to-mount-windows-ntfs-filesystem-due-to-hibernation).
+
+## Keep Linux kernel updated on a LTS Ubuntu OS
+Normally, a LTS Ubuntu OS will stick to a particular kernel series to keep the OS stable.
+However, this doesn't mean the Ubuntu OS doesn't update their supported Linux kernel series on their repository.
+In fact, for example, Ubuntu-16.04-1 was released with kernel 4.4.X, but then Ubuntu-16.04-2 was released with kernel 4.8.X.
+The default behavior of a local Ubuntu-16.04-0 distribution is to stick to the initially installed kernel series before the OS is upgraded to a new distribution like Ubuntu 18.04 LTS. To change this default behavior and keep receiving updated Ubuntu's officially supported kernel series on a LTS Ubuntu distribution, one can enable the HWE stacks by installing the following packages:
+```
+sudo apt install linux-generic-hwe-16.04 linux-lowlatency-hwe-16.04
+```
+according to the [official rolling LTS enablement stack page for Ubuntu 16.04 LTS distribution](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack).
+The kernel update will keep rolling in the first two years after the distribution was initally released.
+
+## Mouse scrolls too fast on Chrome browser
+If one scroll of the mouse on the Chrome brower can go a far distance on a page, it might have been affected by [this Ubuntu bug](https://bugs.launchpad.net/ubuntu/+bug/971321).
+This only affects Chrome and a few wireless mouse brands including Microsoft.
+A workaround before the bug is fixed is to unplug and replug the wireless receiver of the mouse.
 
 # Notes on using some common tools
 ## Git

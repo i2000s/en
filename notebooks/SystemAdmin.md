@@ -60,6 +60,68 @@ If one scroll of the mouse on the Chrome brower can go a far distance on a page,
 This only affects Chrome and a few wireless mouse brands including Microsoft.
 A workaround before the bug is fixed is to unplug and replug the wireless receiver of the mouse.
 
+## Using LVM and btrfs filesystem to partition disks
+LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future.
+On the other hand, `btrfs` filesystem is very flexible and convenient to make snapshot backups and secure & safe to manage system files in Linux.
+Combining these two, we can have a very flexible and convenient way to run Linux.
+Below are some common scenarios that I have encountered to use LVM with the btrfs filesystem.
+
+### I. creating LVM managed volume groups and logical volumes for installing Ubuntu along side with Windows.
+To set up the partitions, I freed out ~130GB space in my case under Windows 10 using disk managing tools.
+As another preparation step, I went into BIOS, and disabled Secure Boot (Startup) and enbled CSM on my Thinkpad P50 laptop.
+Then booted in an Ubuntu USB liveCD, I used Gparted to set up SWAP (4GB), /boot for 350MB, and the rest on SSD (`/dev/sdb`) as LVM2 file management system with btrfs filesystem formate. Then in the command line, I created an LVM Physics Volume from GParted btrfs partition space `/dev/sdb10` and two logical volumes for / and /home under the volume group `ubuntuvg` which only includes `/dev/sdb10`:
+```
+sudo pvcreate /dev/sdb10
+sudo vgcreate ubuntuvg /dev/sdb10
+sudo lvcreate -n root -L 25g ubuntuvg
+sudo lvcreate -n home -l 100%FREE ubuntuvg
+```
+That is 25GB btrfs for / and 120GB btrfs for /home, both of which are extendable in the future event of upgrading disks.
+They are addressed at `/dev/mapper/ubuntuvg-root` and `/dev/mapper/ubuntuvg-home` on the disk filesystem record (run `df -h` to see them once mounted).
+On the system partition table as recognized by `mount`, for example, they are recognized as `/dev/ubuntuvg/root` and `/dev/ubuntuvg/home`, respectively.
+
+Then I installed the Ubuntu OS on those partitions, and installed the bootloader to the UEFI partition (`/dev/sdb7` where the Windows 10 bootloader was installed before) in my case.
+
+To permanently add those volumes to be automatically mounted at startup of the Linux system, one can edit the `/etc/fstab` file to include them.
+My file has the following partial content:
+```
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/dev/mapper/ubuntuvg-root /               btrfs   defaults,subvol=@ 0       1
+# /boot was on /dev/sdb9 during installation
+UUID=5cd44ab2-7e1f-4886-9d4e-c1a6e10348ad /boot           ext4    defaults        0       2
+# /boot/efi was on /dev/sdb7 during installation
+UUID=6226-94B9  /boot/efi       vfat    umask=0077      0       1
+/dev/mapper/ubuntuvg-home /home           btrfs   defaults,subvol=@home 0       2
+/dev/sdb8       none            swap    sw              0       0
+/dev/disk/by-uuid/BC34947B34943A7A /media/D auto nosuid,nodev,nofail,x-gvfs-show,x-gvfs-name=D 0 0
+```
+where the UUIDs can be obtained by running `sudo blkid`. 
+
+### II. Reallocate space between logical volumes
+To resize / and /home as logical volumes defined above, I ran the following commands to reallocate a 10G space from /home to / while booted into the USB Ubuntu liveCD system.
+The idea is to reduce the physical directory space using btrfs filesystem tools before to use `lvresize` command to reduce the logical volume space for /home, and then to increase the logical volume space for / before to increase the btrfs filesystem physical space next.
+Using btrfs resizing tool needs to have the physical partitions mounted to a system directory, which is different from ext4 and other filesystems; while resizing logical volumes on LVM usually requires those logical volumes unmounted from the system to be safe.
+
+```
+sudo vgdisplay -v # to preview the physical volumes, virtual groups and logical volumes from LVM.
+sudo mount -t btrfs /dev/ubuntuvg/home /mnt
+sudo btrfs filesystem resize -10G /mnt
+sudo umount /mnt
+sudo lvresize -L -10G ubuntuvg/home
+sudo lvresize -L +10G ubuntuvg/root
+cd /dev
+sudo mkdir media
+cd media
+sudo mkdir root
+sudo mount -t btrfs /dev/ubuntuvg/root /dev/media/root
+sudo btrfs filesystem resize +10G /dev/media/root
+sudo mount /dev/ubuntuvg/home /mnt
+df -h
+sudo vgdisplay -v
+```
+
+The last step had verified that all of the commands worked out for this resizing operation between / and /home logical volumes.
+
 # Notes on using some common tools
 ## Git
 * One of the common scenario of using Git is to make fixes to a repo *A* not belonging to me but I have already customized the source in the repo for my personal usage before hand.

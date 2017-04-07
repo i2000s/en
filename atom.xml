@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-04-05T08:31:24+00:00</updated>
+ <updated>2017-04-07T03:49:35+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -23,7 +23,9 @@
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Title&lt;/em&gt;&lt;/strong&gt;: Spin squeezing on nanophotonic waveguides&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Authors&lt;/em&gt;&lt;/strong&gt;: Xiaodong Qi, Jongmin Lee, Yuan-Yu Jau, and Ivan H. Deutsch&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Abstract&lt;/em&gt;&lt;/strong&gt;: Strong coupling between atoms and photons is a prerequisite for quantum information processing protocols ranging from quantum metrology to quantum communication and computation. This strong coupling effect can be achieved using nanophotonic waveguides whereby an ensemble of atoms are trapped in the evanescent field. In this talk, I will present our recent progress in the theoretical study of implementing spin squeezing using optical nanofibers (ONF) and square waveguides (SWG) with both birefringence and Faraday interactions as QND measurement. Various geometries of protocols will be discussed based on the analysis of optical depth per atom on ONF and SWG platforms. In calculating the spin squeezing parameter, we have established a set of stochastic master equations to describe the individual and collective spin dynamics. Our simulation shows that ~10 dB of spin squeezing can be reached with a few thousands of atoms on these nanophotonic waveguides. Using the fundamental TE and TM modes, the SWG could generate more spin squeezing compared to the ONF platform. Our result can be generalized to other nanophotonic platforms, for the implementation of non-Gaussian states, and to improve quantum sensing precision using spin squeezing techniques.&lt;/p&gt;
-&lt;p&gt;Feel free to comment below or email me if you have any questions or suggestions.&lt;/p&gt;
+&lt;p&gt;Files can be downloaded from the &lt;a href=&quot;https://github.com/i2000s/2017SQuInT-SpinSqueezingOnNanophotonicWaveguides/releases&quot;&gt;repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feel free to comment as an &lt;a href=&quot;https://github.com/i2000s/2017SQuInT-SpinSqueezingOnNanophotonicWaveguides/issues&quot;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cite: &lt;a href=&quot;https://zenodo.org/badge/latestdoi/87366763&quot;&gt;&lt;img src=&quot;https://zenodo.org/badge/87366763.svg&quot; alt=&quot;DOI&quot; /&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 
 &lt;/div&gt;

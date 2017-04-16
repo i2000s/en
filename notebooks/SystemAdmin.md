@@ -55,6 +55,8 @@ sudo lshw -C display
 you should find both Intel integrated driver and the concrete NVidia display drivers are installed to the corresponding modules.
 The `nvidia-PRIME` package should also be able to run and configure how the GPUs are used on the computer.
 
+*PS*: after Ubuntu 16.10, GNOME has developed better display management systems (like [gnome-wayland-session](http://www.phoronix.com/scan.php?page=news_item&px=Ubuntu-GNOME-16.10-Wayland)) and the configuration and debugging process might be different from the above.
+
 ## Ubuntu 16.04 hangs to shut down
 This problem occurs when I freshly installed the Ubuntu 16.04 Gnome system.
 Whenever I press the Shutdown button on the Power Off menu, it will take up to 1min 30sec to respond.
@@ -62,6 +64,25 @@ Whenever I press the Shutdown button on the Power Off menu, it will take up to 1
 Turns out, it is related to the CUPS remote printers from the cups-browsed service which automatically add network printers to the computer.
 I don't need this automatic printer adding function and hence disabled this service, and then everything works fine again.
 Reference is [here](http://askubuntu.com/questions/760952/slow-shutdown-on-ubuntu-16-04-lts-stopping-thermal-daemon-running-fit-make-remo).
+
+In most cases, a command will save the time regardless of the hanging-out issue.
+`sudo reboot` is enough to reboot the computer as soon as possible.
+To shutdown (not halt), [here](https://askubuntu.com/questions/578144/why-doesnt-running-sudo-shutdown-now-shut-down) are the commands available:
+```
+sudo shutdown -h now
+sudo shutdown -P now
+sudo poweroff
+sudo halt -p
+sudo init 0
+```
+The `poweroff` and `halt` commands basically invoke `shutdown` (except for the `poweroff -f`). `sudo poweroff` and `sudo halt -p` are exactly like `sudo shutdown -P now`. The command `sudo init 0` will take you to the runlevel 0 (shutdown).
+
+Now what if we want to shut down forcefully, i.e., we don't want to wait for processes to close normally? In that case you can use:
+```
+sudo poweroff -f
+```
+This will not use shutdown. Rather, it will invoke the [reboot(2)](http://manpages.ubuntu.com/manpages/zesty/en/man2/reboot.2.html) system call (used for reboot, poweroff & halt) to power off the computer instantly.
+
 
 *Update*: Without disabling the `CUPS` service, this bug seems having been fixed with `cups-filters` v1.11.4-1 yet not released in the official Ubuntu 16.04 repository. A workaround solution to install the latest version of `cups-filters` and its dependencies can be found in [this solution](http://askubuntu.com/a/896655/390708).
 
@@ -198,5 +219,5 @@ Once I commit all necessary fixes, I can make a pull request through the web int
 After the PR is merged, I can then delete the *patch-1* branch remotely and locally by
 ```
 git push origin --delete patch-1
-$ git branch -d patch-1
+git branch -d patch-1
 ```

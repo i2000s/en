@@ -206,10 +206,34 @@ var _hmt = _hmt || [];
 
       <div class="row">
         <h1 id="linuxubuntu-os">Linux/Ubuntu OS</h1>
-<h2 id="ubuntu-16.04-becomes-too-slow-to-shut-down">Ubuntu 16.04 becomes too slow to shut down</h2>
+<h2 id="diagonalize-display-problems-and-install-the-default-nvidia-driver">Diagonalize display problems and install the default NVidia driver</h2>
+<p>The video card driver and display settings are usually tricky on Linux. I have encountered black-screen and dual-monitor display problems while installing and reinstalling Ubuntu 16.04 GNOME and Unity systems on my Lenovo P50 mobile workstation and other computers. Fortunately, I have received helps on the <a href="https://ubuntuforums.org/showthread.php?t=2323113">ubuntu forum</a> and other places from experts and fixed those past issues.</p>
+<p>If a black screen happened in the startup after installation, and in the TTY mode (Ctl+Alt+F1) it shows “a start job is for hold until boot finishes up…” but it never finishes, it might be related to the display settings and drivers. The following worked for me. Boot into the recovery mode with <em>Network</em> or <em>run commands as root</em> from the <strong><em>Advanced Ubuntu Options</em></strong>, and run</p>
+<pre><code>sudo apt-get remove plymouth
+sudo apt-get remove xserver-xorg-video-intel</code></pre>
+<p>and restart with <code>sudo reboot</code>. Certainly, no need to use <code>sudo</code> when running as root. If it works, then reinstall <code>xserver-xorg-video-intel</code>. If problem persists, try <code>sudo purge nvidia*</code> and reboot and reinstall the default NVidia driver by <code>sudo ubuntu-drivers autoinstall</code>. Pay attention to the build message to see if there is any error in the process of building the driver into the Linux kernel modules. Then reconfigure the <code>lightdm</code> by</p>
+<pre><code>sudo apt-get --reinstall install gdm
+sudo dpkg-reconfigure lightdm
+sudo service lightdm start</code></pre>
+<p>It should now start a graphic window, or reboot to see the effect.</p>
+<p>For external monitor problems, it could be related to the <code>xserver-xorg</code> setting and NVidia drivers. To diagonalize the issue, here are some useful commands: <code>cat .xsession-errors</code> in the user’s home directory to see if there is any error like <code>openConnection: connect: No such file or directory</code>. That means <code>ls /etc/X11/</code> will not show a file named as <code>xorg.conf</code>. This usually implies the NVidia driver and the xorg files are not correctly built. Run <code>dpkg -l | grep linux-</code> to see all the kernel installed on the system, and then <code>dpkg -l | grep -i nvidia</code> and <code>dkms status</code> to see what version of NVidia driver has been installed. If <code>lsmod | grep nvidia</code> gives nothing, if means the NVidia driver is not built into the current kernel (use <code>uname -a</code> to find the current kernel series number). So, the solution is to rebuild the NVidia driver using default settings by</p>
+<pre><code>sudo apt purge nvidia*
+sudo rm /etc/X11/xorg.conf # Run only when xorg.conf is there.
+sudo ubuntu-drivers autoinstall</code></pre>
+<p>The building process will be configuring all installed Linux kernels. Try to see if there is any error message for building it for each kernels. If a message shows the current kernel doesn’t support the NVidia driver, a working kernel has to be used to boot up the computer and the non-compatible kernel shouldn’t be used for the compatibility reason. After a successful rebuilding process, in the terminal run <code>sudo service lightdm restart</code>, and it should bring in the graphic window or try to reboot to see the effect.</p>
+<p>For other issues, <code>dpkg -l nvidia-prime</code> and <code>cat /var/log/Xorg.0.log</code> should show some basic message to help identify where the problem is related to the video drivers. To confirm problem solved at the root, run</p>
+<pre><code>lspci -k | grep -EA2 &#39;VGA|3D&#39;
+sudo lshw -C display</code></pre>
+<p>you should find both Intel integrated driver and the concrete NVidia display drivers are installed to the corresponding modules. The <code>nvidia-PRIME</code> package should also be able to run and configure how the GPUs are used on the computer.</p>
+<h2 id="ubuntu-16.04-hangs-to-shut-down">Ubuntu 16.04 hangs to shut down</h2>
 <p>This problem occurs when I freshly installed the Ubuntu 16.04 Gnome system. Whenever I press the Shutdown button on the Power Off menu, it will take up to 1min 30sec to respond.</p>
 <p>Turns out, it is related to the CUPS remote printers from the cups-browsed service which automatically add network printers to the computer. I don’t need this automatic printer adding function and hence disabled this service, and then everything works fine again. Reference is <a href="http://askubuntu.com/questions/760952/slow-shutdown-on-ubuntu-16-04-lts-stopping-thermal-daemon-running-fit-make-remo">here</a>.</p>
 <p><em>Update</em>: Without disabling the <code>CUPS</code> service, this bug seems having been fixed with <code>cups-filters</code> v1.11.4-1 yet not released in the official Ubuntu 16.04 repository. A workaround solution to install the latest version of <code>cups-filters</code> and its dependencies can be found in <a href="http://askubuntu.com/a/896655/390708">this solution</a>.</p>
+<h2 id="automatically-mount-partitions-at-startup">Automatically mount partitions at startup</h2>
+<p>The graphic approach is suggested <a href="https://askubuntu.com/questions/598036/automatic-ntfs-partition-mount-on-startup">here</a>–that is the follow. Into <strong><em>Disks</em></strong> software, select the partition that you want to mount at startup. Click its <code>Setting</code>, select <code>Edit Mount Options</code>, and then select <code>Mount at Startup</code> and fill in with corresponding mounting information.</p>
+<p>If preferring to modify the configuration file, <code>/etc/fstab</code> is the place to play with. Filling in the mounting partition information following the instructions <a href="https://help.ubuntu.com/community/Fstab">here</a>, <a href="https://help.ubuntu.com/community/AutomaticallyMountPartitions">here</a> or <a href="https://help.ubuntu.com/community/MountingWindowsPartitions">here</a>. For example, one line can be</p>
+<pre><code>UUID=BC34947B34943A7A /media/D ntfs-3g defaults,x-gvfs-name=D 0 0</code></pre>
+<p>The <code>UUID</code> information can be found by running <code>sudo blkid</code> on a terminal.</p>
 <h2 id="unable-to-mount-ntfs-disks-automatically-on-startup.">Unable to mount NTFS disks automatically on startup.</h2>
 <p>When the Ubuntu 16.04 started, I got the following error message:</p>
 <pre><code>Unable to access “My Drive”

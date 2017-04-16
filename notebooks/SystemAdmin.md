@@ -5,7 +5,7 @@ title: Some notes on computer system administration
 
 # Linux/Ubuntu OS
 
-## Diagonalize display problems and install the default NVidia driver
+## Diagnose display problems and install the default NVidia driver
 The video card driver and display settings are usually tricky on Linux.
 I have encountered black-screen and dual-monitor display problems while installing and reinstalling Ubuntu 16.04 GNOME and Unity systems on my Lenovo P50 mobile workstation and other computers.
 Fortunately, I have received helps on the [ubuntu forum](https://ubuntuforums.org/showthread.php?t=2323113) and other places from experts and fixed those past issues.
@@ -30,7 +30,7 @@ sudo service lightdm start
 It should now start a graphic window, or reboot to see the effect.
 
 For external monitor problems, it could be related to the `xserver-xorg` setting and NVidia drivers.
-To diagonalize the issue, here are some useful commands:
+To diagnose the issue, here are some useful commands:
 `cat .xsession-errors` in the user's home directory to see if there is any error like `openConnection: connect: No such file or directory`. That means `ls /etc/X11/` will not show a file named as `xorg.conf`.
 This usually implies the NVidia driver and the xorg files are not correctly built.
 Run `dpkg -l | grep linux-` to see all the kernel installed on the system, and then `dpkg -l | grep -i nvidia` and `dkms status` to see what version of NVidia driver has been installed.

@@ -225,9 +225,20 @@ sudo ubuntu-drivers autoinstall</code></pre>
 <pre><code>lspci -k | grep -EA2 &#39;VGA|3D&#39;
 sudo lshw -C display</code></pre>
 <p>you should find both Intel integrated driver and the concrete NVidia display drivers are installed to the corresponding modules. The <code>nvidia-PRIME</code> package should also be able to run and configure how the GPUs are used on the computer.</p>
+<p><em>PS</em>: after Ubuntu 16.10, GNOME has developed better display management systems (like <a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=Ubuntu-GNOME-16.10-Wayland">gnome-wayland-session</a>) and the configuration and debugging process might be different from the above.</p>
 <h2 id="ubuntu-16.04-hangs-to-shut-down">Ubuntu 16.04 hangs to shut down</h2>
 <p>This problem occurs when I freshly installed the Ubuntu 16.04 Gnome system. Whenever I press the Shutdown button on the Power Off menu, it will take up to 1min 30sec to respond.</p>
 <p>Turns out, it is related to the CUPS remote printers from the cups-browsed service which automatically add network printers to the computer. I don’t need this automatic printer adding function and hence disabled this service, and then everything works fine again. Reference is <a href="http://askubuntu.com/questions/760952/slow-shutdown-on-ubuntu-16-04-lts-stopping-thermal-daemon-running-fit-make-remo">here</a>.</p>
+<p>In most cases, a command will save the time regardless of the hanging-out issue. <code>sudo reboot</code> is enough to reboot the computer as soon as possible. To shutdown (not halt), <a href="https://askubuntu.com/questions/578144/why-doesnt-running-sudo-shutdown-now-shut-down">here</a> are the commands available:</p>
+<pre><code>sudo shutdown -h now
+sudo shutdown -P now
+sudo poweroff
+sudo halt -p
+sudo init 0</code></pre>
+<p>The <code>poweroff</code> and <code>halt</code> commands basically invoke <code>shutdown</code> (except for the <code>poweroff -f</code>). <code>sudo poweroff</code> and <code>sudo halt -p</code> are exactly like <code>sudo shutdown -P now</code>. The command <code>sudo init 0</code> will take you to the runlevel 0 (shutdown).</p>
+<p>Now what if we want to shut down forcefully, i.e., we don’t want to wait for processes to close normally? In that case you can use:</p>
+<pre><code>sudo poweroff -f</code></pre>
+<p>This will not use shutdown. Rather, it will invoke the <a href="http://manpages.ubuntu.com/manpages/zesty/en/man2/reboot.2.html">reboot(2)</a> system call (used for reboot, poweroff &amp; halt) to power off the computer instantly.</p>
 <p><em>Update</em>: Without disabling the <code>CUPS</code> service, this bug seems having been fixed with <code>cups-filters</code> v1.11.4-1 yet not released in the official Ubuntu 16.04 repository. A workaround solution to install the latest version of <code>cups-filters</code> and its dependencies can be found in <a href="http://askubuntu.com/a/896655/390708">this solution</a>.</p>
 <h2 id="automatically-mount-partitions-at-startup">Automatically mount partitions at startup</h2>
 <p>The graphic approach is suggested <a href="https://askubuntu.com/questions/598036/automatic-ntfs-partition-mount-on-startup">here</a>–that is the follow. Into <strong><em>Disks</em></strong> software, select the partition that you want to mount at startup. Click its <code>Setting</code>, select <code>Edit Mount Options</code>, and then select <code>Mount at Startup</code> and fill in with corresponding mounting information.</p>
@@ -305,7 +316,7 @@ git fetch A
 git checkout -b patch-1 A/patch-1</code></pre>
 <p>Once I commit all necessary fixes, I can make a pull request through the web interface of the Git repository. After the PR is merged, I can then delete the <em>patch-1</em> branch remotely and locally by</p>
 <pre><code>git push origin --delete patch-1
-$ git branch -d patch-1</code></pre></li>
+git branch -d patch-1</code></pre></li>
 </ul>
 <div class="references">
 

@@ -5,7 +5,58 @@ title: Some notes on computer system administration
 
 # Linux/Ubuntu OS
 
-## Ubuntu 16.04 becomes too slow to shut down
+## Diagonalize display problems and install the default NVidia driver
+The video card driver and display settings are usually trick on Linux.
+I have encountered black screen and dual-monitor display problems while installing and reinstalling Ubuntu 16.04 GNOME and Unity systems on my Lenovo P50 mobile workstation and other computers.
+Fortunately, I have been receiving helps on the [ubuntuforum](https://ubuntuforums.org/showthread.php?t=2323113) and other places from experts and fixed those past issues.
+
+If a black screen happened in the startup after installation, and in the TTY mode (Ctl+Alt+F1) it shows "a start job is for hold until boot finishes up..." but it never finishes, it might be related to the display settings and drivers.
+The following worked for me.
+Boot into the recovery mode with *Network* or *run commands as root* from the ***Advanced Ubuntu Options***, and run
+```
+sudo apt-get remove plymouth
+sudo apt-get remove xserver-xorg-video-intel
+```
+and restart with `sudo reboot`. Certainly, no need to use `sudo` as root.
+If it works, then reinstall `xserver-xorg-video-intel`.
+If problem persists, try `sudo purge nvidia*` and reboot and reinstall the default NVidia driver by
+`sudo ubuntu-drivers autoinstall`.
+Pay attention to the build message to see if there is any error in the process of building the driver into the kernel module.
+Then reconfigure the `lightdm` by
+```
+sudo apt-get --reinstall install gdm
+sudo dpkg-reconfigure lightdm
+sudo service lightdm start
+```
+It should now start a graphic window.
+
+For external monitor problems, it could be related to the `xserver-xorg` setting and NVidia drivers.
+To diagonalize the issue, here are some useful commands:
+`cat .xsession-errors` to see if there is any error like `openConnection: connect: No such file or directory`. That means `ls /etc/X11/` will not show a file named as `xorg.conf`.
+This usually means the NVidia driver or the xorg files are not correctly built.
+Run `dpkg -l | grep linux-` to see all the kernel installed on the system, and then `dpkg -l | grep -i nvidia` and `dkms status` to see what version of NVidia driver has been installed.
+If `lsmod | grep nvidia` gives nothing, if means the NVidia driver is not built into the current kernel (use `uname -a` to find the current kernel series number).
+So, the solution is to rebuild the NVidia driver using default settings by
+```
+sudo apt purge nvidia*
+sudo rm /etc/X11/xorg.conf # Run only when xorg.conf is there.
+sudo ubuntu-drivers autoinstall
+```
+The building process will to configuring all installed Linux kernels.
+Try to see if there is error message for building it for each kernels.
+If a message shows the current kernel doesn't support the NVidia driver, a working kernel has to be used to boot up the computer and the non-compatible kernel shouldn't be used for the compatibility reason.
+After the rebuilding process works, in the terminal run `sudo service lightdm restart`, and it should bring in the graphic window or try to reboot.
+
+For other issues, `dpkg -l nvidia-prime` and `cat /var/log/Xorg.0.log` should show some basic message to help identify where the problem is.
+To confirm problem solved at the root, run 
+```
+lspci -k | grep -EA2 'VGA|3D'
+sudo lshw -C display
+```
+you should find both Intel integrated driver and the concrete NVidia display drivers are installed to the modules.
+The `nvidia-PRIME` package should also be able to run and configure how the GPUs are used on the computer.
+
+## Ubuntu 16.04 hangs to shut down
 This problem occurs when I freshly installed the Ubuntu 16.04 Gnome system.
 Whenever I press the Shutdown button on the Power Off menu, it will take up to 1min 30sec to respond.
 
@@ -14,6 +65,19 @@ I don't need this automatic printer adding function and hence disabled this serv
 Reference is [here](http://askubuntu.com/questions/760952/slow-shutdown-on-ubuntu-16-04-lts-stopping-thermal-daemon-running-fit-make-remo).
 
 *Update*: Without disabling the `CUPS` service, this bug seems having been fixed with `cups-filters` v1.11.4-1 yet not released in the official Ubuntu 16.04 repository. A workaround solution to install the latest version of `cups-filters` and its dependencies can be found in [this solution](http://askubuntu.com/a/896655/390708).
+
+## Automatically mount partitions at startup
+The graphic way is suggested [here](https://askubuntu.com/questions/598036/automatic-ntfs-partition-mount-on-startup)--that is the follow.
+Into ***Disks*** software, select the partition that you want to mount at startup.
+Click its `Setting`, select `Edit Mount Options`, and then select `Mount at Startup` and fill in with corresponding mounting information.
+
+If prefer to modify the configuration file, `/etc/fstab` is the file to modify.
+Filling in the mounting partition information following the instructions [here](https://help.ubuntu.com/community/Fstab), [here](https://help.ubuntu.com/community/AutomaticallyMountPartitions) or [here](https://help.ubuntu.com/community/MountingWindowsPartitions).
+For example, one line can be
+```
+UUID=BC34947B34943A7A /media/D ntfs-3g defaults,x-gvfs-name=D 0 0
+```
+The `UUID` information can be found by running `sudo blkid` on a terminal.
 
 ## Unable to mount NTFS disks automatically on startup.
 When the Ubuntu 16.04 started, I got the following error message:
@@ -95,7 +159,7 @@ UUID=6226-94B9  /boot/efi       vfat    umask=0077      0       1
 /dev/sdb8       none            swap    sw              0       0
 /dev/disk/by-uuid/BC34947B34943A7A /media/D auto nosuid,nodev,nofail,x-gvfs-show,x-gvfs-name=D 0 0
 ```
-where the UUIDs can be obtained by running `sudo blkid`. 
+where the UUIDs can be obtained by running `sudo blkid`.
 
 ### II. Reallocate space between logical volumes
 To resize / and /home as logical volumes defined above, I ran the following commands to reallocate a 10G space from /home to / while booted into the USB Ubuntu liveCD system.

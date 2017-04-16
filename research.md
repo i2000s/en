@@ -41,11 +41,11 @@ In addition, through establishing the theoretical foundation of light-atom inter
 and to deeply understand the quantum behaviors of atoms and photons and the role of nanophotonic geometries for better integratable photonic systems for quantum information processing.  
 Stay tuned!
 
-## Current Research Group and Main Collaborators
+## Links
 
  - Current research group: [Deutsch Group](http://cquic.unm.edu/deutsch-group/) in [CQuIC](http://cquic.org/), University of New Mexico.
- - Established collaborator & Current research focus: [Dr. Poul Jessen's Quantum Information and Control Group](http://w3.arizona.edu/~lascool/) (experimental)--mainly with group member [David Melchior](http://www.optics.arizona.edu/academics/students/profile/david-melchior)), from the University of Arizona (College of Optical Sciences and an established node of [CQuIC](http://cquic.org)).
- - Collaboration in beta phase & Current research focus: [Dr. Yuan-Yu Jau](http://physics.unm.edu/pandaweb/people/person.php?personID=1276), [Dr. Jongmin Lee](https://www.linkedin.com/in/jongmin-lee-b156b28) and [Dr. Grant Biedermann](http://physics.unm.edu/pandaweb/people/person.php?personID=971)'s experimental group from the [Sandia National Labs on Quantum Systems](http://www.sandia.gov/mstc/quantum/index.html).
- - Collaboration in alpha phase: [Dr. Luis A. Orozco's Quantum Optics and Francium Spectroscopy group](http://www.physics.umd.edu/rgroups/amo/orozco/) (experimental)--mainly with group member [Pablo Solano](http://jqi.umd.edu/people/pablo-solano) and his fellows, from the [Joint Quantum Institute](http://jqi.umd.edu/), University of Maryland.
+ - [Dr. Poul Jessen's Quantum Information and Control Group](http://w3.arizona.edu/~lascool/) (experimental) with group member [David Melchior](http://www.optics.arizona.edu/academics/students/profile/david-melchior)), from the University of Arizona (College of Optical Sciences and an established node of [CQuIC](http://cquic.org)).
+ - [Dr. Yuan-Yu Jau](http://physics.unm.edu/pandaweb/people/person.php?personID=1276), [Dr. Jongmin Lee](https://www.linkedin.com/in/jongmin-lee-b156b28) and [Dr. Grant Biedermann](http://physics.unm.edu/pandaweb/people/person.php?personID=971)'s experimental group from the [Sandia National Labs on Quantum Systems](http://www.sandia.gov/mstc/quantum/index.html).
+ - [Dr. Luis A. Orozco's Quantum Optics and Francium Spectroscopy group](http://www.physics.umd.edu/rgroups/amo/orozco/) (experimental) with former group member [Pablo Solano](http://jqi.umd.edu/people/pablo-solano) (just graduated with PhD and moved to [Vladan Vuletic's group](http://www.rle.mit.edu/eap/)) and his fellows, from the [Joint Quantum Institute](http://jqi.umd.edu/), University of Maryland.
 
 Note: If you think I might be able to contribute to your research as well as deepen my understanding on nature, we can talk.

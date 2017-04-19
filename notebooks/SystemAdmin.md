@@ -131,7 +131,18 @@ sudo apt install linux-generic-hwe-16.04 linux-lowlatency-hwe-16.04
 according to the [official rolling LTS enablement stack page for Ubuntu 16.04 LTS distribution](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack).
 The kernel update will keep rolling in the first two years after the distribution was initally released.
 
-## Remove old Linux kernels to save space in /boot
+## System files one can safely remove to save space
+### some files in /var
+Old and big files in `/var/log`, `/var/crash`, `/var/core`, `/tmp` and `/var/tmp` can usually be removed safely.
+For an average user, the log files in `/var/log` ended with `.gz` or `.old` can be removed safely.
+
+The crash files in `/var/crash` can be deleted safely if the dump information is no longer needed.
+Similar to the crash core files in `/var/core` or other places depending on programs (see [Java](https://docs.oracle.com/cd/E23824_01/html/821-1451/sysresdiskuse-19.html), for example). One can delete core files by `find . -name core -exec rm {} \;` as a super admin.
+
+For `/tmp` and `/var/tmp` files, it might be helpful to use the [tmpreaper](http://manpages.ubuntu.com/manpages/wily/man8/tmpreaper.8.html) program to automatically delete old files by customizing the configure file of `/etc/tmpreaper.conf`.
+In my current configuration file, I defined `TMPREAPER_TIME=30d` and `TMPREAPER_DIRS='/tmp/. /var/tmp/.'` to automatically clean up files in both `/tmp` and `/var/tmp` directories older than 30 days. 
+
+### Remove old Linux kernels to save space in /boot
 One common problem of upgrading linux kernel is "no enough space" in the /boot partition. This might be due to the old kernels and the new kernel files copied to /boot while compiling.
 One line of command to remove those unnecessary files is
 ```

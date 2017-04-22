@@ -273,6 +273,65 @@ read-only with the &#39;ro&#39; mount option</code></pre>
 <p>Reference: <a href="http://askubuntu.com/questions/89710/how-do-i-free-up-more-space-in-boot">the solution on Askubuntu</a>.</p>
 <h2 id="mouse-scrolls-too-fast-on-chrome-browser">Mouse scrolls too fast on Chrome browser</h2>
 <p>If one scroll of the mouse on the Chrome brower can go a far distance on a page, it might have been affected by <a href="https://bugs.launchpad.net/ubuntu/+bug/971321">this Ubuntu bug</a>. This only affects Chrome and a few wireless mouse brands including Microsoft. A workaround before the bug is fixed is to unplug and replug the wireless receiver of the mouse.</p>
+<h2 id="make-powertop-and-tlp-work-together-to-save-battery">Make Powertop and TLP work together to save battery</h2>
+<p>I made the following configuration on my Lenovo Thinkpad P50 with Ubuntu 16.04. First, install powertop:</p>
+<pre><code>sudo apt install powertop</code></pre>
+<p>and let powertop analyze the system (don’t worry with black screens)</p>
+<pre><code>sudo powertop --calibrate</code></pre>
+<p>Make the systemd service : <code>gksu gedit /etc/systemd/system/powertop.service</code> paste in:</p>
+<pre><code>[Unit]
+Description=Powertop tunings
+
+[Service]
+Type=idle
+ExecStart=/bin/bash /home/qxd/powertop_tune.sh
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+<p>Of course, I have created a file at <code>/home/qxd/powertop_tune.sh</code> with content:</p>
+<pre><code>#!/bin/sh
+# Run Powertop auto-tune.
+/usr/sbin/powertop --auto-tune
+# Disable USB auto-suspend for my mouse and wireless keyboard on startup.
+declare -a usbs=(&quot;1-2&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-9&quot; &quot;1-10&quot; &quot;1-13&quot; &quot;1-14&quot; &quot;usb1&quot; &quot;usb2&quot;)
+sleep 5;
+for i in &quot;${usbs[@]}&quot;
+do
+    usb=&quot;/sys/bus/usb/devices/${i}/power/control&quot;;
+    if [ -f &quot;$usb&quot; ]; then
+        echo &#39;on&#39; &gt; $usb;
+    fi
+done</code></pre>
+<p>Notice that, for the part to disable USB auto-suspension, the USB device names are found on powertop. For example, once powertop is open (<code>sudo powertop</code>), you can Tab to the control options page and hit <code>ENTER</code> to turn on or off some options like “Autosuspension of USB 1-12” and there will be a line immediately on the top of the powertop window showing the equivalent command that powertop has just committed, like <code>echo 'on' &gt; '/sys/bus/usb/devices/1-12/power/control'</code>. Without the part to disable auto-suspension, the wireless devices plugged into the USB ports may really suspend after 2 sec of inactivity. If this really happens without using the full script of systemctl, you can run the <code>echo</code> command as root (<code>sudo -i</code>). For your specific case, you can modify the bash script to disable or enable power saving options in a similar way.</p>
+<p>Now, save and enable powertop options at start:</p>
+<pre><code>sudo systemctl enable powertop</code></pre>
+<p>Reload the systemctl service since the content of <code>powertop.service</code> has been changed, use <code>systemctl daemon-reload</code> on a terminal and then <code>sudo systemctl restart powertop.service</code> to restart the script (or replace <code>restart</code> with <code>start</code> for a first time run). To see the journal log of this powertop service, you can run <code>journalctl -u powertop.service</code>.<br />Install TLP :</p>
+<pre><code>sudo apt install tlp</code></pre>
+<p>TLP make nearly the same as powertop, maybe I should delete all things ever managed by powertop. But I decided to have the default lines there and only changed a few lines of parameters: My file <code>/etc/default/tlp</code> has the following lines for a minimum setting:</p>
+<pre><code># tlp - Parameters for power save
+
+# Hint: some features are disabled by default, remove the leading # to enable
+# them.
+
+# Set to 0 to disable, 1 to enable TLP.
+TLP_ENABLE=1
+
+# Dirty page values (timeouts in secs).
+MAX_LOST_WORK_SECS_ON_BAT=15
+
+# Battery charge thresholds (ThinkPad only, tp-smapi or acpi-call kernel module
+# required). Charging starts when the remaining capacity falls below the
+# START_CHARGE_TRESH value and stops when exceeding the STOP_CHARGE_TRESH value.
+# Main / Internal battery (values in %)
+START_CHARGE_THRESH_BAT0=70
+STOP_CHARGE_THRESH_BAT0=85
+# Ultrabay / Slice / Replaceable battery (values in %)
+START_CHARGE_THRESH_BAT1=70
+STOP_CHARGE_THRESH_BAT1=85</code></pre>
+<p>Change <code>MAX_LOST_WORK_SECS_ON_BAT</code> at 15 (powertop said for VM writeback) than 60. 60 make no effect. Then enable services:</p>
+<pre><code>systemctl enable tlp.service  
+systemctl enable tlp-sleep.service</code></pre>
+<p>And reboot.</p>
 <h2 id="using-lvm-and-btrfs-filesystem-to-partition-disks">Using LVM and btrfs filesystem to partition disks</h2>
 <p>LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future. On the other hand, <code>btrfs</code> filesystem is very flexible and convenient to make snapshot backups and secure &amp; safe to manage system files in Linux. Combining these two, we can have a very flexible and convenient way to run Linux. Below are some common scenarios that I have encountered to use LVM with the btrfs filesystem.</p>
 <h3 id="i.-creating-lvm-managed-volume-groups-and-logical-volumes-for-installing-ubuntu-along-side-with-windows.">I. creating LVM managed volume groups and logical volumes for installing Ubuntu along side with Windows.</h3>

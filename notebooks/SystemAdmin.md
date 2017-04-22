@@ -157,7 +157,7 @@ A workaround before the bug is fixed is to unplug and replug the wireless receiv
 
 ## Make Powertop and TLP work together to save battery
 I made the following configuration on my Lenovo Thinkpad P50 with Ubuntu 16.04.
-First, install powertop:
+First, install [powertop](https://wiki.archlinux.org/index.php/powertop):
 ```
 sudo apt install powertop
 ```
@@ -178,6 +178,7 @@ ExecStart=/bin/bash /home/qxd/powertop_tune.sh
 [Install]
 WantedBy=multi-user.target
 ```
+More details on customizing a systemctl service can be found [here](https://www.freedesktop.org/software/systemd/man/systemd.service.html).
 Of course, I have created a file at `/home/qxd/powertop_tune.sh` with content:
 ```
 #!/bin/sh
@@ -194,7 +195,7 @@ do
     fi
 done
 ```
-Notice that, for the part to disable USB auto-suspension, the USB device names are found on powertop.
+Notice that, for the part to disable USB auto-suspension, the USB device names are found on powertop (see [reference](https://www.kirsle.net/wiki/PowerTOP-and-USB-Autosuspend)).
 For example, once powertop is open (`sudo powertop`), you can Tab to the control options page and hit `ENTER` to turn on or off some options like "Autosuspension of USB 1-12" and there will be a line immediately on the top of the powertop window showing the equivalent command that powertop has just committed, like `echo 'on' > '/sys/bus/usb/devices/1-12/power/control'`.
 Without the part to disable auto-suspension, the wireless devices plugged into the USB ports may really suspend after 2 sec of inactivity.
 If this really happens without using the full script of systemctl, you can run the `echo` command as root (`sudo -i`).
@@ -204,9 +205,9 @@ Now, save and enable powertop options at start:
 ```
 sudo systemctl enable powertop
 ```
-Reload the systemctl service since the content of `powertop.service` has been changed, use `systemctl daemon-reload` on a terminal and then `sudo systemctl restart powertop.service` to restart the script (or replace `restart` with `start` for a first time run).
+Reload the systemctl service since the content of `powertop.service` has been changed, use `sudo systemctl daemon-reload` on a terminal and then `sudo systemctl restart powertop.service` to restart the script (or replace `restart` with `start` for a first time run).
 To see the journal log of this powertop service, you can run `journalctl -u powertop.service`.  
-Install TLP :
+Now, install [TLP](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html):
 ```
 sudo apt install tlp
 ```

@@ -84,14 +84,15 @@ In the past or as backups, I also have convenient Thinkpad X61 Tablet (fixed fro
 
 To reduce power consuming and increase battery life using Linux on Thinkpads, I use [TLP](http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html) on top of [acpi_call](https://github.com/mkottman/acpi_call) (you may want [tp-smapi](http://www.thinkwiki.org/wiki/Tp_smapi) instead if the CPU was produced earlier than the Ivy Bridge times) and [acpi-bat](http://www.thinkwiki.org/wiki/Tpacpi-bat) to set up battery charging thresholds and save power usage.
 I only need to edit the TLP config file at `/etc/default/tlp`, run `sudo tlp start` for the first time and forget about it.
-I was also using [powertop](https://wiki.archlinux.org/index.php/powertop) with the `--auto-tune` switch for power saving on battery before.
+I was also using [powertop](https://wiki.archlinux.org/index.php/powertop) with the `--auto-tune` switch and disabled a few options for power saving on battery (see the corresponding notes on the [system administration page](/en/notebooks/SystemAdmin.html)).
 Linux kernel is not very good on power management and driver compatibility for closed-source designed hardware, and there is usually a delay of support on most advanced hardware.
 For example, Skylake mobile CPUs were not supported until Linux kernel v4.4 (half a year after the CPU release) and continuously get worse performance than under Windows OS on deep-sleeping optimization of mobile device modules for a long time (you can find the PC-state using powertop).
 Be sure to consider this factor when you want to install Linux on a new computer.
 
-For workstations, I have configured [Dell Precision 7910](http://www.dell.com/us/business/p/precision-t7910-workstation/pd) for [CQuIC](http://cquic.unm.edu) from the companies that the university policy allows. There may be better choices.
+For workstations, I have configured a [Dell Precision 7910](http://www.dell.com/us/business/p/precision-t7910-workstation/pd) computer for [CQuIC](https://cquic.unm.edu) (machine is purchased from Dell that the university policy allows). There may be better choices.
 Again, Ubuntu OS was installed for its being popular in the research center.
-But I have some experience of using CentOS on a cluster in the earlier days which along side with Scientific Linux OS may be a better choice for dedicated high-performance computing.
+[TORQUE/PBS](http://www.adaptivecomputing.com/products/open-source/torque/) was installed to manage computing job submissions and scheduling. 
+I have also experiences of using CentOS on a cluster in the earlier days which along side with Scientific Linux OS may be a better choice for dedicated high-performance computing.
 
 
-## Some notes on computer system administration and tool using can be found [here](/en/notebooks/SystemAdmin.html). 
+## Some notes on computer system administration and tool using can be found [here](/en/notebooks/SystemAdmin.html).

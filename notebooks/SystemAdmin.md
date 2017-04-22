@@ -140,7 +140,7 @@ The crash files in `/var/crash` can be deleted safely if the dump information is
 Similar to the crash core files in `/var/core` or other places depending on programs (see [Java](https://docs.oracle.com/cd/E23824_01/html/821-1451/sysresdiskuse-19.html), for example). One can delete core files by `find . -name core -exec rm {} \;` as a super admin.
 
 For `/tmp` and `/var/tmp` files, it might be helpful to use the [tmpreaper](http://manpages.ubuntu.com/manpages/wily/man8/tmpreaper.8.html) program to automatically delete old files by customizing the configure file of `/etc/tmpreaper.conf`.
-In my current configuration file, I defined `TMPREAPER_TIME=30d` and `TMPREAPER_DIRS='/tmp/. /var/tmp/.'` to automatically clean up files in both `/tmp` and `/var/tmp` directories older than 30 days. 
+In my current configuration file, I defined `TMPREAPER_TIME=30d` and `TMPREAPER_DIRS='/tmp/. /var/tmp/.'` to automatically clean up files in both `/tmp` and `/var/tmp` directories older than 30 days.
 
 ### Remove old Linux kernels to save space in /boot
 One common problem of upgrading linux kernel is "no enough space" in the /boot partition. This might be due to the old kernels and the new kernel files copied to /boot while compiling.
@@ -154,6 +154,93 @@ Reference: [the solution on Askubuntu](http://askubuntu.com/questions/89710/how-
 If one scroll of the mouse on the Chrome brower can go a far distance on a page, it might have been affected by [this Ubuntu bug](https://bugs.launchpad.net/ubuntu/+bug/971321).
 This only affects Chrome and a few wireless mouse brands including Microsoft.
 A workaround before the bug is fixed is to unplug and replug the wireless receiver of the mouse.
+
+## Make Powertop and TLP work together to save battery
+I made the following configuration on my Lenovo Thinkpad P50 with Ubuntu 16.04.
+First, install powertop:
+```
+sudo apt install powertop
+```
+and let powertop analyze the system (don't worry with black screens)
+```
+sudo powertop --calibrate
+```
+Make the systemd service : `gksu gedit /etc/systemd/system/powertop.service`
+paste in:
+```
+[Unit]
+Description=Powertop tunings
+
+[Service]
+Type=idle
+ExecStart=/bin/bash /home/qxd/powertop_tune.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+Of course, I have created a file at `/home/qxd/powertop_tune.sh` with content:
+```
+#!/bin/sh
+# Run Powertop auto-tune.
+/usr/sbin/powertop --auto-tune
+# Disable USB auto-suspend for my mouse and wireless keyboard on startup.
+declare -a usbs=("1-2" "1-5" "1-8" "1-9" "1-10" "1-13" "1-14" "usb1" "usb2")
+sleep 5;
+for i in "${usbs[@]}"
+do
+    usb="/sys/bus/usb/devices/${i}/power/control";
+    if [ -f "$usb" ]; then
+        echo 'on' > $usb;
+    fi
+done
+```
+Notice that, for the part to disable USB auto-suspension, the USB device names are found on powertop.
+For example, once powertop is open (`sudo powertop`), you can Tab to the control options page and hit `ENTER` to turn on or off some options like "Autosuspension of USB 1-12" and there will be a line immediately on the top of the powertop window showing the equivalent command that powertop has just committed, like `echo 'on' > '/sys/bus/usb/devices/1-12/power/control'`.
+Without the part to disable auto-suspension, the wireless devices plugged into the USB ports may really suspend after 2 sec of inactivity.
+If this really happens without using the full script of systemctl, you can run the `echo` command as root (`sudo -i`).
+For your specific case, you can modify the bash script to disable or enable power saving options in a similar way.
+
+Now, save and enable powertop options at start:
+```
+sudo systemctl enable powertop
+```
+Reload the systemctl service since the content of `powertop.service` has been changed, use `systemctl daemon-reload` on a terminal and then `sudo systemctl restart powertop.service` to restart the script (or replace `restart` with `start` for a first time run).
+To see the journal log of this powertop service, you can run `journalctl -u powertop.service`.  
+Install TLP :
+```
+sudo apt install tlp
+```
+TLP make nearly the same as powertop, maybe I should delete all things ever managed by powertop. But I decided to have the default lines there and only changed a few lines of parameters:
+My file `/etc/default/tlp` has the following lines for a minimum setting:
+```
+# tlp - Parameters for power save
+
+# Hint: some features are disabled by default, remove the leading # to enable
+# them.
+
+# Set to 0 to disable, 1 to enable TLP.
+TLP_ENABLE=1
+
+# Dirty page values (timeouts in secs).
+MAX_LOST_WORK_SECS_ON_BAT=15
+
+# Battery charge thresholds (ThinkPad only, tp-smapi or acpi-call kernel module
+# required). Charging starts when the remaining capacity falls below the
+# START_CHARGE_TRESH value and stops when exceeding the STOP_CHARGE_TRESH value.
+# Main / Internal battery (values in %)
+START_CHARGE_THRESH_BAT0=70
+STOP_CHARGE_THRESH_BAT0=85
+# Ultrabay / Slice / Replaceable battery (values in %)
+START_CHARGE_THRESH_BAT1=70
+STOP_CHARGE_THRESH_BAT1=85
+```
+Change `MAX_LOST_WORK_SECS_ON_BAT` at 15 (powertop said for VM writeback) than 60. 60 make no effect.
+Then enable services:
+```
+systemctl enable tlp.service  
+systemctl enable tlp-sleep.service
+```
+And reboot.
 
 ## Using LVM and btrfs filesystem to partition disks
 LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future.

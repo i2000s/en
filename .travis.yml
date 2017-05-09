@@ -1,7 +1,9 @@
 language: ruby
 rvm:
 - 2.3.1
-cache: bundler
+cache:
+  directories:
+  - vendor/bundle
 dist: trusty
 sudo: required
 branches:

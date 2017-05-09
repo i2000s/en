@@ -3,8 +3,6 @@ rvm:
 - 2.3.1
 cache:
   - bundler
-  - directories:
-    - vendor/bundle
 dist: trusty
 sudo: required
 branches:
@@ -17,11 +15,8 @@ before_install:
 - sudo apt-get install libgsl0-dev libgsl0ldbl
 - gem update --system
 - gem install bundler
-- export BUNDLE_PATH="${TRAVIS_BUILD_DIR}/vendor/bundle"
 install:
 - travis_retry bundle install
-before_cache:
-  - rm -f ${BUNDLE_PATH}/**/extensions/**/{gem_make.out,mkmf.log}
 script:
 - bundle exec jekyll build
 - bundle exec rake site:deploy

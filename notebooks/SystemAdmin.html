@@ -371,6 +371,8 @@ sudo mount /dev/ubuntuvg/home /mnt
 df -h
 sudo vgdisplay -v</code></pre>
 <p>The last step had verified that all of the commands worked out for this resizing operation between / and /home logical volumes.</p>
+<h2 id="manage-application-menu">Manage application menu</h2>
+<p>On XFCE or GNOME desktop environment of Linux OS, one can browse applications on a dropdown menu. To manage the menu structure and add shortcuts to the application menu, there are two places to look for: one is located at <code>~/.config/menus</code> with files named as <code>*.menu</code> which define how a particular program’s shortcut is located in the application menu–not every desktop environment has this, neither all programs have a menu file defined here; the other one is located at <code>~/.local/share/applications</code> with files named as <code>*.desktop</code> which define shortcuts with commands of running the target programs. The second type of files are called by the menu files. System-wide programs may be located at other places. For new programs, one can create the <code>.menu</code> and <code>.desktop</code> files to let the shortcut shown on the dropdown application menu.</p>
 <h1 id="notes-on-using-some-common-tools">Notes on using some common tools</h1>
 <h2 id="git">Git</h2>
 <ul>
@@ -382,6 +384,13 @@ git checkout -b patch-1 A/patch-1</code></pre>
 <pre><code>git push origin --delete patch-1
 git branch -d patch-1</code></pre></li>
 </ul>
+<h2 id="changing-java-settings">Changing Java settings</h2>
+<p>To change the default version of Java commands, one can run</p>
+<pre><code>sudo update-alternatives --config java</code></pre>
+<p>and select an installed version as default. Similarly, one can replace <code>java</code> with <code>javac</code> (the compiler), <code>javadoc</code> (documentation generator) and <code>jarasigner</code> (JAR signing tool) for configuring other java-associated settings.</p>
+<p>After this, to change the home directory of Java, one can edit by <code>sudo nano /etc/environment</code> with a line of <code>JAVA_HOME=&quot;/usr/lib/jvm/java-8-oracle&quot;</code>, for example, where the directory path is copied from the <code>sudo update-alternatives --config java</code> setting. After saving the setting, run</p>
+<pre><code>source /etc/environment</code></pre>
+<p>to reload the setting. To check if the new setting has taken effect, one can use <code>echo $JAVA_HOME</code> and <code>javac --version</code>, for instance.</p>
 <div class="references">
 
 </div>

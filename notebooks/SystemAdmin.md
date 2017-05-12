@@ -305,6 +305,15 @@ sudo vgdisplay -v
 
 The last step had verified that all of the commands worked out for this resizing operation between / and /home logical volumes.
 
+## Manage application menu
+On XFCE or GNOME desktop environment of Linux OS, one can browse applications on a dropdown menu.
+To manage the menu structure and add shortcuts to the application menu, there are two places to look for:
+one is located at `~/.config/menus` with files named as `*.menu` which define how a particular program's shortcut is located in the application menu--not every desktop environment has this, neither all programs have a menu file defined here;
+the other one is located at `~/.local/share/applications` with files named as `*.desktop` which define shortcuts with commands of running the target programs.
+The second type of files are called by the menu files.
+System-wide programs may be located at other places.
+For new programs, one can create the `.menu` and `.desktop` files to let the shortcut shown on the dropdown application menu.
+
 # Notes on using some common tools
 ## Git
 * One of the common scenario of using Git is to make fixes to a repo *A* not belonging to me but I have already customized the source in the repo for my personal usage before hand.
@@ -320,3 +329,19 @@ After the PR is merged, I can then delete the *patch-1* branch remotely and loca
 git push origin --delete patch-1
 git branch -d patch-1
 ```
+
+## Changing Java settings
+To change the default version of Java commands, one can run
+```
+sudo update-alternatives --config java
+```
+and select an installed version as default.
+Similarly, one can replace `java` with `javac` (the compiler), `javadoc` (documentation generator) and `jarasigner` (JAR signing tool) for configuring other java-associated settings.
+
+After this, to change the home directory of Java, one can edit by `sudo nano /etc/environment` with a line of `JAVA_HOME="/usr/lib/jvm/java-8-oracle"`, for example, where the directory path is copied from the `sudo update-alternatives --config java` setting.
+After saving the setting, run
+```
+source /etc/environment
+```
+to reload the setting.
+To check if the new setting has taken effect, one can use `echo $JAVA_HOME` and `javac --version`, for instance.

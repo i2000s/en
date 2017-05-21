@@ -10,7 +10,7 @@ categories: community
 # A lifecycle model of productivity
 As we all know, when we work on a subject, we usually experience the following productivity curve over time as plotted in the figure below.
 
-![lifecycle of productivity over time][{% baseurl %}/assets/img/productcurve.png]
+![lifecycle of productivity over time][{{site.baseurl}}/assets/img/productcurve.png]
 *A lifecycle curve of productivity over time.*
 
 The curve is the lifecycle on how working on the subject yields valuable outputs, which typically includes a slow and low-efficient starting phase, a rapid climbing phase, a flat peaking phase and a slow decaying phase.
@@ -21,7 +21,7 @@ You can arrange when you start to work on your subjects, and your productivity w
 
 We consider two scenarios.
 First, as shown below, we continue working on new subjects before the previous subject's productivity level decays.
-![continuous growth of productivity case][{% baseurl %}/assets/img/productcurveaccum.png]
+![continuous growth of productivity case][{{site.baseurl}}/assets/img/productcurveaccum.png]
 *The way to have a continuous growth of productivity level over time. Dashed lines are the individual productivity lifecycle curves. Solid line is the sum of individual curves.*
 
 Obviously, the overall productivity curve experiences a non-decreasing growth over time as individual tasks' productivity curves overlap.
@@ -29,7 +29,7 @@ Obviously, the overall productivity curve experiences a non-decreasing growth ov
 Next, we consider increasing the intervals between tasks so that the overlap between tasks is small.
 We could find the following figure to illustrate the productivity curve.
 
-![continuous growth of productivity case][{% baseurl %}/assets/img/productcurveaccumless.png]
+![continuous growth of productivity case][{{site.baseurl}}/assets/img/productcurveaccumless.png]
 *Fluctuation occurs when task interval increases.*
 
 

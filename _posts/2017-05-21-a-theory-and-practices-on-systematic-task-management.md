@@ -1,7 +1,8 @@
 ---
 layout: post
-title: My naive theory and some trial practices on systematic task management
+title: My naive theory and some trial practices on systematic research management
 subtitle: From a simple idea to continuous growth
+time: 2017-05-21 02:54:00 -0700
 tags:
   - open-science
   - systematic-science

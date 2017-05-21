@@ -4,13 +4,78 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-05-19T21:54:09+00:00</updated>
+ <updated>2017-05-21T08:59:56+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
    <email>i2000s@hotmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>My naive theory and some trial practices on systematic task management</title>
+   <link href="/en/2017/05/21/a-theory-and-practices-on-systematic-task-management.html"/>
+   <updated>2017-05-21T00:00:00+00:00</updated>
+   <id>/2017/05/21/a-theory-and-practices-on-systematic-task-management</id>
+   <content type="html">&lt;h1 id=&quot;a-lifecycle-model-of-productivity&quot;&gt;A lifecycle model of productivity&lt;/h1&gt;
+As often observed, when we work on a subject, we usually experience the following productivity curve over time as plotted in the figure below.
+&lt;center&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/en/assets/img/productcurve.png&quot;   width=&quot;500px&quot;   align=&quot;center&quot; alt=&quot;A lifecycle curve of productivity over time.&quot;   /&gt;
+&lt;figcaption&gt;
+Fig 1. Lifecycle curve of productivity level when working on a task over time.
+&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;p&gt;The curve is the lifecycle on how working on the subject yields valuable outputs, which typically includes a slow and low-efficient starting phase, a rapid climbing phase, a flat peaking phase and a slow decaying phase. In fact, this not only can be seen in task productivity but also occurs on almost everything in our daily lives, like people’s activity level over ages, a fashion or a product profits and so on.&lt;/p&gt;
+&lt;p&gt;Now, imagine you have a bunch of subjects to work on over time and each of them has a similar lifecycle curve. You can arrange when you start to work on your subjects, and your productivity working on the next subject might grow a little bit over time.&lt;/p&gt;
+We consider two scenarios. First, as shown in the figure on the left below, we continue working on new subjects before the previous subject’s productivity level decays.
+&lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/en/assets/img/productcurveaccum.png&quot;   width=&quot;400px&quot;   align=&quot;center&quot; alt=&quot;The way to have a continuous growth of productivity level over time. Dashed lines are the individual productivity lifecycle curves. Solid line is the sum of individual curves.&quot;   /&gt;
+&lt;figcaption&gt;
+&lt;ol type=&quot;A&quot;&gt;
+&lt;li&gt;a continuous growth case
+&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;/center&gt;
+&lt;/td&gt;&lt;td&gt;&lt;center&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/en/assets/img/productcurveaccumless.png&quot;   width=&quot;400px&quot;   align=&quot;center&quot; alt=&quot;Dippings occur when task interval increases.&quot;   /&gt;
+&lt;figcaption&gt;
+&lt;ol start=&quot;2&quot; type=&quot;A&quot;&gt;
+&lt;li&gt;little-overlap case
+&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;/center&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;em&gt;Fig 2. A continuous growth (A) and oscillations (B) of productivity levels over time. Dashed lines are the individual productivity lifecycle curves. Solid line is the sum of individual curves.&lt;/em&gt;&lt;br /&gt;
+&lt;/center&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Obviously, the overall productivity curve experiences a non-decreasing growth over time as individual tasks’ productivity curves overlap.&lt;/p&gt;
+&lt;p&gt;Next, we consider increasing the intervals between tasks so that the overlap between tasks is small. We could find the productivity curve illustrated in Fig 2 (B) above.&lt;/p&gt;
+&lt;h1 id=&quot;create-a-sustainable-system-for-continuous-growth-and-convergence&quot;&gt;Create a sustainable system for continuous growth and convergence&lt;/h1&gt;
+&lt;h1 id=&quot;generalize-the-time-axis-to-components-of-achievements&quot;&gt;Generalize the time-axis to components of achievements&lt;/h1&gt;
+&lt;h1 id=&quot;an-systematic-open-science-framework&quot;&gt;An systematic open-science framework&lt;/h1&gt;
+&lt;h1 id=&quot;version-control-and-publications&quot;&gt;Version control and publications&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1609.00037&quot;&gt;Good Enough Practices in Scientific Computing&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://osf.io/&quot;&gt;Open science framework&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://guides.github.com/activities/citable-code/&quot;&gt;Github and Zenodo integration for citable work&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.journals.elsevier.com/data-in-brief/policies-and-guidelines/public-repositories-to-store-and-find-data&quot;&gt;Elsevier and Mendeley Data repositories&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;references&quot;&gt;
+&lt;h1&gt;Maintenance, outreach and the integration for future projects&lt;/h1&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>My SQuInT 2017 talk</title>

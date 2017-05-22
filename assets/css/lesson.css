@@ -1,0 +1,295 @@
+
+
+.error  { color: #bd2c00;
+border-left: solid 5px #bd2c00;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px; }
+.output { color: #303030;
+border-left: solid 5px #303030;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px; }
+.source { color: #6e5494;
+border-left: solid 5px #6e5494;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px; }
+
+.bash   { color: #6e5494;
+border-left: solid 5px #6e5494;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px;}
+.make   {color: #6e5494;
+border-left: solid 5px #6e5494;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px; }
+.matlab { color: #6e5494;
+border-left: solid 5px #6e5494;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px;}
+.python { color: #6e5494;
+border-left: solid 5px #6e5494;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px;}
+.r      { color: #6e5494;
+border-left: solid 5px #6e5494;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px;}
+.sql    { color: #6e5494;
+border-left: solid 5px #6e5494;
+margin-bottom: 0px;
+border-radius: 4px 0 0 4px;}
+
+.error pre,
+.output pre,
+.source pre,
+.bash pre,
+.make pre,
+.matlab pre,
+.python pre,
+.r pre,
+.sql pre {
+  border-radius: 0 4px 4px 0;
+}
+
+/*----------------------------------------
+// Specialized blockquote environments for learning objectives, callouts, etc.
+//----------------------------------------
+
+$codeblock-padding: 5px !default;
+
+@mixin bkSetup($color, $glyph) {
+
+  $gradientcolor1: $color;
+  $gradientcolor2: scale-color($color, $lightness: 10%);
+
+  padding-left: 5px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  border: 1px solid;
+  border-color: $color;
+  padding-bottom: 5px;
+
+  h2 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2);
+    border-color: $color;
+    margin-top: 0px;
+    margin-left: -5px; // to move back to the left margin of the enclosing blockquote
+  }
+  h2:before {
+    font-family: 'Glyphicons Halflings';
+    content: $glyph;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+  }
+
+} */
+
+/*
+// blockquotes
+$color-callout:     #f4fd9c !default;
+$color-challenge:   #eec275 !default;
+$color-checklist:   #dfd2a0 !default;
+$color-discussion:  #eec275 !default;
+$color-keypoints:   #7ae78e !default;
+$color-objectives:  #daee84 !default;
+$color-prereq:      #9cd6dc !default;
+$color-solution:    #ded4b9 !default;
+$color-testimonial: #fc8dc1 !default; */
+
+.callout{ /* $gradientcolor1: #f4fd9c;
+ $gradientcolor2: scale-color(#f4fd9c, $lightness: 10%); */
+
+padding-left: 5px;
+padding-top: 0;
+padding-bottom: 0;
+padding-right: 0;
+border: 1px solid;
+border-color: #f4fd9c;
+padding-bottom: 5px;
+
+h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  /* background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2); */
+  border-color: #f4fd9c;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+h2:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e146";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}}
+
+.challenge{ padding-left: 5px;
+padding-top: 0;
+padding-bottom: 0;
+padding-right: 0;
+border: 1px solid;
+border-color: #eec275;
+padding-bottom: 5px;
+
+h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  /* background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2); */
+  border-color: #eec275;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+h2:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\270f";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}}
+
+/* .checklist{ @include bkSetup($color-checklist, "\e067"); } */
+
+.discussion{ padding-left: 5px;
+padding-top: 0;
+padding-bottom: 0;
+padding-right: 0;
+border: 1px solid;
+border-color: #eec275;
+padding-bottom: 5px;
+
+h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  /* background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2); */
+  border-color: #eec275;
+  margin-top: 0px;
+  margin-left: -5px; /* to move back to the left margin of the enclosing blockquote */
+}
+h2:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e123";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+} }
+
+/*
+.keypoints{ @include bkSetup($color-keypoints, "\e101"); }
+.objectives{ @include bkSetup($color-objectives, "\e085"); }
+.prereq{ @include bkSetup($color-prereq, "\e124"); }
+*/
+
+.solution{ padding-left: 5px;
+padding-top: 0;
+padding-bottom: 0;
+padding-right: 0;
+border: 1px solid;
+border-color: #ded4b9;
+padding-bottom: 5px;
+
+h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  /* background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2);*/
+  border-color: #ded4b9;
+  margin-top: 0px;
+  margin-left: -5px; /* to move back to the left margin of the enclosing blockquote */
+}
+h2:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e105";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+} }
+
+.testimonial{ padding-left: 5px;
+padding-top: 0;
+padding-bottom: 0;
+padding-right: 0;
+border: 1px solid;
+border-color: #fc8dc1;
+padding-bottom: 5px;
+
+h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  /* background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2); */
+  border-color: #fc8dc1;
+  margin-top: 0px;
+  margin-left: -5px; // to move back to the left margin of the enclosing blockquote
+}
+h2:before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e143";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+} }
+
+/*----------------------------------------
+// Override Bootstrap settings.
+*/
+
+code {
+  padding: 2px 5px;
+  color: #3d90d9;
+  background-color: #e7e7e7;
+}
+
+img {
+  max-width: 700px; /* 100%; */
+}
+
+/*----------------------------------------
+// Miscellaneous.
+*/
+
+.maintitle {
+  text-align: center;
+}
+
+.footertext {
+  text-align: center;
+}
+
+img.navbar-logo {
+  height: 40px; /* synchronize with height of navbar */
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+div.branding {
+  color: #2b3990;
+}
+
+ul,
+ol {
+  padding-left: 2em;
+}
+
+span.fold-unfold {
+  margin-left: 1em;
+  opacity: 0.5;
+}

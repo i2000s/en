@@ -8,6 +8,8 @@ tags:
   - systematic-science
 categories: community
 ---
+***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].***
+
 # A lifecycle model of productivity
 As often observed, when we work on a subject, we usually experience the following productivity curve over time as plotted in the figure below.
 <center>

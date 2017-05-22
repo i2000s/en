@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-lesson
 title: Github remote and Github
 subtitle:
 time: 2017-05-21 10:59:00 -0700
@@ -11,6 +11,9 @@ tags:
   - conflict-resolving
 categories: community
 ---
+***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].***
+***This tutorial is adapted from [the Software Carpentry workshop](http://swcarpentry.github.io/git-novice/07-github/) under the Creative Commons license.***
+
 Version control really comes into its own when we begin to collaborate with
 other people.  We already have most of the machinery we need to do this; the
 only thing missing is to copy changes from one repository to another.
@@ -18,8 +21,8 @@ only thing missing is to copy changes from one repository to another.
 Systems like Git allow us to move work between any two repositories.  In
 practice, though, it's easiest to use one copy as a central hub, and to keep it
 on the web rather than on someone's laptop.  Most programmers use hosting
-services like [GitHub](http://github.com), [BitBucket](http://bitbucket.org) or
-[GitLab](http://gitlab.com/) to hold those master copies; we'll explore the pros
+services like [GitHub](http://github.com), [BitBucket](http://bitbucket.org),
+[GitLab](http://gitlab.com/) or the [UNM GitLab service for UNM members](https://libutil.unm.edu/users/sign_in) to hold those master copies; we'll explore the pros
 and cons of this in the final section of this lesson.
 
 Let's start by sharing the changes we've made to our current project with the
@@ -39,12 +42,12 @@ information on how to configure your local repository:
 
 This effectively does the following on GitHub's servers:
 
-~~~
-$ mkdir planets
-$ cd planets
-$ git init
-~~~
-{: .bash}
+```{bash}
+mkdir planets
+cd planets
+git init
+```
+
 
 Our local repository still contains our earlier work on `mars.txt`, but the
 remote repository on GitHub doesn't contain any files yet:
@@ -77,26 +80,20 @@ SSH to HTTPS.
 Copy that URL from the browser, go into the local `planets` repository, and run
 this command:
 
-~~~
-$ git remote add origin https://github.com/vlad/planets.git
-~~~
-{: .bash}
+```{bash}
+git remote add origin https://github.com/vlad/planets.git
+```
 
 Make sure to use the URL for your repository rather than Vlad's: the only
 difference should be your username instead of `vlad`.
 
 We can check that the command has worked by running `git remote -v`:
 
-~~~
+```{bash}
 $ git remote -v
-~~~
-{: .bash}
-
-~~~
 origin   https://github.com/vlad/planets.git (push)
 origin   https://github.com/vlad/planets.git (fetch)
-~~~
-{: .output}
+```
 
 The name `origin` is a local nickname for your remote repository. We could use
 something else if we wanted to, but `origin` is by far the most common choice.
@@ -104,12 +101,9 @@ something else if we wanted to, but `origin` is by far the most common choice.
 Once the nickname `origin` is set up, this command will push the changes from
 our local repository to the repository on GitHub:
 
-~~~
+```{bash}
 $ git push origin master
-~~~
-{: .bash}
 
-~~~
 Counting objects: 9, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
@@ -118,8 +112,7 @@ Total 9 (delta 2), reused 0 (delta 0)
 To https://github.com/vlad/planets
  * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
-~~~
-{: .output}
+```
 
 > ## Proxy
 >
@@ -181,17 +174,13 @@ Our local and remote repositories are now in this state:
 
 We can pull changes from the remote repository to the local one as well:
 
-~~~
+```{bash}
 $ git pull origin master
-~~~
-{: .bash}
 
-~~~
 From https://github.com/vlad/planets
  * branch            master     -> FETCH_HEAD
 Already up-to-date.
-~~~
-{: .output}
+```
 
 Pulling has no effect in this case because the two repositories are already
 synchronized.  If someone else had pushed some changes to the repository on

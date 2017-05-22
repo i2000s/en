@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Collaborative paper writing powered by Git
+title: Using Git to collaborate with people who don't use git
 tags: git paper-writing
 categories: labnotebook
 ---
+***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].***
 
 Problems with different versions of JabRef:
 ==========================================

@@ -1,0 +1,39 @@
+{% include header.html %}
+<!-- <style>
+div #sticker {
+  width:auto;
+  padding:10px;
+  margin-right:20px;
+  float:right;
+}
+.stick {
+    position:fixed;
+    top:30px;}
+</style>-->
+<!-- Add lesson's javascript and css style. -->
+<head>
+<link href = "{{ site.baseurl }}/assets/css/lesson.css" rel = "stylesheet">
+</head>
+<script type="text/javascript" src="{{site.baseurl}}/assets/js/lesson.js" async="async"></script>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-1 col-sm-12">
+          <article>
+          {{ content }}
+          </article>
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox">Share on</div>
+        </div>
+
+
+        <!-- Custom sidebar -->
+        <div class="col-md-2 col-sm-12">
+          <!-- <div id="sticker" style="width:250px"> --> <!--class="sidebar">-->
+            {% include sidebar.html %}
+         <!-- </div> -->
+       </div>
+
+      </div>
+{% include relatedposts.html %}
+{% include disqus.html %}
+{% include footer.html %}

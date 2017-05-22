@@ -314,6 +314,11 @@ The second type of files are called by the menu files.
 System-wide programs may be located at other places.
 For new programs, one can create the `.menu` and `.desktop` files to let the shortcut shown on the dropdown application menu.
 
+## Shorten bash terminal prompt path
+The path and computer name in the terminal may become very long when working in a deep level of directory.
+This line of path and computer information can be greatly shorten by following [this instruction](https://askubuntu.com/a/145626/390708).
+The full directory path can still be seen on the top of the terminal window or typing `pwd` command.
+
 # Notes on using some common tools
 ## Git
 * One of the common scenario of using Git is to make fixes to a repo *A* not belonging to me but I have already customized the source in the repo for my personal usage before hand.

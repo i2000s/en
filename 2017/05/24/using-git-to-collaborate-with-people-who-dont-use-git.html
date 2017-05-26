@@ -3,7 +3,7 @@
 
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#"> <!-- namespaces used in metadata.html -->
     <!--<meta charset="utf-8">-->
-    <title>The PETSc DMDA is not lightweight</title>
+    <title>Using Git to collaborate with people who don't use git</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv = "X-UA-Compatible" content = "IE = edge"> -->
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
@@ -11,54 +11,54 @@
       <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
-    <meta name="subtitle" content="(unless Yokozuna is lightweight)">
+    <meta name="subtitle" content="">
     
     <meta name="author" content="Xiaodong Qi | 戚晓东">
     
 
     <!-- HTML5 metadata -->
 
-  <meta name="keywords" content="Xiaodong Qi, 戚晓东, blog-post, petsc, pyclaw, memory, profiling" />
+  <meta name="keywords" content="Xiaodong Qi, 戚晓东, git, paper-writing" />
   
 
 
 
-  <meta name="description" content="(unless Yokozuna is lightweight)" />
+  <meta name="description" content="Using Git to collaborate with people who don't use git" />
   
 
 
 <meta http-equiv="Content-Language" content="en">
 <!-- RDFa Metadata (in DublinCore) -->
-<meta property="dc:title" content="The PETSc DMDA is not lightweight" />
+<meta property="dc:title" content="Using Git to collaborate with people who don't use git" />
 <meta property="dc:creator" content="Xiaodong Qi" />
-<meta property="dc:date" content="2014-03-11 00:00:00 +0000" />
+<meta property="dc:date" content="2017-05-24 00:00:00 +0000" />
 <meta property="dc:format" content="text/html" />
 <meta property="dc:language" content="en" />
-<meta property="dc:identifier" content="https://purl.org/qxd/en/2014/03/11/DMDA_memory.html" />
+<meta property="dc:identifier" content="https://purl.org/qxd/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html" />
 <meta property="dc:rights" content="CC-BY" />
 <meta property="dc:source" content="A Notebook of Xiaodong Qi's" />
 <meta property="dc:subject" content="Physics" />
 <meta property="dc:type" content="website" />
 <meta name="dc.language" content="en">
 <!-- RDFa Metadata (in OpenGraph) -->
-<meta property="og:title" content="The PETSc DMDA is not lightweight" />
+<meta property="og:title" content="Using Git to collaborate with people who don't use git" />
 <meta property="og:author" content="https://purl.org/qxd/en/index.html" />  <!-- Should be Liquid? URI? -->
 <meta property="https://ogp.me/ns/profile#first_name" content="Xiaodong"/>
 <meta property="https://ogp.me/ns/profile#last_name" content="Qi"/>
-<meta property="https://ogp.me/ns/article#published_time" content="2014-03-11 00:00:00 +0000" />
+<meta property="https://ogp.me/ns/article#published_time" content="2017-05-24 00:00:00 +0000" />
 <meta property="og:site_name" content="A Notebook of Xiaodong Qi's" /> <!-- Same as dc:source? -->
-<meta property="og:url" content="https://purl.org/qxd/en/2014/03/11/DMDA_memory.html" />
+<meta property="og:url" content="https://purl.org/qxd/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html" />
 <meta property="og:type" content="website" />
 <!-- Google Scholar Metadata -->
 <meta name="citation_author" content="Xiaodong Qi"/>
-<meta name="citation_date" content="2014-03-11 00:00:00 +0000"/>
-<meta name="citation_title" content="The PETSc DMDA is not lightweight"/>
+<meta name="citation_date" content="2017-05-24 00:00:00 +0000"/>
+<meta name="citation_title" content="Using Git to collaborate with people who don't use git"/>
 <meta name="citation_journal_title" content="A Notebook of Xiaodong Qi's"/>
 <!--NOTE: see also the COinS Metadata in span element in coins.html and footer. -->
 <!-- Twitter card summary -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@i2000s" />
-<meta name="twitter:title" content="The PETSc DMDA is not lightweight" />
+<meta name="twitter:title" content="Using Git to collaborate with people who don't use git" />
 <meta name="twitter:description" content="" />
 <meta name="twitter:image" content="https://purl.org/qxd/en/assets/img/qi2016.jpg" />
 <!-- Baidu website verification code -->
@@ -199,9 +199,7 @@ var _hmt = _hmt || [];
     <!-- Custom masthead (big titles) -->
 
 <header class="jumbotron subhead">
-    <h1 class="entry-title">The PETSc DMDA is not lightweight</h1>
-    
-      <h3> (unless Yokozuna is lightweight) </h3>
+    <h1 class="entry-title">Using Git to collaborate with people who don't use git</h1>
     
 </header>
 
@@ -234,96 +232,32 @@ $(document).ready(function() {
       <div class="row">
         <div class="col-md-8 col-md-offset-1 col-sm-12"> 
           <article>
-          <p>Note: this post was originally written by <a href="http://www.davidketcheson.info/2014/03/11/DMDA_memory.html">David Ketcheson</a>.</p>
-<p>In <a href="http://lists.mcs.anl.gov/pipermail/petsc-users/2014-January/020018.html">this PETSc-users thread</a>, my good friend Matt Knepley claims that the DMDA object is lightweight, and suggests that it is okay to make them willy- nilly. Unfortunately, my experience indicates otherwise. But words are cheap; let’s investigate.</p>
-<pre><code>%load_ext memory_profiler</code></pre>
-<h3 id="memory-profiling-with-memory_profiler">Memory profiling with <code>memory_profiler</code></h3>
-<p>I’ve written a little script that just creates a DA and 3 vecs. In order to make use of <code>memory_profiler</code>, I’ll call it with system commands. But I’ve pasted the contents here for completeness. If you’re running the notebook, you don’t need to run the next cell.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># contents of da.py</span>
-<span class="ch">from</span> petsc4py <span class="ch">import</span> PETSc
-<span class="ch">import</span> sys
-
-<span class="ot">@profile</span>
-<span class="kw">def</span> foo(size=<span class="dv">128</span>,ndim=<span class="dv">3</span>,dof=<span class="dv">1</span>):
-    da = PETSc.DA().create(sizes=[size]*ndim,dof=dof)
-    q1 = da.createGlobalVec()
-    q2 = da.createGlobalVec()
-    q3 = da.createGlobalVec()
-
-<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&#39;__main__&#39;</span>:
-    foo(<span class="dt">int</span>(sys.argv[<span class="dv">1</span>]),<span class="dt">int</span>(sys.argv[<span class="dv">2</span>]),<span class="dt">int</span>(sys.argv[<span class="dv">3</span>]))</code></pre>
-<p>Notice that the command line arguments are</p>
-<ol type="1">
-<li>The size of the grid</li>
-<li>The number of dimensions</li>
-<li>The number of DOFs</li>
-</ol>
-<p>Now let’s run some tests.</p>
-<h3 id="the-cost-of-a-da">The cost of a DA</h3>
-<pre><code>!python -m memory_profiler da.py 128 3 1
-
-Filename: da.py
-
-Line #    Mem usage    Increment   Line Contents
-================================================
-     4   23.473 MiB    0.000 MiB   @profile
-     5                             def foo(size=128,ndim=3,dof=1):
-     6   72.395 MiB   48.922 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     7   72.480 MiB    0.086 MiB       q1 = da.createGlobalVec()
-     8   88.484 MiB   16.004 MiB       q2 = da.createGlobalVec()
-     9  104.488 MiB   16.004 MiB       q3 = da.createGlobalVec()</code></pre>
-<p>The third column (“increment”) is the key here – it shows the increase in total memory usage after executing each line.</p>
-<p>The first thing you notice is that the DA is NOT lightweight. It takes as much memory as 3 Vecs! But that will look cheap in a moment.</p>
-<p>Notice also that the first vec seems to use no memory. I think this is because memory_profiler just tracks peak usage, and the DA creation creates and destroys a vec.</p>
-<p>In what follows, I’ve used sed to extract just the essential lines of the output.</p>
-<p>Let’s try that again, with 2 DOFs.</p>
-<pre><code>!python -m memory_profiler da.py 128 3 2 / | sed -n -e 7p -e 10p
-
-     6  296.215 MiB  272.945 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9  328.309 MiB   32.004 MiB       q3 = da.createGlobalVec()</code></pre>
-<p>Whoa! Now the DA is 8.5 times as large as a Vec!</p>
-<p>As expected, the Vec is just twice as large. What if we keep increasing the number of DOFs?</p>
-<pre><code>!python -m memory_profiler da.py 128 3 3 / | sed -n -e 7p -e 10p
-!python -m memory_profiler da.py 128 3 4 / | sed -n -e 7p -e 10p
-
-     6  408.219 MiB  384.949 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9  504.316 MiB   48.004 MiB       q3 = da.createGlobalVec()
-     6  520.219 MiB  496.949 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9  648.316 MiB   64.004 MiB       q3 = da.createGlobalVec()</code></pre>
-<p>It’s clear that each additional DOF increases the size of the DA by 112 MB. That’s more than double the size of the whole DA we had with dof=1. And the size of the Vec only increases (appropriately) by 16 MB. So for large numbers of DOFs, the DA will be as large as 7 Vecs.</p>
-<h3 id="d-and-1d-results">2D and 1D results</h3>
-<p>The same phenomenon is evident in two dimensions:</p>
-<pre><code>!python -m memory_profiler da.py 1024 2 1 / | sed -n -e 7p -e 10p
-!python -m memory_profiler da.py 1024 2 2 / | sed -n -e 7p -e 10p
-!python -m memory_profiler da.py 1024 2 3 / | sed -n -e 7p -e 10p
-
-     6   48.371 MiB   24.895 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9   64.469 MiB    8.004 MiB       q3 = da.createGlobalVec()
-     6  160.398 MiB  136.922 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9  176.492 MiB   16.004 MiB       q3 = da.createGlobalVec()
-     6  216.402 MiB  192.926 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9  264.500 MiB   24.004 MiB       q3 = da.createGlobalVec()</code></pre>
-<p>Again we see that:</p>
-<ul>
-<li>The 1-DOF DA costs 3 Vecs</li>
-<li>The 2-DOF DA costs about 8.5 Vecs</li>
-<li>Asymptotically, a DA with many DOFs costs 7 Vecs</li>
-</ul>
-<p>What about 1D?</p>
-<pre><code>!python -m memory_profiler da.py 1000000 1 1 / | sed -n -e 7p -e 10p
-!python -m memory_profiler da.py 1000000 1 2 / | sed -n -e 7p -e 10p
-!python -m memory_profiler da.py 1000000 1 3 / | sed -n -e 7p -e 10p
-
-     6   47.164 MiB   23.688 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9   70.168 MiB    7.648 MiB       q3 = da.createGlobalVec()
-     6   77.684 MiB   54.207 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9  123.582 MiB   15.285 MiB       q3 = da.createGlobalVec()
-     6  100.570 MiB   77.094 MiB       da = PETSc.DA().create([size]*ndim,dof)
-     9  169.355 MiB   22.914 MiB       q3 = da.createGlobalVec()</code></pre>
-<p>These results are relatively sane: regardless of the number of DOFs, the ratio is 3-3.5.</p>
-<h3 id="conclusion">Conclusion</h3>
-<p>So DAs are not lightweight. They cost as much as 3-8.5 Vecs, and their cost increases with the number of DOFs. It is not clear to me <em>a priori</em> why their cost should even depend on the number of DOFs.</p>
-<p>In PyClaw, this means that the DAs always occupy much more memory than the Vecs themselves! This is becoming a serious bottleneck for our current 3D simulations on Shaheen.</p>
+          <p><strong><em>Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].</em></strong></p>
+<h1 id="problems-with-different-versions-of-jabref">Problems with different versions of JabRef:</h1>
+<p>I use a dedicated Git repository to centralize all of my bibliography entries, which call it <code>Archive</code> and only contains a large bibtex file.</p>
+<p>There are some formatting problems in using different versions of JabRef in using version-control systems. It would be nice to let files always read by the latest version of JabRef (v3.x) for compatibility of formatting. In the mean time, following a few recommendations may help in decreasing the number changes if different software or versions of JabRef have to be used between collaborator. See <a href="http://help.jabref.org/en/SharedBibFile">these database setting for JabRef</a>, for example. Alternatively, there are some tools as illustrated on <a href="http://unix.stackexchange.com/questions/31266/how-to-sort-by-whatever-key-bibtex-entries-in-bib-file">Stackexchange</a> to sort out bibtex entries if other bibliography management software like Mendeley is used.</p>
+<h1 id="cleaning-up-loose-objects-in-git-repositories">Cleaning up loose objects in Git repositories:</h1>
+<pre><code>git gc --aggressive</code></pre>
+<p>More can be found on the <a href="https://git-scm.com/docs/git-gc">git docs</a>.</p>
+<h1 id="using-submodules">Using submodules:</h1>
+<p>When I need to cite papers from the bibliography file, I use the bibliography repo, <code>Archive</code>, as a submodule of the paper writing project. The basic commands of submodule in Git can be found in the <a href="https://git-scm.com/docs/git-submodule">official document</a> and the <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Pro Git book</a>, or follow <a href="https://github.com/blog/2104-working-with-submodules">this</a> and <a href="http://komodoide.com/blog/2014-05/git-submodules/">this</a> introductions to initialize the bibliography submodule to the master project. For short, I can briefly summarize a few useful commandlines that works for my workflow.</p>
+<p>I define a <code>NanofiberPaper</code> branch in the <code>Archive</code> repo and only use this dedicated branch for my nanofiber paper writing. Changes made during the paper writing can be easily merged into the master branch of the bibliography repo and won’t mess up the rest of the branches in case of conflicts. To include the branch of bibliography into the paper repo, I navigate into the paper repo on my local computer in the bash window, and use the following in Git V2.10.0 (older versions could need extra commands in initializing the submodule)</p>
+<pre><code>git submodule add -b NanofiberPaper https://i2000s@github.com/i2000s/Archive.git ./refs</code></pre>
+<p>This will create a <code>.gitsubmodule</code> hidden file in the master repo to tell git that a submodule from the <code>NanofiberPaper</code> branch (from the <code>-b</code> parameter) of the <code>Archive</code> repo will be cloned into the subfolder called <code>refs</code>.</p>
+<p>After this step, I will see there is a change in the paper repo due to the adding of new submodule. So, I need to commit the changes in the paper repo and push it to the remote (suppose I am in the master branch of the paper repo):</p>
+<pre><code>git commit -am &quot;Add a bibliography file as a submodule.&quot;
+git push origin master</code></pre>
+<p>Next, I will need to synchronize every branch of the paper repo to include the new submodule with the following commands:</p>
+<pre><code>git fetch origin
+git merge origin/master
+git submodule --init --recursive --remote</code></pre>
+<p>Notice that I use the switch <code>--remote</code> just to make sure I always use the latest hash point of the bibliography repo on the <code>NanofiberPaper</code> branch. Without this switch, the submodule will always use the hash point recorded in the <code>.gitsubmodule</code> config file. The <code>--recursive</code> switch applies operations on all children submodules recursively if there are more than one layer of submodules. This switch can be applied to other <code>git submodule</code> commands as well, and the depth of submodules can be controlled using the <code>--depth</code> parameter.</p>
+<p>After all of these initialization settings, one can use bash scripts to automate daily updates and synchronize changes to the remote repo. The submodule is now used as a subfolder as well as an independent Git repo in the paper repo, and all changes from the submodule can be pushed to the <code>Archive</code> repo and should also be recorded in the paper repo for new changes in the submodule as well. The command to fetch and merge submodule changes from the remote reads</p>
+<pre><code>git submodule update --remote --merge</code></pre>
+<p>Similarly, one can replace <code>--merge</code> with <code>--rebase</code> for rebasing local changes on top of fetched commits. The command to publish local submodule changes and tell the paper repository that the submodule should be pointing at a new hash point is the following:</p>
+<pre><code>git push --recurse-submodules=on-demand</code></pre>
+<p>This command will try to merge changes to the upstream repo of the submodule. If there is any conflicts, it will stop for manual fixes. Without the trial of merge due to changes, one can replace the parameter of <code>push</code> to <code>--recurse-submodule=check</code>. Once git finds a change, it will stop and tell users to check changes manually. To manually solve a conflict in the submodule or to merge a submodule change, one has to go into the submodule folder to fix the problem or do the merge as for a separated repo, and then in the main repo, add and commit the changes from the submodule folder. The <code>push</code> command in the main repo will synchronize the <code>.gitsubmodule</code> file to the remote repo which has the hash point of the submodule for which the main repo is used. If a <code>push</code> command is only committed in the submodule folder, it only synchronize the changes in the submodule repo without affecting the main repo on its top–not even to record this submodule change to the main repo’s remote. However, the <code>push --recurse-submodules=[check|on-demand]</code> command applied in the main repo will try update the <code>.gitsubmodule</code> file with the new hash point in accordance with the new changes in the submodule and then push the main repo to its remote afterwards.</p>
+<p>There are other tricks for managing submodules in Git. For example, one can use <code>--job &lt;n&gt;</code> switch for the <code>git submodule</code> command to do operations for multiple submodules in a repo in parallel. This feature was available since Git V2.9. One can also use <code>foreach [--recursive] &lt;command&gt;</code> controller for the <code>git submodule</code> command to recursively apply a repeated command to all submodules in a main repo. More <code>submodule</code> options can be found in the latest <a href="https://git-scm.com/docs/git-submodule">official git document</a>.</p>
 <div class="references">
 
 </div>
@@ -341,25 +275,25 @@ Line #    Mem usage    Increment   Line Contents
 
 <aside prefix="og:https://ogp.me/ns/article#">
   <p> <i class="glyphicon glyphicon-calendar"></i><small>
-    <time datetime="2014-03-11 00:00:00 +0000"
-    property="dc:created">11 Mar 2014</time></small></p>
+    <time datetime="2017-05-24 00:00:00 +0000"
+    property="dc:created">24 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2016-12-17 06:44:15 +0000"
-            property="dc:modified">17 Dec 2016</time></small></p>
+            datetime="2017-05-22 05:44:47 +0000"
+            property="dc:modified">22 May 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
           
-            <p><a class="btn btn-default" href='/en/2014/02/22/schrodinger-is-not-diffusion.html'><i class="glyphicon glyphicon-chevron-left"></i> prev</a>
+            <p><a class="btn btn-default" href='/en/2017/05/23/git-conflict-resolving.html'><i class="glyphicon glyphicon-chevron-left"></i> prev</a>
           
           
-            <a class="btn btn-default" href='/en/2014/05/28/dispersion_relations.html'>next <i class="glyphicon glyphicon-chevron-right"></i></a></p>
+            </p>
           
 
 
  <a  onclick="recordOutboundLink(this, 'Outbound Links', 'history'); return false;"  class="btn btn-default"
-   href="https://github.com/i2000s/en/commits/dev/_posts/2014-03-11-DMDA_memory.md"><i class="glyphicon glyphicon-time"></i> edit history</a>
+   href="https://github.com/i2000s/en/commits/dev/_posts/2017-05-24-using-git-to-collaborate-with-people-who-dont-use-git.md"><i class="glyphicon glyphicon-time"></i> edit history</a>
 
   <br><br>
 
@@ -374,23 +308,11 @@ Line #    Mem usage    Increment   Line Contents
     
     <!-- http://schema.org/BlogPosting/keywords -->
     <a rel="og:tag" class="tag"
-       href="/en/tags.html#blog-post">#blog-post</a>, 
+       href="/en/tags.html#git">#git</a>, 
     
     <!-- http://schema.org/BlogPosting/keywords -->
     <a rel="og:tag" class="tag"
-       href="/en/tags.html#petsc">#petsc</a>, 
-    
-    <!-- http://schema.org/BlogPosting/keywords -->
-    <a rel="og:tag" class="tag"
-       href="/en/tags.html#pyclaw">#pyclaw</a>, 
-    
-    <!-- http://schema.org/BlogPosting/keywords -->
-    <a rel="og:tag" class="tag"
-       href="/en/tags.html#memory">#memory</a>, 
-    
-    <!-- http://schema.org/BlogPosting/keywords -->
-    <a rel="og:tag" class="tag"
-       href="/en/tags.html#profiling">#profiling</a>
+       href="/en/tags.html#paper-writing">#paper-writing</a>
     </p>
 
    <br/>
@@ -398,7 +320,7 @@ Line #    Mem usage    Increment   Line Contents
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/5fffa95b820f531035cdd469fae39ba9270857e7/_posts/2014-03-11-DMDA_memory.md"> 5fffa95</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/6caae0547d4632efaa86e3230ab7201ff1107c73/_posts/2017-05-24-using-git-to-collaborate-with-people-who-dont-use-git.md"> 6caae05</a></tiny></p>
 </aside>
 
 <br /><br />
@@ -418,9 +340,9 @@ Line #    Mem usage    Increment   Line Contents
     
       <li><span>23 May 2017</span> &raquo; <a href="/en/2017/05/23/git-conflict-resolving.html">Git conflict resolving</a></li>
     
-      <li><span>23 Jul 2016</span> &raquo; <a href="/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html">Put everything on a quantum circuit--part I</a></li>
+      <li><span>22 May 2017</span> &raquo; <a href="/en/2017/05/22/git-remote-and-github.html">Github remote and Github</a></li>
     
-      <li><span>13 Jan 2015</span> &raquo; <a href="/en/2015/01/13/using_matplotlib_image_comparison.html">Testing whether your code produces the correct plots -- in Python and on Travis</a></li>
+      <li><span>23 Jul 2016</span> &raquo; <a href="/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html">Put everything on a quantum circuit--part I</a></li>
     
   </ul>
 </div>
@@ -489,12 +411,12 @@ Line #    Mem usage    Increment   Line Contents
       title="ctx_ver=Z39.88-2004
       &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
       &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-      &amp;rft.title=The PETSc DMDA is not lightweight
+      &amp;rft.title=Using Git to collaborate with people who don't use git
       &amp;rft.creator=Xiaodong Qi
-      &amp;rft.date=2014-03-11
+      &amp;rft.date=2017-05-24
       &amp;rft.language='en-US'
       &amp;rft.rights='CC-BY'
-      &amp;rft_id=https://purl.org/qxd/en/2014/03/11/DMDA_memory.html">
+      &amp;rft_id=https://purl.org/qxd/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html">
   </span>
 
     </footer>

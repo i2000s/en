@@ -4,13 +4,351 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-05-22T06:16:20+00:00</updated>
+ <updated>2017-05-26T21:54:30+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
    <email>i2000s@hotmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Using Git to collaborate with people who don't use git</title>
+   <link href="/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html"/>
+   <updated>2017-05-24T00:00:00+00:00</updated>
+   <id>/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;problems-with-different-versions-of-jabref&quot;&gt;Problems with different versions of JabRef:&lt;/h1&gt;
+&lt;p&gt;I use a dedicated Git repository to centralize all of my bibliography entries, which call it &lt;code&gt;Archive&lt;/code&gt; and only contains a large bibtex file.&lt;/p&gt;
+&lt;p&gt;There are some formatting problems in using different versions of JabRef in using version-control systems. It would be nice to let files always read by the latest version of JabRef (v3.x) for compatibility of formatting. In the mean time, following a few recommendations may help in decreasing the number changes if different software or versions of JabRef have to be used between collaborator. See &lt;a href=&quot;http://help.jabref.org/en/SharedBibFile&quot;&gt;these database setting for JabRef&lt;/a&gt;, for example. Alternatively, there are some tools as illustrated on &lt;a href=&quot;http://unix.stackexchange.com/questions/31266/how-to-sort-by-whatever-key-bibtex-entries-in-bib-file&quot;&gt;Stackexchange&lt;/a&gt; to sort out bibtex entries if other bibliography management software like Mendeley is used.&lt;/p&gt;
+&lt;h1 id=&quot;cleaning-up-loose-objects-in-git-repositories&quot;&gt;Cleaning up loose objects in Git repositories:&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;git gc --aggressive&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;More can be found on the &lt;a href=&quot;https://git-scm.com/docs/git-gc&quot;&gt;git docs&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&quot;using-submodules&quot;&gt;Using submodules:&lt;/h1&gt;
+&lt;p&gt;When I need to cite papers from the bibliography file, I use the bibliography repo, &lt;code&gt;Archive&lt;/code&gt;, as a submodule of the paper writing project. The basic commands of submodule in Git can be found in the &lt;a href=&quot;https://git-scm.com/docs/git-submodule&quot;&gt;official document&lt;/a&gt; and the &lt;a href=&quot;https://git-scm.com/book/en/v2/Git-Tools-Submodules&quot;&gt;Pro Git book&lt;/a&gt;, or follow &lt;a href=&quot;https://github.com/blog/2104-working-with-submodules&quot;&gt;this&lt;/a&gt; and &lt;a href=&quot;http://komodoide.com/blog/2014-05/git-submodules/&quot;&gt;this&lt;/a&gt; introductions to initialize the bibliography submodule to the master project. For short, I can briefly summarize a few useful commandlines that works for my workflow.&lt;/p&gt;
+&lt;p&gt;I define a &lt;code&gt;NanofiberPaper&lt;/code&gt; branch in the &lt;code&gt;Archive&lt;/code&gt; repo and only use this dedicated branch for my nanofiber paper writing. Changes made during the paper writing can be easily merged into the master branch of the bibliography repo and won’t mess up the rest of the branches in case of conflicts. To include the branch of bibliography into the paper repo, I navigate into the paper repo on my local computer in the bash window, and use the following in Git V2.10.0 (older versions could need extra commands in initializing the submodule)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git submodule add -b NanofiberPaper https://i2000s@github.com/i2000s/Archive.git ./refs&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will create a &lt;code&gt;.gitsubmodule&lt;/code&gt; hidden file in the master repo to tell git that a submodule from the &lt;code&gt;NanofiberPaper&lt;/code&gt; branch (from the &lt;code&gt;-b&lt;/code&gt; parameter) of the &lt;code&gt;Archive&lt;/code&gt; repo will be cloned into the subfolder called &lt;code&gt;refs&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;After this step, I will see there is a change in the paper repo due to the adding of new submodule. So, I need to commit the changes in the paper repo and push it to the remote (suppose I am in the master branch of the paper repo):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git commit -am &amp;quot;Add a bibliography file as a submodule.&amp;quot;
+git push origin master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, I will need to synchronize every branch of the paper repo to include the new submodule with the following commands:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git fetch origin
+git merge origin/master
+git submodule --init --recursive --remote&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that I use the switch &lt;code&gt;--remote&lt;/code&gt; just to make sure I always use the latest hash point of the bibliography repo on the &lt;code&gt;NanofiberPaper&lt;/code&gt; branch. Without this switch, the submodule will always use the hash point recorded in the &lt;code&gt;.gitsubmodule&lt;/code&gt; config file. The &lt;code&gt;--recursive&lt;/code&gt; switch applies operations on all children submodules recursively if there are more than one layer of submodules. This switch can be applied to other &lt;code&gt;git submodule&lt;/code&gt; commands as well, and the depth of submodules can be controlled using the &lt;code&gt;--depth&lt;/code&gt; parameter.&lt;/p&gt;
+&lt;p&gt;After all of these initialization settings, one can use bash scripts to automate daily updates and synchronize changes to the remote repo. The submodule is now used as a subfolder as well as an independent Git repo in the paper repo, and all changes from the submodule can be pushed to the &lt;code&gt;Archive&lt;/code&gt; repo and should also be recorded in the paper repo for new changes in the submodule as well. The command to fetch and merge submodule changes from the remote reads&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git submodule update --remote --merge&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Similarly, one can replace &lt;code&gt;--merge&lt;/code&gt; with &lt;code&gt;--rebase&lt;/code&gt; for rebasing local changes on top of fetched commits. The command to publish local submodule changes and tell the paper repository that the submodule should be pointing at a new hash point is the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git push --recurse-submodules=on-demand&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This command will try to merge changes to the upstream repo of the submodule. If there is any conflicts, it will stop for manual fixes. Without the trial of merge due to changes, one can replace the parameter of &lt;code&gt;push&lt;/code&gt; to &lt;code&gt;--recurse-submodule=check&lt;/code&gt;. Once git finds a change, it will stop and tell users to check changes manually. To manually solve a conflict in the submodule or to merge a submodule change, one has to go into the submodule folder to fix the problem or do the merge as for a separated repo, and then in the main repo, add and commit the changes from the submodule folder. The &lt;code&gt;push&lt;/code&gt; command in the main repo will synchronize the &lt;code&gt;.gitsubmodule&lt;/code&gt; file to the remote repo which has the hash point of the submodule for which the main repo is used. If a &lt;code&gt;push&lt;/code&gt; command is only committed in the submodule folder, it only synchronize the changes in the submodule repo without affecting the main repo on its top–not even to record this submodule change to the main repo’s remote. However, the &lt;code&gt;push --recurse-submodules=[check|on-demand]&lt;/code&gt; command applied in the main repo will try update the &lt;code&gt;.gitsubmodule&lt;/code&gt; file with the new hash point in accordance with the new changes in the submodule and then push the main repo to its remote afterwards.&lt;/p&gt;
+&lt;p&gt;There are other tricks for managing submodules in Git. For example, one can use &lt;code&gt;--job &amp;lt;n&amp;gt;&lt;/code&gt; switch for the &lt;code&gt;git submodule&lt;/code&gt; command to do operations for multiple submodules in a repo in parallel. This feature was available since Git V2.9. One can also use &lt;code&gt;foreach [--recursive] &amp;lt;command&amp;gt;&lt;/code&gt; controller for the &lt;code&gt;git submodule&lt;/code&gt; command to recursively apply a repeated command to all submodules in a main repo. More &lt;code&gt;submodule&lt;/code&gt; options can be found in the latest &lt;a href=&quot;https://git-scm.com/docs/git-submodule&quot;&gt;official git document&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Git conflict resolving</title>
+   <link href="/en/2017/05/23/git-conflict-resolving.html"/>
+   <updated>2017-05-23T00:00:00+00:00</updated>
+   <id>/2017/05/23/git-conflict-resolving</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;This tutorial is adapted from &lt;a href=&quot;http://swcarpentry.github.io/git-novice/09-conflict/&quot;&gt;the Software Carpentry workshop&lt;/a&gt; under the Creative Commons license.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these &lt;a href=&quot;/reference/#conflicts&quot;&gt;conflicts&lt;/a&gt; by giving us tools to &lt;a href=&quot;/reference/#resolve&quot;&gt;resolve&lt;/a&gt; overlapping changes.&lt;/p&gt;
+&lt;p&gt;To see how we can resolve conflicts, we must first create one. The file &lt;code&gt;mars.txt&lt;/code&gt; currently looks like this in both partners’ copies of our &lt;code&gt;planets&lt;/code&gt; repository:&lt;/p&gt;
+&lt;p&gt;```{bash} $ cat mars.txt&lt;/p&gt;
+&lt;p&gt;Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity ```&lt;/p&gt;
+&lt;p&gt;Let’s add a line to one partner’s copy only:&lt;/p&gt;
+&lt;p&gt;```{bash} $ nano mars.txt $ cat mars.txt&lt;/p&gt;
+&lt;p&gt;Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity This line added to Wolfman’s copy ```&lt;/p&gt;
+&lt;p&gt;and then push the change to GitHub:&lt;/p&gt;
+&lt;p&gt;```{bash} $ git add mars.txt $ git commit -m “Add a line in our home copy”&lt;/p&gt;
+&lt;p&gt;[master 5ae9631] Add a line in our home copy 1 file changed, 1 insertion(+) ```&lt;/p&gt;
+&lt;p&gt;```{bash} $ git push origin master&lt;/p&gt;
+&lt;p&gt;Counting objects: 5, done. Delta compression using up to 4 threads. Compressing objects: 100% (3/3), done. Writing objects: 100% (3/3), 352 bytes, done. Total 3 (delta 1), reused 0 (delta 0) To https://github.com/vlad/planets 29aba7c..dabb4c8 master -&amp;gt; master ```&lt;/p&gt;
+&lt;p&gt;Now let’s have the other partner make a different change to their copy &lt;em&gt;without&lt;/em&gt; updating from GitHub:&lt;/p&gt;
+&lt;p&gt;```{bash} $ nano mars.txt $ cat mars.txt&lt;/p&gt;
+&lt;p&gt;Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity We added a different line in the other copy ```&lt;/p&gt;
+&lt;p&gt;We can commit the change locally:&lt;/p&gt;
+&lt;p&gt;```{bash} $ git add mars.txt $ git commit -m “Add a line in my copy”&lt;/p&gt;
+&lt;p&gt;[master 07ebc69] Add a line in my copy 1 file changed, 1 insertion(+) ```&lt;/p&gt;
+&lt;p&gt;but Git won’t let us push it to GitHub:&lt;/p&gt;
+&lt;p&gt;```{bash} $ git push origin master&lt;/p&gt;
+&lt;p&gt;To https://github.com/vlad/planets.git ! [rejected] master -&amp;gt; master (non-fast-forward) error: failed to push some refs to ‘https://github.com/vlad/planets.git’ hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Merge the remote changes (e.g. ‘git pull’) hint: before pushing again. hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details. ```&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/en/assets/img/conflict.svg&quot; alt=&quot;The Conflicting Changes&quot; /&gt;&lt;figcaption&gt;The Conflicting Changes&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Git detects that the changes made in one copy overlap with those made in the other and stops us from trampling on our previous work. What we have to do is pull the changes from GitHub, &lt;a href=&quot;/reference/#merge&quot;&gt;merge&lt;/a&gt; them into the copy we’re currently working in, and then push that. Let’s start by pulling:&lt;/p&gt;
+&lt;p&gt;```{bash} $ git pull origin master&lt;/p&gt;
+&lt;p&gt;remote: Counting objects: 5, done. remote: Compressing objects: 100% (2/2), done. remote: Total 3 (delta 1), reused 3 (delta 1) Unpacking objects: 100% (3/3), done. From https://github.com/vlad/planets * branch master -&amp;gt; FETCH_HEAD Auto-merging mars.txt CONFLICT (content): Merge conflict in mars.txt Automatic merge failed; fix conflicts and then commit the result. ```&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt; tells us there’s a conflict, and marks that conflict in the affected file:&lt;/p&gt;
+&lt;p&gt;```{bash} $ cat mars.txt&lt;/p&gt;
+&lt;p&gt;Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD We added a different line in the other copy ======= This line added to Wolfman’s copy &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d ```&lt;/p&gt;
+&lt;p&gt;Our change—the one in &lt;code&gt;HEAD&lt;/code&gt;—is preceded by &lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&lt;/code&gt;. Git has then inserted &lt;code&gt;=======&lt;/code&gt; as a separator between the conflicting changes and marked the end of the content downloaded from GitHub with &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;. (The string of letters and digits after that marker identifies the commit we’ve just downloaded.)&lt;/p&gt;
+&lt;p&gt;It is now up to us to edit this file to remove these markers and reconcile the changes. We can do anything we want: keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely. Let’s replace both so that the file looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cat mars.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+We removed the conflict on this line&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .output}&lt;/p&gt;
+&lt;p&gt;To finish merging, we add &lt;code&gt;mars.txt&lt;/code&gt; to the changes being made by the merge and then commit:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git add mars.txt
+$ git status&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;On branch master
+All conflicts fixed but you are still merging.
+  (use &amp;quot;git commit&amp;quot; to conclude merge)
+
+Changes to be committed:
+
+    modified:   mars.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .output}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git commit -m &amp;quot;Merge changes from GitHub&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[master 2abf2b1] Merge changes from GitHub&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .output}&lt;/p&gt;
+&lt;p&gt;Now we can push our changes to GitHub:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 697 bytes, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To https://github.com/vlad/planets.git
+   dabb4c8..2abf2b1  master -&amp;gt; master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .output}&lt;/p&gt;
+&lt;p&gt;Git keeps track of what we’ve merged with what, so we don’t have to fix things by hand again when the collaborator who made the first change pulls again:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull origin master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 2), reused 6 (delta 2)
+Unpacking objects: 100% (6/6), done.
+From https://github.com/vlad/planets
+ * branch            master     -&amp;gt; FETCH_HEAD
+Updating dabb4c8..2abf2b1
+Fast-forward
+ mars.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .output}&lt;/p&gt;
+&lt;p&gt;We get the merged file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cat mars.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+We removed the conflict on this line&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{: .output}&lt;/p&gt;
+&lt;p&gt;We don’t need to merge again because Git knows someone has already done that.&lt;/p&gt;
+&lt;p&gt;Git’s ability to resolve conflicts is very useful, but conflict resolution costs time and effort, and can introduce errors if conflicts are not resolved correctly. If you find yourself resolving a lot of conflicts in a project, consider one of these approaches to reducing them:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Try breaking large files apart into smaller files so that it is less likely that two authors will be working in the same file at the same time&lt;/li&gt;
+&lt;li&gt;Clarify who is responsible for what areas with your collaborators&lt;/li&gt;
+&lt;li&gt;Discuss what order tasks should be carried out in with your collaborators so that tasks that will change the same file won’t be worked on at the same time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Solving Conflicts that You Create&lt;/h2&gt;
+&lt;p&gt;Clone the repository created by your instructor. Add a new file to it, and modify an existing file (your instructor will tell you which one). When asked by your instructor, pull her changes from the repository to create a conflict, then resolve it. {.challenge}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Conflicts on Non-textual files&lt;/h2&gt;
+&lt;p&gt;What does Git do when there is a conflict in an image or some other non-textual file that is stored in version control?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;Solution&lt;/h2&gt;
+&lt;p&gt;Let’s try it. Suppose Dracula takes a picture of Martian surface and calls it &lt;code&gt;mars.jpg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you do not have an image file of Mars available, you can create a dummy binary file like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ head --bytes 1024 /dev/urandom &amp;gt; mars.jpg
+$ ls -lh mars.jpg&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-rw-r--r-- 1 vlad 57095 1.0K Mar  8 20:24 mars.jpg&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt; shows us that this created a 1-kilobyte file. It is full of random bytes read from the special file, &lt;code&gt;/dev/urandom&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now, suppose Dracula adds &lt;code&gt;mars.jpg&lt;/code&gt; to his repository:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git add mars.jpg
+$ git commit -m &amp;quot;Add picture of Martian surface&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[master 8e4115c] Add picture of Martian surface
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mars.jpg&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;Suppose that Wolfman has added a similar picture in the meantime. His is a picture of the Martian sky, but it is &lt;em&gt;also&lt;/em&gt; called &lt;code&gt;mars.jpg&lt;/code&gt;. When Dracula tries to push, he gets a familiar message:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;To https://github.com/vlad/planets.git
+ ! [rejected]        master -&amp;gt; master (fetch first)
+error: failed to push some refs to &amp;#39;https://github.com/vlad/planets.git&amp;#39;
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., &amp;#39;git pull ...&amp;#39;) before pushing again.
+hint: See the &amp;#39;Note about fast-forwards&amp;#39; in &amp;#39;git push --help&amp;#39; for details.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;We’ve learned that we must pull first and resolve any conflicts:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull origin master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;p&gt;When there is a conflict on an image or other binary file, git prints a message like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/vlad/planets.git
+ * branch            master     -&amp;gt; FETCH_HEAD
+   6a67967..439dc8c  master     -&amp;gt; origin/master
+warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
+Auto-merging mars.jpg
+CONFLICT (add/add): Merge conflict in mars.jpg
+Automatic merge failed; fix conflicts and then commit the result.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;The conflict message here is mostly the same as it was for &lt;code&gt;mars.txt&lt;/code&gt;, but there is one key additional line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Git cannot automatically insert conflict markers into an image as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.&lt;/p&gt;
+&lt;p&gt;On the key line above, Git has conveniently given us commit identifiers for the two versions of &lt;code&gt;mars.jpg&lt;/code&gt;. Our version is &lt;code&gt;HEAD&lt;/code&gt;, and Wolfman’s version is &lt;code&gt;439dc8c0...&lt;/code&gt;. If we want to use our version, we can use &lt;code&gt;git checkout&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout HEAD mars.jpg
+$ git add mars.jpg
+$ git commit -m &amp;quot;Use image of surface instead of sky&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[master 21032c3] Use image of surface instead of sky&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;If instead we want to use Wolfman’s version, we can use &lt;code&gt;git checkout&lt;/code&gt; with Wolfman’s commit identifier, &lt;code&gt;439dc8c0&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout 439dc8c0 mars.jpg
+$ git add mars.jpg
+$ git commit -m &amp;quot;Use image of sky instead of surface&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[master da21b34] Use image of sky instead of surface&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;We can also keep &lt;em&gt;both&lt;/em&gt; images. The catch is that we cannot keep them under the same name. But, we can check out each version in succession and &lt;em&gt;rename&lt;/em&gt; it, then add the renamed versions. First, check out each image and rename it:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout HEAD mars.jpg
+$ git mv mars.jpg mars-surface.jpg
+$ git checkout 439dc8c0 mars.jpg
+$ mv mars.jpg mars-sky.jpg&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;p&gt;Then, remove the old &lt;code&gt;mars.jpg&lt;/code&gt; and add the two new files:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git rm mars.jpg
+$ git add mars-surface.jpg
+$ git add mars-sky.jpg
+$ git commit -m &amp;quot;Use two images: surface and sky&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[master 94ae08c] Use two images: surface and sky
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mars-sky.jpg
+ rename mars.jpg =&amp;gt; mars-surface.jpg (100%)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;{.output}&lt;/p&gt;
+Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jpg&lt;/code&gt; no longer exists. {.solution} {.challenge}
+&lt;blockquote class=&quot;challenge&quot;&gt;
+&lt;h2&gt;A Typical Work Session&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Make changes&lt;/em&gt; by appending the number &lt;code&gt;100&lt;/code&gt; to a text file &lt;code&gt;numbers.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Update remote&lt;/em&gt; repository to match the local repository&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Celebrate&lt;/em&gt; your success with beer(s)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Update local&lt;/em&gt; repository to match the remote repository&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Stage changes&lt;/em&gt; to be committed&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Commit changes&lt;/em&gt; to the local repository&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In what order should you perform these actions to minimize the chances of conflicts? Put the commands above in order in the &lt;em&gt;action&lt;/em&gt; column of the table below. When you have the order right, see if you can write the corresponding commands in the &lt;em&gt;command&lt;/em&gt; column. A few steps are populated to get you started.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&quot;header&quot;&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;order&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;action . . . . . . . . . .&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;command . . . . . . . . . .&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;2&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;echo 100 &amp;gt;&amp;gt; numbers.txt&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;3&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;4&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;5&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;6&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Celebrate!&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;AFK&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote class=&quot;solution&quot;&gt;
+&lt;h2&gt;Solution&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&quot;header&quot;&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;order&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;action . . . . . .&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;command . . . . . . . . . . . . . . . . . . .&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Update local&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;git pull origin master&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;2&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Make changes&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;echo 100 &amp;gt;&amp;gt; numbers.txt&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;3&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Stage changes&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;git add numbers.txt&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;4&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Commit changes&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;git commit -m &amp;quot;Add 100 to numbers.txt&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;5&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Update remote&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;git push origin master&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;6&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Celebrate!&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;code&gt;AFK&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+{.solution}
+&lt;/blockquote&gt;
+{.challenge}
+&lt;/blockquote&gt;
+
+
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Github remote and Github</title>

@@ -226,11 +226,12 @@ div #sticker {
           <p><strong><em>Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/07-github/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
 <p>Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.</p>
 <p>Systems like Git allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like <a href="http://github.com">GitHub</a>, <a href="http://bitbucket.org">BitBucket</a>, <a href="http://gitlab.com/">GitLab</a> or the <a href="https://libutil.unm.edu/users/sign_in">UNM GitLab service for UNM members</a> to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.</p>
-<p>Let’s start by sharing the changes we’ve made to our current project with the world. Log in to GitHub, then click on the icon in the top right corner to create a new repository called <code>planets</code>:</p>
+<h2 id="set-up-local-and-remote-repositories">Set up local and remote repositories</h2>
+<p>Let’s start by sharing the changes we’ve made to our current project with the world. Log in to GitHub, then click on the icon in the top right corner to create a new repository called <code>testwebsite</code>:</p>
 <figure>
 <img src="/en/assets/img/github-create-repo-01.png" alt="Creating a Repository on GitHub (Step 1)" /><figcaption>Creating a Repository on GitHub (Step 1)</figcaption>
 </figure>
-<p>Name your repository “planets” and then click “Create Repository”:</p>
+<p>Name your repository “testwebsite” and then click “Create Repository”:</p>
 <figure>
 <img src="/en/assets/img/github-create-repo-02.png" alt="Creating a Repository on GitHub (Step 2)" /><figcaption>Creating a Repository on GitHub (Step 2)</figcaption>
 </figure>
@@ -239,108 +240,103 @@ div #sticker {
 <img src="/en/assets/img/github-create-repo-03.png" alt="Creating a Repository on GitHub (Step 3)" /><figcaption>Creating a Repository on GitHub (Step 3)</figcaption>
 </figure>
 <p>This effectively does the following on GitHub’s servers:</p>
-<p><code>{bash} mkdir planets cd planets git init</code></p>
-<p>Our local repository still contains our earlier work on <code>mars.txt</code>, but the remote repository on GitHub doesn’t contain any files yet:</p>
+<p><code>{bash} mkdir testwebsite cd testwebsite git init</code></p>
+<p>Now, we have created a repository on the GitHub server as a remote repository, but the remote repository on GitHub doesn’t contain any files yet. We will need to create local files and upload them to the remote repository. To do that, you can navigate to your local working directory pre-downloaded from the <a href="https://github.com/CQuIC/summer17-computing-workshop/">IT workshop repo</a> and then</p>
+<pre><code>git init</code></pre>
 <figure>
-<img src="/en/assets/img/git-freshly-made-github-repo.svg" alt="Freshly-Made GitHub Repository" /><figcaption>Freshly-Made GitHub Repository</figcaption>
+<img src="/en/assets/img/git-freshly-made-github-repo.png" alt="Freshly-Made GitHub Repository" /><figcaption>Freshly-Made GitHub Repository</figcaption>
 </figure>
 <p>The next step is to connect the two repositories. We do this by making the GitHub repository a <a href="https://help.github.com/categories/managing-remotes/">remote</a> for the local repository. The home page of the repository on GitHub includes the string we need to identify it:</p>
 <figure>
 <img src="/en/assets/img/github-find-repo-string.png" alt="Where to Find Repository URL on GitHub" /><figcaption>Where to Find Repository URL on GitHub</figcaption>
 </figure>
-<p>Click on the ‘HTTPS’ link to change the <a href="https://gist.github.com/grawity/4392747">protocol</a> from SSH to HTTPS.</p>
+<p>Click on the ‘HTTPS’ link to change the <a href="https://gist.github.com/grawity/4392747">protocol</a> to HTTPS.</p>
 <blockquote>
-<h2>HTTPS vs. SSH</h2>
-<p>We use HTTPS here because it does not require additional configuration. After the workshop you may want to set up SSH access, which is a bit more secure, by following one of the great tutorials from <a href="https://help.github.com/articles/generating-ssh-keys">GitHub</a>, <a href="https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Atlassian/BitBucket</a> and <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab</a> (this one has a screencast). {: .callout}</p>
+<h2>A side note on HTTPS vs. SSH</h2>
+<p>We use HTTPS here because it does not require additional configuration. After the workshop you may want to set up SSH access, which is a bit more secure, by following one of the great tutorials from <a href="https://help.github.com/articles/generating-ssh-keys">GitHub</a>, <a href="https://confluence.atlassian.com/display/BITBUCKET/Set+up+SSH+for+Git">Atlassian/BitBucket</a> and <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">GitLab</a> (this one has a screencast).</p>
 </blockquote>
 <figure>
 <img src="/en/assets/img/github-change-repo-string.png" alt="Changing the Repository URL on GitHub" /><figcaption>Changing the Repository URL on GitHub</figcaption>
 </figure>
-<p>Copy that URL from the browser, go into the local <code>planets</code> repository, and run this command:</p>
-<p><code>{bash} git remote add origin https://github.com/vlad/planets.git</code></p>
-<p>Make sure to use the URL for your repository rather than Vlad’s: the only difference should be your username instead of <code>vlad</code>.</p>
+<p>Copy that URL from the browser, go into the local <code>testwebsite</code> repository, and run this command (replace <code>i2000s</code> with your github username–so as all similar commands in this article):</p>
+<p><code>{bash} git remote add origin https://github.com/i2000s/testwebsite.git</code></p>
+<p>Make sure to use the URL for your repository rather than i2000s’s: the only difference should be your username instead of <code>i2000s</code>.</p>
 <p>We can check that the command has worked by running <code>git remote -v</code>:</p>
-<p><code>{bash} $ git remote -v origin   https://github.com/vlad/planets.git (push) origin   https://github.com/vlad/planets.git (fetch)</code></p>
+<p><code>{bash} $ git remote -v origin   https://github.com/i2000s/testwebsite.git (push) origin   https://github.com/i2000s/testwebsite.git (fetch)</code></p>
+<h2 id="push-to-remote">Push to remote</h2>
 <p>The name <code>origin</code> is a local nickname for your remote repository. We could use something else if we wanted to, but <code>origin</code> is by far the most common choice.</p>
 <p>Once the nickname <code>origin</code> is set up, this command will push the changes from our local repository to the repository on GitHub:</p>
 <p>```{bash} $ git push origin master</p>
-<p>Counting objects: 9, done. Delta compression using up to 4 threads. Compressing objects: 100% (6/6), done. Writing objects: 100% (9/9), 821 bytes, done. Total 9 (delta 2), reused 0 (delta 0) To https://github.com/vlad/planets * [new branch] master -&gt; master Branch master set up to track remote branch master from origin. ```</p>
-<blockquote>
-<h2>Proxy</h2>
-<p>If the network you are connected to uses a proxy there is an chance that your last command failed with “Could not resolve hostname” as the error message. To solve this issue you need to tell Git about the proxy:</p>
-<pre><code>$ git config --global http.proxy http://user:password@proxy.url
-$ git config --global https.proxy http://user:password@proxy.url</code></pre>
-<p>{: .bash}</p>
-<p>When you connect to another network that doesn’t use a proxy you will need to tell Git to disable the proxy using:</p>
-<pre><code>$ git config --global --unset http.proxy
-$ git config --global --unset https.proxy</code></pre>
-<p>{: .bash} {: .callout}</p>
-</blockquote>
-<blockquote>
-<h2>Password Managers</h2>
-<p>If your operating system has a password manager configured, <code>git push</code> will try to use it when it needs your username and password. For example, this is the default behavior for Git Bash on Windows. If you want to type your username and password at the terminal instead of using a password manager, type:</p>
-<pre><code>$ unset SSH_ASKPASS</code></pre>
-<p>{: .bash}</p>
-<p>in the terminal, before you run <code>git push</code>. Despite the name, <a href="http://git-scm.com/docs/gitcredentials#_requesting_credentials">git uses <code>SSH_ASKPASS</code> for all credential entry</a>, so you may want to unset <code>SSH_ASKPASS</code> whether you are using git via SSH or https.</p>
-<p>You may also want to add <code>unset SSH_ASKPASS</code> at the end of your <code>~/.bashrc</code> to make git default to using the terminal for usernames and passwords. {: .callout}</p>
-</blockquote>
-<p>Our local and remote repositories are now in this state:</p>
+<p>Counting objects: 130, done. Delta compression using up to 8 threads. Compressing objects: 100% (127/127), done. Writing objects: 100% (130/130), 1.03 MiB | 0 bytes/s, done. Total 130 (delta 21), reused 0 (delta 0) remote: Resolving deltas: 100% (21/21), done. To https://github.com/i2000s/testwebsite.git * [new branch] master -&gt; master Branch master set up to track remote branch master from origin.</p>
+<pre><code>
+
+Note that, in the pushing process, you may be asked to provide a github username and password.
+This could happen every time you push a repo to remote.
+You can actually set up a default username to the remote URL so that git won&#39;t ask you your github username again.
+The new url should be something like `https://i2000s@github.com/testwebsite.git` (replace `i2000s` with your real github username).
+This URL can either be modifed by editting the `.git/config` file or type command line</code></pre>
+<p>git remote set-url origin https://i2000s@github.com/testwebsite.git ``<code>If you want not to type your password every time neither, you can replace the url to origin in the formation of</code>https://i2000s:YOURPASSWORD@github.com/testwebsite.git`.</p>
+<p>Up to now, our local and remote repositories are now in this state:</p>
 <figure>
-<img src="/en/assets/img/github-repo-after-first-push.svg" alt="GitHub Repository After First Push" /><figcaption>GitHub Repository After First Push</figcaption>
+<img src="/en/assets/img/github-repo-after-first-push.png" alt="GitHub Repository After First Push" /><figcaption>GitHub Repository After First Push</figcaption>
 </figure>
-<blockquote>
-<h2>The ‘-u’ Flag</h2>
-<p>You may see a <code>-u</code> option used with <code>git push</code> in some documentation. This option is synonymous with the <code>--set-upstream-to</code> option for the <code>git branch</code> command, and is used to associate the current branch with a remote branch so that the <code>git pull</code> command can be used without any arguments. To do this, simply use <code>git push -u origin master</code> once the remote has been set up. {: .callout}</p>
-</blockquote>
+<p>When you push for the first time to a remote, you may also want to use a <code>-u</code> option used with <code>git push</code>. This option is synonymous with the <code>--set-upstream-to</code> option for the <code>git branch</code> command, and is used to associate the current branch with a remote branch so that the <code>git pull</code> command can be used without any arguments. To do this, simply use <code>git push -u origin master</code> once the remote has been set up.</p>
+<h2 id="pull-from-remote">Pull from remote</h2>
 <p>We can pull changes from the remote repository to the local one as well:</p>
 <p>```{bash} $ git pull origin master</p>
-<p>From https://github.com/vlad/planets * branch master -&gt; FETCH_HEAD Already up-to-date. ```</p>
-<p>Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on GitHub, though, this command would download them to our local repository.</p>
-<blockquote>
-<h2>GitHub GUI</h2>
-<p>Browse to your <code>planets</code> repository on GitHub. Under the Code tab, find and click on the text that says “XX commits” (where “XX” is some number). Hover over, and click on, the three buttons to the right of each commit. What information can you gather/explore from these buttons? How would you get that same information in the shell?</p>
-<blockquote>
-<h2>Solution</h2>
-<p>The left-most button (with the picture of a clipboard) copies the full identifier of the commit to the clipboard. In the shell, <code>git log</code> will show you the full commit identifier for each commit.</p>
-<p>When you click on the middle button, you’ll see all of the changes that were made in that particular commit. Green shaded lines indicate additions and red ones removals. In the shell we can do the same thing with <code>git diff</code>. In particular, <code>git diff ID1..ID2</code> where ID1 and ID2 are commit identifiers (e.g. <code>git diff a3bf1e5..041e637</code>) will show the differences between those two commits.</p>
-<p>The right-most button lets you view all of the files in the repository at the time of that commit. To do this in the shell, we’d need to checkout the repository at that particular time. We can do this with <code>git checkout ID</code> where ID is the identifier of the commit we want to look at. If we do this, we need to remember to put the repository back to the right state afterwards! {: .solution} {: .challenge}</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<h2>GitHub Timestamp</h2>
-<p>Create a remote repository on GitHub. Push the contents of your local repository to the remote. Make changes to your local repository and push these changes. Go to the repo you just created on GitHub and check the <a href="/reference/#timestamp">timestamps</a> of the files. How does GitHub record times, and why?</p>
-<blockquote>
-<h2>Solution</h2>
-<p>Github displays timestamps in a human readable relative format (i.e. “22 hours ago” or “three weeks ago”). However, if you hover over the timestamp, you can see the exact time at which the last change to the file occurred. {: .solution} {: .challenge}</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<h2>Push vs. Commit</h2>
-<p>In this lesson, we introduced the “git push” command. How is “git push” different from “git commit”?</p>
-<blockquote>
-<h2>Solution</h2>
-<p>When we push changes, we’re interacting with a remote repository to update it with the changes we’ve made locally (often this corresponds to sharing the changes we’ve made with others). Commit only updates your local repository. {: .solution} {: .challenge}</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<h2>Fixing Remote Settings</h2>
-<p>It happens quite often in practice that you made a typo in the remote URL. This exercice is about how to fix this kind of issues. First start by adding a remote with an invalid URL:</p>
-<pre><code>git remote add broken https://github.com/this/url/is/invalid</code></pre>
-<p>{: .bash}</p>
-<p>Do you get an error when adding the remote? Can you think of a command that would make it obvious that your remote URL was not valid? Can you figure out how to fix the URL (tip: use <code>git remote -h</code>)? Don’t forget to clean up and remove this remote once you are done with this exercise.</p>
-<blockquote>
-<h2>Solution</h2>
-<p>We don’t see any error message when we add the remote (adding the remote tells git about it, but doesn’t try to use it yet). As soon as we try to use <code>git push</code> we’ll see an error message. The command <code>git remote set-url</code> allows us to change the remote’s URL to fix it. {: .solution} {: .challenge}</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<h2>GitHub License and README files</h2>
-<p>In this section we learned about creating a remote repository on GitHub, but when you initialized your GitHub repo, you didn’t add a README.md or a license file. If you had, what do you think would have happened when you tried to link your local and remote repositories?</p>
-<blockquote>
-<h2>Solution</h2>
-<p>In this case, since we already had a README file in our own (local) repository, we’d see a merge conflict (when git realises that there are two versions of the file and asks us to reconcile the differences). {: .solution} {: .challenge}</p>
-</blockquote>
-</blockquote>
+<p>From https://github.com/i2000s/testwebsite * branch master -&gt; FETCH_HEAD Already up-to-date.</p>
+<pre><code>
+Pulling has no effect in this case because the two repositories are already
+synchronized.
+If someone else had pushed some changes to the repository on
+GitHub, though, this command would download them to our local repository.
+
+## GitHub GUI
+
+Browse to your `testwebsite` repository on GitHub.
+Under the Code tab, find and click on the text that says &quot;XX commits&quot; (where &quot;XX&quot; is some number).
+Whenever you push the contents of your local repository to the remote, GitHub also generate a timestamps for each commit.
+Hover over, and click on, the three buttons to the right of each commit.
+What information can you gather/explore from these buttons?
+How would you get that same information in the shell?
+
+ The answer is the following:
+ The left-most button (with the picture of a clipboard) copies the full identifier of the commit to the clipboard. In the shell, ```git log``` will show you the full commit identifier for each commit.
+
+ When you click on the middle button, you&#39;ll see all of the changes that were made in that particular commit. Green shaded lines indicate additions and red ones removals. In the shell we can do the same thing with ```git diff```. In particular, ```git diff ID1..ID2``` where ID1 and ID2 are commit identifiers (e.g. ```git diff a3bf1e5..041e637```) will show the differences between those two commits.
+
+ The right-most button lets you view all of the files in the repository at the time of that commit. To do this in the shell, we&#39;d need to checkout the repository at that particular time. We can do this with ```git checkout ID``` where ID is the identifier of the commit we want to look at. If we do this, we need to remember to put the repository back to the right state afterwards!
+
+
+## GitHub License, README files and the gh-pages branch
+
+In this section we learned about creating a remote repository on GitHub, but when you initialized your
+GitHub repo, you didn&#39;t add a `README.md` or a license file. If you had, what do you think would have happened when
+you tried to link your local and remote repositories?
+In this case, since we already had a `README` file in our own (local) repository, we&#39;d see a merge conflict (when git realises that there are two versions of the file and asks us to reconcile the differences).
+We will discuss git conflict resolving in the next session, and for now, we will take a look on the `README.md` file provided in the folder and create a new branch to generate a static website via GitHub.
+
+Now, you can use your favorite text editor to preview the `README.md` file.
+The `*.md` extension usually means the file is a [markdown](https://guides.github.com/features/mastering-markdown/) file.
+I personally use [Atom](https://atom.io/) to edit markdown files since it has an integrated Markdown previewer.
+If you do want to use Atom, you can press `Ctrl + Shift + P` and type in `Install packages` to find the `install packages/themes` function in the menu (or use the menu `Packages/Settings View/Install Packages/Themes` to open the panel);
+In the search bar, type in `markdown-preview` to see if you have the markdown previewer (the one with the Atom logo) installed or not;
+If so, go to `File/Add Project Folder` and add your current git local working directory as your project, open the `README.md` file on Atom, and navigate to the menu called `Packages/Markdown Preview/Toggle Preview` to open up a second preview panel along side of the `README.md` source file.
+
+From the preview panel, you can easily see how the markdown syntax generates basic formations and how complicated formations can be all managed in plain texts.
+
+Similarly to the license file.
+Normally, we need to be clear on what is the protocol to use the content, and the LICENSE file serves the purpose.
+More details can be found in [this tutorial](http://swcarpentry.github.io/git-novice/11-licensing/).
+
+In this part, we will start making a [Jekyll](https://jekyllrb.com/) website using github&#39;s GitHub pages service.
+
+Now on your computer&#39;s terminal, create a new branch based on the master branch by</code></pre>
+<p>git checkout -b gh-pages git push origin gh-pages ``<code>This will create a new branch called</code>gh-pages<code>and push it to the remote repository. As a result, GitHub renders your markdown code into HTML files using a Jekyll engine and generates a static website at</code>https://i2000s.github.io/testwebsite`. You can view it on your webbrowser.</p>
+<h2 id="comparison-among-remote-repository-hosting-service-providers">Comparison among remote repository hosting service providers</h2>
+<p>Before we jump into GitHub even more, let’s talk about briefly on the similarities and differences among popular git remote service providers as mentioned at the beginning. A detailed comparison among GitHub, BitBucket, GitLab and Coding can be found <a href="https://medium.com/flow-ci/github-vs-bitbucket-vs-gitlab-vs-coding-7cf2b43888a1">here</a>. We have created a GitHub organization for CQuIC so that we are granted with infinite number of private repos free of charge as a research and educational body. Feel free to best use of it through the <a href="https://github.com/CQuIC">CQuIC@GitHub</a> interface. Similarly, there is also a <a href="https://gitlab.com/CQuIC">CQuIC organization</a> on GitLab in case we need some extra benefit besides GitHub.</p>
+<p>The <a href="https://libutil.unm.edu/users/sign_in">UNM GitLab server</a> is a community version of the GitLab open-source tool installed on an UNM server. Compared to others, the UNM GitLab service is good at hosting <a href="https://about.gitlab.com/2015/11/23/announcing-git-lfs-support-in-gitlab/">Git large files</a>. So, it could be helpful to manage repos with data files without obvious limitations. But the total number of repos one can have on the server is limited (up to 10); since the service is associated with UNM NetIDs, it’s not clear in the documentations how the repos be treated once a student repo owner graduates from UNM.</p>
+<p>Hopefully, this helps you on deciding which git remote server you want to use for your repos.</p>
 <div class="references">
 
 </div>
@@ -362,8 +358,8 @@ $ git config --global --unset https.proxy</code></pre>
     property="dc:created">22 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-05-22 05:44:47 +0000"
-            property="dc:modified">22 May 2017</time></small></p>
+            datetime="2017-05-29 08:09:39 +0000"
+            property="dc:modified">29 May 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
@@ -415,7 +411,7 @@ $ git config --global --unset https.proxy</code></pre>
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/6caae0547d4632efaa86e3230ab7201ff1107c73/_posts/2017-05-22-git-remote-and-github.md"> 6caae05</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/1450c4b3ba5697b263f3a302fbcd43a713e53566/_posts/2017-05-22-git-remote-and-github.md"> 1450c4b</a></tiny></p>
 </aside>
 
 <br /><br />

@@ -21,6 +21,9 @@ different changes to each copy.  Version control helps us manage these
 [conflicts]({{ page.root }}/reference/#conflicts) by giving us tools to
 [resolve]({{ page.root }}/reference/#resolve) overlapping changes.
 
+## Resolving conflict on textual files
+***Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.***
+
 To see how we can resolve conflicts, we must first create one.  The file
 `mars.txt` currently looks like this in both partners' copies of our `planets`
 repository:
@@ -104,7 +107,7 @@ hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
 hint: before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
-
+> > {.output}
 ![The Conflicting Changes]({{site.baseurl}}/assets/img/conflict.svg)
 
 Git detects that the changes made in one copy overlap with those made in the other
@@ -159,16 +162,12 @@ Let's replace both so that the file looks like this:
 
 ~~~
 $ cat mars.txt
-~~~
-{: .bash}
 
-~~~
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 We removed the conflict on this line
 ~~~
-{: .output}
 
 To finish merging,
 we add `mars.txt` to the changes being made by the merge
@@ -177,10 +176,7 @@ and then commit:
 ~~~
 $ git add mars.txt
 $ git status
-~~~
-{: .bash}
 
-~~~
 On branch master
 All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)
@@ -189,27 +185,16 @@ Changes to be committed:
 
 	modified:   mars.txt
 
-~~~
-{: .output}
-
-~~~
 $ git commit -m "Merge changes from GitHub"
-~~~
-{: .bash}
 
-~~~
 [master 2abf2b1] Merge changes from GitHub
 ~~~
-{: .output}
 
 Now we can push our changes to GitHub:
 
 ~~~
 $ git push origin master
-~~~
-{: .bash}
 
-~~~
 Counting objects: 10, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
@@ -218,7 +203,6 @@ Total 6 (delta 2), reused 0 (delta 0)
 To https://github.com/vlad/planets.git
    dabb4c8..2abf2b1  master -> master
 ~~~
-{: .output}
 
 Git keeps track of what we've merged with what,
 so we don't have to fix things by hand again
@@ -226,10 +210,7 @@ when the collaborator who made the first change pulls again:
 
 ~~~
 $ git pull origin master
-~~~
-{: .bash}
 
-~~~
 remote: Counting objects: 10, done.
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 6 (delta 2), reused 6 (delta 2)
@@ -241,22 +222,17 @@ Fast-forward
  mars.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 ~~~
-{: .output}
 
 We get the merged file:
 
 ~~~
 $ cat mars.txt
-~~~
-{: .bash}
 
-~~~
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 We removed the conflict on this line
 ~~~
-{: .output}
 
 We don't need to merge again because Git knows someone has already done that.
 
@@ -271,40 +247,23 @@ consider one of these approaches to reducing them:
 - Discuss what order tasks should be carried out in with your collaborators so
   that tasks that will change the same file won't be worked on at the same time
 
-> ## Solving Conflicts that You Create
->
-> Clone the repository created by your instructor.
-> Add a new file to it,
-> and modify an existing file (your instructor will tell you which one).
-> When asked by your instructor,
-> pull her changes from the repository to create a conflict,
-> then resolve it.
-{.challenge}
 
-> ## Conflicts on Non-textual files
->
-> What does Git do
-> when there is a conflict in an image or some other non-textual file
-> that is stored in version control?
->
-> > ## Solution
-> >
-> > Let's try it. Suppose Dracula takes a picture of Martian surface and
-> > calls it `mars.jpg`.
-> >
-> > If you do not have an image file of Mars available, you can create
-> > a dummy binary file like this:
-> >
+## Conflicts on Non-textual files
+What does Git do when there is a conflict in an image or some other non-textual file
+that is stored in version control?
+
+Let's try it. Suppose Dracula takes a picture of Martian surface and
+calls it `mars.jpg`.
+
+If you do not have an image file of Mars available, you can create
+a dummy binary file like this:
+
 > > ~~~
 > > $ head --bytes 1024 /dev/urandom > mars.jpg
 > > $ ls -lh mars.jpg
-> > ~~~
-> > {.bash}
 > >
-> > ~~~
 > > -rw-r--r-- 1 vlad 57095 1.0K Mar  8 20:24 mars.jpg
 > > ~~~
-> > {.output}
 > >
 > > `ls` shows us that this created a 1-kilobyte file. It is full of
 > > random bytes read from the special file, `/dev/urandom`.

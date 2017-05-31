@@ -155,7 +155,7 @@ synchronized.
 If someone else had pushed some changes to the repository on
 GitHub, though, this command would download them to our local repository.
 
-## GitHub GUI
+## GitHub GUI and collaboration features
 
 Browse to your `testwebsite` repository on GitHub.
 Under the Code tab, find and click on the text that says "XX commits" (where "XX" is some number).
@@ -171,6 +171,44 @@ How would you get that same information in the shell?
 
  The right-most button lets you view all of the files in the repository at the time of that commit. To do this in the shell, we'd need to checkout the repository at that particular time. We can do this with ```git checkout ID``` where ID is the identifier of the commit we want to look at. If we do this, we need to remember to put the repository back to the right state afterwards!
 
+ ![GitHub Repository Interface]({{site.baseurl}}/assets/img/github-interface.png)
+
+ Now, let's see some functions that are only available using GitHub and other remote services.
+ On your web browser, go to [https://github.com/CQuIC/dont-forget-names](https://github.com/CQuIC/dont-forget-names).
+ This is the ***Don't Forget Names*** equation table put on in the CQuIC coffee room with the initiative by Josh Combes and other CQuIC students.
+ What we are exploring here are the features that really make collaboration easy.
+ As shown in the figure above or the GitHub interface you see on your web browser, the line below the repo's name includes a few menu buttons named as *Code*, *Issues*, *Pull Requests*, *Wiki*, *Settings* and *Insights*.
+
+ You can try click on the `Fork` button on the right-above corner of *Insights* menu item.
+ That way, you have made an associated copy under your own GitHub account, and GitHub should be forward you to your own forked repo after this operation.
+ Feel free to clone the forked repo to your local directory and compile the PDF by running `make` in your command terminal.
+ If you would like to add your own name as an "equation" or a "formula" in the TeX file, you can commit the change and push it to your forked repo.
+ Now, you should be able to click on the "Pull Request" button to push your own changes to the *Dont-forget-names* repo under the CQuIC account -- let's call it as the upstream repo.
+ Before you do the Pull Request (PR), it is always good to commit your updates to a new branch other than the default master branch by, for example,
+ ```
+ git checkout -b patch-1
+ git add .
+ git commit -m "Update new names."
+ git push origin patch-1
+ ```
+ Next, on your web browser click on the *Pull Request* button and select the `patch-1` branch to be pushed to the `master` branch of the upstream repo.
+ After this operation, the upstream repo on the web browser should have a flagged a new Pull Request if you click on the *Pull Requests* menu item.
+ A member of the repo who has write access can then merge/rebase/commit on your PR.
+
+ One can also use the ***Issues*** menu page to start discussing bugs, features requests or problems related to the code in the repo.
+ An issue can be closed or organized with other issues--even crossing repos on the ***Projects*** page.
+
+ The ***Wiki*** page is nothing but a repo with [GitHub-flavored Markdown](https://help.github.com/articles/adding-and-editing-wiki-pages-locally/) documentations (we will discuss later).
+ One can edit the wiki pages of the repo online through the GitHub interface or edit them locally by cloning the repo with
+ ```
+ git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.wiki.git
+ ```
+ In our case, `YOUR_USERNAME` is the organization name, `CQuIC`; `YOUR_REPOSITORY` is `Dont-forget-names`.
+
+ The ***Settings*** page, as you can guess, has all the common options the owner of the repo can manage how the repo is organized, like inviting GitHub members to join the repo with *read*/*edit*/*management* permissions, and switching the repo to be visible or invisible to public.
+ If you are an owner of the CQuIC or other organization on GitHub, you can have more options to grant permissions to collaborators in a very detailed level.
+
+ These features of GitHub facilitate collaborations among people inside or outside of the repo group in a great extend.
 
 ## GitHub License, README files and the gh-pages branch
 
@@ -182,6 +220,7 @@ We will discuss git conflict resolving in the next session, and for now, we will
 
 Now, you can use your favorite text editor to preview the `README.md` file.
 The `*.md` extension usually means the file is a [markdown](https://guides.github.com/features/mastering-markdown/) file.
+Specifically, here we use the [GitHub Flavored Markdown syntax](https://guides.github.com/features/mastering-markdown/) for styling documentations as a [markup](https://en.wikipedia.org/wiki/Markup_language) language implementation supported by GitHub.
 I personally use [Atom](https://atom.io/) to edit markdown files since it has an integrated Markdown previewer.
 If you do want to use Atom, you can press `Ctrl + Shift + P` and type in `Install packages` to find the `install packages/themes` function in the menu (or use the menu `Packages/Settings View/Install Packages/Themes` to open the panel);
 In the search bar, type in `markdown-preview` to see if you have the markdown previewer (the one with the Atom logo) installed or not;

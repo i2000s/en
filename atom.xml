@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-05-31T07:07:25+00:00</updated>
+ <updated>2017-05-31T07:20:31+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -59,21 +59,77 @@ git submodule --init --recursive --remote&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;resolving-conflict-on-textual-files&quot;&gt;Resolving conflict on textual files&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;To see how we can resolve conflicts, we must first create one. The file &lt;code&gt;mars.txt&lt;/code&gt; currently looks like this in both partners’ copies of our &lt;code&gt;planets&lt;/code&gt; repository:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ cat mars.txt Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s add a line to one partner’s copy only:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ nano mars.txt $ cat mars.txt Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity This line added to Wolfman&#39;s copy&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ nano mars.txt
+$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+This line added to Wolfman&amp;#39;s copy&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and then push the change to GitHub:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ git add mars.txt $ git commit -m &amp;quot;Add a line in our home copy&amp;quot; [master 5ae9631] Add a line in our home copy  1 file changed, 1 insertion(+) $ git push origin master Counting objects: 5, done. Delta compression using up to 4 threads. Compressing objects: 100% (3/3), done. Writing objects: 100% (3/3), 352 bytes, done. Total 3 (delta 1), reused 0 (delta 0) To https://github.com/vlad/planets    29aba7c..dabb4c8  master -&amp;gt; master&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git add mars.txt
+$ git commit -m &amp;quot;Add a line in our home copy&amp;quot;
+[master 5ae9631] Add a line in our home copy
+ 1 file changed, 1 insertion(+)
+$ git push origin master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 352 bytes, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://github.com/vlad/planets
+   29aba7c..dabb4c8  master -&amp;gt; master&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now let’s have the other partner make a different change to their copy &lt;em&gt;without&lt;/em&gt; updating from GitHub:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ nano mars.txt $ cat mars.txt Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity We added a different line in the other copy&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ nano mars.txt
+$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+We added a different line in the other copy&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can commit the change locally:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ git add mars.txt $ git commit -m &amp;quot;Add a line in my copy&amp;quot; [master 07ebc69] Add a line in my copy  1 file changed, 1 insertion(+)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git add mars.txt
+$ git commit -m &amp;quot;Add a line in my copy&amp;quot;
+[master 07ebc69] Add a line in my copy
+ 1 file changed, 1 insertion(+)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;but Git won’t let us push it to GitHub:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ git push origin master To https://github.com/vlad/planets.git  ! [rejected]        master -&amp;gt; master (non-fast-forward) error: failed to push some refs to &#39;https://github.com/vlad/planets.git&#39; hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Merge the remote changes (e.g. &#39;git pull&#39;) hint: before pushing again. hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.&lt;/code&gt; &amp;gt; &amp;gt; {.output} &lt;img src=&quot;/en/assets/img/conflict.svg&quot; alt=&quot;The Conflicting Changes&quot; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin master
+To https://github.com/vlad/planets.git
+ ! [rejected]        master -&amp;gt; master (non-fast-forward)
+error: failed to push some refs to &amp;#39;https://github.com/vlad/planets.git&amp;#39;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Merge the remote changes (e.g. &amp;#39;git pull&amp;#39;)
+hint: before pushing again.
+hint: See the &amp;#39;Note about fast-forwards&amp;#39; in &amp;#39;git push --help&amp;#39; for details.&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;{.output} &lt;img src=&quot;/en/assets/img/conflict.svg&quot; alt=&quot;The Conflicting Changes&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Git detects that the changes made in one copy overlap with those made in the other and stops us from trampling on our previous work. What we have to do is pull the changes from GitHub, &lt;a href=&quot;/reference/#merge&quot;&gt;merge&lt;/a&gt; them into the copy we’re currently working in, and then push that. Let’s start by pulling:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ git pull origin master remote: Counting objects: 5, done. remote: Compressing objects: 100% (2/2), done. remote: Total 3 (delta 1), reused 3 (delta 1) Unpacking objects: 100% (3/3), done. From https://github.com/vlad/planets  * branch            master     -&amp;gt; FETCH_HEAD Auto-merging mars.txt CONFLICT (content): Merge conflict in mars.txt Automatic merge failed; fix conflicts and then commit the result.&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull origin master
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/vlad/planets
+ * branch            master     -&amp;gt; FETCH_HEAD
+Auto-merging mars.txt
+CONFLICT (content): Merge conflict in mars.txt
+Automatic merge failed; fix conflicts and then commit the result.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;git pull&lt;/code&gt; tells us there’s a conflict, and marks that conflict in the affected file:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ cat mars.txt Cold and dry, but everything is my favorite color The two moons may be a problem for Wolfman But the Mummy will appreciate the lack of humidity &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD We added a different line in the other copy ======= This line added to Wolfman&#39;s copy &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
+We added a different line in the other copy
+=======
+This line added to Wolfman&amp;#39;s copy
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Our change—the one in &lt;code&gt;HEAD&lt;/code&gt;—is preceded by &lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&lt;/code&gt;. Git has then inserted &lt;code&gt;=======&lt;/code&gt; as a separator between the conflicting changes and marked the end of the content downloaded from GitHub with &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;. (The string of letters and digits after that marker identifies the commit we’ve just downloaded.)&lt;/p&gt;
 &lt;p&gt;It is now up to us to edit this file to remove these markers and reconcile the changes. We can do anything we want: keep the change made in the local repository, keep the change made in the remote repository, write something new to replace both, or get rid of the change entirely. Let’s replace both so that the file looks like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ cat mars.txt
@@ -129,8 +185,6 @@ We removed the conflict on this line&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;What does Git do when there is a conflict in an image or some other non-textual file that is stored in version control?&lt;/p&gt;
 &lt;p&gt;Let’s try it. Suppose Dracula takes a picture of Martian surface and calls it &lt;code&gt;mars.jpg&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;If you do not have an image file of Mars available, you can create a dummy binary file like this:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
 &lt;pre&gt;&lt;code&gt;$ head --bytes 1024 /dev/urandom &amp;gt; mars.jpg
 $ ls -lh mars.jpg
 
@@ -138,44 +192,31 @@ $ ls -lh mars.jpg
 &lt;p&gt;&lt;code&gt;ls&lt;/code&gt; shows us that this created a 1-kilobyte file. It is full of random bytes read from the special file, &lt;code&gt;/dev/urandom&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Now, suppose Dracula adds &lt;code&gt;mars.jpg&lt;/code&gt; to his repository:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git add mars.jpg
-$ git commit -m &amp;quot;Add picture of Martian surface&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.bash}&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[master 8e4115c] Add picture of Martian surface
+$ git commit -m &amp;quot;Add picture of Martian surface&amp;quot;
+
+[master 8e4115c] Add picture of Martian surface
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 mars.jpg&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.output}&lt;/p&gt;
 &lt;p&gt;Suppose that Wolfman has added a similar picture in the meantime. His is a picture of the Martian sky, but it is &lt;em&gt;also&lt;/em&gt; called &lt;code&gt;mars.jpg&lt;/code&gt;. When Dracula tries to push, he gets a familiar message:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git push origin master&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.bash}&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;To https://github.com/vlad/planets.git
- ! [rejected]        master -&amp;gt; master (fetch first)
-error: failed to push some refs to &amp;#39;https://github.com/vlad/planets.git&amp;#39;
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., &amp;#39;git pull ...&amp;#39;) before pushing again.
-hint: See the &amp;#39;Note about fast-forwards&amp;#39; in &amp;#39;git push --help&amp;#39; for details.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.output}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin master
+
+ To https://github.com/vlad/planets.git
+  ! [rejected]        master -&amp;gt; master (fetch first)
+ error: failed to push some refs to &amp;#39;https://github.com/vlad/planets.git&amp;#39;
+ hint: Updates were rejected because the remote contains work that you do
+ hint: not have locally. This is usually caused by another repository pushing
+ hint: to the same ref. You may want to first integrate the remote changes
+ hint: (e.g., &amp;#39;git pull ...&amp;#39;) before pushing again.
+ hint: See the &amp;#39;Note about fast-forwards&amp;#39; in &amp;#39;git push --help&amp;#39; for details.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We’ve learned that we must pull first and resolve any conflicts:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git pull origin master&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ git pull origin master&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;When there is a conflict on an image or other binary file, git prints a message like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git pull origin master
-remote: Counting objects: 3, done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0)
-Unpacking objects: 100% (3/3), done.
-From https://github.com/vlad/planets.git
- * branch            master     -&amp;gt; FETCH_HEAD
-   6a67967..439dc8c  master     -&amp;gt; origin/master
-warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
-Auto-merging mars.jpg
-CONFLICT (add/add): Merge conflict in mars.jpg
-Automatic merge failed; fix conflicts and then commit the result.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ git pull origin master  remote: Counting objects: 3, done.  remote: Compressing objects: 100% (3/3), done.  remote: Total 3 (delta 0), reused 0 (delta 0)  Unpacking objects: 100% (3/3), done.  From https://github.com/vlad/planets.git   * branch            master     -&amp;gt; FETCH_HEAD     6a67967..439dc8c  master     -&amp;gt; origin/master  warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)  Auto-merging mars.jpg  CONFLICT (add/add): Merge conflict in mars.jpg  Automatic merge failed; fix conflicts and then commit the result.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The conflict message here is mostly the same as it was for &lt;code&gt;mars.txt&lt;/code&gt;, but there is one key additional line:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Git cannot automatically insert conflict markers into an image as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;On the key line above, Git has conveniently given us commit identifiers for the two versions of &lt;code&gt;mars.jpg&lt;/code&gt;. Our version is &lt;code&gt;HEAD&lt;/code&gt;, and Wolfman’s version is &lt;code&gt;439dc8c0...&lt;/code&gt;. If we want to use our version, we can use &lt;code&gt;git checkout&lt;/code&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git checkout HEAD mars.jpg
 $ git add mars.jpg
@@ -340,7 +381,9 @@ Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jp
 &lt;img src=&quot;/en/assets/img/github-create-repo-03.png&quot; alt=&quot;Creating a Repository on GitHub (Step 3)&quot; /&gt;&lt;figcaption&gt;Creating a Repository on GitHub (Step 3)&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;This effectively does the following on GitHub’s servers:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} mkdir testwebsite cd testwebsite git init&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir testwebsite
+cd testwebsite
+git init&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now, we have created a repository on the GitHub server as a remote repository, but the remote repository on GitHub doesn’t contain any files yet. We will need to create local files and upload them to the remote repository. To do that, you can navigate to your local working directory pre-downloaded from the &lt;a href=&quot;https://github.com/CQuIC/summer17-computing-workshop/&quot;&gt;IT workshop repo&lt;/a&gt; and then&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git init&lt;/code&gt;&lt;/pre&gt;
 &lt;figure&gt;
@@ -359,14 +402,25 @@ Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jp
 &lt;img src=&quot;/en/assets/img/github-change-repo-string.png&quot; alt=&quot;Changing the Repository URL on GitHub&quot; /&gt;&lt;figcaption&gt;Changing the Repository URL on GitHub&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;Copy that URL from the browser, go into the local &lt;code&gt;testwebsite&lt;/code&gt; repository, and run this command (replace &lt;code&gt;i2000s&lt;/code&gt; with your github username–so as all similar commands in this article):&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} git remote add origin https://github.com/i2000s/testwebsite.git&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git remote add origin https://github.com/i2000s/testwebsite.git&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Make sure to use the URL for your repository rather than i2000s’s: the only difference should be your username instead of &lt;code&gt;i2000s&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;We can check that the command has worked by running &lt;code&gt;git remote -v&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ git remote -v origin   https://github.com/i2000s/testwebsite.git (push) origin   https://github.com/i2000s/testwebsite.git (fetch)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git remote -v
+origin   https://github.com/i2000s/testwebsite.git (push)
+origin   https://github.com/i2000s/testwebsite.git (fetch)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;push-to-remote&quot;&gt;Push to remote&lt;/h2&gt;
 &lt;p&gt;The name &lt;code&gt;origin&lt;/code&gt; is a local nickname for your remote repository. We could use something else if we wanted to, but &lt;code&gt;origin&lt;/code&gt; is by far the most common choice.&lt;/p&gt;
 &lt;p&gt;Once the nickname &lt;code&gt;origin&lt;/code&gt; is set up, this command will push the changes from our local repository to the repository on GitHub:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ git push origin master Counting objects: 130, done. Delta compression using up to 8 threads. Compressing objects: 100% (127/127), done. Writing objects: 100% (130/130), 1.03 MiB | 0 bytes/s, done. Total 130 (delta 21), reused 0 (delta 0) remote: Resolving deltas: 100% (21/21), done. To https://github.com/i2000s/testwebsite.git  * [new branch]      master -&amp;gt; master Branch master set up to track remote branch master from origin.&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin master
+Counting objects: 130, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (127/127), done.
+Writing objects: 100% (130/130), 1.03 MiB | 0 bytes/s, done.
+Total 130 (delta 21), reused 0 (delta 0)
+remote: Resolving deltas: 100% (21/21), done.
+To https://github.com/i2000s/testwebsite.git
+ * [new branch]      master -&amp;gt; master
+Branch master set up to track remote branch master from origin.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that, in the pushing process, you may be asked to provide a github username and password. This could happen every time you push a repo to remote. You can actually set up a default username to the remote URL so that git won’t ask you your github username again. The new url should be something like &lt;code&gt;https://i2000s@github.com/testwebsite.git&lt;/code&gt; (replace &lt;code&gt;i2000s&lt;/code&gt; with your real github username). This URL can either be modifed by editting the &lt;code&gt;.git/config&lt;/code&gt; file or type command line&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git remote set-url origin https://i2000s@github.com/testwebsite.git&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you want not to type your password every time neither, you can replace the url to origin in the formation of &lt;code&gt;https://i2000s:YOURPASSWORD@github.com/testwebsite.git&lt;/code&gt;.&lt;/p&gt;
@@ -377,7 +431,10 @@ Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jp
 &lt;p&gt;When you push for the first time to a remote, you may also want to use a &lt;code&gt;-u&lt;/code&gt; option used with &lt;code&gt;git push&lt;/code&gt;. This option is synonymous with the &lt;code&gt;--set-upstream-to&lt;/code&gt; option for the &lt;code&gt;git branch&lt;/code&gt; command, and is used to associate the current branch with a remote branch so that the &lt;code&gt;git pull&lt;/code&gt; command can be used without any arguments. To do this, simply use &lt;code&gt;git push -u origin master&lt;/code&gt; once the remote has been set up.&lt;/p&gt;
 &lt;h2 id=&quot;pull-from-remote&quot;&gt;Pull from remote&lt;/h2&gt;
 &lt;p&gt;We can pull changes from the remote repository to the local one as well:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;{bash} $ git pull origin master From https://github.com/i2000s/testwebsite  * branch            master     -&amp;gt; FETCH_HEAD Already up-to-date.&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull origin master
+From https://github.com/i2000s/testwebsite
+ * branch            master     -&amp;gt; FETCH_HEAD
+Already up-to-date.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on GitHub, though, this command would download them to our local repository.&lt;/p&gt;
 &lt;h2 id=&quot;github-gui-and-collaboration-features&quot;&gt;GitHub GUI and collaboration features&lt;/h2&gt;
 &lt;p&gt;Browse to your &lt;code&gt;testwebsite&lt;/code&gt; repository on GitHub. Under the Code tab, find and click on the text that says “XX commits” (where “XX” is some number). Whenever you push the contents of your local repository to the remote, GitHub also generate a timestamps for each commit. Hover over, and click on, the three buttons to the right of each commit. What information can you gather/explore from these buttons? How would you get that same information in the shell?&lt;/p&gt;

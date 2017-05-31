@@ -240,7 +240,9 @@ div #sticker {
 <img src="/en/assets/img/github-create-repo-03.png" alt="Creating a Repository on GitHub (Step 3)" /><figcaption>Creating a Repository on GitHub (Step 3)</figcaption>
 </figure>
 <p>This effectively does the following on GitHub’s servers:</p>
-<p><code>{bash} mkdir testwebsite cd testwebsite git init</code></p>
+<pre><code>mkdir testwebsite
+cd testwebsite
+git init</code></pre>
 <p>Now, we have created a repository on the GitHub server as a remote repository, but the remote repository on GitHub doesn’t contain any files yet. We will need to create local files and upload them to the remote repository. To do that, you can navigate to your local working directory pre-downloaded from the <a href="https://github.com/CQuIC/summer17-computing-workshop/">IT workshop repo</a> and then</p>
 <pre><code>git init</code></pre>
 <figure>
@@ -259,14 +261,25 @@ div #sticker {
 <img src="/en/assets/img/github-change-repo-string.png" alt="Changing the Repository URL on GitHub" /><figcaption>Changing the Repository URL on GitHub</figcaption>
 </figure>
 <p>Copy that URL from the browser, go into the local <code>testwebsite</code> repository, and run this command (replace <code>i2000s</code> with your github username–so as all similar commands in this article):</p>
-<p><code>{bash} git remote add origin https://github.com/i2000s/testwebsite.git</code></p>
+<pre><code>git remote add origin https://github.com/i2000s/testwebsite.git</code></pre>
 <p>Make sure to use the URL for your repository rather than i2000s’s: the only difference should be your username instead of <code>i2000s</code>.</p>
 <p>We can check that the command has worked by running <code>git remote -v</code>:</p>
-<p><code>{bash} $ git remote -v origin   https://github.com/i2000s/testwebsite.git (push) origin   https://github.com/i2000s/testwebsite.git (fetch)</code></p>
+<pre><code>$ git remote -v
+origin   https://github.com/i2000s/testwebsite.git (push)
+origin   https://github.com/i2000s/testwebsite.git (fetch)</code></pre>
 <h2 id="push-to-remote">Push to remote</h2>
 <p>The name <code>origin</code> is a local nickname for your remote repository. We could use something else if we wanted to, but <code>origin</code> is by far the most common choice.</p>
 <p>Once the nickname <code>origin</code> is set up, this command will push the changes from our local repository to the repository on GitHub:</p>
-<p><code>{bash} $ git push origin master Counting objects: 130, done. Delta compression using up to 8 threads. Compressing objects: 100% (127/127), done. Writing objects: 100% (130/130), 1.03 MiB | 0 bytes/s, done. Total 130 (delta 21), reused 0 (delta 0) remote: Resolving deltas: 100% (21/21), done. To https://github.com/i2000s/testwebsite.git  * [new branch]      master -&gt; master Branch master set up to track remote branch master from origin.</code></p>
+<pre><code>$ git push origin master
+Counting objects: 130, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (127/127), done.
+Writing objects: 100% (130/130), 1.03 MiB | 0 bytes/s, done.
+Total 130 (delta 21), reused 0 (delta 0)
+remote: Resolving deltas: 100% (21/21), done.
+To https://github.com/i2000s/testwebsite.git
+ * [new branch]      master -&gt; master
+Branch master set up to track remote branch master from origin.</code></pre>
 <p>Note that, in the pushing process, you may be asked to provide a github username and password. This could happen every time you push a repo to remote. You can actually set up a default username to the remote URL so that git won’t ask you your github username again. The new url should be something like <code>https://i2000s@github.com/testwebsite.git</code> (replace <code>i2000s</code> with your real github username). This URL can either be modifed by editting the <code>.git/config</code> file or type command line</p>
 <pre><code>git remote set-url origin https://i2000s@github.com/testwebsite.git</code></pre>
 <p>If you want not to type your password every time neither, you can replace the url to origin in the formation of <code>https://i2000s:YOURPASSWORD@github.com/testwebsite.git</code>.</p>
@@ -277,7 +290,10 @@ div #sticker {
 <p>When you push for the first time to a remote, you may also want to use a <code>-u</code> option used with <code>git push</code>. This option is synonymous with the <code>--set-upstream-to</code> option for the <code>git branch</code> command, and is used to associate the current branch with a remote branch so that the <code>git pull</code> command can be used without any arguments. To do this, simply use <code>git push -u origin master</code> once the remote has been set up.</p>
 <h2 id="pull-from-remote">Pull from remote</h2>
 <p>We can pull changes from the remote repository to the local one as well:</p>
-<p><code>{bash} $ git pull origin master From https://github.com/i2000s/testwebsite  * branch            master     -&gt; FETCH_HEAD Already up-to-date.</code></p>
+<pre><code>$ git pull origin master
+From https://github.com/i2000s/testwebsite
+ * branch            master     -&gt; FETCH_HEAD
+Already up-to-date.</code></pre>
 <p>Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on GitHub, though, this command would download them to our local repository.</p>
 <h2 id="github-gui-and-collaboration-features">GitHub GUI and collaboration features</h2>
 <p>Browse to your <code>testwebsite</code> repository on GitHub. Under the Code tab, find and click on the text that says “XX commits” (where “XX” is some number). Whenever you push the contents of your local repository to the remote, GitHub also generate a timestamps for each commit. Hover over, and click on, the three buttons to the right of each commit. What information can you gather/explore from these buttons? How would you get that same information in the shell?</p>
@@ -328,7 +344,7 @@ git push origin gh-pages</code></pre>
     property="dc:created">22 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-05-31 07:02:13 +0000"
+            datetime="2017-05-31 07:16:00 +0000"
             property="dc:modified">31 May 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
@@ -381,7 +397,7 @@ git push origin gh-pages</code></pre>
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/1074e88839f601585274dcf51da4541117719ed1/_posts/2017-05-22-git-remote-and-github.md"> 1074e88</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/bc2c70cf558a6bac4edf9e0b348e2b8a7b7adeb3/_posts/2017-05-22-git-remote-and-github.md"> bc2c70c</a></tiny></p>
 </aside>
 
 <br /><br />

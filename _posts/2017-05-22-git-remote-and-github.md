@@ -107,7 +107,6 @@ our local repository to the repository on GitHub:
 
 ```{bash}
 $ git push origin master
-
 Counting objects: 130, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (127/127), done.
@@ -144,7 +143,6 @@ We can pull changes from the remote repository to the local one as well:
 
 ```{bash}
 $ git pull origin master
-
 From https://github.com/i2000s/testwebsite
  * branch            master     -> FETCH_HEAD
 Already up-to-date.

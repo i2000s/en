@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-05-31T07:20:31+00:00</updated>
+ <updated>2017-05-31T07:28:48+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -104,11 +104,9 @@ hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Merge the remote changes (e.g. &amp;#39;git pull&amp;#39;)
 hint: before pushing again.
 hint: See the &amp;#39;Note about fast-forwards&amp;#39; in &amp;#39;git push --help&amp;#39; for details.&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;{.output} &lt;img src=&quot;/en/assets/img/conflict.svg&quot; alt=&quot;The Conflicting Changes&quot; /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/en/assets/img/conflict.svg&quot; alt=&quot;The Conflicting Changes&quot; /&gt;&lt;figcaption&gt;The Conflicting Changes&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;p&gt;Git detects that the changes made in one copy overlap with those made in the other and stops us from trampling on our previous work. What we have to do is pull the changes from GitHub, &lt;a href=&quot;/reference/#merge&quot;&gt;merge&lt;/a&gt; them into the copy we’re currently working in, and then push that. Let’s start by pulling:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git pull origin master
 remote: Counting objects: 5, done.
@@ -215,43 +213,21 @@ $ git commit -m &amp;quot;Add picture of Martian surface&amp;quot;
 &lt;p&gt;The conflict message here is mostly the same as it was for &lt;code&gt;mars.txt&lt;/code&gt;, but there is one key additional line:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Git cannot automatically insert conflict markers into an image as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
 &lt;p&gt;On the key line above, Git has conveniently given us commit identifiers for the two versions of &lt;code&gt;mars.jpg&lt;/code&gt;. Our version is &lt;code&gt;HEAD&lt;/code&gt;, and Wolfman’s version is &lt;code&gt;439dc8c0...&lt;/code&gt;. If we want to use our version, we can use &lt;code&gt;git checkout&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git checkout HEAD mars.jpg
-$ git add mars.jpg
-$ git commit -m &amp;quot;Use image of surface instead of sky&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.bash}&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[master 21032c3] Use image of surface instead of sky&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git checkout HEAD mars.jpg $ git add mars.jpg $ git commit -m “Use image of surface instead of sky”&lt;/p&gt;
+&lt;p&gt;[master 21032c3] Use image of surface instead of sky &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
 &lt;p&gt;If instead we want to use Wolfman’s version, we can use &lt;code&gt;git checkout&lt;/code&gt; with Wolfman’s commit identifier, &lt;code&gt;439dc8c0&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git checkout 439dc8c0 mars.jpg
-$ git add mars.jpg
-$ git commit -m &amp;quot;Use image of sky instead of surface&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.bash}&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[master da21b34] Use image of sky instead of surface&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.output}&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git checkout 439dc8c0 mars.jpg $ git add mars.jpg $ git commit -m “Use image of sky instead of surface”&lt;/p&gt;
+&lt;p&gt;[master da21b34] Use image of sky instead of surface &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
 &lt;p&gt;We can also keep &lt;em&gt;both&lt;/em&gt; images. The catch is that we cannot keep them under the same name. But, we can check out each version in succession and &lt;em&gt;rename&lt;/em&gt; it, then add the renamed versions. First, check out each image and rename it:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git checkout HEAD mars.jpg
-$ git mv mars.jpg mars-surface.jpg
-$ git checkout 439dc8c0 mars.jpg
-$ mv mars.jpg mars-sky.jpg&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.bash}&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git checkout HEAD mars.jpg $ git mv mars.jpg mars-surface.jpg $ git checkout 439dc8c0 mars.jpg $ mv mars.jpg mars-sky.jpg &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
 &lt;p&gt;Then, remove the old &lt;code&gt;mars.jpg&lt;/code&gt; and add the two new files:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git rm mars.jpg
-$ git add mars-surface.jpg
-$ git add mars-sky.jpg
-$ git commit -m &amp;quot;Use two images: surface and sky&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.bash}&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[master 94ae08c] Use two images: surface and sky
- 2 files changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 mars-sky.jpg
- rename mars.jpg =&amp;gt; mars-surface.jpg (100%)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;{.output}&lt;/p&gt;
-Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jpg&lt;/code&gt; no longer exists. {.solution} {.challenge}
+&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git rm mars.jpg $ git add mars-surface.jpg $ git add mars-sky.jpg $ git commit -m “Use two images: surface and sky”&lt;/p&gt;
+&lt;p&gt;[master 94ae08c] Use two images: surface and sky 2 files changed, 0 insertions(+), 0 deletions(-) create mode 100644 mars-sky.jpg rename mars.jpg =&amp;gt; mars-surface.jpg (100%) &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
+&lt;p&gt;Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jpg&lt;/code&gt; no longer exists.&lt;/p&gt;
 &lt;blockquote class=&quot;challenge&quot;&gt;
-&lt;h2&gt;A Typical Work Session&lt;/h2&gt;
-&lt;/blockquote&gt;
+ 
+&lt;h2 id=&quot;a-typical-work-session&quot;&gt;A Typical Work Session&lt;/h2&gt;
 &lt;p&gt;You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Make changes&lt;/em&gt; by appending the number &lt;code&gt;100&lt;/code&gt; to a text file &lt;code&gt;numbers.txt&lt;/code&gt;&lt;/li&gt;
@@ -304,8 +280,7 @@ Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jp
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote class=&quot;solution&quot;&gt;
-&lt;h2&gt;Solution&lt;/h2&gt;
-&lt;/blockquote&gt;
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr class=&quot;header&quot;&gt;
@@ -347,9 +322,7 @@ Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jp
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-{.solution}
 &lt;/blockquote&gt;
-{.challenge}
 &lt;/blockquote&gt;
 
 

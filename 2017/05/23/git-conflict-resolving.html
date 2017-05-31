@@ -273,11 +273,9 @@ hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Merge the remote changes (e.g. &#39;git pull&#39;)
 hint: before pushing again.
 hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</code></pre>
-<blockquote>
-<blockquote>
-<p>{.output} <img src="/en/assets/img/conflict.svg" alt="The Conflicting Changes" /></p>
-</blockquote>
-</blockquote>
+<figure>
+<img src="/en/assets/img/conflict.svg" alt="The Conflicting Changes" /><figcaption>The Conflicting Changes</figcaption>
+</figure>
 <p>Git detects that the changes made in one copy overlap with those made in the other and stops us from trampling on our previous work. What we have to do is pull the changes from GitHub, <a href="/reference/#merge">merge</a> them into the copy we’re currently working in, and then push that. Let’s start by pulling:</p>
 <pre><code>$ git pull origin master
 remote: Counting objects: 5, done.
@@ -384,43 +382,21 @@ $ git commit -m &quot;Add picture of Martian surface&quot;
 <p>The conflict message here is mostly the same as it was for <code>mars.txt</code>, but there is one key additional line:</p>
 <p><code>warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)</code></p>
 <p>Git cannot automatically insert conflict markers into an image as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.</p>
-<blockquote>
-<blockquote>
 <p>On the key line above, Git has conveniently given us commit identifiers for the two versions of <code>mars.jpg</code>. Our version is <code>HEAD</code>, and Wolfman’s version is <code>439dc8c0...</code>. If we want to use our version, we can use <code>git checkout</code>:</p>
-<pre><code>$ git checkout HEAD mars.jpg
-$ git add mars.jpg
-$ git commit -m &quot;Use image of surface instead of sky&quot;</code></pre>
-<p>{.bash}</p>
-<pre><code>[master 21032c3] Use image of surface instead of sky</code></pre>
-<p>{.output}</p>
+<p><sub>~</sub> $ git checkout HEAD mars.jpg $ git add mars.jpg $ git commit -m “Use image of surface instead of sky”</p>
+<p>[master 21032c3] Use image of surface instead of sky <sub>~</sub></p>
 <p>If instead we want to use Wolfman’s version, we can use <code>git checkout</code> with Wolfman’s commit identifier, <code>439dc8c0</code>:</p>
-<pre><code>$ git checkout 439dc8c0 mars.jpg
-$ git add mars.jpg
-$ git commit -m &quot;Use image of sky instead of surface&quot;</code></pre>
-<p>{.bash}</p>
-<pre><code>[master da21b34] Use image of sky instead of surface</code></pre>
-<p>{.output}</p>
+<p><sub>~</sub> $ git checkout 439dc8c0 mars.jpg $ git add mars.jpg $ git commit -m “Use image of sky instead of surface”</p>
+<p>[master da21b34] Use image of sky instead of surface <sub>~</sub></p>
 <p>We can also keep <em>both</em> images. The catch is that we cannot keep them under the same name. But, we can check out each version in succession and <em>rename</em> it, then add the renamed versions. First, check out each image and rename it:</p>
-<pre><code>$ git checkout HEAD mars.jpg
-$ git mv mars.jpg mars-surface.jpg
-$ git checkout 439dc8c0 mars.jpg
-$ mv mars.jpg mars-sky.jpg</code></pre>
-<p>{.bash}</p>
+<p><sub>~</sub> $ git checkout HEAD mars.jpg $ git mv mars.jpg mars-surface.jpg $ git checkout 439dc8c0 mars.jpg $ mv mars.jpg mars-sky.jpg <sub>~</sub></p>
 <p>Then, remove the old <code>mars.jpg</code> and add the two new files:</p>
-<pre><code>$ git rm mars.jpg
-$ git add mars-surface.jpg
-$ git add mars-sky.jpg
-$ git commit -m &quot;Use two images: surface and sky&quot;</code></pre>
-<p>{.bash}</p>
-<pre><code>[master 94ae08c] Use two images: surface and sky
- 2 files changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 mars-sky.jpg
- rename mars.jpg =&gt; mars-surface.jpg (100%)</code></pre>
-<p>{.output}</p>
-Now both images of Mars are checked into the repository, and <code>mars.jpg</code> no longer exists. {.solution} {.challenge}
+<p><sub>~</sub> $ git rm mars.jpg $ git add mars-surface.jpg $ git add mars-sky.jpg $ git commit -m “Use two images: surface and sky”</p>
+<p>[master 94ae08c] Use two images: surface and sky 2 files changed, 0 insertions(+), 0 deletions(-) create mode 100644 mars-sky.jpg rename mars.jpg =&gt; mars-surface.jpg (100%) <sub>~</sub></p>
+<p>Now both images of Mars are checked into the repository, and <code>mars.jpg</code> no longer exists.</p>
 <blockquote class="challenge">
-<h2>A Typical Work Session</h2>
-</blockquote>
+ 
+<h2 id="a-typical-work-session">A Typical Work Session</h2>
 <p>You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:</p>
 <ul>
 <li><em>Make changes</em> by appending the number <code>100</code> to a text file <code>numbers.txt</code></li>
@@ -473,8 +449,7 @@ Now both images of Mars are checked into the repository, and <code>mars.jpg</cod
 </tbody>
 </table>
 <blockquote class="solution">
-<h2>Solution</h2>
-</blockquote>
+<h2 id="solution">Solution</h2>
 <table>
 <thead>
 <tr class="header">
@@ -516,9 +491,7 @@ Now both images of Mars are checked into the repository, and <code>mars.jpg</cod
 </tr>
 </tbody>
 </table>
-{.solution}
 </blockquote>
-{.challenge}
 </blockquote>
 
 
@@ -543,7 +516,7 @@ Now both images of Mars are checked into the repository, and <code>mars.jpg</cod
     property="dc:created">23 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-05-31 07:16:00 +0000"
+            datetime="2017-05-31 07:23:55 +0000"
             property="dc:modified">31 May 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
@@ -596,7 +569,7 @@ Now both images of Mars are checked into the repository, and <code>mars.jpg</cod
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/bc2c70cf558a6bac4edf9e0b348e2b8a7b7adeb3/_posts/2017-05-23-git-conflict-resolving.md"> bc2c70c</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/93d15aac312a9c28368ce919601d3ef21e92fa85/_posts/2017-05-23-git-conflict-resolving.md"> 93d15aa</a></tiny></p>
 </aside>
 
 <br /><br />

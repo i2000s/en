@@ -266,16 +266,10 @@ div #sticker {
 <h2 id="push-to-remote">Push to remote</h2>
 <p>The name <code>origin</code> is a local nickname for your remote repository. We could use something else if we wanted to, but <code>origin</code> is by far the most common choice.</p>
 <p>Once the nickname <code>origin</code> is set up, this command will push the changes from our local repository to the repository on GitHub:</p>
-<p>```{bash} $ git push origin master</p>
-<p>Counting objects: 130, done. Delta compression using up to 8 threads. Compressing objects: 100% (127/127), done. Writing objects: 100% (130/130), 1.03 MiB | 0 bytes/s, done. Total 130 (delta 21), reused 0 (delta 0) remote: Resolving deltas: 100% (21/21), done. To https://github.com/i2000s/testwebsite.git * [new branch] master -&gt; master Branch master set up to track remote branch master from origin.</p>
-<pre><code>
-
-Note that, in the pushing process, you may be asked to provide a github username and password.
-This could happen every time you push a repo to remote.
-You can actually set up a default username to the remote URL so that git won&#39;t ask you your github username again.
-The new url should be something like `https://i2000s@github.com/testwebsite.git` (replace `i2000s` with your real github username).
-This URL can either be modifed by editting the `.git/config` file or type command line</code></pre>
-<p>git remote set-url origin https://i2000s@github.com/testwebsite.git ``<code>If you want not to type your password every time neither, you can replace the url to origin in the formation of</code>https://i2000s:YOURPASSWORD@github.com/testwebsite.git`.</p>
+<p><code>{bash} $ git push origin master Counting objects: 130, done. Delta compression using up to 8 threads. Compressing objects: 100% (127/127), done. Writing objects: 100% (130/130), 1.03 MiB | 0 bytes/s, done. Total 130 (delta 21), reused 0 (delta 0) remote: Resolving deltas: 100% (21/21), done. To https://github.com/i2000s/testwebsite.git  * [new branch]      master -&gt; master Branch master set up to track remote branch master from origin.</code></p>
+<p>Note that, in the pushing process, you may be asked to provide a github username and password. This could happen every time you push a repo to remote. You can actually set up a default username to the remote URL so that git won’t ask you your github username again. The new url should be something like <code>https://i2000s@github.com/testwebsite.git</code> (replace <code>i2000s</code> with your real github username). This URL can either be modifed by editting the <code>.git/config</code> file or type command line</p>
+<pre><code>git remote set-url origin https://i2000s@github.com/testwebsite.git</code></pre>
+<p>If you want not to type your password every time neither, you can replace the url to origin in the formation of <code>https://i2000s:YOURPASSWORD@github.com/testwebsite.git</code>.</p>
 <p>Up to now, our local and remote repositories are now in this state:</p>
 <figure>
 <img src="/en/assets/img/github-repo-after-first-push.png" alt="GitHub Repository After First Push" /><figcaption>GitHub Repository After First Push</figcaption>
@@ -283,95 +277,32 @@ This URL can either be modifed by editting the `.git/config` file or type comman
 <p>When you push for the first time to a remote, you may also want to use a <code>-u</code> option used with <code>git push</code>. This option is synonymous with the <code>--set-upstream-to</code> option for the <code>git branch</code> command, and is used to associate the current branch with a remote branch so that the <code>git pull</code> command can be used without any arguments. To do this, simply use <code>git push -u origin master</code> once the remote has been set up.</p>
 <h2 id="pull-from-remote">Pull from remote</h2>
 <p>We can pull changes from the remote repository to the local one as well:</p>
-<p>```{bash} $ git pull origin master</p>
-<p>From https://github.com/i2000s/testwebsite * branch master -&gt; FETCH_HEAD Already up-to-date.</p>
-<pre><code>
-Pulling has no effect in this case because the two repositories are already
-synchronized.
-If someone else had pushed some changes to the repository on
-GitHub, though, this command would download them to our local repository.
-
-## GitHub GUI and collaboration features
-
-Browse to your `testwebsite` repository on GitHub.
-Under the Code tab, find and click on the text that says &quot;XX commits&quot; (where &quot;XX&quot; is some number).
-Whenever you push the contents of your local repository to the remote, GitHub also generate a timestamps for each commit.
-Hover over, and click on, the three buttons to the right of each commit.
-What information can you gather/explore from these buttons?
-How would you get that same information in the shell?
-
- The answer is the following:
- The left-most button (with the picture of a clipboard) copies the full identifier of the commit to the clipboard. In the shell, ```git log``` will show you the full commit identifier for each commit.
-
- When you click on the middle button, you&#39;ll see all of the changes that were made in that particular commit. Green shaded lines indicate additions and red ones removals. In the shell we can do the same thing with ```git diff```. In particular, ```git diff ID1..ID2``` where ID1 and ID2 are commit identifiers (e.g. ```git diff a3bf1e5..041e637```) will show the differences between those two commits.
-
- The right-most button lets you view all of the files in the repository at the time of that commit. To do this in the shell, we&#39;d need to checkout the repository at that particular time. We can do this with ```git checkout ID``` where ID is the identifier of the commit we want to look at. If we do this, we need to remember to put the repository back to the right state afterwards!
-
- ![GitHub Repository Interface](/en/assets/img/github-interface.png)
-
- Now, let&#39;s see some functions that are only available using GitHub and other remote services.
- On your web browser, go to [https://github.com/CQuIC/dont-forget-names](https://github.com/CQuIC/dont-forget-names).
- This is the ***Don&#39;t Forget Names*** equation table put on in the CQuIC coffee room with the initiative by Josh Combes and other CQuIC students.
- What we are exploring here are the features that really make collaboration easy.
- As shown in the figure above or the GitHub interface you see on your web browser, the line below the repo&#39;s name includes a few menu buttons named as *Code*, *Issues*, *Pull Requests*, *Wiki*, *Settings* and *Insights*.
-
- You can try click on the `Fork` button on the right-above corner of *Insights* menu item.
- That way, you have made an associated copy under your own GitHub account, and GitHub should be forward you to your own forked repo after this operation.
- Feel free to clone the forked repo to your local directory and compile the PDF by running `make` in your command terminal.
- If you would like to add your own name as an &quot;equation&quot; or a &quot;formula&quot; in the TeX file, you can commit the change and push it to your forked repo.
- Now, you should be able to click on the &quot;Pull Request&quot; button to push your own changes to the *Dont-forget-names* repo under the CQuIC account -- let&#39;s call it as the upstream repo.
- Before you do the Pull Request (PR), it is always good to commit your updates to a new branch other than the default master branch by, for example,
- ```
- git checkout -b patch-1
- git add .
- git commit -m &quot;Update new names.&quot;
- git push origin patch-1
- ```
- Next, on your web browser click on the *Pull Request* button and select the `patch-1` branch to be pushed to the `master` branch of the upstream repo.
- After this operation, the upstream repo on the web browser should have a flagged a new Pull Request if you click on the *Pull Requests* menu item.
- A member of the repo who has write access can then merge/rebase/commit on your PR.
-
- One can also use the ***Issues*** menu page to start discussing bugs, features requests or problems related to the code in the repo.
- An issue can be closed or organized with other issues--even crossing repos on the ***Projects*** page.
-
- The ***Wiki*** page is nothing but a repo with [GitHub-flavored Markdown](https://help.github.com/articles/adding-and-editing-wiki-pages-locally/) documentations (we will discuss later).
- One can edit the wiki pages of the repo online through the GitHub interface or edit them locally by cloning the repo with
- ```
- git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.wiki.git
- ```
- In our case, `YOUR_USERNAME` is the organization name, `CQuIC`; `YOUR_REPOSITORY` is `Dont-forget-names`.
-
- The ***Settings*** page, as you can guess, has all the common options the owner of the repo can manage how the repo is organized, like inviting GitHub members to join the repo with *read*/*edit*/*management* permissions, and switching the repo to be visible or invisible to public.
- If you are an owner of the CQuIC or other organization on GitHub, you can have more options to grant permissions to collaborators in a very detailed level.
-
- These features of GitHub facilitate collaborations among people inside or outside of the repo group in a great extend.
-
-## GitHub License, README files and the gh-pages branch
-
-In this section we learned about creating a remote repository on GitHub, but when you initialized your
-GitHub repo, you didn&#39;t add a `README.md` or a license file. If you had, what do you think would have happened when
-you tried to link your local and remote repositories?
-In this case, since we already had a `README` file in our own (local) repository, we&#39;d see a merge conflict (when git realises that there are two versions of the file and asks us to reconcile the differences).
-We will discuss git conflict resolving in the next session, and for now, we will take a look on the `README.md` file provided in the folder and create a new branch to generate a static website via GitHub.
-
-Now, you can use your favorite text editor to preview the `README.md` file.
-The `*.md` extension usually means the file is a [markdown](https://guides.github.com/features/mastering-markdown/) file.
-Specifically, here we use the [GitHub Flavored Markdown syntax](https://guides.github.com/features/mastering-markdown/) for styling documentations as a [markup](https://en.wikipedia.org/wiki/Markup_language) language implementation supported by GitHub.
-I personally use [Atom](https://atom.io/) to edit markdown files since it has an integrated Markdown previewer.
-If you do want to use Atom, you can press `Ctrl + Shift + P` and type in `Install packages` to find the `install packages/themes` function in the menu (or use the menu `Packages/Settings View/Install Packages/Themes` to open the panel);
-In the search bar, type in `markdown-preview` to see if you have the markdown previewer (the one with the Atom logo) installed or not;
-If so, go to `File/Add Project Folder` and add your current git local working directory as your project, open the `README.md` file on Atom, and navigate to the menu called `Packages/Markdown Preview/Toggle Preview` to open up a second preview panel along side of the `README.md` source file.
-
-From the preview panel, you can easily see how the markdown syntax generates basic formations and how complicated formations can be all managed in plain texts.
-
-Similarly to the license file.
-Normally, we need to be clear on what is the protocol to use the content, and the LICENSE file serves the purpose.
-More details can be found in [this tutorial](http://swcarpentry.github.io/git-novice/11-licensing/).
-
-In this part, we will start making a [Jekyll](https://jekyllrb.com/) website using github&#39;s GitHub pages service.
-
-Now on your computer&#39;s terminal, create a new branch based on the master branch by</code></pre>
-<p>git checkout -b gh-pages git push origin gh-pages ``<code>This will create a new branch called</code>gh-pages<code>and push it to the remote repository. As a result, GitHub renders your markdown code into HTML files using a Jekyll engine and generates a static website at</code>https://i2000s.github.io/testwebsite`. You can view it on your webbrowser.</p>
+<p><code>{bash} $ git pull origin master From https://github.com/i2000s/testwebsite  * branch            master     -&gt; FETCH_HEAD Already up-to-date.</code></p>
+<p>Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on GitHub, though, this command would download them to our local repository.</p>
+<h2 id="github-gui-and-collaboration-features">GitHub GUI and collaboration features</h2>
+<p>Browse to your <code>testwebsite</code> repository on GitHub. Under the Code tab, find and click on the text that says “XX commits” (where “XX” is some number). Whenever you push the contents of your local repository to the remote, GitHub also generate a timestamps for each commit. Hover over, and click on, the three buttons to the right of each commit. What information can you gather/explore from these buttons? How would you get that same information in the shell?</p>
+<p>The answer is the following: The left-most button (with the picture of a clipboard) copies the full identifier of the commit to the clipboard. In the shell, <code>git log</code> will show you the full commit identifier for each commit.</p>
+<p>When you click on the middle button, you’ll see all of the changes that were made in that particular commit. Green shaded lines indicate additions and red ones removals. In the shell we can do the same thing with <code>git diff</code>. In particular, <code>git diff ID1..ID2</code> where ID1 and ID2 are commit identifiers (e.g. <code>git diff a3bf1e5..041e637</code>) will show the differences between those two commits.</p>
+<p>The right-most button lets you view all of the files in the repository at the time of that commit. To do this in the shell, we’d need to checkout the repository at that particular time. We can do this with <code>git checkout ID</code> where ID is the identifier of the commit we want to look at. If we do this, we need to remember to put the repository back to the right state afterwards!</p>
+<figure>
+<img src="/en/assets/img/github-interface.png" alt="GitHub Repository Interface" /><figcaption>GitHub Repository Interface</figcaption>
+</figure>
+<p>Now, let’s see some functions that are only available using GitHub and other remote services. On your web browser, go to <a href="https://github.com/CQuIC/dont-forget-names">https://github.com/CQuIC/dont-forget-names</a>. This is the <strong><em>Don’t Forget Names</em></strong> equation table put on in the CQuIC coffee room with the initiative by Josh Combes and other CQuIC students. What we are exploring here are the features that really make collaboration easy. As shown in the figure above or the GitHub interface you see on your web browser, the line below the repo’s name includes a few menu buttons named as <em>Code</em>, <em>Issues</em>, <em>Pull Requests</em>, <em>Wiki</em>, <em>Settings</em> and <em>Insights</em>.</p>
+<p>You can try click on the <code>Fork</code> button on the right-above corner of <em>Insights</em> menu item. That way, you have made an associated copy under your own GitHub account, and GitHub should be forward you to your own forked repo after this operation. Feel free to clone the forked repo to your local directory and compile the PDF by running <code>make</code> in your command terminal. If you would like to add your own name as an “equation” or a “formula” in the TeX file, you can commit the change and push it to your forked repo. Now, you should be able to click on the “Pull Request” button to push your own changes to the <em>Dont-forget-names</em> repo under the CQuIC account – let’s call it as the upstream repo. Before you do the Pull Request (PR), it is always good to commit your updates to a new branch other than the default master branch by, for example, <code>git checkout -b patch-1  git add .  git commit -m &quot;Update new names.&quot;  git push origin patch-1</code> Next, on your web browser click on the <em>Pull Request</em> button and select the <code>patch-1</code> branch to be pushed to the <code>master</code> branch of the upstream repo. After this operation, the upstream repo on the web browser should have a flagged a new Pull Request if you click on the <em>Pull Requests</em> menu item. A member of the repo who has write access can then merge/rebase/commit on your PR.</p>
+<p>One can also use the <strong><em>Issues</em></strong> menu page to start discussing bugs, features requests or problems related to the code in the repo. An issue can be closed or organized with other issues–even crossing repos on the <strong><em>Projects</em></strong> page.</p>
+<p>The <strong><em>Wiki</em></strong> page is nothing but a repo with <a href="https://help.github.com/articles/adding-and-editing-wiki-pages-locally/">GitHub-flavored Markdown</a> documentations (we will discuss later). One can edit the wiki pages of the repo online through the GitHub interface or edit them locally by cloning the repo with <code>git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.wiki.git</code> In our case, <code>YOUR_USERNAME</code> is the organization name, <code>CQuIC</code>; <code>YOUR_REPOSITORY</code> is <code>Dont-forget-names</code>.</p>
+<p>The <strong><em>Settings</em></strong> page, as you can guess, has all the common options the owner of the repo can manage how the repo is organized, like inviting GitHub members to join the repo with <em>read</em>/<em>edit</em>/<em>management</em> permissions, and switching the repo to be visible or invisible to public. If you are an owner of the CQuIC or other organization on GitHub, you can have more options to grant permissions to collaborators in a very detailed level.</p>
+<p>These features of GitHub facilitate collaborations among people inside or outside of the repo group in a great extend.</p>
+<h2 id="github-license-readme-files-and-the-gh-pages-branch">GitHub License, README files and the gh-pages branch</h2>
+<p>In this section we learned about creating a remote repository on GitHub, but when you initialized your GitHub repo, you didn’t add a <code>README.md</code> or a license file. If you had, what do you think would have happened when you tried to link your local and remote repositories? In this case, since we already had a <code>README</code> file in our own (local) repository, we’d see a merge conflict (when git realises that there are two versions of the file and asks us to reconcile the differences). We will discuss git conflict resolving in the next session, and for now, we will take a look on the <code>README.md</code> file provided in the folder and create a new branch to generate a static website via GitHub.</p>
+<p>Now, you can use your favorite text editor to preview the <code>README.md</code> file. The <code>*.md</code> extension usually means the file is a <a href="https://guides.github.com/features/mastering-markdown/">markdown</a> file. Specifically, here we use the <a href="https://guides.github.com/features/mastering-markdown/">GitHub Flavored Markdown syntax</a> for styling documentations as a <a href="https://en.wikipedia.org/wiki/Markup_language">markup</a> language implementation supported by GitHub. I personally use <a href="https://atom.io/">Atom</a> to edit markdown files since it has an integrated Markdown previewer. If you do want to use Atom, you can press <code>Ctrl + Shift + P</code> and type in <code>Install packages</code> to find the <code>install packages/themes</code> function in the menu (or use the menu <code>Packages/Settings View/Install Packages/Themes</code> to open the panel); In the search bar, type in <code>markdown-preview</code> to see if you have the markdown previewer (the one with the Atom logo) installed or not; If so, go to <code>File/Add Project Folder</code> and add your current git local working directory as your project, open the <code>README.md</code> file on Atom, and navigate to the menu called <code>Packages/Markdown Preview/Toggle Preview</code> to open up a second preview panel along side of the <code>README.md</code> source file.</p>
+<p>From the preview panel, you can easily see how the markdown syntax generates basic formations and how complicated formations can be all managed in plain texts.</p>
+<p>Similarly to the license file. Normally, we need to be clear on what is the protocol to use the content, and the LICENSE file serves the purpose. More details can be found in <a href="http://swcarpentry.github.io/git-novice/11-licensing/">this tutorial</a>.</p>
+<p>In this part, we will start making a <a href="https://jekyllrb.com/">Jekyll</a> website using github’s GitHub pages service.</p>
+<p>Now on your computer’s terminal, create a new branch based on the master branch by</p>
+<pre><code>git checkout -b gh-pages
+git push origin gh-pages</code></pre>
+<p>This will create a new branch called <code>gh-pages</code> and push it to the remote repository. As a result, GitHub renders your markdown code into HTML files using a Jekyll engine and generates a static website at <code>https://i2000s.github.io/testwebsite</code>. You can view it on your webbrowser.</p>
 <h2 id="comparison-among-remote-repository-hosting-service-providers">Comparison among remote repository hosting service providers</h2>
 <p>Before we jump into GitHub even more, let’s talk about briefly on the similarities and differences among popular git remote service providers as mentioned at the beginning. A detailed comparison among GitHub, BitBucket, GitLab and Coding can be found <a href="https://medium.com/flow-ci/github-vs-bitbucket-vs-gitlab-vs-coding-7cf2b43888a1">here</a>. We have created a GitHub organization for CQuIC so that we are granted with infinite number of private repos free of charge as a research and educational body. Feel free to best use of it through the <a href="https://github.com/CQuIC">CQuIC@GitHub</a> interface. Similarly, there is also a <a href="https://gitlab.com/CQuIC">CQuIC organization</a> on GitLab in case we need some extra benefit besides GitHub.</p>
 <p>The <a href="https://libutil.unm.edu/users/sign_in">UNM GitLab server</a> is a community version of the GitLab open-source tool installed on an UNM server. Compared to others, the UNM GitLab service is good at hosting <a href="https://about.gitlab.com/2015/11/23/announcing-git-lfs-support-in-gitlab/">Git large files</a>. So, it could be helpful to manage repos with data files without obvious limitations. But the total number of repos one can have on the server is limited (up to 10); since the service is associated with UNM NetIDs, it’s not clear in the documentations how the repos be treated once a student repo owner graduates from UNM.</p>
@@ -397,7 +328,7 @@ Now on your computer&#39;s terminal, create a new branch based on the master bra
     property="dc:created">22 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-05-31 06:10:58 +0000"
+            datetime="2017-05-31 07:02:13 +0000"
             property="dc:modified">31 May 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
@@ -450,7 +381,7 @@ Now on your computer&#39;s terminal, create a new branch based on the master bra
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/3e28efe76a06f456dd9a4597a3b0aa8aa71fa0e8/_posts/2017-05-22-git-remote-and-github.md"> 3e28efe</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/1074e88839f601585274dcf51da4541117719ed1/_posts/2017-05-22-git-remote-and-github.md"> 1074e88</a></tiny></p>
 </aside>
 
 <br /><br />

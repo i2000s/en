@@ -43,7 +43,7 @@ information on how to configure your local repository:
 
 This effectively does the following on GitHub's servers:
 
-```{bash}
+```
 mkdir testwebsite
 cd testwebsite
 git init
@@ -83,7 +83,7 @@ Click on the 'HTTPS' link to change the [protocol](https://gist.github.com/grawi
 Copy that URL from the browser, go into the local `testwebsite` repository, and run
 this command (replace `i2000s` with your github username--so as all similar commands in this article):
 
-```{bash}
+```
 git remote add origin https://github.com/i2000s/testwebsite.git
 ```
 
@@ -92,7 +92,7 @@ difference should be your username instead of `i2000s`.
 
 We can check that the command has worked by running `git remote -v`:
 
-```{bash}
+```
 $ git remote -v
 origin   https://github.com/i2000s/testwebsite.git (push)
 origin   https://github.com/i2000s/testwebsite.git (fetch)
@@ -105,7 +105,7 @@ something else if we wanted to, but `origin` is by far the most common choice.
 Once the nickname `origin` is set up, this command will push the changes from
 our local repository to the repository on GitHub:
 
-```{bash}
+```
 $ git push origin master
 Counting objects: 130, done.
 Delta compression using up to 8 threads.
@@ -141,7 +141,7 @@ This option is synonymous with the `--set-upstream-to` option for the `git branc
 ## Pull from remote
 We can pull changes from the remote repository to the local one as well:
 
-```{bash}
+```
 $ git pull origin master
 From https://github.com/i2000s/testwebsite
  * branch            master     -> FETCH_HEAD

@@ -28,7 +28,7 @@ To see how we can resolve conflicts, we must first create one.  The file
 `mars.txt` currently looks like this in both partners' copies of our `planets`
 repository:
 
-```{bash}
+```
 $ cat mars.txt
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
@@ -37,7 +37,7 @@ But the Mummy will appreciate the lack of humidity
 
 Let's add a line to one partner's copy only:
 
-```{bash}
+```
 $ nano mars.txt
 $ cat mars.txt
 Cold and dry, but everything is my favorite color
@@ -48,7 +48,7 @@ This line added to Wolfman's copy
 
 and then push the change to GitHub:
 
-```{bash}
+```
 $ git add mars.txt
 $ git commit -m "Add a line in our home copy"
 [master 5ae9631] Add a line in our home copy
@@ -67,7 +67,7 @@ Now let's have the other partner
 make a different change to their copy
 *without* updating from GitHub:
 
-```{bash}
+```
 $ nano mars.txt
 $ cat mars.txt
 Cold and dry, but everything is my favorite color
@@ -78,7 +78,7 @@ We added a different line in the other copy
 
 We can commit the change locally:
 
-```{bash}
+```
 $ git add mars.txt
 $ git commit -m "Add a line in my copy"
 [master 07ebc69] Add a line in my copy
@@ -87,7 +87,7 @@ $ git commit -m "Add a line in my copy"
 
 but Git won't let us push it to GitHub:
 
-```{bash}
+```
 $ git push origin master
 To https://github.com/vlad/planets.git
  ! [rejected]        master -> master (non-fast-forward)
@@ -107,7 +107,7 @@ What we have to do is pull the changes from GitHub,
 and then push that.
 Let's start by pulling:
 
-```{bash}
+```
 $ git pull origin master
 remote: Counting objects: 5, done.
 remote: Compressing objects: 100% (2/2), done.
@@ -123,7 +123,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 `git pull` tells us there's a conflict,
 and marks that conflict in the affected file:
 
-```{bash}
+```
 $ cat mars.txt
 Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
@@ -237,89 +237,79 @@ calls it `mars.jpg`.
 If you do not have an image file of Mars available, you can create
 a dummy binary file like this:
 
-> > ~~~
-> > $ head --bytes 1024 /dev/urandom > mars.jpg
-> > $ ls -lh mars.jpg
-> >
-> > -rw-r--r-- 1 vlad 57095 1.0K Mar  8 20:24 mars.jpg
-> > ~~~
-> >
-> > `ls` shows us that this created a 1-kilobyte file. It is full of
-> > random bytes read from the special file, `/dev/urandom`.
-> >
-> > Now, suppose Dracula adds `mars.jpg` to his repository:
-> >
-> > ~~~
-> > $ git add mars.jpg
-> > $ git commit -m "Add picture of Martian surface"
-> > ~~~
-> > {.bash}
-> >
-> > ~~~
-> > [master 8e4115c] Add picture of Martian surface
-> >  1 file changed, 0 insertions(+), 0 deletions(-)
-> >  create mode 100644 mars.jpg
-> > ~~~
-> > {.output}
-> >
-> > Suppose that Wolfman has added a similar picture in the meantime.
-> > His is a picture of the Martian sky, but it is *also* called `mars.jpg`.
-> > When Dracula tries to push, he gets a familiar message:
-> >
-> > ~~~
-> > $ git push origin master
-> > ~~~
-> > {.bash}
-> >
-> > ~~~
-> > To https://github.com/vlad/planets.git
-> >  ! [rejected]        master -> master (fetch first)
-> > error: failed to push some refs to 'https://github.com/vlad/planets.git'
-> > hint: Updates were rejected because the remote contains work that you do
-> > hint: not have locally. This is usually caused by another repository pushing
-> > hint: to the same ref. You may want to first integrate the remote changes
-> > hint: (e.g., 'git pull ...') before pushing again.
-> > hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-> > ~~~
-> > {.output}
-> >
-> > We've learned that we must pull first and resolve any conflicts:
-> >
-> > ~~~
-> > $ git pull origin master
-> > ~~~
-> > {.bash}
-> >
-> > When there is a conflict on an image or other binary file, git prints
-> > a message like this:
-> >
-> > ~~~
-> > $ git pull origin master
-> > remote: Counting objects: 3, done.
-> > remote: Compressing objects: 100% (3/3), done.
-> > remote: Total 3 (delta 0), reused 0 (delta 0)
-> > Unpacking objects: 100% (3/3), done.
-> > From https://github.com/vlad/planets.git
-> >  * branch            master     -> FETCH_HEAD
-> >    6a67967..439dc8c  master     -> origin/master
-> > warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
-> > Auto-merging mars.jpg
-> > CONFLICT (add/add): Merge conflict in mars.jpg
-> > Automatic merge failed; fix conflicts and then commit the result.
-> > ~~~
-> > {.output}
-> >
-> > The conflict message here is mostly the same as it was for `mars.txt`, but
-> > there is one key additional line:
-> >
-> > ~~~
-> > warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
-> > ~~~
-> >
-> > Git cannot automatically insert conflict markers into an image as it does
-> > for text files. So, instead of editing the image file, we must check out
-> > the version we want to keep. Then we can add and commit this version.
-> >
+~~~
+$ head --bytes 1024 /dev/urandom > mars.jpg
+$ ls -lh mars.jpg
+
+-rw-r--r-- 1 vlad 57095 1.0K Mar  8 20:24 mars.jpg
+~~~
+
+`ls` shows us that this created a 1-kilobyte file. It is full of
+random bytes read from the special file, `/dev/urandom`.
+
+Now, suppose Dracula adds `mars.jpg` to his repository:
+
+~~~
+$ git add mars.jpg
+$ git commit -m "Add picture of Martian surface"
+
+[master 8e4115c] Add picture of Martian surface
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mars.jpg
+~~~
+
+ Suppose that Wolfman has added a similar picture in the meantime.
+ His is a picture of the Martian sky, but it is *also* called `mars.jpg`.
+ When Dracula tries to push, he gets a familiar message:
+
+~~~
+$ git push origin master
+
+ To https://github.com/vlad/planets.git
+  ! [rejected]        master -> master (fetch first)
+ error: failed to push some refs to 'https://github.com/vlad/planets.git'
+ hint: Updates were rejected because the remote contains work that you do
+ hint: not have locally. This is usually caused by another repository pushing
+ hint: to the same ref. You may want to first integrate the remote changes
+ hint: (e.g., 'git pull ...') before pushing again.
+ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+~~~
+
+ We've learned that we must pull first and resolve any conflicts:
+
+ ```
+  $ git pull origin master
+ ```
+
+ When there is a conflict on an image or other binary file, git prints
+ a message like this:
+
+ ```
+ $ git pull origin master
+ remote: Counting objects: 3, done.
+ remote: Compressing objects: 100% (3/3), done.
+ remote: Total 3 (delta 0), reused 0 (delta 0)
+ Unpacking objects: 100% (3/3), done.
+ From https://github.com/vlad/planets.git
+  * branch            master     -> FETCH_HEAD
+    6a67967..439dc8c  master     -> origin/master
+ warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
+ Auto-merging mars.jpg
+ CONFLICT (add/add): Merge conflict in mars.jpg
+ Automatic merge failed; fix conflicts and then commit the result.
+ ```
+
+ The conflict message here is mostly the same as it was for `mars.txt`, but
+ there is one key additional line:
+
+ ```
+ warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
+ ```
+
+ Git cannot automatically insert conflict markers into an image as it does
+ for text files. So, instead of editing the image file, we must check out
+ the version we want to keep. Then we can add and commit this version.
+
 > > On the key line above, Git has conveniently given us commit identifiers
 > > for the two versions of `mars.jpg`. Our version is `HEAD`, and Wolfman's
 > > version is `439dc8c0...`. If we want to use our version, we can use

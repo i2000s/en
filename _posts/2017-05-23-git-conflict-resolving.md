@@ -97,7 +97,7 @@ hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
 hint: before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
-> > {.output}
+
 ![The Conflicting Changes]({{site.baseurl}}/assets/img/conflict.svg)
 
 Git detects that the changes made in one copy overlap with those made in the other
@@ -310,102 +310,88 @@ $ git push origin master
  for text files. So, instead of editing the image file, we must check out
  the version we want to keep. Then we can add and commit this version.
 
-> > On the key line above, Git has conveniently given us commit identifiers
-> > for the two versions of `mars.jpg`. Our version is `HEAD`, and Wolfman's
-> > version is `439dc8c0...`. If we want to use our version, we can use
-> > `git checkout`:
-> >
-> > ~~~
-> > $ git checkout HEAD mars.jpg
-> > $ git add mars.jpg
-> > $ git commit -m "Use image of surface instead of sky"
-> > ~~~
-> > {.bash}
-> >
-> > ~~~
-> > [master 21032c3] Use image of surface instead of sky
-> > ~~~
-> > {.output}
-> >
-> > If instead we want to use Wolfman's version, we can use `git checkout` with
-> > Wolfman's commit identifier, `439dc8c0`:
-> >
-> > ~~~
-> > $ git checkout 439dc8c0 mars.jpg
-> > $ git add mars.jpg
-> > $ git commit -m "Use image of sky instead of surface"
-> > ~~~
-> > {.bash}
-> >
-> > ~~~
-> > [master da21b34] Use image of sky instead of surface
-> > ~~~
-> > {.output}
-> >
-> > We can also keep *both* images. The catch is that we cannot keep them
-> > under the same name. But, we can check out each version in succession
-> > and *rename* it, then add the renamed versions. First, check out each
-> > image and rename it:
-> >
-> > ~~~
-> > $ git checkout HEAD mars.jpg
-> > $ git mv mars.jpg mars-surface.jpg
-> > $ git checkout 439dc8c0 mars.jpg
-> > $ mv mars.jpg mars-sky.jpg
-> > ~~~
-> > {.bash}
-> >
-> > Then, remove the old `mars.jpg` and add the two new files:
-> >
-> > ~~~
-> > $ git rm mars.jpg
-> > $ git add mars-surface.jpg
-> > $ git add mars-sky.jpg
-> > $ git commit -m "Use two images: surface and sky"
-> > ~~~
-> > {.bash}
-> >
-> > ~~~
-> > [master 94ae08c] Use two images: surface and sky
-> >  2 files changed, 0 insertions(+), 0 deletions(-)
-> >  create mode 100644 mars-sky.jpg
-> >  rename mars.jpg => mars-surface.jpg (100%)
-> > ~~~
-> > {.output}
-> >
-> > Now both images of Mars are checked into the repository, and `mars.jpg`
-> > no longer exists.
-> {.solution}
-{.challenge}
+ On the key line above, Git has conveniently given us commit identifiers
+ for the two versions of `mars.jpg`. Our version is `HEAD`, and Wolfman's
+ version is `439dc8c0...`. If we want to use our version, we can use
+ `git checkout`:
+
+ ~~~
+ $ git checkout HEAD mars.jpg
+ $ git add mars.jpg
+ $ git commit -m "Use image of surface instead of sky"
+
+ [master 21032c3] Use image of surface instead of sky
+ ~~~
+
+ If instead we want to use Wolfman's version, we can use `git checkout` with
+ Wolfman's commit identifier, `439dc8c0`:
+
+ ~~~
+ $ git checkout 439dc8c0 mars.jpg
+ $ git add mars.jpg
+ $ git commit -m "Use image of sky instead of surface"
+
+ [master da21b34] Use image of sky instead of surface
+ ~~~
+
+ We can also keep *both* images. The catch is that we cannot keep them
+ under the same name. But, we can check out each version in succession
+ and *rename* it, then add the renamed versions. First, check out each
+ image and rename it:
+
+ ~~~
+ $ git checkout HEAD mars.jpg
+ $ git mv mars.jpg mars-surface.jpg
+ $ git checkout 439dc8c0 mars.jpg
+ $ mv mars.jpg mars-sky.jpg
+ ~~~
+
+ Then, remove the old `mars.jpg` and add the two new files:
+
+ ~~~
+ $ git rm mars.jpg
+ $ git add mars-surface.jpg
+ $ git add mars-sky.jpg
+ $ git commit -m "Use two images: surface and sky"
+
+ [master 94ae08c] Use two images: surface and sky
+  2 files changed, 0 insertions(+), 0 deletions(-)
+  create mode 100644 mars-sky.jpg
+  rename mars.jpg => mars-surface.jpg (100%)
+ ~~~
+
+ Now both images of Mars are checked into the repository, and `mars.jpg`
+ no longer exists.
+
 <blockquote class="challenge">
-> ## A Typical Work Session
->
-> You sit down at your computer to work on a shared project that is tracked in a
-> remote Git repository. During your work session, you take the following
-> actions, but not in this order:
->
-> - *Make changes* by appending the number `100` to a text file `numbers.txt`
-> - *Update remote* repository to match the local repository
-> - *Celebrate* your success with beer(s)
-> - *Update local* repository to match the remote repository
-> - *Stage changes* to be committed
-> - *Commit changes* to the local repository
->
-> In what order should you perform these actions to minimize the chances of
-> conflicts? Put the commands above in order in the *action* column of the table
-> below. When you have the order right, see if you can write the corresponding
-> commands in the *command* column. A few steps are populated to get you
-> started.
->
-> |order|action . . . . . . . . . . |command . . . . . . . . . . |
-> |-----|---------------------------|----------------------------|
-> |1    |                           |                            |
-> |2    |                           | `echo 100 >> numbers.txt`  |
-> |3    |                           |                            |
-> |4    |                           |                            |
-> |5    |                           |                            |
-> |6    | Celebrate!                | `AFK`                      |
->
+ ## A Typical Work Session
+
+ You sit down at your computer to work on a shared project that is tracked in a
+ remote Git repository. During your work session, you take the following
+ actions, but not in this order:
+
+ - *Make changes* by appending the number `100` to a text file `numbers.txt`
+ - *Update remote* repository to match the local repository
+ - *Celebrate* your success with beer(s)
+ - *Update local* repository to match the remote repository
+ - *Stage changes* to be committed
+ - *Commit changes* to the local repository
+
+ In what order should you perform these actions to minimize the chances of
+ conflicts? Put the commands above in order in the *action* column of the table
+ below. When you have the order right, see if you can write the corresponding
+ commands in the *command* column. A few steps are populated to get you
+ started.
+
+ |order|action . . . . . . . . . . |command . . . . . . . . . . |
+ |-----|---------------------------|----------------------------|
+ |1    |                           |                            |
+ |2    |                           | `echo 100 >> numbers.txt`  |
+ |3    |                           |                            |
+ |4    |                           |                            |
+ |5    |                           |                            |
+ |6    | Celebrate!                | `AFK`                      |
+
 <blockquote class="solution">
 ## Solution
 
@@ -418,5 +404,5 @@ $ git push origin master
 |5    | Update remote     | `git push origin master`                     |
 |6    | Celebrate!        | `AFK`                                        |
 
-{.solution}</blockquote>
-{.challenge}</blockquote>
+</blockquote>
+</blockquote>

@@ -4,13 +4,49 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-01T08:47:41+00:00</updated>
+ <updated>2017-06-01T09:42:37+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
    <email>i2000s@hotmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Miscellaneous topics not covered in the CQuIC summer workshop</title>
+   <link href="/en/2017/06/01/miscellaneous-topics-not-covered-in-cquic-it-workshop.html"/>
+   <updated>2017-06-01T00:00:00+00:00</updated>
+   <id>/2017/06/01/miscellaneous-topics-not-covered-in-cquic-it-workshop</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the &lt;a href=&quot;https://cquic.github.io/summer17-computing-workshop/&quot;&gt;2017 CQuIC computing summer workshop tutorial materials&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;When designing the CQuIC summer 2017 IT workshop, we as the organizers have the following in mind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Only teach some basic scientific computing skills that we think are crucial for student to be ready for doing research projects using modern IT techniques.&lt;/li&gt;
+&lt;li&gt;Instructors will only teach what they are familiar and comfortable with, and we focus on using one programming language for numerical and algebra calculations.&lt;/li&gt;
+&lt;li&gt;Let students work on their own, and instructors should never touch students’ keyboards.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Obviously, we are also missing some maybe important points given the situation above. Please comment below so that I can on behalf of other instructors to collect and answer your questions.&lt;/p&gt;
+&lt;h2 id=&quot;practical-suggestions-on-using-matlab&quot;&gt;Practical suggestions on using Matlab:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;About visualization: The default color map in recent Matlab versions are pretty good already, but the common mistakes in making plots with Matlab is mostly on fontsize and curve thickness and so on. Therefore, it might be good to learn to use the following functions and parameters:&lt;/li&gt;
+&lt;li&gt;put &lt;code&gt;&#39;linewidth&#39;,2&lt;/code&gt; or similar definition when you call the &lt;code&gt;plot&lt;/code&gt; functions.&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;set(gca,&#39;fontsize&#39;,16)&lt;/code&gt; or similar to uniformally define the fontsize of your axis label and titles.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;learn to use tools like &lt;a href=&quot;https://github.com/matlab2tikz/matlab2tikz&quot;&gt;matlab2tikz&lt;/a&gt; to export figures into LaTeX supported TikZ code and the like. This makes it easy to unify fonts in the plots and the main text ready for publications.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;About parallel computing: The default &lt;code&gt;parfor&lt;/code&gt; function is pretty good on handling up-to-12-core parallel computing jobs. If you encounter “lose of connection to workers” error, you may want to set &lt;code&gt;&#39;SpmdEnabled&#39;&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt; when you define the parpool.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;other-tips-on-using-jupyter-notebook&quot;&gt;Other tips on using Jupyter notebook&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;You can use other languages in Jupyter notebook–beside Python and include Matlab. As a fact, the word &lt;strong&gt;&lt;em&gt;Jupyter&lt;/em&gt;&lt;/strong&gt; comes from modern programming languages including &lt;a href=&quot;https://julialang.org&quot;&gt;Julia&lt;/a&gt;, Python and &lt;a href=&quot;https://www.r-project.org&quot;&gt;R&lt;/a&gt;. You can define the kernel by using &lt;code&gt;jupyter notebook --kernel LANGUAGE&lt;/code&gt; to run the notebook in a particular language. The full list of community-supported kernel can be found &lt;a href=&quot;https://github.com/jupyter/jupyter/wiki/Jupyter-kernels&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;It is possible to run different languages in one notebook. The easiest way is to execute bash commands to call other language-based commands inside of the notebook. But different kernel define different syntax to do so. One example of running variant languages on a Julia kernel can be found &lt;a href=&quot;https://github.com/i2000s/simnanophotonics/blob/master/sqwg.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;on-select-and-use-programming-languages&quot;&gt;On select and use programming languages&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you don’t mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the &lt;a href=&quot;https://julialang.org/&quot;&gt;Julia website&lt;/a&gt; and &lt;a href=&quot;&quot;&gt;here&lt;/a&gt;.- If you don’t mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the &lt;a href=&quot;https://julialang.org/&quot;&gt;Julia website&lt;/a&gt; and plotted &lt;a href=&quot;https://julialang.org/benchmarks/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Using Git to collaborate with people who don't use git</title>

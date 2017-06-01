@@ -122,7 +122,12 @@ var _hmt = _hmt || [];
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/en/assets/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <!-- Add softwarecarpentry lesson style sheet -->
+    <link href = "/en/assets/css/lesson.css" type="text/css" rel = "stylesheet" />
   </head>
+  <!-- Add lesson's javascript. -->
+  <script type="text/javascript" src="/en/assets/js/lesson.js" async="async"></script>
 
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54f225a84524edd3" async="async"></script>
@@ -203,28 +208,11 @@ var _hmt = _hmt || [];
     
 </header>
 
-<!-- <style>
-div #sticker {
-  width:auto;
-  padding:10px;
-  margin-right:20px;
-  float:right;
-}
-.stick {
-    position:fixed;
-    top:30px;}
-</style>-->
-<!-- Add lesson's javascript and css style. -->
-<head>
-<link href = "/en/assets/css/lesson.css" rel = "stylesheet">
-</head>
-<script type="text/javascript" src="/en/assets/js/lesson.js" async="async"></script>
-
       <div class="row">
         <div class="col-md-8 col-md-offset-1 col-sm-12">
           <article>
           <p><strong><em>Work In Progress! This post is part of the <a href="https://cquic.github.io/summer17-computing-workshop/">2017 CQuIC computing summer workshop tutorial materials</a>.</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/09-conflict/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
-<p>As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these <a href="/reference/#conflicts">conflicts</a> by giving us tools to <a href="/reference/#resolve">resolve</a> overlapping changes.</p>
+<p>As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these <a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">conflicts</a> by giving us tools to resolve overlapping changes.</p>
 <h2 id="resolving-conflict-on-textual-files">Resolving conflict on textual files</h2>
 <p><strong><em>Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.</em></strong></p>
 <p>To see how we can resolve conflicts, we must first create one. The file <code>mars.txt</code> currently looks like this in both partners’ copies of our <code>planets</code> repository:</p>
@@ -564,7 +552,7 @@ $ git add productcurveaccum-master.png</code></pre>
     property="dc:created">23 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-06-01 04:12:31 +0000"
+            datetime="2017-06-01 05:12:16 +0000"
             property="dc:modified">01 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
@@ -617,7 +605,7 @@ $ git add productcurveaccum-master.png</code></pre>
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/24ce42937adef9e89aca4de05c7e7ac214dd5ed1/_posts/2017-05-23-git-conflict-resolving.md"> 24ce429</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/26f223236924932f25c2ad78641d62265cf5bbd1/_posts/2017-05-23-git-conflict-resolving.md"> 26f2232</a></tiny></p>
 </aside>
 
 <br /><br />

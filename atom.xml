@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-01T04:16:30+00:00</updated>
+ <updated>2017-06-01T05:16:15+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -55,7 +55,7 @@ git submodule --init --recursive --remote&lt;/code&gt;&lt;/pre&gt;
    <updated>2017-05-23T00:00:00+00:00</updated>
    <id>/2017/05/23/git-conflict-resolving</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the &lt;a href=&quot;https://cquic.github.io/summer17-computing-workshop/&quot;&gt;2017 CQuIC computing summer workshop tutorial materials&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;This tutorial is adapted from &lt;a href=&quot;http://swcarpentry.github.io/git-novice/09-conflict/&quot;&gt;the Software Carpentry workshop&lt;/a&gt; under the Creative Commons license.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these &lt;a href=&quot;/reference/#conflicts&quot;&gt;conflicts&lt;/a&gt; by giving us tools to &lt;a href=&quot;/reference/#resolve&quot;&gt;resolve&lt;/a&gt; overlapping changes.&lt;/p&gt;
+&lt;p&gt;As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these &lt;a href=&quot;https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/&quot;&gt;conflicts&lt;/a&gt; by giving us tools to resolve overlapping changes.&lt;/p&gt;
 &lt;h2 id=&quot;resolving-conflict-on-textual-files&quot;&gt;Resolving conflict on textual files&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;To see how we can resolve conflicts, we must first create one. The file &lt;code&gt;mars.txt&lt;/code&gt; currently looks like this in both partners’ copies of our &lt;code&gt;planets&lt;/code&gt; repository:&lt;/p&gt;

@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-01T09:42:37+00:00</updated>
+ <updated>2017-06-01T09:58:41+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -35,12 +35,19 @@
 &lt;/ul&gt;
 &lt;h2 id=&quot;other-tips-on-using-jupyter-notebook&quot;&gt;Other tips on using Jupyter notebook&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;You can use other languages in Jupyter notebook–beside Python and include Matlab. As a fact, the word &lt;strong&gt;&lt;em&gt;Jupyter&lt;/em&gt;&lt;/strong&gt; comes from modern programming languages including &lt;a href=&quot;https://julialang.org&quot;&gt;Julia&lt;/a&gt;, Python and &lt;a href=&quot;https://www.r-project.org&quot;&gt;R&lt;/a&gt;. You can define the kernel by using &lt;code&gt;jupyter notebook --kernel LANGUAGE&lt;/code&gt; to run the notebook in a particular language. The full list of community-supported kernel can be found &lt;a href=&quot;https://github.com/jupyter/jupyter/wiki/Jupyter-kernels&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;You can use other languages in Jupyter notebook–beside Python and include Matlab. As a fact, the word &lt;strong&gt;&lt;em&gt;Jupyter&lt;/em&gt;&lt;/strong&gt; comes from modern programming languages including &lt;a href=&quot;https://julialang.org&quot;&gt;Julia&lt;/a&gt;, Python and &lt;a href=&quot;https://www.r-project.org&quot;&gt;R&lt;/a&gt;. You can define the kernel by selecting the kernel you need under the &lt;code&gt;kernel&lt;/code&gt; menu after installing the necessary kernel packages. The full list of community-supported kernel can be found &lt;a href=&quot;https://github.com/jupyter/jupyter/wiki/Jupyter-kernels&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;It is possible to run different languages in one notebook. The easiest way is to execute bash commands to call other language-based commands inside of the notebook. But different kernel define different syntax to do so. One example of running variant languages on a Julia kernel can be found &lt;a href=&quot;https://github.com/i2000s/simnanophotonics/blob/master/sqwg.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;on-select-and-use-programming-languages&quot;&gt;On select and use programming languages&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;If you don’t mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the &lt;a href=&quot;https://julialang.org/&quot;&gt;Julia website&lt;/a&gt; and &lt;a href=&quot;&quot;&gt;here&lt;/a&gt;.- If you don’t mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the &lt;a href=&quot;https://julialang.org/&quot;&gt;Julia website&lt;/a&gt; and plotted &lt;a href=&quot;https://julialang.org/benchmarks/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you don’t mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the &lt;a href=&quot;https://julialang.org/&quot;&gt;Julia website&lt;/a&gt; and plotted &lt;a href=&quot;https://julialang.org/benchmarks/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;things-might-be-touched-in-doing-the-followup-projects&quot;&gt;Things might be touched in doing the followup projects&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Unit tests and other test techniques in various languages.&lt;/li&gt;
+&lt;li&gt;More details on documentations.&lt;/li&gt;
+&lt;li&gt;Continuous integration (like &lt;a href=&quot;https://travis-ci.org&quot;&gt;travis-CI&lt;/a&gt;) and virtualizations.&lt;/li&gt;
+&lt;li&gt;Permanent storage and generating DOIs for your code and data.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&quot;references&quot;&gt;
 

@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-01T05:52:27+00:00</updated>
+ <updated>2017-06-01T06:32:10+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -274,6 +274,11 @@ $ git add productcurveaccum-josh.png
 $ git add productcurveaccum-master.png&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This way the original picture doesn’t exist any more. Instead, you have two versions co-exist for you and your collaborators to review before deciding which to keep.&lt;/p&gt;
 &lt;p&gt;Either way, once you decide which one to use, you can then commit the staged changes and push to the remote &lt;code&gt;gh-pages&lt;/code&gt; branch to view the result online.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;A side note:&lt;/em&gt;&lt;/strong&gt; If you want to revert your revision to commit &lt;code&gt;SHA-xxxxx&lt;/code&gt;, you can use&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git reset --hard SHA-xxxxx&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or revert to the previous HEAD point by&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git reset --hard HEAD^&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To push the reverted changes to remote, you should use &lt;code&gt;git push -f origin BRANCHNAME&lt;/code&gt; with the switch &lt;code&gt;-f&lt;/code&gt; to force the upload.&lt;/p&gt;
 &lt;blockquote class=&quot;challenge&quot;&gt;
 &lt;h2 id=&quot;challenge-a-typical-work-session&quot;&gt;Challenge: A Typical Work Session&lt;/h2&gt;
 &lt;p&gt;You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:&lt;/p&gt;

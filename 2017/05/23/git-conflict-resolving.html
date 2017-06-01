@@ -431,6 +431,11 @@ $ git add productcurveaccum-josh.png
 $ git add productcurveaccum-master.png</code></pre>
 <p>This way the original picture doesn’t exist any more. Instead, you have two versions co-exist for you and your collaborators to review before deciding which to keep.</p>
 <p>Either way, once you decide which one to use, you can then commit the staged changes and push to the remote <code>gh-pages</code> branch to view the result online.</p>
+<p><strong><em>A side note:</em></strong> If you want to revert your revision to commit <code>SHA-xxxxx</code>, you can use</p>
+<pre><code>$ git reset --hard SHA-xxxxx</code></pre>
+<p>or revert to the previous HEAD point by</p>
+<pre><code>$ git reset --hard HEAD^</code></pre>
+<p>To push the reverted changes to remote, you should use <code>git push -f origin BRANCHNAME</code> with the switch <code>-f</code> to force the upload.</p>
 <blockquote class="challenge">
 <h2 id="challenge-a-typical-work-session">Challenge: A Typical Work Session</h2>
 <p>You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:</p>
@@ -552,7 +557,7 @@ $ git add productcurveaccum-master.png</code></pre>
     property="dc:created">23 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-06-01 05:21:18 +0000"
+            datetime="2017-06-01 06:27:48 +0000"
             property="dc:modified">01 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
@@ -605,7 +610,7 @@ $ git add productcurveaccum-master.png</code></pre>
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/19f1b4262f0ee090886f267196e7a73062835ef6/_posts/2017-05-23-git-conflict-resolving.md"> 19f1b42</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/df2fce8a86a893e95660aff74239c887f08d4579/_posts/2017-05-23-git-conflict-resolving.md"> df2fce8</a></tiny></p>
 </aside>
 
 <br /><br />

@@ -11,7 +11,7 @@ tags:
   - conflict-resolving
 categories: community
 ---
-***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].***
+***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
 ***This tutorial is adapted from [the Software Carpentry workshop](http://swcarpentry.github.io/git-novice/07-github/) under the Creative Commons license.***
 
 Version control really comes into its own when we begin to collaborate with

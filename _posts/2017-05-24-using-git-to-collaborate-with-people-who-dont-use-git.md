@@ -4,7 +4,7 @@ title: Using Git to collaborate with people who don't use git
 tags: git paper-writing
 categories: labnotebook
 ---
-***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].***
+***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
 
 Problems with different versions of JabRef:
 ==========================================

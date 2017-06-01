@@ -63,6 +63,7 @@ What does this model implies for using version control tools and programming?
 
 - Work on different branches and features at the same time. After finishing up testing each of them, merge them together to the main stream.
 - Divide a big program into smaller modules and write small functions which can be relatively easily tested and combined with different other modules to achieve various goals.
+- Separate your functions on computing, data manipulation and plotting so that they can be reused in different cases and you don't need to reproduce your data every time you want to plot out the results.
 
 What is said about collaborations?
 

@@ -223,7 +223,7 @@ div #sticker {
       <div class="row">
         <div class="col-md-8 col-md-offset-1 col-sm-12">
           <article>
-          <p><strong><em>Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/07-github/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
+          <p><strong><em>Work In Progress! This post is part of the <a href="https://cquic.github.io/summer17-computing-workshop/">2017 CQuIC computing summer workshop tutorial materials</a>.</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/07-github/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
 <p>Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.</p>
 <p>Systems like Git allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like <a href="http://github.com">GitHub</a>, <a href="http://bitbucket.org">BitBucket</a>, <a href="http://gitlab.com/">GitLab</a> or the <a href="https://libutil.unm.edu/users/sign_in">UNM GitLab service for UNM members</a> to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.</p>
 <h2 id="set-up-local-and-remote-repositories">Set up local and remote repositories</h2>
@@ -295,6 +295,10 @@ From https://github.com/i2000s/testwebsite
  * branch            master     -&gt; FETCH_HEAD
 Already up-to-date.</code></pre>
 <p>Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on GitHub, though, this command would download them to our local repository.</p>
+<p>In the case that you have many branches, and don’t want to automatically merge the changes to your local branch, the <code>pull</code> command can be actually decomposed into to two steps:</p>
+<pre><code>$ git fetch origin
+$ git merge origin/master</code></pre>
+<p>The first line fetch the changes from all branches to your local computer which will yield an output to show which branch got a change. The second line merges the change on the <code>master</code> branch from the remote fetch to your current local branch. This command is very flexible so that you can merge arbitrary remote branch to your current local branch.</p>
 <h2 id="github-gui-and-collaboration-features">GitHub GUI and collaboration features</h2>
 <p>Browse to your <code>testwebsite</code> repository on GitHub. Under the Code tab, find and click on the text that says “XX commits” (where “XX” is some number). Whenever you push the contents of your local repository to the remote, GitHub also generate a timestamps for each commit. Hover over, and click on, the three buttons to the right of each commit. What information can you gather/explore from these buttons? How would you get that same information in the shell?</p>
 <p>The answer is the following: The left-most button (with the picture of a clipboard) copies the full identifier of the commit to the clipboard. In the shell, <code>git log</code> will show you the full commit identifier for each commit.</p>
@@ -344,8 +348,8 @@ git push origin gh-pages</code></pre>
     property="dc:created">22 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-05-31 07:16:00 +0000"
-            property="dc:modified">31 May 2017</time></small></p>
+            datetime="2017-06-01 04:12:31 +0000"
+            property="dc:modified">01 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
@@ -397,7 +401,7 @@ git push origin gh-pages</code></pre>
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/bc2c70cf558a6bac4edf9e0b348e2b8a7b7adeb3/_posts/2017-05-22-git-remote-and-github.md"> bc2c70c</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/24ce42937adef9e89aca4de05c7e7ac214dd5ed1/_posts/2017-05-22-git-remote-and-github.md"> 24ce429</a></tiny></p>
 </aside>
 
 <br /><br />

@@ -223,7 +223,7 @@ div #sticker {
       <div class="row">
         <div class="col-md-8 col-md-offset-1 col-sm-12">
           <article>
-          <p><strong><em>Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/09-conflict/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
+          <p><strong><em>Work In Progress! This post is part of the <a href="https://cquic.github.io/summer17-computing-workshop/">2017 CQuIC computing summer workshop tutorial materials</a>.</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/09-conflict/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
 <p>As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these <a href="/reference/#conflicts">conflicts</a> by giving us tools to <a href="/reference/#resolve">resolve</a> overlapping changes.</p>
 <h2 id="resolving-conflict-on-textual-files">Resolving conflict on textual files</h2>
 <p><strong><em>Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.</em></strong></p>
@@ -350,53 +350,101 @@ We removed the conflict on this line</code></pre>
 </ul>
 <h2 id="conflicts-on-non-textual-files">Conflicts on Non-textual files</h2>
 <p>What does Git do when there is a conflict in an image or some other non-textual file that is stored in version control?</p>
-<p>Let’s try it. Suppose Dracula takes a picture of Martian surface and calls it <code>mars.jpg</code>.</p>
-<p>If you do not have an image file of Mars available, you can create a dummy binary file like this:</p>
-<pre><code>$ head --bytes 1024 /dev/urandom &gt; mars.jpg
-$ ls -lh mars.jpg
-
--rw-r--r-- 1 vlad 57095 1.0K Mar  8 20:24 mars.jpg</code></pre>
-<p><code>ls</code> shows us that this created a 1-kilobyte file. It is full of random bytes read from the special file, <code>/dev/urandom</code>.</p>
-<p>Now, suppose Dracula adds <code>mars.jpg</code> to his repository:</p>
-<pre><code>$ git add mars.jpg
-$ git commit -m &quot;Add picture of Martian surface&quot;
-
-[master 8e4115c] Add picture of Martian surface
+<p>Let’s try it using our <code>testwebsite</code> git repo. Suppose you are working on the <code>master</code> branch, and your collaborator, Josh, is working on the <code>gh-pages</code> branch, and both of you want to change a picture called <code>productcurveaccum.png</code> under the <code>assets/images/</code> folder.</p>
+<p>Here is what you are going to do on the <code>master</code> branch: <sub>~</sub> $ git checkout master $ cd assets/images/ $ ls online-cv-jekyll-theme-2.png productcurveaccumless.png online-cv-jekyll-theme.png productcurveaccum.png online-cv-responsive-jekyll-theme.png profile.png <sub>~</sub></p>
+<p><code>ls</code> shows us that there are a few pictures in the folder. Feel free to open those images to see how they look like. Next,suppose you want to use <code>productcurveaccumless.png</code> to replace <code>productcurveaccum.jpg</code> on the master branch and eventually want to merge this changes to the <code>gh-pages</code> branch of this repository. You do</p>
+<pre><code>$ cp productcurveaccumless.png productcurveaccum.png
+$ git add .
+$ git commit -m &quot;Replace productaccum with productaccumless.&quot;
+[master a140253] Replace productaccum with productaccumless.
  1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 mars.jpg</code></pre>
-<p>Suppose that Wolfman has added a similar picture in the meantime. His is a picture of the Martian sky, but it is <em>also</em> called <code>mars.jpg</code>. When Dracula tries to push, he gets a familiar message:</p>
-<pre><code>$ git push origin master
+ rewrite assets/images/productcurveaccumless.png (99%)
+$ git push origin master</code></pre>
+<p>Notice that, when I use git commands, I don’t have to be on the root directory of the corresponding git repo’s local folder. Git will automatically look for the <code>.git</code> folder in the current and up-level folders until it finds the correct one.</p>
+<p>Suppose that Josh later replaced the <code>productcurveaccum.png</code> with another picture called <code>online-cv-jekyll-theme-2</code> on the <code>gh-pages</code> branch on the same computer. Let’s assume you are Josh now, and you do the following for him:</p>
+<pre><code>$ git checkout gh-pages
+$ cp online-cv-jekyll-theme-2.png productcurveaccum.png
+$ git status
+On branch gh-pages
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
 
- To https://github.com/vlad/planets.git
-  ! [rejected]        master -&gt; master (fetch first)
- error: failed to push some refs to &#39;https://github.com/vlad/planets.git&#39;
- hint: Updates were rejected because the remote contains work that you do
- hint: not have locally. This is usually caused by another repository pushing
- hint: to the same ref. You may want to first integrate the remote changes
- hint: (e.g., &#39;git pull ...&#39;) before pushing again.
- hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.</code></pre>
-<p>We’ve learned that we must pull first and resolve any conflicts:</p>
-<p><code>$ git pull origin master</code></p>
-<p>When there is a conflict on an image or other binary file, git prints a message like this:</p>
-<p><code>$ git pull origin master  remote: Counting objects: 3, done.  remote: Compressing objects: 100% (3/3), done.  remote: Total 3 (delta 0), reused 0 (delta 0)  Unpacking objects: 100% (3/3), done.  From https://github.com/vlad/planets.git   * branch            master     -&gt; FETCH_HEAD     6a67967..439dc8c  master     -&gt; origin/master  warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)  Auto-merging mars.jpg  CONFLICT (add/add): Merge conflict in mars.jpg  Automatic merge failed; fix conflicts and then commit the result.</code></p>
-<p>The conflict message here is mostly the same as it was for <code>mars.txt</code>, but there is one key additional line:</p>
-<p><code>warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)</code></p>
-<p>Git cannot automatically insert conflict markers into an image as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.</p>
-<p>On the key line above, Git has conveniently given us commit identifiers for the two versions of <code>mars.jpg</code>. Our version is <code>HEAD</code>, and Wolfman’s version is <code>439dc8c0...</code>. If we want to use our version, we can use <code>git checkout</code>:</p>
-<p><sub>~</sub> $ git checkout HEAD mars.jpg $ git add mars.jpg $ git commit -m “Use image of surface instead of sky”</p>
-<p>[master 21032c3] Use image of surface instead of sky <sub>~</sub></p>
-<p>If instead we want to use Wolfman’s version, we can use <code>git checkout</code> with Wolfman’s commit identifier, <code>439dc8c0</code>:</p>
-<p><sub>~</sub> $ git checkout 439dc8c0 mars.jpg $ git add mars.jpg $ git commit -m “Use image of sky instead of surface”</p>
-<p>[master da21b34] Use image of sky instead of surface <sub>~</sub></p>
+    modified:   productcurveaccum.png
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+$ git add .
+$ git commit -m &quot;Replace productaccum with online-cv.&quot;
+[gh-pages 2c1af41] Replace productaccum with online-cv.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rewrite assets/images/productcurveaccum.png (98%)</code></pre>
+<p>Now, imagine you come back and want to merge the <code>master</code> branch to the <code>gh-pages</code> branch, you will find there is a conflict.</p>
+<pre><code>$ git checkout gh-pages
+$ git merge master
+warning: Cannot merge binary files: assets/images/productcurveaccum.png (HEAD vs. master)
+Auto-merging assets/images/productcurveaccum.png
+CONFLICT (content): Merge conflict in assets/images/productcurveaccum.png
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch gh-pages
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+
+    both modified:   productcurveaccum.png
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
+<p>As you can see, when there is a conflict on an image or other binary file, git prints a message with which two sources (branches <code>HEAD vs. master</code>) generated this conflict and which files (<code>assets/images/productcurveaccum.png</code>) were affected. The <code>HEAD</code> means the current <code>gh-pages</code> branch. More commonly, if you pull a remote <code>master</code> branch and then merge with <code>git merge origin/master</code>, you will get a similar conflict message with <code>origin/master</code> replacing <code>master</code> as the conflicting source.</p>
+<p>The conflict message here is mostly the same as it was for <code>mars.txt</code> in the textual case, but there is one key additional line:</p>
+<pre><code>warning: Cannot merge binary files...</code></pre>
+<p>Git cannot automatically insert conflict markers into an image, or in general a binary file, as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.</p>
+<p>On the key line above, Git has conveniently given us commit identifiers for the two versions of <code>productcurveaccum.png</code>. Our version is <code>HEAD</code>, and Josh’s version is <code>master</code>. If we want to use our version, we can use <code>git checkout</code>:</p>
+<pre><code>$ git checkout HEAD productcurveaccum.png
+$ git add productcurveaccum.png
+$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use &quot;git commit&quot; to conclude merge)
+
+Changes to be committed:
+
+    modified:   productcurveaccum.png</code></pre>
+<p>Alternatively, you can also use</p>
+<pre><code>git checkout --ours productcurveaccum.png
+qxd:images$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use &quot;git commit&quot; to conclude merge)
+
+Changes to be committed:
+
+    modified:   productcurveaccum.png</code></pre>
+<p>with the <code>--ours</code> switch.</p>
+<p>If instead we want to use Josh’s version on the master branch, we can use <code>git checkout</code> with Josh’s commit identifier, <code>master</code> or <code>--theirs</code> instead:</p>
+<pre><code>$ git checkout --theirs productcurveaccum.png
+qxd:images$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use &quot;git commit&quot; to conclude merge)
+
+Changes to be committed:
+
+    modified:   productcurveaccum.png</code></pre>
 <p>We can also keep <em>both</em> images. The catch is that we cannot keep them under the same name. But, we can check out each version in succession and <em>rename</em> it, then add the renamed versions. First, check out each image and rename it:</p>
-<p><sub>~</sub> $ git checkout HEAD mars.jpg $ git mv mars.jpg mars-surface.jpg $ git checkout 439dc8c0 mars.jpg $ mv mars.jpg mars-sky.jpg <sub>~</sub></p>
-<p>Then, remove the old <code>mars.jpg</code> and add the two new files:</p>
-<p><sub>~</sub> $ git rm mars.jpg $ git add mars-surface.jpg $ git add mars-sky.jpg $ git commit -m “Use two images: surface and sky”</p>
-<p>[master 94ae08c] Use two images: surface and sky 2 files changed, 0 insertions(+), 0 deletions(-) create mode 100644 mars-sky.jpg rename mars.jpg =&gt; mars-surface.jpg (100%) <sub>~</sub></p>
-<p>Now both images of Mars are checked into the repository, and <code>mars.jpg</code> no longer exists.</p>
+<pre><code>$ git checkout HEAD productcurveaccum.png
+$ git mv productcurveaccum.png productcurveaccum-josh.png
+$ git checkout --theirs productcurveaccum.png
+$ mv productcurveaccum.png productcurveaccum-master.jpg</code></pre>
+<p>Then, remove the old <code>productcurveaccum.png</code> and add the two new files:</p>
+<pre><code>$ git rm productcurveaccum.png
+$ git add productcurveaccum-josh.png
+$ git add productcurveaccum-master.png</code></pre>
+<p>This way the original picture doesn’t exist any more. Instead, you have two versions co-exist for you and your collaborators to review before deciding which to keep.</p>
+<p>Either way, once you decide which one to use, you can then commit the staged changes and push to the remote <code>gh-pages</code> branch to view the result online.</p>
 <blockquote class="challenge">
- 
-<h2 id="a-typical-work-session">A Typical Work Session</h2>
+<h2 id="challenge-a-typical-work-session">Challenge: A Typical Work Session</h2>
 <p>You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:</p>
 <ul>
 <li><em>Make changes</em> by appending the number <code>100</code> to a text file <code>numbers.txt</code></li>
@@ -516,8 +564,8 @@ $ git commit -m &quot;Add picture of Martian surface&quot;
     property="dc:created">23 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-05-31 07:23:55 +0000"
-            property="dc:modified">31 May 2017</time></small></p>
+            datetime="2017-06-01 04:12:31 +0000"
+            property="dc:modified">01 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
@@ -569,7 +617,7 @@ $ git commit -m &quot;Add picture of Martian surface&quot;
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/93d15aac312a9c28368ce919601d3ef21e92fa85/_posts/2017-05-23-git-conflict-resolving.md"> 93d15aa</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/24ce42937adef9e89aca4de05c7e7ac214dd5ed1/_posts/2017-05-23-git-conflict-resolving.md"> 24ce429</a></tiny></p>
 </aside>
 
 <br /><br />

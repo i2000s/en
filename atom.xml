@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-05-31T07:28:48+00:00</updated>
+ <updated>2017-06-01T04:16:30+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -17,7 +17,7 @@
    <link href="/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html"/>
    <updated>2017-05-24T00:00:00+00:00</updated>
    <id>/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the &lt;a href=&quot;https://cquic.github.io/summer17-computing-workshop/&quot;&gt;2017 CQuIC computing summer workshop tutorial materials&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&quot;problems-with-different-versions-of-jabref&quot;&gt;Problems with different versions of JabRef:&lt;/h1&gt;
 &lt;p&gt;I use a dedicated Git repository to centralize all of my bibliography entries, which call it &lt;code&gt;Archive&lt;/code&gt; and only contains a large bibtex file.&lt;/p&gt;
 &lt;p&gt;There are some formatting problems in using different versions of JabRef in using version-control systems. It would be nice to let files always read by the latest version of JabRef (v3.x) for compatibility of formatting. In the mean time, following a few recommendations may help in decreasing the number changes if different software or versions of JabRef have to be used between collaborator. See &lt;a href=&quot;http://help.jabref.org/en/SharedBibFile&quot;&gt;these database setting for JabRef&lt;/a&gt;, for example. Alternatively, there are some tools as illustrated on &lt;a href=&quot;http://unix.stackexchange.com/questions/31266/how-to-sort-by-whatever-key-bibtex-entries-in-bib-file&quot;&gt;Stackexchange&lt;/a&gt; to sort out bibtex entries if other bibliography management software like Mendeley is used.&lt;/p&gt;
@@ -54,7 +54,7 @@ git submodule --init --recursive --remote&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2017/05/23/git-conflict-resolving.html"/>
    <updated>2017-05-23T00:00:00+00:00</updated>
    <id>/2017/05/23/git-conflict-resolving</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;This tutorial is adapted from &lt;a href=&quot;http://swcarpentry.github.io/git-novice/09-conflict/&quot;&gt;the Software Carpentry workshop&lt;/a&gt; under the Creative Commons license.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the &lt;a href=&quot;https://cquic.github.io/summer17-computing-workshop/&quot;&gt;2017 CQuIC computing summer workshop tutorial materials&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;This tutorial is adapted from &lt;a href=&quot;http://swcarpentry.github.io/git-novice/09-conflict/&quot;&gt;the Software Carpentry workshop&lt;/a&gt; under the Creative Commons license.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these &lt;a href=&quot;/reference/#conflicts&quot;&gt;conflicts&lt;/a&gt; by giving us tools to &lt;a href=&quot;/reference/#resolve&quot;&gt;resolve&lt;/a&gt; overlapping changes.&lt;/p&gt;
 &lt;h2 id=&quot;resolving-conflict-on-textual-files&quot;&gt;Resolving conflict on textual files&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -181,53 +181,101 @@ We removed the conflict on this line&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;conflicts-on-non-textual-files&quot;&gt;Conflicts on Non-textual files&lt;/h2&gt;
 &lt;p&gt;What does Git do when there is a conflict in an image or some other non-textual file that is stored in version control?&lt;/p&gt;
-&lt;p&gt;Let’s try it. Suppose Dracula takes a picture of Martian surface and calls it &lt;code&gt;mars.jpg&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;If you do not have an image file of Mars available, you can create a dummy binary file like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ head --bytes 1024 /dev/urandom &amp;gt; mars.jpg
-$ ls -lh mars.jpg
-
--rw-r--r-- 1 vlad 57095 1.0K Mar  8 20:24 mars.jpg&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;ls&lt;/code&gt; shows us that this created a 1-kilobyte file. It is full of random bytes read from the special file, &lt;code&gt;/dev/urandom&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Now, suppose Dracula adds &lt;code&gt;mars.jpg&lt;/code&gt; to his repository:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git add mars.jpg
-$ git commit -m &amp;quot;Add picture of Martian surface&amp;quot;
-
-[master 8e4115c] Add picture of Martian surface
+&lt;p&gt;Let’s try it using our &lt;code&gt;testwebsite&lt;/code&gt; git repo. Suppose you are working on the &lt;code&gt;master&lt;/code&gt; branch, and your collaborator, Josh, is working on the &lt;code&gt;gh-pages&lt;/code&gt; branch, and both of you want to change a picture called &lt;code&gt;productcurveaccum.png&lt;/code&gt; under the &lt;code&gt;assets/images/&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;Here is what you are going to do on the &lt;code&gt;master&lt;/code&gt; branch: &lt;sub&gt;~&lt;/sub&gt; $ git checkout master $ cd assets/images/ $ ls online-cv-jekyll-theme-2.png productcurveaccumless.png online-cv-jekyll-theme.png productcurveaccum.png online-cv-responsive-jekyll-theme.png profile.png &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt; shows us that there are a few pictures in the folder. Feel free to open those images to see how they look like. Next,suppose you want to use &lt;code&gt;productcurveaccumless.png&lt;/code&gt; to replace &lt;code&gt;productcurveaccum.jpg&lt;/code&gt; on the master branch and eventually want to merge this changes to the &lt;code&gt;gh-pages&lt;/code&gt; branch of this repository. You do&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cp productcurveaccumless.png productcurveaccum.png
+$ git add .
+$ git commit -m &amp;quot;Replace productaccum with productaccumless.&amp;quot;
+[master a140253] Replace productaccum with productaccumless.
  1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 mars.jpg&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Suppose that Wolfman has added a similar picture in the meantime. His is a picture of the Martian sky, but it is &lt;em&gt;also&lt;/em&gt; called &lt;code&gt;mars.jpg&lt;/code&gt;. When Dracula tries to push, he gets a familiar message:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ git push origin master
+ rewrite assets/images/productcurveaccumless.png (99%)
+$ git push origin master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that, when I use git commands, I don’t have to be on the root directory of the corresponding git repo’s local folder. Git will automatically look for the &lt;code&gt;.git&lt;/code&gt; folder in the current and up-level folders until it finds the correct one.&lt;/p&gt;
+&lt;p&gt;Suppose that Josh later replaced the &lt;code&gt;productcurveaccum.png&lt;/code&gt; with another picture called &lt;code&gt;online-cv-jekyll-theme-2&lt;/code&gt; on the &lt;code&gt;gh-pages&lt;/code&gt; branch on the same computer. Let’s assume you are Josh now, and you do the following for him:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout gh-pages
+$ cp online-cv-jekyll-theme-2.png productcurveaccum.png
+$ git status
+On branch gh-pages
+Changes not staged for commit:
+  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)
+  (use &amp;quot;git checkout -- &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)
 
- To https://github.com/vlad/planets.git
-  ! [rejected]        master -&amp;gt; master (fetch first)
- error: failed to push some refs to &amp;#39;https://github.com/vlad/planets.git&amp;#39;
- hint: Updates were rejected because the remote contains work that you do
- hint: not have locally. This is usually caused by another repository pushing
- hint: to the same ref. You may want to first integrate the remote changes
- hint: (e.g., &amp;#39;git pull ...&amp;#39;) before pushing again.
- hint: See the &amp;#39;Note about fast-forwards&amp;#39; in &amp;#39;git push --help&amp;#39; for details.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We’ve learned that we must pull first and resolve any conflicts:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ git pull origin master&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;When there is a conflict on an image or other binary file, git prints a message like this:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$ git pull origin master  remote: Counting objects: 3, done.  remote: Compressing objects: 100% (3/3), done.  remote: Total 3 (delta 0), reused 0 (delta 0)  Unpacking objects: 100% (3/3), done.  From https://github.com/vlad/planets.git   * branch            master     -&amp;gt; FETCH_HEAD     6a67967..439dc8c  master     -&amp;gt; origin/master  warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)  Auto-merging mars.jpg  CONFLICT (add/add): Merge conflict in mars.jpg  Automatic merge failed; fix conflicts and then commit the result.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;The conflict message here is mostly the same as it was for &lt;code&gt;mars.txt&lt;/code&gt;, but there is one key additional line:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Git cannot automatically insert conflict markers into an image as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.&lt;/p&gt;
-&lt;p&gt;On the key line above, Git has conveniently given us commit identifiers for the two versions of &lt;code&gt;mars.jpg&lt;/code&gt;. Our version is &lt;code&gt;HEAD&lt;/code&gt;, and Wolfman’s version is &lt;code&gt;439dc8c0...&lt;/code&gt;. If we want to use our version, we can use &lt;code&gt;git checkout&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git checkout HEAD mars.jpg $ git add mars.jpg $ git commit -m “Use image of surface instead of sky”&lt;/p&gt;
-&lt;p&gt;[master 21032c3] Use image of surface instead of sky &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
-&lt;p&gt;If instead we want to use Wolfman’s version, we can use &lt;code&gt;git checkout&lt;/code&gt; with Wolfman’s commit identifier, &lt;code&gt;439dc8c0&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git checkout 439dc8c0 mars.jpg $ git add mars.jpg $ git commit -m “Use image of sky instead of surface”&lt;/p&gt;
-&lt;p&gt;[master da21b34] Use image of sky instead of surface &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
+    modified:   productcurveaccum.png
+
+no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)
+$ git add .
+$ git commit -m &amp;quot;Replace productaccum with online-cv.&amp;quot;
+[gh-pages 2c1af41] Replace productaccum with online-cv.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rewrite assets/images/productcurveaccum.png (98%)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, imagine you come back and want to merge the &lt;code&gt;master&lt;/code&gt; branch to the &lt;code&gt;gh-pages&lt;/code&gt; branch, you will find there is a conflict.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout gh-pages
+$ git merge master
+warning: Cannot merge binary files: assets/images/productcurveaccum.png (HEAD vs. master)
+Auto-merging assets/images/productcurveaccum.png
+CONFLICT (content): Merge conflict in assets/images/productcurveaccum.png
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch gh-pages
+You have unmerged paths.
+  (fix conflicts and run &amp;quot;git commit&amp;quot;)
+
+Unmerged paths:
+  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to mark resolution)
+
+    both modified:   productcurveaccum.png
+
+no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, when there is a conflict on an image or other binary file, git prints a message with which two sources (branches &lt;code&gt;HEAD vs. master&lt;/code&gt;) generated this conflict and which files (&lt;code&gt;assets/images/productcurveaccum.png&lt;/code&gt;) were affected. The &lt;code&gt;HEAD&lt;/code&gt; means the current &lt;code&gt;gh-pages&lt;/code&gt; branch. More commonly, if you pull a remote &lt;code&gt;master&lt;/code&gt; branch and then merge with &lt;code&gt;git merge origin/master&lt;/code&gt;, you will get a similar conflict message with &lt;code&gt;origin/master&lt;/code&gt; replacing &lt;code&gt;master&lt;/code&gt; as the conflicting source.&lt;/p&gt;
+&lt;p&gt;The conflict message here is mostly the same as it was for &lt;code&gt;mars.txt&lt;/code&gt; in the textual case, but there is one key additional line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;warning: Cannot merge binary files...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Git cannot automatically insert conflict markers into an image, or in general a binary file, as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.&lt;/p&gt;
+&lt;p&gt;On the key line above, Git has conveniently given us commit identifiers for the two versions of &lt;code&gt;productcurveaccum.png&lt;/code&gt;. Our version is &lt;code&gt;HEAD&lt;/code&gt;, and Josh’s version is &lt;code&gt;master&lt;/code&gt;. If we want to use our version, we can use &lt;code&gt;git checkout&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout HEAD productcurveaccum.png
+$ git add productcurveaccum.png
+$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use &amp;quot;git commit&amp;quot; to conclude merge)
+
+Changes to be committed:
+
+    modified:   productcurveaccum.png&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alternatively, you can also use&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout --ours productcurveaccum.png
+qxd:images$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use &amp;quot;git commit&amp;quot; to conclude merge)
+
+Changes to be committed:
+
+    modified:   productcurveaccum.png&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;with the &lt;code&gt;--ours&lt;/code&gt; switch.&lt;/p&gt;
+&lt;p&gt;If instead we want to use Josh’s version on the master branch, we can use &lt;code&gt;git checkout&lt;/code&gt; with Josh’s commit identifier, &lt;code&gt;master&lt;/code&gt; or &lt;code&gt;--theirs&lt;/code&gt; instead:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout --theirs productcurveaccum.png
+qxd:images$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use &amp;quot;git commit&amp;quot; to conclude merge)
+
+Changes to be committed:
+
+    modified:   productcurveaccum.png&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can also keep &lt;em&gt;both&lt;/em&gt; images. The catch is that we cannot keep them under the same name. But, we can check out each version in succession and &lt;em&gt;rename&lt;/em&gt; it, then add the renamed versions. First, check out each image and rename it:&lt;/p&gt;
-&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git checkout HEAD mars.jpg $ git mv mars.jpg mars-surface.jpg $ git checkout 439dc8c0 mars.jpg $ mv mars.jpg mars-sky.jpg &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
-&lt;p&gt;Then, remove the old &lt;code&gt;mars.jpg&lt;/code&gt; and add the two new files:&lt;/p&gt;
-&lt;p&gt;&lt;sub&gt;~&lt;/sub&gt; $ git rm mars.jpg $ git add mars-surface.jpg $ git add mars-sky.jpg $ git commit -m “Use two images: surface and sky”&lt;/p&gt;
-&lt;p&gt;[master 94ae08c] Use two images: surface and sky 2 files changed, 0 insertions(+), 0 deletions(-) create mode 100644 mars-sky.jpg rename mars.jpg =&amp;gt; mars-surface.jpg (100%) &lt;sub&gt;~&lt;/sub&gt;&lt;/p&gt;
-&lt;p&gt;Now both images of Mars are checked into the repository, and &lt;code&gt;mars.jpg&lt;/code&gt; no longer exists.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout HEAD productcurveaccum.png
+$ git mv productcurveaccum.png productcurveaccum-josh.png
+$ git checkout --theirs productcurveaccum.png
+$ mv productcurveaccum.png productcurveaccum-master.jpg&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, remove the old &lt;code&gt;productcurveaccum.png&lt;/code&gt; and add the two new files:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git rm productcurveaccum.png
+$ git add productcurveaccum-josh.png
+$ git add productcurveaccum-master.png&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This way the original picture doesn’t exist any more. Instead, you have two versions co-exist for you and your collaborators to review before deciding which to keep.&lt;/p&gt;
+&lt;p&gt;Either way, once you decide which one to use, you can then commit the staged changes and push to the remote &lt;code&gt;gh-pages&lt;/code&gt; branch to view the result online.&lt;/p&gt;
 &lt;blockquote class=&quot;challenge&quot;&gt;
- 
-&lt;h2 id=&quot;a-typical-work-session&quot;&gt;A Typical Work Session&lt;/h2&gt;
+&lt;h2 id=&quot;challenge-a-typical-work-session&quot;&gt;Challenge: A Typical Work Session&lt;/h2&gt;
 &lt;p&gt;You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Make changes&lt;/em&gt; by appending the number &lt;code&gt;100&lt;/code&gt; to a text file &lt;code&gt;numbers.txt&lt;/code&gt;&lt;/li&gt;
@@ -337,7 +385,7 @@ $ git commit -m &amp;quot;Add picture of Martian surface&amp;quot;
    <link href="/en/2017/05/22/git-remote-and-github.html"/>
    <updated>2017-05-22T00:00:00+00:00</updated>
    <id>/2017/05/22/git-remote-and-github</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;This tutorial is adapted from &lt;a href=&quot;http://swcarpentry.github.io/git-novice/07-github/&quot;&gt;the Software Carpentry workshop&lt;/a&gt; under the Creative Commons license.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the &lt;a href=&quot;https://cquic.github.io/summer17-computing-workshop/&quot;&gt;2017 CQuIC computing summer workshop tutorial materials&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;This tutorial is adapted from &lt;a href=&quot;http://swcarpentry.github.io/git-novice/07-github/&quot;&gt;the Software Carpentry workshop&lt;/a&gt; under the Creative Commons license.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.&lt;/p&gt;
 &lt;p&gt;Systems like Git allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web rather than on someone’s laptop. Most programmers use hosting services like &lt;a href=&quot;http://github.com&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;http://bitbucket.org&quot;&gt;BitBucket&lt;/a&gt;, &lt;a href=&quot;http://gitlab.com/&quot;&gt;GitLab&lt;/a&gt; or the &lt;a href=&quot;https://libutil.unm.edu/users/sign_in&quot;&gt;UNM GitLab service for UNM members&lt;/a&gt; to hold those master copies; we’ll explore the pros and cons of this in the final section of this lesson.&lt;/p&gt;
 &lt;h2 id=&quot;set-up-local-and-remote-repositories&quot;&gt;Set up local and remote repositories&lt;/h2&gt;
@@ -409,6 +457,10 @@ From https://github.com/i2000s/testwebsite
  * branch            master     -&amp;gt; FETCH_HEAD
 Already up-to-date.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Pulling has no effect in this case because the two repositories are already synchronized. If someone else had pushed some changes to the repository on GitHub, though, this command would download them to our local repository.&lt;/p&gt;
+&lt;p&gt;In the case that you have many branches, and don’t want to automatically merge the changes to your local branch, the &lt;code&gt;pull&lt;/code&gt; command can be actually decomposed into to two steps:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git fetch origin
+$ git merge origin/master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first line fetch the changes from all branches to your local computer which will yield an output to show which branch got a change. The second line merges the change on the &lt;code&gt;master&lt;/code&gt; branch from the remote fetch to your current local branch. This command is very flexible so that you can merge arbitrary remote branch to your current local branch.&lt;/p&gt;
 &lt;h2 id=&quot;github-gui-and-collaboration-features&quot;&gt;GitHub GUI and collaboration features&lt;/h2&gt;
 &lt;p&gt;Browse to your &lt;code&gt;testwebsite&lt;/code&gt; repository on GitHub. Under the Code tab, find and click on the text that says “XX commits” (where “XX” is some number). Whenever you push the contents of your local repository to the remote, GitHub also generate a timestamps for each commit. Hover over, and click on, the three buttons to the right of each commit. What information can you gather/explore from these buttons? How would you get that same information in the shell?&lt;/p&gt;
 &lt;p&gt;The answer is the following: The left-most button (with the picture of a clipboard) copies the full identifier of the commit to the clipboard. In the shell, &lt;code&gt;git log&lt;/code&gt; will show you the full commit identifier for each commit.&lt;/p&gt;
@@ -448,7 +500,7 @@ git push origin gh-pages&lt;/code&gt;&lt;/pre&gt;
    <link href="/en/2017/05/21/a-theory-and-practices-on-systematic-task-management.html"/>
    <updated>2017-05-21T00:00:00+00:00</updated>
    <id>/2017/05/21/a-theory-and-practices-on-systematic-task-management</id>
-   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials].&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Work In Progress! This post is part of the &lt;a href=&quot;https://cquic.github.io/summer17-computing-workshop/&quot;&gt;2017 CQuIC computing summer workshop tutorial materials&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&quot;a-lifecycle-model-of-productivity&quot;&gt;A lifecycle model of productivity&lt;/h1&gt;
 As often observed, when we work on a subject, we usually experience the following productivity curve over time as plotted in the figure below.
 &lt;center&gt;

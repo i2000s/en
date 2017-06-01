@@ -6,10 +6,10 @@ time: 2017-05-21 10:59:00 -0700
 tags:
   - open-science
   - Github
-  - Git
+  - git
   - remote
   - conflict-resolving
-categories: community
+categories: work-efficiency
 ---
 ***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
 ***This tutorial is adapted from [the Software Carpentry workshop](http://swcarpentry.github.io/git-novice/07-github/) under the Creative Commons license.***

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Miscellaneous topics not covered in the CQuIC summer workshop
-tags: git matlab jupyter-notebook
-categories: community
+tags: git matlab jupyter scientific-computing
+categories: work-efficiency
 ---
 ***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
 

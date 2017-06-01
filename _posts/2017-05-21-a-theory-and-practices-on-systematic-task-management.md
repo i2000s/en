@@ -6,7 +6,7 @@ time: 2017-05-21 02:54:00 -0700
 tags:
   - open-science
   - systematic-science
-categories: community
+categories: work-efficiency
 ---
 ***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
 

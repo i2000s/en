@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-01T10:21:49+00:00</updated>
+ <updated>2017-06-01T18:08:12+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -631,6 +631,7 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
 &lt;ul&gt;
 &lt;li&gt;Work on different branches and features at the same time. After finishing up testing each of them, merge them together to the main stream.&lt;/li&gt;
 &lt;li&gt;Divide a big program into smaller modules and write small functions which can be relatively easily tested and combined with different other modules to achieve various goals.&lt;/li&gt;
+&lt;li&gt;Separate your functions on computing, data manipulation and plotting so that they can be reused in different cases and you don’t need to reproduce your data every time you want to plot out the results.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;What is said about collaborations?&lt;/p&gt;
 &lt;ul&gt;

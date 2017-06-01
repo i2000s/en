@@ -6,28 +6,74 @@ categories: labnotebook
 ---
 ***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
 
-Problems with different versions of JabRef:
-==========================================
-I use a dedicated Git repository to centralize all of my bibliography entries, which call it `Archive` and only contains a large bibtex file.
+One common issue of collaborating with people who don't use Git is that you have to commit on behalf of your collaborators if you decide to use Git for the Git-benefits.
+Although there are tools for people to collaboratively write papers online, some collaborators in my case don't want to use them.
+This tutorial will provide an example of a real paper-writing scenario to handle this case easily using automation tools that has been covered in the workshop.
+You will also learn some ideas of using [git-submodule](https://git-scm.com/docs/git-submodule) to handle the bibliography databases.
 
-There are some formatting problems in using different versions of JabRef in using version-control systems.
-It would be nice to let files always read by the latest version of JabRef (v3.x) for compatibility of formatting.
-In the mean time, following a few recommendations may help in decreasing the number changes if different software or versions of JabRef have to be used between collaborator.
-See [these database setting for JabRef](http://help.jabref.org/en/SharedBibFile), for example.
-Alternatively, there are some tools as illustrated on [Stackexchange](http://unix.stackexchange.com/questions/31266/how-to-sort-by-whatever-key-bibtex-entries-in-bib-file) to sort out bibtex entries if other bibliography management software like Mendeley is used.
+A paper-writing example using automation tools
+==============================================
+In this section, we will navigate into the example folder, `NanofiberPaper2014` which has been tracked by Git.
+The main folder contains main files in the root and on the `master` branch, and then two sub-folders called `Ben` and `Ivan` for collaborators to update their branches in the same names as the sub-folders, as well as a sub-folder called `twocolumn` which is swtiched to the `twocolumn` branch to contain files in the completely pre-print two-column formation.
+In contrast, the `master` branch is the easy-read single-column version of the paper draft where equations can take longer space in the entire row and lines take more vertical space.
+All the files, in the process of paper writing, were shared and synchronized using Dropbox.
 
-Cleaning up loose objects in Git repositories:
-=============================================
+The git workflow is that every collaborator is writing their updates to their individual folders under their names (`Ben` and `Ivan`).
+Since I know how to use Git, I don't need to put my branch in the Dropbox.
+Instead, I will synchronize my writing to the GitHub remote repository and then merge everyone's changes to the `master` branch and eventually the `twocolumn` branch when it is necessary (like at the end of each working days).
+Whenever there is a change from my collaborator, I will manually review the changes line by line, equation by equation before merging them.
+In the mean time, I also synchronize every collaborator's folder and compile the LaTeX files to PDF with the final merged version of the `master` branch for the collaborators to preview the progress.
+The `twocolum` branch and corresponding folder only takes incoming merges without merging backwards to other folders.
+Equations and figure sizes are reformatted periodically to make them well fit into the two-column and single-space preprint version for the final journal submission.
+
+What I did to automate this Git merging process is to write three scripts--`Makefile`, `SyncToMaster.sh` and `SyncFromMaster.sh`.
+Let's look into them and fill out the missing information in those scripts to recover how I make it work.
+
+First, open the `Makefile` script in your favorite text editor.
+The script is to compile the LaTeX file into PDF and clean up intermediate files.
+Obviously, the file name of the LaTeX file to be compiled is missing, and hence you need to change `PROJECT=` to `PROJECT=Nanofiber` as the LaTeX file's name is `Nanofiber.tex`.
+You can test it by running
 ```
-git gc --aggressive
+make && make clean
 ```
-More can be found on the [git docs](https://git-scm.com/docs/git-gc).
+in your terminal to see if the PDF can be compiled in the root directory of the git local repo.
 
-Using submodules:
-================
-When I need to cite papers from the bibliography file, I use the bibliography repo, `Archive`, as a submodule of the paper writing project.
+Second, open the `SyncToMaster.sh` file in your text editor.
+This script is used to merge changes from the collaborators' folders/branches to the master branch.
+If any collaborator's folder--including the master folder--has uncommitted changes, it will stop and remind you to check what has been changed.
+You can then use `git diff` command to see how things were changed compared to the last update.
+If all changes have been committed, it will then merge the collaborator's updates or no-updates to the root directory or the master branch and then push the master branch to the remote repo.
+As you may have observed, the script misses the content in the `distributedBranch=` parameter at the beginning.
+You will need to fill the individual folder's names where updates are going to be merged to the master branch.
+They should include `Ben` and `Ivan`, so you replace the line with `distributedBranch="Ben Ivan"`.
+Since the `twocolumn` branch is not going to be merged to the master branch, and my own branch is not in the Dropbox, we don't need to include them into the `distributedBranch` parameter.
+You can test how it works by running
+```
+bash SyncToMaster.sh
+```
+It may ask you to input your GitHub username and password for this case.
+
+Third, open the `SyncFromMaster.sh` file in your text editor.
+This script is used to synchronize the collaborators' folders/branches by merging changes from the master branch.
+Again the the `distributedBranch` parameter is missing value.
+But this time, we will need to use `Ben Ivan twocolumn` for its value, as now the changes will be merged to the  `twocolumn` branch eventually.
+The script will push the individual branches to the remote repo after merging updates and will stop if there are uncommitted changes anywhere.
+You can run
+```
+bash SyncFromMaster.sh
+```
+to see how it works.
+For this case, I have leave all collaborator's branches one commit behind the `master` branch, and you will see how the automatic merge happen when you run the script.
+
+
+Using submodules to call the shared BiBTeX database file
+========================================================
+When I need to cite papers from the bibliography file, I use the bibliography repo, [Archive](https://github.com/i2000s/Archive), as a submodule of the paper writing project.
+By calling a submodule for a common BiBTeX file in writing papers, the team can always share the same bibtex keys and reference database in writing paper over
+time, which will usually save every group member's time in the end.
 The basic commands of submodule in Git can be found in the [official document](https://git-scm.com/docs/git-submodule) and the [Pro Git book](https://git-scm.com/book/en/v2/Git-Tools-Submodules), or follow [this](https://github.com/blog/2104-working-with-submodules) and [this](http://komodoide.com/blog/2014-05/git-submodules/) introductions to initialize the bibliography submodule to the master project.
 For short, I can briefly summarize a few useful commandlines that works for my workflow.
+The script to automate some of the processes to be discussed below can be found in [my script repo](https://github.com/i2000s/scripts/tree/master/Git).
 
 I define a `NanofiberPaper` branch in the `Archive` repo and only use this dedicated branch for my nanofiber paper writing.
 Changes made during the paper writing can be easily merged into the master branch of the bibliography repo and won't mess up the rest of the branches in case of conflicts.
@@ -78,3 +124,23 @@ For example, one can use `--job <n>` switch for the `git submodule` command to d
 This feature was available since Git V2.9.
 One can also use `foreach [--recursive] <command>` controller for the `git submodule` command to recursively apply a repeated command to all submodules in a main repo.
 More `submodule` options can be found in the latest [official git document](https://git-scm.com/docs/git-submodule).
+
+Problems with different versions of JabRef:
+==========================================
+Even though I use a dedicated Git repository to centralize all of my bibliography entries (here, it is called `Archive` and only contains a single bibtex file), it might corrupted if people different versions of BiBTeX editors to view it.
+For this reason, I recommend everyone to use [JabRef](https://jabref.org) to edit and view the BiBTeX file.
+
+Even though, there are still some formatting problems in using different versions of JabRef in using version-control systems.
+It would be nice to let files always read by the latest version of JabRef (v3.x) for compatibility of formatting.
+In the mean time, following a few recommendations may help in decreasing the number changes if different software or versions of JabRef have to be used between collaborator.
+See [these database setting for JabRef](http://help.jabref.org/en/SharedBibFile), for example.
+Alternatively, there are some tools as illustrated on [Stackexchange](http://unix.stackexchange.com/questions/31266/how-to-sort-by-whatever-key-bibtex-entries-in-bib-file) to sort out bibtex entries if other bibliography management software like Mendeley is used.
+
+A small trick: Cleaning up loose objects in Git repositories
+============================================================
+Sometimes, Git might remind you that you have too many loose objects in your repo as the number of commits creases.
+To compress those objects, you can run
+```
+git gc --aggressive
+```
+More can be found from the [git docs](https://git-scm.com/docs/git-gc).

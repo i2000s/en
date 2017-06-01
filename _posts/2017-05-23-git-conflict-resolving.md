@@ -18,8 +18,7 @@ As soon as people can work in parallel, it's likely someone's going to step on s
 else's toes.  This will even happen with a single person: if we are working on
 a piece of software on both our laptop and a server in the lab, we could make
 different changes to each copy.  Version control helps us manage these
-[conflicts]({{ page.root }}/reference/#conflicts) by giving us tools to
-[resolve]({{ page.root }}/reference/#resolve) overlapping changes.
+[conflicts](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/) by giving us tools to resolve overlapping changes.
 
 ## Resolving conflict on textual files
 ***Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.***

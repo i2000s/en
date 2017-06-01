@@ -389,6 +389,16 @@ This way the original picture doesn't exist any more. Instead, you have two vers
 
 Either way, once you decide which one to use, you can then commit the staged changes and push to the remote `gh-pages` branch to view the result online.
 
+***A side note:*** If you want to revert your revision to commit `SHA-xxxxx`, you can use
+```
+$ git reset --hard SHA-xxxxx
+```
+or revert to the previous HEAD point by
+```
+$ git reset --hard HEAD^
+```
+To push the reverted changes to remote, you should use `git push -f origin BRANCHNAME` with the switch `-f` to force the upload.
+
 <blockquote class="challenge">
 ## Challenge: A Typical Work Session
 You sit down at your computer to work on a shared project that is tracked in a

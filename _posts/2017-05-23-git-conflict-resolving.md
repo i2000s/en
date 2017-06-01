@@ -408,26 +408,26 @@ below. When you have the order right, see if you can write the corresponding
 commands in the *command* column. A few steps are populated to get you
 started.
 
-|order|action . . . . . . . . . . |command . . . . . . . . . . |
-|-----|---------------------------|----------------------------|
-|1    |                           |                            |
-|2    |                           | `echo 100 >> numbers.txt`  |
-|3    |                           |                            |
-|4    |                           |                            |
-|5    |                           |                            |
-|6    | Celebrate!                | `AFK`                      |
+|order,|action . . . . . . . . . . |command . . . . . . . . . . |
+|------|---------------------------|----------------------------|
+|1     |                           |                            |
+|2     |                           | `echo 100 >> numbers.txt`  |
+|3     |                           |                            |
+|4     |                           |                            |
+|5     |                           |                            |
+|6     | Celebrate!                | `AFK`                      |
 
 <blockquote class="solution">
 ## Solution
 
-|order|action . . . . . . |command . . . . . . . . . . . . . . . . . . . |
-|-----|-------------------|----------------------------------------------|
-|1    | Update local      | `git pull origin master`                     |
-|2    | Make changes      | `echo 100 >> numbers.txt`                    |
-|3    | Stage changes     | `git add numbers.txt`                        |
-|4    | Commit changes    | `git commit -m "Add 100 to numbers.txt"`     |
-|5    | Update remote     | `git push origin master`                     |
-|6    | Celebrate!        | `AFK`                                        |
+|order,|action . . . . . . |command . . . . . . . . . . . . . . . . . . . |
+|------|-------------------|----------------------------------------------|
+|1     | Update local      | `git pull origin master`                     |
+|2     | Make changes      | `echo 100 >> numbers.txt`                    |
+|3     | Stage changes     | `git add numbers.txt`                        |
+|4     | Commit changes    | `git commit -m "Add 100 to numbers.txt"`     |
+|5     | Update remote     | `git push origin master`                     |
+|6     | Celebrate!        | `AFK`                                        |
 
 </blockquote>
 </blockquote>

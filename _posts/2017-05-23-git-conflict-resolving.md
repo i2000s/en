@@ -231,144 +231,170 @@ consider one of these approaches to reducing them:
 What does Git do when there is a conflict in an image or some other non-textual file
 that is stored in version control?
 
-Let's try it. Suppose Dracula takes a picture of Martian surface and
-calls it `mars.jpg`.
+Let's try it using our `testwebsite` git repo.
+Suppose you are working on the `master` branch, and your collaborator, Josh, is working on the `gh-pages` branch, and both of you want to change a picture called  `productcurveaccum.png` under the `assets/images/` folder.
 
-If you do not have an image file of Mars available, you can create
-a dummy binary file like this:
+Here is what you are going to do on the `master` branch:
+~~~
+$ git checkout master
+$ cd assets/images/
+$ ls
+online-cv-jekyll-theme-2.png           productcurveaccumless.png
+online-cv-jekyll-theme.png             productcurveaccum.png
+online-cv-responsive-jekyll-theme.png  profile.png
+~~~
+
+`ls` shows us that there are a few pictures in the folder. Feel free to open those images to see how they look like.
+Next,suppose you want to use `productcurveaccumless.png` to replace `productcurveaccum.jpg` on the master branch and eventually want to merge this changes to the `gh-pages` branch of this repository. You do
 
 ~~~
-$ head --bytes 1024 /dev/urandom > mars.jpg
-$ ls -lh mars.jpg
-
--rw-r--r-- 1 vlad 57095 1.0K Mar  8 20:24 mars.jpg
-~~~
-
-`ls` shows us that this created a 1-kilobyte file. It is full of
-random bytes read from the special file, `/dev/urandom`.
-
-Now, suppose Dracula adds `mars.jpg` to his repository:
-
-~~~
-$ git add mars.jpg
-$ git commit -m "Add picture of Martian surface"
-
-[master 8e4115c] Add picture of Martian surface
+$ cp productcurveaccumless.png productcurveaccum.png
+$ git add .
+$ git commit -m "Replace productaccum with productaccumless."
+[master a140253] Replace productaccum with productaccumless.
  1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 mars.jpg
-~~~
-
- Suppose that Wolfman has added a similar picture in the meantime.
- His is a picture of the Martian sky, but it is *also* called `mars.jpg`.
- When Dracula tries to push, he gets a familiar message:
-
-~~~
+ rewrite assets/images/productcurveaccumless.png (99%)
 $ git push origin master
+~~~
+Notice that, when I use git commands, I don't have to be on the root directory of the corresponding git repo's local folder.
+Git will automatically look for the `.git` folder in the current and up-level folders until it finds the correct one.
 
- To https://github.com/vlad/planets.git
-  ! [rejected]        master -> master (fetch first)
- error: failed to push some refs to 'https://github.com/vlad/planets.git'
- hint: Updates were rejected because the remote contains work that you do
- hint: not have locally. This is usually caused by another repository pushing
- hint: to the same ref. You may want to first integrate the remote changes
- hint: (e.g., 'git pull ...') before pushing again.
- hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Suppose that Josh later replaced the `productcurveaccum.png` with another picture called `online-cv-jekyll-theme-2` on the `gh-pages` branch on the same computer.
+Let's assume you are Josh now, and you do the following for him:
+
+~~~
+$ git checkout gh-pages
+$ cp online-cv-jekyll-theme-2.png productcurveaccum.png
+$ git status
+On branch gh-pages
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   productcurveaccum.png
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$ git add .
+$ git commit -m "Replace productaccum with online-cv."
+[gh-pages 2c1af41] Replace productaccum with online-cv.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rewrite assets/images/productcurveaccum.png (98%)
 ~~~
 
- We've learned that we must pull first and resolve any conflicts:
+Now, imagine you come back and want to merge the `master` branch to the `gh-pages` branch, you will find there is a conflict.
 
- ```
-  $ git pull origin master
- ```
+```
+$ git checkout gh-pages
+$ git merge master
+warning: Cannot merge binary files: assets/images/productcurveaccum.png (HEAD vs. master)
+Auto-merging assets/images/productcurveaccum.png
+CONFLICT (content): Merge conflict in assets/images/productcurveaccum.png
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch gh-pages
+You have unmerged paths.
+  (fix conflicts and run "git commit")
 
- When there is a conflict on an image or other binary file, git prints
- a message like this:
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
 
- ```
- $ git pull origin master
- remote: Counting objects: 3, done.
- remote: Compressing objects: 100% (3/3), done.
- remote: Total 3 (delta 0), reused 0 (delta 0)
- Unpacking objects: 100% (3/3), done.
- From https://github.com/vlad/planets.git
-  * branch            master     -> FETCH_HEAD
-    6a67967..439dc8c  master     -> origin/master
- warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
- Auto-merging mars.jpg
- CONFLICT (add/add): Merge conflict in mars.jpg
- Automatic merge failed; fix conflicts and then commit the result.
- ```
+	both modified:   productcurveaccum.png
 
- The conflict message here is mostly the same as it was for `mars.txt`, but
- there is one key additional line:
+no changes added to commit (use "git add" and/or "git commit -a")
+```
 
- ```
- warning: Cannot merge binary files: mars.jpg (HEAD vs. 439dc8c08869c342438f6dc4a2b615b05b93c76e)
- ```
+As you can see, when there is a conflict on an image or other binary file, git prints
+a message with which two sources (branches `HEAD vs. master`) generated this conflict and which files (`assets/images/productcurveaccum.png`) were affected.
+The `HEAD` means the current `gh-pages` branch.
+More commonly, if you pull a remote `master` branch and then merge with `git merge origin/master`, you will get a similar conflict message with `origin/master` replacing `master` as the conflicting source.
 
- Git cannot automatically insert conflict markers into an image as it does
- for text files. So, instead of editing the image file, we must check out
- the version we want to keep. Then we can add and commit this version.
+The conflict message here is mostly the same as it was for `mars.txt` in the textual case, but
+there is one key additional line:
 
- On the key line above, Git has conveniently given us commit identifiers
- for the two versions of `mars.jpg`. Our version is `HEAD`, and Wolfman's
- version is `439dc8c0...`. If we want to use our version, we can use
- `git checkout`:
+```
+warning: Cannot merge binary files...
+```
 
- ~~~
- $ git checkout HEAD mars.jpg
- $ git add mars.jpg
- $ git commit -m "Use image of surface instead of sky"
+Git cannot automatically insert conflict markers into an image, or in general a binary file, as it does
+for text files. So, instead of editing the image file, we must check out
+the version we want to keep. Then we can add and commit this version.
 
- [master 21032c3] Use image of surface instead of sky
- ~~~
+On the key line above, Git has conveniently given us commit identifiers
+for the two versions of `productcurveaccum.png`. Our version is `HEAD`, and Josh's
+version is `master`. If we want to use our version, we can use
+`git checkout`:
 
- If instead we want to use Wolfman's version, we can use `git checkout` with
- Wolfman's commit identifier, `439dc8c0`:
+~~~
+$ git checkout HEAD productcurveaccum.png
+$ git add productcurveaccum.png
+$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
 
- ~~~
- $ git checkout 439dc8c0 mars.jpg
- $ git add mars.jpg
- $ git commit -m "Use image of sky instead of surface"
+Changes to be committed:
 
- [master da21b34] Use image of sky instead of surface
- ~~~
+	modified:   productcurveaccum.png
+~~~
 
- We can also keep *both* images. The catch is that we cannot keep them
- under the same name. But, we can check out each version in succession
- and *rename* it, then add the renamed versions. First, check out each
- image and rename it:
+Alternatively, you can also use
 
- ~~~
- $ git checkout HEAD mars.jpg
- $ git mv mars.jpg mars-surface.jpg
- $ git checkout 439dc8c0 mars.jpg
- $ mv mars.jpg mars-sky.jpg
- ~~~
+```
+git checkout --ours productcurveaccum.png
+qxd:images$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
 
- Then, remove the old `mars.jpg` and add the two new files:
+Changes to be committed:
 
- ~~~
- $ git rm mars.jpg
- $ git add mars-surface.jpg
- $ git add mars-sky.jpg
- $ git commit -m "Use two images: surface and sky"
+	modified:   productcurveaccum.png
+```
+with the `--ours` switch.
 
- [master 94ae08c] Use two images: surface and sky
-  2 files changed, 0 insertions(+), 0 deletions(-)
-  create mode 100644 mars-sky.jpg
-  rename mars.jpg => mars-surface.jpg (100%)
- ~~~
+If instead we want to use Josh's version on the master branch, we can use `git checkout` with
+Josh's commit identifier, `master` or `--theirs` instead:
 
- Now both images of Mars are checked into the repository, and `mars.jpg`
- no longer exists.
+~~~
+$ git checkout --theirs productcurveaccum.png
+qxd:images$ git status
+On branch gh-pages
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+	modified:   productcurveaccum.png
+~~~
+
+We can also keep *both* images. The catch is that we cannot keep them
+under the same name. But, we can check out each version in succession
+and *rename* it, then add the renamed versions. First, check out each
+image and rename it:
+
+~~~
+$ git checkout HEAD productcurveaccum.png
+$ git mv productcurveaccum.png productcurveaccum-josh.png
+$ git checkout --theirs productcurveaccum.png
+$ mv productcurveaccum.png productcurveaccum-master.jpg
+~~~
+
+Then, remove the old `productcurveaccum.png` and add the two new files:
+
+~~~
+$ git rm productcurveaccum.png
+$ git add productcurveaccum-josh.png
+$ git add productcurveaccum-master.png
+~~~
+This way the original picture doesn't exist any more. Instead, you have two versions co-exist for you and your collaborators to review before deciding which to keep.
+
+Either way, once you decide which one to use, you can then commit the staged changes and push to the remote `gh-pages` branch to view the result online.
 
 <blockquote class="challenge">
- ## A Typical Work Session
-
- You sit down at your computer to work on a shared project that is tracked in a
- remote Git repository. During your work session, you take the following
- actions, but not in this order:
+## Challenge: A Typical Work Session
+You sit down at your computer to work on a shared project that is tracked in a
+remote Git repository. During your work session, you take the following
+actions, but not in this order:
 
  - *Make changes* by appending the number `100` to a text file `numbers.txt`
  - *Update remote* repository to match the local repository
@@ -377,20 +403,20 @@ $ git push origin master
  - *Stage changes* to be committed
  - *Commit changes* to the local repository
 
- In what order should you perform these actions to minimize the chances of
- conflicts? Put the commands above in order in the *action* column of the table
- below. When you have the order right, see if you can write the corresponding
- commands in the *command* column. A few steps are populated to get you
- started.
+In what order should you perform these actions to minimize the chances of
+conflicts? Put the commands above in order in the *action* column of the table
+below. When you have the order right, see if you can write the corresponding
+commands in the *command* column. A few steps are populated to get you
+started.
 
- |order|action . . . . . . . . . . |command . . . . . . . . . . |
- |-----|---------------------------|----------------------------|
- |1    |                           |                            |
- |2    |                           | `echo 100 >> numbers.txt`  |
- |3    |                           |                            |
- |4    |                           |                            |
- |5    |                           |                            |
- |6    | Celebrate!                | `AFK`                      |
+|order|action . . . . . . . . . . |command . . . . . . . . . . |
+|-----|---------------------------|----------------------------|
+|1    |                           |                            |
+|2    |                           | `echo 100 >> numbers.txt`  |
+|3    |                           |                            |
+|4    |                           |                            |
+|5    |                           |                            |
+|6    | Celebrate!                | `AFK`                      |
 
 <blockquote class="solution">
 ## Solution

@@ -153,6 +153,15 @@ synchronized.
 If someone else had pushed some changes to the repository on
 GitHub, though, this command would download them to our local repository.
 
+In the case that you have many branches, and don't want to automatically merge the changes to your local branch, the `pull` command can be actually decomposed into to two steps:
+```
+$ git fetch origin
+$ git merge origin/master
+```
+The first line fetch the changes from all branches to your local computer which will yield an output to show which branch got a change.
+The second line merges the change on the `master` branch from the remote fetch to your current local branch.
+This command is very flexible so that you can merge arbitrary remote branch to your current local branch.
+
 ## GitHub GUI and collaboration features
 
 Browse to your `testwebsite` repository on GitHub.

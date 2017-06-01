@@ -28,9 +28,15 @@ Obviously, we are also missing some maybe important points given the situation a
 
 ## Other tips on using Jupyter notebook
 
-- You can use other languages in Jupyter notebook--beside Python and include Matlab. As a fact, the word ***Jupyter*** comes from modern programming languages including [Julia](https://julialang.org), Python and [R](https://www.r-project.org). You can define the kernel by using `jupyter notebook --kernel LANGUAGE` to run the notebook in a particular language. The full list of community-supported kernel can be found [here](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
+- You can use other languages in Jupyter notebook--beside Python and include Matlab. As a fact, the word ***Jupyter*** comes from modern programming languages including [Julia](https://julialang.org), Python and [R](https://www.r-project.org). You can define the kernel by selecting the kernel you need under the `kernel` menu after installing the necessary kernel packages. The full list of community-supported kernel can be found [here](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 - It is possible to run different languages in one notebook. The easiest way is to execute bash commands to call other language-based commands inside of the notebook. But different kernel define different syntax to do so. One example of running variant languages on a Julia kernel can be found [here](https://github.com/i2000s/simnanophotonics/blob/master/sqwg.ipynb).
 
 ## On select and use programming languages
 
-- If you don't mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the [Julia website](https://julialang.org/) and [here]().- If you don't mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the [Julia website](https://julialang.org/) and plotted [here](https://julialang.org/benchmarks/).
+- If you don't mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the [Julia website](https://julialang.org/) and plotted [here](https://julialang.org/benchmarks/).
+
+## Things might be touched in doing the followup projects
+- Unit tests and other test techniques in various languages.
+- More details on documentations.
+- Continuous integration (like [travis-CI](https://travis-ci.org)) and virtualizations.
+- Permanent storage and generating DOIs for your code and data.

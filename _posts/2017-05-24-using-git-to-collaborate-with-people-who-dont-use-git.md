@@ -2,7 +2,7 @@
 layout: post
 title: Using Git to collaborate with people who don't use git
 tags: git paper-writing
-categories: labnotebook
+categories: community
 ---
 ***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
 

@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-01T18:08:12+00:00</updated>
+ <updated>2017-06-02T06:36:17+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -301,8 +301,8 @@ Changes to be committed:
 
     modified:   productcurveaccum.png&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Alternatively, you can also use&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git checkout --ours productcurveaccum.png
-qxd:images$ git status
+&lt;pre&gt;&lt;code&gt;$ git checkout --ours productcurveaccum.png
+$ git status
 On branch gh-pages
 All conflicts fixed but you are still merging.
   (use &amp;quot;git commit&amp;quot; to conclude merge)
@@ -313,7 +313,7 @@ Changes to be committed:
 &lt;p&gt;with the &lt;code&gt;--ours&lt;/code&gt; switch.&lt;/p&gt;
 &lt;p&gt;If instead we want to use Josh’s version on the master branch, we can use &lt;code&gt;git checkout&lt;/code&gt; with Josh’s commit identifier, &lt;code&gt;master&lt;/code&gt; or &lt;code&gt;--theirs&lt;/code&gt; instead:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git checkout --theirs productcurveaccum.png
-qxd:images$ git status
+$ git status
 On branch gh-pages
 All conflicts fixed but you are still merging.
   (use &amp;quot;git commit&amp;quot; to conclude merge)
@@ -625,7 +625,7 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
 &lt;li&gt;Study some fundamental theories from time to time which you think can be used in your future studies (like the summer studies we have been doing).&lt;/li&gt;
 &lt;li&gt;Have a big picture and roadmap in your mind and make things coherent. This could help you achive long-term goals step by step.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;generalize-the-time-axis-to-components-of-achievements&quot;&gt;Generalize the time-axis to components of achievements&lt;/h1&gt;
+&lt;h1 id=&quot;generalize-the-time-axis&quot;&gt;Generalize the time-axis&lt;/h1&gt;
 &lt;p&gt;Obviously, you can easily generalize the &lt;strong&gt;&lt;em&gt;task cycles&lt;/em&gt;&lt;/strong&gt; to things related to collaborators, knowledge and tools. In terms of improving productivity and efficiency, similar conclusions could hold. The key is to create some &lt;em&gt;overlaps&lt;/em&gt; and &lt;em&gt;continuous growth&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;What does this model implies for using version control tools and programming?&lt;/p&gt;
 &lt;ul&gt;
@@ -639,11 +639,13 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
 &lt;li&gt;Starting from one easy collaborations before jumping into more complicated scenarios. Give some priority for collaborative works based on how ready they are going to fruit.&lt;/li&gt;
 &lt;li&gt;Don’t just focus on one thing, but also have some branching-outs and divergent discussions with your collaborators for possible future works.&lt;/li&gt;
 &lt;li&gt;When you get a desk in an office, use the opportunity to talk to people in the same office–whether related to your research or not, things will grow.&lt;/li&gt;
-&lt;li&gt;In a large scale, how the ecosystem grows will eventually determine how fast and well the society evolves.&lt;/li&gt;
+&lt;li&gt;Sharing and developing program and documentation libraries inside and outside of a research group. Maybe every member only contribute a little when they are working on their projects, but, overtime, these unique libraries could become a great advantage to help new group members to quickly take off on their research and to improve their work efficiency.&lt;/li&gt;
+&lt;li&gt;Have some collaborative open-source projects and organize some public events if possible to help the group reach out to fresh minds. This is usually how the ecosystem and opportunities grow for your own research and the community’s well-beings.&lt;/li&gt;
+&lt;li&gt;In a large scale, how the ecosystem grows will eventually determine how fast and healthy the group and society evolves.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&quot;an-systematic-open-science-framework&quot;&gt;An systematic open-science framework&lt;/h1&gt;
-&lt;p&gt;As a community, knowledge can be shared and discoveries can be achieved together if less barriers are there in parallel with having some focused common goals. Freedom can be maximized by fundamentally increase the energy level as well as decreasing the entropy level. Optimization should be global rather than local. Without positive interactions, things can hardly be done as a whole. Yet, a well organized divisions of workloads and the ease of open-access to common tools and knowledge will help the community form a sustainable ecosystem for long-term development of discoveries, humanity and civilizations.&lt;/p&gt;
-&lt;p&gt;In the sense of organizing collaborations, version control technique is a science to be discover more in-depth than ever before and a practice to be sharpened even better in our real life.&lt;/p&gt;
+&lt;p&gt;As a community, knowledge can be shared and discoveries can be achieved together in a relatively efficient fashion if less barriers but more shared common goals. Freedom can be maximized by fundamentally increasing the energy level as well as decreasing the entropy level. Optimization should be pursued in a global view rather than local. Without positive interactions, things can hardly be done as a whole. Yet, a well organized division of workloads and the ease of open-access to common tools and knowledge will help the community form a sustainable ecosystem for long-term continuous development of discoveries, humanity and civilization.&lt;/p&gt;
+&lt;p&gt;In the sense of organizing collaborations, version control technique is a science to be discovered even more in-depth than ever before and a practice to be sharpened to be even better by being examined in our real life.&lt;/p&gt;
 &lt;h1 id=&quot;some-helpful-version-control-publications-and-resources&quot;&gt;Some helpful version control publications and resources&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1609.00037&quot;&gt;Good Enough Practices in Scientific Computing&lt;/a&gt;.&lt;/li&gt;

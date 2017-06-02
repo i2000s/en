@@ -54,7 +54,7 @@ What does this implies to our research projects?
 - Study some fundamental theories from time to time which you think can be used in your future studies (like the summer studies we have been doing).
 - Have a big picture and roadmap in your mind and make things coherent. This could help you achive long-term goals step by step.
 
-# Generalize the time-axis to components of achievements
+# Generalize the time-axis
 Obviously, you can easily generalize the ***task cycles*** to things related to collaborators, knowledge and tools.
 In terms of improving productivity and efficiency, similar conclusions could hold.
 The key is to create some *overlaps* and *continuous growth*.
@@ -71,17 +71,19 @@ What is said about collaborations?
 - Starting from one easy collaborations before jumping into more complicated scenarios. Give some priority for collaborative works based on how ready they are going to fruit.
 - Don't just focus on one thing, but also have some branching-outs and divergent discussions with your collaborators for possible future works.
 - When you get a desk in an office, use the opportunity to talk to people in the same office--whether related to your research or not, things will grow.
-- In a large scale, how the ecosystem grows will eventually determine how fast and well the society evolves.
+- Sharing and developing program and documentation libraries inside and outside of a research group. Maybe every member only contribute a little when they are working on their projects, but, overtime, these unique libraries could become a great advantage to help new group members to quickly take off on their research and to improve their work efficiency.
+- Have some collaborative open-source projects and organize some public events if possible to help the group reach out to fresh minds. This is usually how the ecosystem and opportunities grow for your own research and the community's well-beings.
+- In a large scale, how the ecosystem grows will eventually determine how fast and healthy the group and society evolves.
 
 
 # An systematic open-science framework
-As a community, knowledge can be shared and discoveries can be achieved together if less barriers are there in parallel with having some focused common goals.
-Freedom can be maximized by fundamentally increase the energy level as well as decreasing the entropy level.
-Optimization should be global rather than local.
+As a community, knowledge can be shared and discoveries can be achieved together in a relatively efficient fashion if less barriers but more shared common goals.
+Freedom can be maximized by fundamentally increasing the energy level as well as decreasing the entropy level.
+Optimization should be pursued in a global view rather than local.
 Without positive interactions, things can hardly be done as a whole.
-Yet, a well organized divisions of workloads and the ease of open-access to common tools and knowledge will help the community form a sustainable ecosystem for long-term development of discoveries, humanity and civilizations.
+Yet, a well organized division of workloads and the ease of open-access to common tools and knowledge will help the community form a sustainable ecosystem for long-term continuous development of discoveries, humanity and civilization.
 
-In the sense of organizing collaborations, version control technique is a science to be discover more in-depth than ever before and a practice to be sharpened even better in our real life.
+In the sense of organizing collaborations, version control technique is a science to be discovered even more in-depth than ever before and a practice to be sharpened to be even better by being examined in our real life.
 
 # Some helpful version control publications and resources
 

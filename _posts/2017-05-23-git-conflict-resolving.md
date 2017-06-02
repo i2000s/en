@@ -339,8 +339,8 @@ Changes to be committed:
 Alternatively, you can also use
 
 ```
-git checkout --ours productcurveaccum.png
-qxd:images$ git status
+$ git checkout --ours productcurveaccum.png
+$ git status
 On branch gh-pages
 All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)
@@ -356,7 +356,7 @@ Josh's commit identifier, `master` or `--theirs` instead:
 
 ~~~
 $ git checkout --theirs productcurveaccum.png
-qxd:images$ git status
+$ git status
 On branch gh-pages
 All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)

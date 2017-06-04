@@ -211,10 +211,10 @@ var _hmt = _hmt || [];
       <div class="row">
         <div class="col-md-8 col-md-offset-1 col-sm-12">
           <article>
-          <p><strong><em>Work In Progress! This post is part of the <a href="https://cquic.github.io/summer17-computing-workshop/">2017 CQuIC computing summer workshop tutorial materials</a>.</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/09-conflict/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
+          <p><strong><em>Note: This post is a part of the <a href="https://cquic.github.io/summer17-computing-workshop/">2017 CQuIC computing summer workshop</a> lessons with audio records available on the linked website. Please download the <a href="https://github.com/CQuIC/summer17-computing-workshop/releases/download/s3/session-3.zip">lesson material</a> in order to run the examples used in this lesson.</em></strong> <strong><em>This tutorial is adapted from <a href="http://swcarpentry.github.io/git-novice/09-conflict/">the Software Carpentry workshop</a> under the Creative Commons license.</em></strong></p>
 <p>As soon as people can work in parallel, it’s likely someone’s going to step on someone else’s toes. This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy. Version control helps us manage these <a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/">conflicts</a> by giving us tools to resolve overlapping changes.</p>
 <h2 id="resolving-conflict-on-textual-files">Resolving conflict on textual files</h2>
-<p><strong><em>Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.</em></strong></p>
+<p><strong><em>Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following–on non-textual conflicts.</em></strong></p>
 <p>To see how we can resolve conflicts, we must first create one. The file <code>mars.txt</code> currently looks like this in both partners’ copies of our <code>planets</code> repository:</p>
 <pre><code>$ cat mars.txt
 Cold and dry, but everything is my favorite color
@@ -338,9 +338,9 @@ We removed the conflict on this line</code></pre>
 </ul>
 <h2 id="conflicts-on-non-textual-files">Conflicts on Non-textual files</h2>
 <p>What does Git do when there is a conflict in an image or some other non-textual file that is stored in version control?</p>
-<p>Let’s try it using our <code>testwebsite</code> git repo. Suppose you are working on the <code>master</code> branch, and your collaborator, Josh, is working on the <code>gh-pages</code> branch, and both of you want to change a picture called <code>productcurveaccum.png</code> under the <code>assets/images/</code> folder.</p>
+<p>Let’s try it using our established <code>testwebsite</code> git repo from the <a href="/en/2017/05/22/git-remote-and-github.html">git remote section</a>. Suppose you are working on the <code>master</code> branch, and your collaborator, Josh, is working on the <code>gh-pages</code> branch, and both of you want to change a picture called <code>productcurveaccum.png</code> under the <code>assets/images/</code> folder.</p>
 <p>Here is what you are going to do on the <code>master</code> branch: <sub>~</sub> $ git checkout master $ cd assets/images/ $ ls online-cv-jekyll-theme-2.png productcurveaccumless.png online-cv-jekyll-theme.png productcurveaccum.png online-cv-responsive-jekyll-theme.png profile.png <sub>~</sub></p>
-<p><code>ls</code> shows us that there are a few pictures in the folder. Feel free to open those images to see how they look like. Next,suppose you want to use <code>productcurveaccumless.png</code> to replace <code>productcurveaccum.jpg</code> on the master branch and eventually want to merge this changes to the <code>gh-pages</code> branch of this repository. You do</p>
+<p><code>ls</code> shows us that there are a few pictures in the folder. Feel free to open those images to see how they look like. I suggest to use a powerful text editor like <a href="https://atom.io">Atom</a> to preview your project files in one place. Next, suppose you want to use <code>productcurveaccumless.png</code> to replace <code>productcurveaccum.jpg</code> on the master branch and eventually want to merge this changes to the <code>gh-pages</code> branch of this repository. You do</p>
 <pre><code>$ cp productcurveaccumless.png productcurveaccum.png
 $ git add .
 $ git commit -m &quot;Replace productaccum with productaccumless.&quot;
@@ -384,10 +384,10 @@ Unmerged paths:
     both modified:   productcurveaccum.png
 
 no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
-<p>As you can see, when there is a conflict on an image or other binary file, git prints a message with which two sources (branches <code>HEAD vs. master</code>) generated this conflict and which files (<code>assets/images/productcurveaccum.png</code>) were affected. The <code>HEAD</code> means the current <code>gh-pages</code> branch. More commonly, if you pull a remote <code>master</code> branch and then merge with <code>git merge origin/master</code>, you will get a similar conflict message with <code>origin/master</code> replacing <code>master</code> as the conflicting source.</p>
+<p>As you can see, when there is a conflict on an image or other binary files, git prints a message with which two sources (branches <code>HEAD vs. master</code>) generated this conflict and which files (<code>assets/images/productcurveaccum.png</code>) were affected. The <code>HEAD</code> means the current <code>gh-pages</code> branch. More commonly, if you pull a remote <code>master</code> branch and then merge with <code>git merge origin/master</code>, you will get a similar conflict message with <code>origin/master</code> replacing <code>master</code> as the conflicting source.</p>
 <p>The conflict message here is mostly the same as it was for <code>mars.txt</code> in the textual case, but there is one key additional line:</p>
 <pre><code>warning: Cannot merge binary files...</code></pre>
-<p>Git cannot automatically insert conflict markers into an image, or in general a binary file, as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version.</p>
+<p>Git cannot automatically insert conflict markers into an image, or in general a binary file, as it does for text files. So, instead of editing the image file, we must check out the version we want to keep. Then we can add and commit this version. Notice that, the binary file is still as it was in the branch. Git stores the conflict information and the version from the merging source branch in the hidden <code>.git</code> history folder.</p>
 <p>On the key line above, Git has conveniently given us commit identifiers for the two versions of <code>productcurveaccum.png</code>. Our version is <code>HEAD</code>, and Josh’s version is <code>master</code>. If we want to use our version, we can use <code>git checkout</code>:</p>
 <pre><code>$ git checkout HEAD productcurveaccum.png
 $ git add productcurveaccum.png
@@ -431,11 +431,12 @@ $ git add productcurveaccum-josh.png
 $ git add productcurveaccum-master.png</code></pre>
 <p>This way the original picture doesn’t exist any more. Instead, you have two versions co-exist for you and your collaborators to review before deciding which to keep.</p>
 <p>Either way, once you decide which one to use, you can then commit the staged changes and push to the remote <code>gh-pages</code> branch to view the result online.</p>
-<p><strong><em>A side note:</em></strong> If you want to revert your revision to commit <code>SHA-xxxxx</code>, you can use</p>
+<p>Similarly, you can also use <code>git checkout ID productcurveaccum.png</code> to revert the version to an arbitrary historical version with a <code>SHA</code> identifier, <code>ID</code>. Don’t forget to switch back to <code>HEAD</code> or the version you really want to commit if you don’t want to do the reverse.</p>
+<p><strong><em>A side note:</em></strong> If you want to revert your revision of all your files in the repo to the <code>SHA-xxxxx</code> commit stage, you can use</p>
 <pre><code>$ git reset --hard SHA-xxxxx</code></pre>
 <p>or revert to the previous HEAD point by</p>
 <pre><code>$ git reset --hard HEAD^</code></pre>
-<p>To push the reverted changes to remote, you should use <code>git push -f origin BRANCHNAME</code> with the switch <code>-f</code> to force the upload.</p>
+<p>To push the reverted changes to remote, you should use <code>git push -f origin BRANCHNAME</code> with the switch <code>-f</code> to force the upload in this case.</p>
 <blockquote class="challenge">
 <h2 id="challenge-a-typical-work-session">Challenge: A Typical Work Session</h2>
 <p>You sit down at your computer to work on a shared project that is tracked in a remote Git repository. During your work session, you take the following actions, but not in this order:</p>
@@ -557,8 +558,8 @@ $ git add productcurveaccum-master.png</code></pre>
     property="dc:created">23 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-06-02 06:22:42 +0000"
-            property="dc:modified">02 Jun 2017</time></small></p>
+            datetime="2017-06-04 04:53:40 +0000"
+            property="dc:modified">04 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
@@ -610,7 +611,7 @@ $ git add productcurveaccum-master.png</code></pre>
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/7ce7eecb00d592ed16478b9b4130254cd52e7f39/_posts/2017-05-23-git-conflict-resolving.md"> 7ce7eec</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/4e938ed2cd0c1a4c1d6159fc963e0870a47f77aa/_posts/2017-05-23-git-conflict-resolving.md"> 4e938ed</a></tiny></p>
 </aside>
 
 <br /><br />

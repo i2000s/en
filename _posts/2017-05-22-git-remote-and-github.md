@@ -11,7 +11,7 @@ tags:
   - conflict-resolving
 categories: work-efficiency
 ---
-***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
+***This post is a part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/) with the audio records available from the linked website. Please download the [lesson material](https://github.com/CQuIC/summer17-computing-workshop/releases/download/s3/session-3.zip) in order to run the examples used in this lesson.***
 ***This tutorial is adapted from [the Software Carpentry workshop](http://swcarpentry.github.io/git-novice/07-github/) under the Creative Commons license.***
 
 Version control really comes into its own when we begin to collaborate with
@@ -130,7 +130,7 @@ git remote set-url origin https://i2000s@github.com/testwebsite.git
 If you want not to type your password every time neither, you can replace the url to origin in the formation of `https://i2000s:YOURPASSWORD@github.com/testwebsite.git`.
 
 
-Up to now, our local and remote repositories are now in this state:
+Up to now, our local and remote repositories are in this state:
 
 ![GitHub Repository After First Push]({{site.baseurl}}/assets/img/github-repo-after-first-push.png)
 
@@ -182,7 +182,7 @@ How would you get that same information in the shell?
 
  Now, let's see some functions that are only available using GitHub and other remote services.
  On your web browser, go to [https://github.com/CQuIC/dont-forget-names](https://github.com/CQuIC/dont-forget-names).
- This is the ***Don't Forget Names*** equation table put on in the CQuIC coffee room with the initiative by Josh Combes and other CQuIC students.
+ This is the ***Don't Forget Names*** equation table put on the wall in the CQuIC coffee room with the initiative by Josh Combes and other CQuIC students.
  What we are exploring here are the features that really make collaboration easy.
  As shown in the figure above or the GitHub interface you see on your web browser, the line below the repo's name includes a few menu buttons named as *Code*, *Issues*, *Pull Requests*, *Wiki*, *Settings* and *Insights*.
 
@@ -247,19 +247,20 @@ git checkout -b gh-pages
 git push origin gh-pages
 ```
 This will create a new branch called `gh-pages` and push it to the remote repository.
-As a result, GitHub renders your markdown code into HTML files using a Jekyll engine and generates a static website at `https://i2000s.github.io/testwebsite`.
-You can view it on your webbrowser.
+As a result, GitHub renders your markdown or HTML template/segment codes into HTML files using a Jekyll engine and generates a static website at `https://i2000s.github.io/testwebsite`.
+You can view it on your web browser.
 
 ## Comparison among remote repository hosting service providers
-Before we jump into GitHub even more, let's talk about briefly on the similarities and differences among popular git remote service providers as mentioned at the beginning.
+Before we jump into GitHub even more, let's talk about briefly on the similarities and differences among popular git remote service providers as mentioned at the beginning of this tutorial.
 A detailed comparison among GitHub, BitBucket, GitLab and Coding can be found [here](https://medium.com/flow-ci/github-vs-bitbucket-vs-gitlab-vs-coding-7cf2b43888a1).
-We have created a GitHub organization for CQuIC so that we are granted with infinite number of private repos free of charge as a research and educational body.
-Feel free to best use of it through the [CQuIC@GitHub](https://github.com/CQuIC) interface.
+We have created a GitHub organization for CQuIC so that we can create infinite number of private repos free of charge as a research and educational body.
+Feel free to best use this opportunity through the [CQuIC@GitHub](https://github.com/CQuIC) interface.
 Similarly, there is also a [CQuIC organization](https://gitlab.com/CQuIC) on GitLab in case we need some extra benefit besides GitHub.
+GitLab is more generous on large file storage than GitHub, but still caps at 10GB of total space for each repo.
 
 The [UNM GitLab server](https://libutil.unm.edu/users/sign_in) is a community version of the GitLab open-source tool installed on an UNM server.
-Compared to others, the UNM GitLab service is good at hosting [Git large files](https://about.gitlab.com/2015/11/23/announcing-git-lfs-support-in-gitlab/).
+Compared to others, the UNM GitLab service is good at hosting [Git large files](https://about.gitlab.com/2015/11/23/announcing-git-lfs-support-in-gitlab/), which I don't see if there is a real cap.
 So, it could be helpful to manage repos with data files without obvious limitations.
-But the total number of repos one can have on the server is limited (up to 10); since the service is associated with UNM NetIDs, it's not clear in the documentations how the repos be treated once a student repo owner graduates from UNM.
+But the total number of repos one can have on the server is limited (up to 10); also, since the service is associated with UNM NetIDs, it's not clear in the documentations how the repos be treated once a student repo owner graduates from UNM.
 
 Hopefully, this helps you on deciding which git remote server you want to use for your repos.

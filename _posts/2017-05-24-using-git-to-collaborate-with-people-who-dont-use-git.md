@@ -7,8 +7,12 @@ categories: work-efficiency
 ***This post is a part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/) with audio records available there. Please download the [lesson material](https://github.com/CQuIC/summer17-computing-workshop/releases/download/s3/session-3.zip) in order to run the examples used in this lesson.***
 ***The example may only work if you have write access to the CQuIC@GitHub's [NanofiberPaper2014](https://github.com/CQuIC/NanofiberPaper2014) repo (ask me to grant you the permission).***
 
-One common issue of collaborating with people who don't use Git is that you have to commit on behalf of your collaborators if you decide to use Git for the Git-benefits like minimize the info you want to review for each update.
+One common issue of collaborating with people who don't use Git is that you have to commit on behalf of your collaborators if you decide to use Git for the Git-benefits--like to minimize the info you want to review for each update and to see how your writing gets improved by professors line by line.
 Although there are tools for people to collaboratively write papers online, some collaborators in my case don't want to use them.
+Without Git and those collaboration tools, things can become very complicated in paper writing (see figure below, for example).
+
+![Fig 1. An [XKCD comedy](https://xkcd.com/) of a paper writing scenario with a professor who doesn't use Git.]({{site.baseurl}}/assets/img/phd101212s.png)
+
 This tutorial will provide an example of a real paper-writing scenario in handling this mess easily using automation tools that have been covered in the workshop.
 You will also learn some ideas of using [git-submodule](https://git-scm.com/docs/git-submodule) to handle the bibliography databases and share them among your group members for easier references management.
 

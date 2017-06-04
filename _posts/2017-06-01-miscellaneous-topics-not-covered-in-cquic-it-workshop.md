@@ -4,11 +4,11 @@ title: Miscellaneous topics not covered in the CQuIC summer workshop
 tags: git matlab Jupyter scientific-computing
 categories: work-efficiency
 ---
-***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
+***This post is a part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/) with audio records available.***
 
 When designing the CQuIC summer 2017 IT workshop, we as the organizers have the following in mind:
 
-- Only teach some basic scientific computing skills that we think are crucial for student to be ready for doing research projects using modern IT techniques.
+- Only teach some basic scientific computing skills that we think are crucial for students to be ready for doing research projects using current IT techniques.
 - Instructors will only teach what they are familiar and comfortable with, and we focus on using one programming language for numerical and algebra calculations.
 - Let students work on their own, and instructors should never touch students' keyboards.
 
@@ -37,6 +37,6 @@ Obviously, we are also missing some maybe important points given the situation a
 
 ## Things might be touched in doing the followup projects
 - Unit tests and other test techniques in various languages.
-- More details on documentations.
+- More details on documentations when programming in your preferred language.
 - Continuous integration (like [travis-CI](https://travis-ci.org)) and virtualizations.
 - Permanent storage and generating DOIs for your code and data.

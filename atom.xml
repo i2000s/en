@@ -4,13 +4,39 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-04T08:20:44+00:00</updated>
+ <updated>2017-06-04T21:28:28+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
    <email>i2000s@hotmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>My DAMOP 2017 talk</title>
+   <link href="/en/2017/06/04/damop-2017-talk.html"/>
+   <updated>2017-06-04T00:00:00+00:00</updated>
+   <id>/2017/06/04/damop-2017-talk</id>
+   <content type="html">&lt;p&gt;My submission has been accepted to be presented as a talk at the &lt;a href=&quot;http://www.aps.org/meetings/meeting.cfm?name=DAMOP17&quot;&gt;APS 48th Annual Meeting of Atomic, Molecular and Optical Physics&lt;/a&gt; and is currently on the program schedule.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Day, Date&lt;/em&gt;&lt;/strong&gt;: Friday, June 9th, 2017&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Time, Session&lt;/em&gt;&lt;/strong&gt;: 9:24 AM–9:36 AM, &lt;a href=&quot;http://meetings.aps.org/Meeting/DAMOP17/Session/T7&quot;&gt;Session T7: Quantum Measurement&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Title&lt;/em&gt;&lt;/strong&gt;: &lt;a href=&quot;http://meetings.aps.org/Meeting/DAMOP17/Session/T7.8&quot;&gt;Generation of atomic spin squeezed states in nanophotonic waveguides using QND measurement&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Authors&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Xiaodong Qi (University of New Mexico)&lt;/li&gt;
+&lt;li&gt;David Melchior (University of Arizona)&lt;/li&gt;
+&lt;li&gt;Poul S. Jessen (University of Arizona)&lt;/li&gt;
+&lt;li&gt;Jongmin Lee (Sandia National Labs)&lt;/li&gt;
+&lt;li&gt;Yuan-Yu Jau (Sandia National Labs)&lt;/li&gt;
+&lt;li&gt;Ivan H. Deutsch (University of New Mexico)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Abstract&lt;/em&gt;&lt;/strong&gt;: Nanophotonic waveguides strongly enhance the entangling strength of the atom-light interface. We study their application to the generation of spin squeezed states of trapped ultracold cesium atoms in two geometries — cylindrical optical nanofibers and square waveguides. We consider two different protocols — squeezing the clock transition by the birefringence coupling and squeezing a spin coherent state via the Faraday interaction. We unify our analysis based on a universal parameter — the optical depth per atom. In calculating the spin squeezing parameter, we have established a set of stochastic master equations to describe the individual and collective spin dynamics. Our simulation shows that 10 dB of spin squeezing may be achievable with a few thousands of atoms on these nanophotonic waveguides. Our result can be generalized to other nanophotonic platforms, for implementing non-Gaussian states, and to improve quantum sensing precision using spin squeezing techniques.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Presentation slides will be available after the conference.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Miscellaneous topics not covered in the CQuIC summer workshop</title>
@@ -714,7 +740,7 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Abstract&lt;/em&gt;&lt;/strong&gt;: Strong coupling between atoms and photons is a prerequisite for quantum information processing protocols ranging from quantum metrology to quantum communication and computation. This strong coupling effect can be achieved using nanophotonic waveguides whereby an ensemble of atoms are trapped in the evanescent field. In this talk, I will present our recent progress in the theoretical study of implementing spin squeezing using optical nanofibers (ONF) and square waveguides (SWG) with both birefringence and Faraday interactions as QND measurement. Various geometries of protocols will be discussed based on the analysis of optical depth per atom on ONF and SWG platforms. In calculating the spin squeezing parameter, we have established a set of stochastic master equations to describe the individual and collective spin dynamics. Our simulation shows that ~10 dB of spin squeezing can be reached with a few thousands of atoms on these nanophotonic waveguides. Using the fundamental TE and TM modes, the SWG could generate more spin squeezing compared to the ONF platform. Our result can be generalized to other nanophotonic platforms, for the implementation of non-Gaussian states, and to improve quantum sensing precision using spin squeezing techniques.&lt;/p&gt;
 &lt;p&gt;Files can be downloaded from the &lt;a href=&quot;https://github.com/i2000s/2017SQuInT-SpinSqueezingOnNanophotonicWaveguides/releases&quot;&gt;repo&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Feel free to comment as an &lt;a href=&quot;https://github.com/i2000s/2017SQuInT-SpinSqueezingOnNanophotonicWaveguides/issues&quot;&gt;issue&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Cite: &lt;a href=&quot;https://zenodo.org/badge/latestdoi/87366763&quot;&gt;&lt;img src=&quot;https://zenodo.org/badge/87366763.svg&quot; alt=&quot;DOI&quot; /&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cite: &lt;a href=&quot;https://doi.org/10.5281/zenodo.802696&quot;&gt;&lt;img src=&quot;https://zenodo.org/badge/DOI/10.5281/zenodo.802696.svg&quot; alt=&quot;DOI&quot; /&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 
 &lt;/div&gt;

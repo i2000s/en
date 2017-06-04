@@ -12,6 +12,7 @@ Although there are tools for people to collaboratively write papers online, some
 Without Git and those collaboration tools, things can become very complicated in paper writing (see figure below, for example).
 
 ![Fig 1. An [XKCD comedy](https://xkcd.com/) of a paper writing scenario with a professor who doesn't use Git.]({{site.baseurl}}/assets/img/phd101212s.png)
+<br><br> 
 
 This tutorial will provide an example of a real paper-writing scenario in handling this mess easily using automation tools that have been covered in the workshop.
 You will also learn some ideas of using [git-submodule](https://git-scm.com/docs/git-submodule) to handle the bibliography databases and share them among your group members for easier references management.

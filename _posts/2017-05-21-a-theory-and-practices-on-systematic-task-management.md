@@ -90,6 +90,8 @@ In the sense of organizing collaborations, version control technique is a scienc
 Even though individuals can definitely work things out on their own, it is better to have people organized and coordinated as a whole for a sustainable continuous development.
 Without systematical cooperation in a large scale, conflicts, ignorance and duplications could waste our energy and bring in painful experiences for people and slow down the development of the community in the end.
 
+Don't forget what do you live and work for. 
+
 # Some helpful version control publications and resources
 
 - [Good Enough Practices in Scientific Computing](https://arxiv.org/abs/1609.00037).

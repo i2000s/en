@@ -233,7 +233,11 @@ $(document).ready(function() {
         <div class="col-md-8 col-md-offset-1 col-sm-12"> 
           <article>
           <p><strong><em>This post is a part of the <a href="https://cquic.github.io/summer17-computing-workshop/">2017 CQuIC computing summer workshop tutorial materials</a> with audio records available there. Please download the <a href="https://github.com/CQuIC/summer17-computing-workshop/releases/download/s3/session-3.zip">lesson material</a> in order to run the examples used in this lesson.</em></strong> <strong><em>The example may only work if you have write access to the CQuIC@GitHub’s <a href="https://github.com/CQuIC/NanofiberPaper2014">NanofiberPaper2014</a> repo (ask me to grant you the permission).</em></strong></p>
-<p>One common issue of collaborating with people who don’t use Git is that you have to commit on behalf of your collaborators if you decide to use Git for the Git-benefits like minimize the info you want to review for each update. Although there are tools for people to collaboratively write papers online, some collaborators in my case don’t want to use them. This tutorial will provide an example of a real paper-writing scenario in handling this mess easily using automation tools that have been covered in the workshop. You will also learn some ideas of using <a href="https://git-scm.com/docs/git-submodule">git-submodule</a> to handle the bibliography databases and share them among your group members for easier references management.</p>
+<p>One common issue of collaborating with people who don’t use Git is that you have to commit on behalf of your collaborators if you decide to use Git for the Git-benefits–like to minimize the info you want to review for each update and to see how your writing gets improved by professors line by line. Although there are tools for people to collaboratively write papers online, some collaborators in my case don’t want to use them. Without Git and those collaboration tools, things can become very complicated in paper writing (see figure below, for example).</p>
+<figure>
+<img src="/en/assets/img/phd101212s.png" alt="Fig 1. An XKCD comedy of a paper writing scenario with a professor who doesn’t use Git." /><figcaption>Fig 1. An <a href="https://xkcd.com/">XKCD comedy</a> of a paper writing scenario with a professor who doesn’t use Git.</figcaption>
+</figure>
+<p>This tutorial will provide an example of a real paper-writing scenario in handling this mess easily using automation tools that have been covered in the workshop. You will also learn some ideas of using <a href="https://git-scm.com/docs/git-submodule">git-submodule</a> to handle the bibliography databases and share them among your group members for easier references management.</p>
 <h1 id="a-paper-writing-example-using-automation-tools">A paper-writing example using automation tools</h1>
 <p>In this section, we will navigate into the example folder, <code>NanofiberPaper2014</code> which has been tracked by Git. The main folder contains LaTeX and bash script files in the root and on the <code>master</code> branch, and then two sub-folders called <code>Ben</code> and <code>Ivan</code> for collaborators to update their branches in the same names as the these sub-folders, as well as a sub-folder called <code>twocolumn</code> which is swtiched to the <code>twocolumn</code> branch to contain files in the completely publication-ready two-column formation. In contrast, the <code>master</code> branch is the easy-read single-column version of the paper draft where equations can take longer space in the entire row and lines and take more vertical space than the <code>twocolumn</code> one. All the files, in the process of paper writing, were shared and synchronized using Dropbox. The folders of <code>Ben</code>, <code>Ivan</code> and <code>twocolumn</code> are ignored and untracked by git via the <code>.gitignore</code> file in order to make the workflow work.</p>
 <p>The git workflow is that every collaborator is writing their updates to their individual folders under their names (<code>Ben</code> and <code>Ivan</code>). Since I know how to use Git, I don’t need to put my branch in the Dropbox. Instead, I will synchronize my writing to the GitHub remote repository and then merge my and everyone’s changes to the <code>master</code> branch and eventually the <code>twocolumn</code> branch when it is necessary (like at the end of each working days). Whenever there is a change from my collaborator, I will manually review the changes line by line, equation by equation before merging them. In the mean time, I also synchronize every collaborator’s folder and compile the LaTeX files to PDF with the final merged version of the <code>master</code> branch for the collaborators to preview the progress. The <code>twocolum</code> branch and corresponding folder only takes incoming merges without merging backwards to other folders. Equations and figure sizes are reformatted periodically to make them well fit into the two-column and single-space preprint version for the final journal submission in the <code>twocolumn</code> branch.</p>
@@ -293,7 +297,7 @@ git submodule --init --recursive --remote</code></pre>
     property="dc:created">24 May 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-06-04 04:54:36 +0000"
+            datetime="2017-06-04 22:37:50 +0000"
             property="dc:modified">04 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
@@ -342,7 +346,7 @@ git submodule --init --recursive --remote</code></pre>
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/6f35d01320dd87001ee90c22892ec10642db8fd5/_posts/2017-05-24-using-git-to-collaborate-with-people-who-dont-use-git.md"> 6f35d01</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/4b175a8551fa721b950df3f63ab613ef0597f05e/_posts/2017-05-24-using-git-to-collaborate-with-people-who-dont-use-git.md"> 4b175a8</a></tiny></p>
 </aside>
 
 <br /><br />

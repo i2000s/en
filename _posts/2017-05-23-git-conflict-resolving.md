@@ -11,7 +11,7 @@ tags:
   - conflict-resolving
 categories: work-efficiency
 ---
-***Work In Progress! This post is part of the [2017 CQuIC computing summer workshop tutorial materials](https://cquic.github.io/summer17-computing-workshop/).***
+***Note: This post is a part of the [2017 CQuIC computing summer workshop](https://cquic.github.io/summer17-computing-workshop/) lessons with audio records available on the linked website. Please download the [lesson material](https://github.com/CQuIC/summer17-computing-workshop/releases/download/s3/session-3.zip) in order to run the examples used in this lesson.***
 ***This tutorial is adapted from [the Software Carpentry workshop](http://swcarpentry.github.io/git-novice/09-conflict/) under the Creative Commons license.***
 
 As soon as people can work in parallel, it's likely someone's going to step on someone
@@ -21,7 +21,7 @@ different changes to each copy.  Version control helps us manage these
 [conflicts](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/) by giving us tools to resolve overlapping changes.
 
 ## Resolving conflict on textual files
-***Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following.***
+***Note: This part has been basically covered by Travis, if you feel confident about it, you can jump to the next session following--on non-textual conflicts.***
 
 To see how we can resolve conflicts, we must first create one.  The file
 `mars.txt` currently looks like this in both partners' copies of our `planets`
@@ -230,7 +230,7 @@ consider one of these approaches to reducing them:
 What does Git do when there is a conflict in an image or some other non-textual file
 that is stored in version control?
 
-Let's try it using our `testwebsite` git repo.
+Let's try it using our established `testwebsite` git repo from the [git remote section]({{site.baseurl}}/2017/05/22/git-remote-and-github.html).
 Suppose you are working on the `master` branch, and your collaborator, Josh, is working on the `gh-pages` branch, and both of you want to change a picture called  `productcurveaccum.png` under the `assets/images/` folder.
 
 Here is what you are going to do on the `master` branch:
@@ -244,7 +244,8 @@ online-cv-responsive-jekyll-theme.png  profile.png
 ~~~
 
 `ls` shows us that there are a few pictures in the folder. Feel free to open those images to see how they look like.
-Next,suppose you want to use `productcurveaccumless.png` to replace `productcurveaccum.jpg` on the master branch and eventually want to merge this changes to the `gh-pages` branch of this repository. You do
+I suggest to use a powerful text editor like [Atom](https://atom.io) to preview your project files in one place.
+Next, suppose you want to use `productcurveaccumless.png` to replace `productcurveaccum.jpg` on the master branch and eventually want to merge this changes to the `gh-pages` branch of this repository. You do
 
 ~~~
 $ cp productcurveaccumless.png productcurveaccum.png
@@ -302,7 +303,7 @@ Unmerged paths:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-As you can see, when there is a conflict on an image or other binary file, git prints
+As you can see, when there is a conflict on an image or other binary files, git prints
 a message with which two sources (branches `HEAD vs. master`) generated this conflict and which files (`assets/images/productcurveaccum.png`) were affected.
 The `HEAD` means the current `gh-pages` branch.
 More commonly, if you pull a remote `master` branch and then merge with `git merge origin/master`, you will get a similar conflict message with `origin/master` replacing `master` as the conflicting source.
@@ -317,6 +318,7 @@ warning: Cannot merge binary files...
 Git cannot automatically insert conflict markers into an image, or in general a binary file, as it does
 for text files. So, instead of editing the image file, we must check out
 the version we want to keep. Then we can add and commit this version.
+Notice that, the binary file is still as it was in the branch. Git stores the conflict information and the version from the merging source branch in the hidden `.git` history folder.
 
 On the key line above, Git has conveniently given us commit identifiers
 for the two versions of `productcurveaccum.png`. Our version is `HEAD`, and Josh's
@@ -389,7 +391,10 @@ This way the original picture doesn't exist any more. Instead, you have two vers
 
 Either way, once you decide which one to use, you can then commit the staged changes and push to the remote `gh-pages` branch to view the result online.
 
-***A side note:*** If you want to revert your revision to commit `SHA-xxxxx`, you can use
+Similarly, you can also use `git checkout ID productcurveaccum.png` to revert the version to an arbitrary historical version with a `SHA` identifier, `ID`.
+Don't forget to switch back to `HEAD` or the version you really want to commit if you don't want to do the reverse.
+
+***A side note:*** If you want to revert your revision of all your files in the repo to the `SHA-xxxxx` commit stage, you can use
 ```
 $ git reset --hard SHA-xxxxx
 ```
@@ -397,7 +402,7 @@ or revert to the previous HEAD point by
 ```
 $ git reset --hard HEAD^
 ```
-To push the reverted changes to remote, you should use `git push -f origin BRANCHNAME` with the switch `-f` to force the upload.
+To push the reverted changes to remote, you should use `git push -f origin BRANCHNAME` with the switch `-f` to force the upload in this case.
 
 <blockquote class="challenge">
 ## Challenge: A Typical Work Session

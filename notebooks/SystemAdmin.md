@@ -335,6 +335,33 @@ git push origin --delete patch-1
 git branch -d patch-1
 ```
 
+* Remove a file stored in Git history:
+If the change is not committed yet, use
+```
+git rm --cached FILENAME
+```
+or remove the file and then redo the commits in the past 7 commits in the `dev` branch:
+```
+git filter-branch --prune-empty -d /dev/shm/scratch --index-filter "git rm --cached -f --ignore-unmatch assets/img/qrcode-DAMOP-talk-page.png" --tag-name-filter cat -- HEAD~7..HEAD
+git update-ref -d refs/original/refs/heads/dev
+git reflog expire --expire=now --all
+git gc --prune=now
+```
+In the commands above, `-d` names a temporary directory that does not yet exist to use for building the filtered history. If you are running on a modern Linux distribution, specifying a tree in `/dev/shm` will result in faster execution. Without this `-d` option, it might end up with a large backup blob in the directory after all the operations.
+
+If the error `/refs/original/ backup has exist` pops up, use
+```
+rm -r .git/refs/original/
+```
+to delete the backup first.
+
+More options can be found [here](https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository).
+
+* To compress loose objects, use
+```
+git gc --aggressive
+```
+
 ## Changing Java settings
 To change the default version of Java commands, one can run
 ```

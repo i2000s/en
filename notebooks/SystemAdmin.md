@@ -348,14 +348,14 @@ git reflog expire --expire=now --all
 git gc --prune=now
 ```
 In the commands above, `-d` names a temporary directory that does not yet exist to use for building the filtered history. If you are running on a modern Linux distribution, specifying a tree in `/dev/shm` will result in faster execution. Without this `-d` option, it might end up with a large backup blob in the directory after all the operations.
-  
-  If the error `/refs/original/ backup has exist` pops up, use
-  ```
-  rm -r .git/refs/original/
-  ```
-  to delete the backup first.
+    
+    If the error `/refs/original/ backup has exist` pops up, use
+    ```
+    rm -r .git/refs/original/
+    ```
+    to delete the backup first.
 
-  More options can be found [here](https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository).
+    More options can be found [here](https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository).
 
 * To compress loose objects, use
 ```

@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-05T00:35:04+00:00</updated>
+ <updated>2017-06-05T00:45:04+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -35,7 +35,7 @@
 &lt;center&gt;
 &lt;div class=&quot;row&quot;&gt;
 &lt;figure&gt;
-&lt;img src=&quot;/en/assets/img/qrcode_DAMOP_talk_page.png&quot;   width=&quot;210px&quot;   align=&quot;center&quot; alt=&quot;Scan to load on your mobile device&quot;   /&gt;
+&lt;img src=&quot;/en/assets/img/qrcode_DAMOP_talk_page.png&quot;   height=&quot;210px&quot; align=&quot;center&quot; alt=&quot;Scan to load on your mobile device&quot;   /&gt;
 &lt;figcaption&gt;
 QR code for this page.
 &lt;/figcaption&gt;&lt;/figure&gt;

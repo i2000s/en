@@ -394,9 +394,7 @@ git reflog expire --expire=now --all
 git gc --prune=now</code></pre>
 <p>In the commands above, <code>-d</code> names a temporary directory that does not yet exist to use for building the filtered history. If you are running on a modern Linux distribution, specifying a tree in <code>/dev/shm</code> will result in faster execution. Without this <code>-d</code> option, it might end up with a large backup blob in the directory after all the operations.</p></li>
 </ul>
-<p>If the error <code>/refs/original/ backup has exist</code> pops up, use</p>
-<pre><code>rm -r .git/refs/original/</code></pre>
-<p>to delete the backup first.</p>
+<p>If the error <code>/refs/original/ backup has exist</code> pops up, use <code>rm -r .git/refs/original/</code> to delete the backup first.</p>
 <p>More options can be found <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository">here</a>.</p>
 <ul>
 <li><p>To compress loose objects, use</p>

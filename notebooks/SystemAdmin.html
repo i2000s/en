@@ -385,6 +385,22 @@ git checkout -b patch-1 A/patch-1</code></pre>
 <p>Once I commit all necessary fixes, I can make a pull request through the web interface of the Git repository. After the PR is merged, I can then delete the <em>patch-1</em> branch remotely and locally by</p>
 <pre><code>git push origin --delete patch-1
 git branch -d patch-1</code></pre></li>
+<li><p>Remove a file stored in Git history: If the change is not committed yet, use</p>
+<pre><code>git rm --cached FILENAME</code></pre>
+<p>or remove the file and then redo the commits in the past 7 commits in the <code>dev</code> branch:</p>
+<pre><code>git filter-branch --prune-empty -d /dev/shm/scratch --index-filter &quot;git rm --cached -f --ignore-unmatch assets/img/qrcode-DAMOP-talk-page.png&quot; --tag-name-filter cat -- HEAD~7..HEAD
+git update-ref -d refs/original/refs/heads/dev
+git reflog expire --expire=now --all
+git gc --prune=now</code></pre>
+<p>In the commands above, <code>-d</code> names a temporary directory that does not yet exist to use for building the filtered history. If you are running on a modern Linux distribution, specifying a tree in <code>/dev/shm</code> will result in faster execution. Without this <code>-d</code> option, it might end up with a large backup blob in the directory after all the operations.</p></li>
+</ul>
+<p>If the error <code>/refs/original/ backup has exist</code> pops up, use</p>
+<pre><code>rm -r .git/refs/original/</code></pre>
+<p>to delete the backup first.</p>
+<p>More options can be found <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository">here</a>.</p>
+<ul>
+<li><p>To compress loose objects, use</p>
+<pre><code>git gc --aggressive</code></pre></li>
 </ul>
 <h2 id="changing-java-settings">Changing Java settings</h2>
 <p>To change the default version of Java commands, one can run</p>

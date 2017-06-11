@@ -319,6 +319,21 @@ The path and computer name in the terminal may become very long when working in 
 This line of path and computer information can be greatly shorten by following [this instruction](https://askubuntu.com/a/145626/390708).
 The full directory path can still be seen on the top of the terminal window or typing `pwd` command.
 
+## Install and configure Thinkpad USB 3.0 Dock with DisplayLink on Ubuntu 16.04
+The DisplayLink driver with supports to the recent linux kernels can be installed using a script from [this repo](https://github.com/AdnanHodzic/displaylink-debian).
+
+I have configured aliases for the `xrandr` configurations to turn on (with command `two`) or turn off (with command `one`) the external display following the instruction [here](https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md#troubleshooting-most-common-issues) by adding two lines in `~/.bashrc` followed by `source ~/.bashrc`:
+
+```
+# two
+alias two="xrandr --setprovideroutputsource 1 0 && xrandr --setprovideroutputsource 2 0 && xrandr --output DVI-I-2-1 --auto --right-of eDP-1-1"
+# one
+alias one="xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos 0x0 --rotate normal"
+```
+
+The listed monitors can be found via `xrandr --listproviders`.
+A problem with audio is not yet solved with the dock.
+
 # Notes on using some common tools
 ## Git
 * One of the common scenario of using Git is to make fixes to a repo *A* not belonging to me but I have already customized the source in the repo for my personal usage before hand.
@@ -348,7 +363,7 @@ git reflog expire --expire=now --all
 git gc --prune=now
 ```
 In the commands above, `-d` names a temporary directory that does not yet exist to use for building the filtered history. If you are running on a modern Linux distribution, specifying a tree in `/dev/shm` will result in faster execution. Without this `-d` option, it might end up with a large backup blob in the directory after all the operations.
-    
+
     If the error `/refs/original/ backup has exist` pops up, use
     ```
     rm -r .git/refs/original/

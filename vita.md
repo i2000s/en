@@ -9,7 +9,7 @@ share: true
 ---
 ## Upcoming event:
 
- - June 9, 2017 from 9:24 AM–9:36 AM: [DAMOP 2017 presentation](http://meetings.aps.org/Meeting/DAMOP17/Session/T7.8), Sacramento, California. 
+ - Dissertation or my last annual report talk in Fall semester of 2017.
 
 # Employment
 
@@ -29,6 +29,7 @@ share: true
 
 # Selected Talks and Conferences:
 
+ - June 9, 2017 from 9:24 AM–9:36 AM: [APS 48th Annual Meeting of DAMOP 2017 presentation](http://meetings.aps.org/Meeting/DAMOP17/Session/T7.8) ([Generation of atomic spin squeezed states in nanophotonic waveguides using QND measurement](https://purl.org/qxd/en/2017/06/04/damop-2017-talk.html), slides and audio records can be downloaded from the link), Sacramento, California, USA. 
  - February 23-25, 2017: [SQuInT 2017 talk](/en/2016/12/16/squint-2017-talk.html) ([Spin Squeezing on Nanophotonic Waveguides](http://physics.unm.edu/SQuInT/2017/abstracts.php?person_id=480)), Baton Rouge, Louisiana, USA.
  - Nov 16th, 2016: Annual research report, CQuIC @ Albuquerque, NM, USA.
  - July 31-Aug 5, 2016: [Gordon Research Conference -- Quantum Entanglement, New States of Matter, and Correlated Dynamics](https://www.grc.org/programs.aspx?id=14962), Easton, MA, USA. (poster)

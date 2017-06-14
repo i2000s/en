@@ -34,6 +34,7 @@ Obviously, we are also missing some maybe important points given the situation a
 ## On select and use programming languages
 
 - If you don't mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the [Julia website](https://julialang.org/) and plotted [here](https://julialang.org/benchmarks/).
+- Another note on Matlab is that it also has a powerful [Symbolic Math Toolbox](https://www.mathworks.com/help/symbolic/index.html) and two versions of interactive notebook interfaces--one is the old fashion [notebook based on MuPAD](https://www.mathworks.com/help/symbolic/notebook-interface.html) and the other one is called [Live Editor](https://www.mathworks.com/products/matlab/live-editor.html). Both are similar to Jupyter notebook and Mathematica. 
 
 ## Things might be touched in doing the followup projects
 - Unit tests and other test techniques in various languages.

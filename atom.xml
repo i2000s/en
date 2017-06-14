@@ -4,7 +4,7 @@
  <title>A Notebook of Xiaodong Qi's</title>
  <link href="/en/atom.xml" rel="self"/>
  <link href="/en"/>
- <updated>2017-06-13T05:36:00+00:00</updated>
+ <updated>2017-06-14T02:30:01+00:00</updated>
  <id>https://www.qixiaodong.tk/en</id>
  <author>
    <name>Xiaodong Qi</name>
@@ -78,6 +78,7 @@ QR code for this page.
 &lt;h2 id=&quot;on-select-and-use-programming-languages&quot;&gt;On select and use programming languages&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;If you don’t mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the &lt;a href=&quot;https://julialang.org/&quot;&gt;Julia website&lt;/a&gt; and plotted &lt;a href=&quot;https://julialang.org/benchmarks/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Another note on Matlab is that it also has a powerful &lt;a href=&quot;https://www.mathworks.com/help/symbolic/index.html&quot;&gt;Symbolic Math Toolbox&lt;/a&gt; and two versions of interactive notebook interfaces–one is the old fashion &lt;a href=&quot;https://www.mathworks.com/help/symbolic/notebook-interface.html&quot;&gt;notebook based on MuPAD&lt;/a&gt; and the other one is called &lt;a href=&quot;https://www.mathworks.com/products/matlab/live-editor.html&quot;&gt;Live Editor&lt;/a&gt;. Both are similar to Jupyter notebook and Mathematica.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;things-might-be-touched-in-doing-the-followup-projects&quot;&gt;Things might be touched in doing the followup projects&lt;/h2&gt;
 &lt;ul&gt;

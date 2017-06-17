@@ -253,16 +253,28 @@ $(document).ready(function() {
 <li>You can use other languages in Jupyter notebook–beside Python and include Matlab. As a fact, the word <strong><em>Jupyter</em></strong> comes from modern programming languages including <a href="https://julialang.org">Julia</a>, Python and <a href="https://www.r-project.org">R</a>. You can define the kernel by selecting the kernel you need under the <code>kernel</code> menu after installing the necessary kernel packages. The full list of community-supported kernel can be found <a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">here</a>.</li>
 <li>It is possible to run different languages in one notebook. The easiest way is to execute bash commands to call other language-based commands inside of the notebook. But different kernel define different syntax to do so. One example of running variant languages on a Julia kernel can be found <a href="https://github.com/i2000s/simnanophotonics/blob/master/sqwg.ipynb">here</a>.</li>
 </ul>
-<h2 id="on-select-and-use-programming-languages">On select and use programming languages</h2>
+<h2 id="on-choosing-your-daily-programming-languages">On choosing your daily programming languages</h2>
 <ul>
 <li>If you don’t mind the commercial nature, Matlab is actually pretty on numerical calculations and better than Python in common scenarios. Python only get some advantage when you want to use a lot of cores to do parallel computing. A good benchmark on those common modern programming languages can be found on the <a href="https://julialang.org/">Julia website</a> and plotted <a href="https://julialang.org/benchmarks/">here</a>.</li>
 <li>Another note on Matlab is that it also has a powerful <a href="https://www.mathworks.com/help/symbolic/index.html">Symbolic Math Toolbox</a> and two versions of interactive notebook interfaces–one is the old fashion <a href="https://www.mathworks.com/help/symbolic/notebook-interface.html">notebook based on MuPAD</a> and the other one is called <a href="https://www.mathworks.com/products/matlab/live-editor.html">Live Editor</a>. Both are similar to Jupyter notebook and Mathematica.</li>
+<li>If you collaborate with other people, it would be the best to use the common language that you and your collaborators are all familiar with.</li>
+<li>Once you’ve mastered one programming language, try something new and use languages for what they are good for.</li>
 </ul>
 <h2 id="things-might-be-touched-in-doing-the-followup-projects">Things might be touched in doing the followup projects</h2>
 <ul>
-<li>Unit tests and other test techniques in various languages.</li>
-<li>More details on documentations when programming in your preferred language.</li>
-<li>Continuous integration (like <a href="https://travis-ci.org">travis-CI</a>) and virtualizations.</li>
+<li>Unit tests and other test techniques in various languages.
+<ul>
+<li>For Matlab users, there are three types of Unit Test styles–one is <a href="https://www.mathworks.com/help/matlab/script-based-unit-tests.html">script-based unit tests</a>, one is <a href="https://www.mathworks.com/help/matlab/function-based-unit-tests.html">function-based unit tests</a>, and the other one is <a href="https://www.mathworks.com/help/matlab/class-based-unit-tests.html">class-based unit tests</a> under the <a href="https://www.mathworks.com/help/matlab/matlab-unit-test-framework.html">testing framework of Matlab</a>.</li>
+<li>For Python users, there is also an <a href="https://docs.python.org/3/library/unittest.html">Unit Test Framework for Python 3</a> and an <a href="https://docs.python.org/2/library/unittest.html">Unit Test Framework for Python 2</a>.</li>
+<li>For Julia users, linked is the doc for <a href="https://docs.julialang.org/en/latest/stdlib/test.html">Unit Testing</a>.</li>
+</ul></li>
+<li>More details on documenting when programming in your preferred languages.
+<ul>
+<li>For Matlab users, you can write <a href="http://www.mathworks.com/help/matlab/matlab_prog/add-help-for-your-program.html">help documentations</a> in the code and <a href="http://www.mathworks.com/help/matlab/matlab_prog/display-custom-documentation.html">display your documentations</a> as an interactive Live Script or HTML page.</li>
+<li>For Python users, <a href="https://docs.python.org/devguide/documenting.html">documenting</a> can be done using <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> and exporting to LaTeX, HTML, PDF and other formats or hosting on <a href="http://readthedocs.org/">readthedocs.org</a> website.</li>
+<li>For Julia users, you can find the <a href="https://docs.julialang.org/en/stable/manual/documentation/">documentation</a> guidelines and the <a href="http://bastikr.github.io/sphinx-julia/">Julia-Sphinx</a> and <a href="https://github.com/JuliaLang/JuliaDoc">JuliaDoc</a> extensions for various styles of documenting and uploading docs to <a href="http://readthedocs.org">readthedocs.org</a>. One example of programming in Julia can be found <a href="http://www.stochasticlifestyle.com/finalizing-julia-package-documentation-testing-coverage-publishing/">here</a>.</li>
+</ul></li>
+<li>Continuous integration (like <a href="https://travis-ci.org">travis-CI</a>) and virtualizations to automate some testing and migrating tasks.</li>
 <li>Permanent storage and generating DOIs for your code and data.</li>
 </ul>
 <div class="references">
@@ -286,8 +298,8 @@ $(document).ready(function() {
     property="dc:created">01 Jun 2017</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-06-14 02:26:00 +0000"
-            property="dc:modified">14 Jun 2017</time></small></p>
+            datetime="2017-06-17 05:03:58 +0000"
+            property="dc:modified">17 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
@@ -335,7 +347,7 @@ $(document).ready(function() {
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/8d1536177c9bea19780906070bcc344438547211/_posts/2017-06-01-miscellaneous-topics-not-covered-in-cquic-it-workshop.md"> 8d15361</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/f048371085aa951bdb159a8fa85c7d3597b37db8/_posts/2017-06-01-miscellaneous-topics-not-covered-in-cquic-it-workshop.md"> f048371</a></tiny></p>
 </aside>
 
 <br /><br />
@@ -355,9 +367,9 @@ $(document).ready(function() {
     
       <li><span>22 May 2017</span> &raquo; <a href="/en/2017/05/22/git-remote-and-github.html">Github remote and Github</a></li>
     
-      <li><span>21 May 2017</span> &raquo; <a href="/en/2017/05/21/a-theory-and-practices-on-systematic-task-management.html">My naive theory and some trial practices on systematic research management</a></li>
-    
       <li><span>24 May 2017</span> &raquo; <a href="/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html">Using Git to collaborate with people who don't use git</a></li>
+    
+      <li><span>21 May 2017</span> &raquo; <a href="/en/2017/05/21/a-theory-and-practices-on-systematic-task-management.html">My naive theory and some trial practices on systematic research management</a></li>
     
   </ul>
 </div>

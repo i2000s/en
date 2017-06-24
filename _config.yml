@@ -12,7 +12,8 @@ author :
   gscholar: 6FdqHlIAAAAJ&hl
   facebook: i2000s
   linkedin: xiaodongqi
-  stackexchangephy: 37682/xiaodong-qi
+  reddit: r/quantuminformation
+  #stackexchangephy: 37682/xiaodong-qi
   readingrepo: Archive # This is the github repo for reading record updates used on the Community page. If nil, you need to add the corresponding community.md page.
   ghorgs: # Used in the Javascript of Community page to pull out github repos.
     - name: CQuIC

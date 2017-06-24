@@ -9,7 +9,7 @@ share: true
 ---
 ## Upcoming event:
 
- - Dissertation or my last annual report talk in the Fall semester of 2017.
+ - Dissertation defense or my last annual report talk, in the Fall semester of 2017.
 
 # Employment
 

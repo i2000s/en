@@ -2,13 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A Notebook of Xiaodong Qi&#39;s</title>
+    <description>Exploring the Quantum World</description>
     <link>https://www.qixiaodong.tk/en</link>
     <atom:link href="https://www.qixiaodong.tk/en/atom.xml" rel="self" type="application/rss+xml" />
-    <updated>2017-06-25T09:02:38+00:00</updated>
-    <id>https://www.qixiaodong.tk/en</id>
-   <author>
-     <name>Xiaodong Qi</name>
-   </author>
 
    
         <item>
@@ -43,7 +39,7 @@ QR code for this page.
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2017/06/04/damop-2017-talk.html"/>
+          <link>https://www.qixiaodong.tk/en/2017/06/04/damop-2017-talk.html</link>
           <pubDate>Sun, 04 Jun 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2017/06/04/damop-2017-talk.html</guid>
         </item>
@@ -99,7 +95,7 @@ QR code for this page.
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2017/06/01/miscellaneous-topics-not-covered-in-cquic-it-workshop.html"/>
+          <link>https://www.qixiaodong.tk/en/2017/06/01/miscellaneous-topics-not-covered-in-cquic-it-workshop.html</link>
           <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2017/06/01/miscellaneous-topics-not-covered-in-cquic-it-workshop.html</guid>
         </item>
@@ -152,7 +148,7 @@ git submodule --init --recursive --remote&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html"/>
+          <link>https://www.qixiaodong.tk/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html</link>
           <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2017/05/24/using-git-to-collaborate-with-people-who-dont-use-git.html</guid>
         </item>
@@ -489,7 +485,7 @@ $ git add productcurveaccum-master.png&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2017/05/23/git-conflict-resolving.html"/>
+          <link>https://www.qixiaodong.tk/en/2017/05/23/git-conflict-resolving.html</link>
           <pubDate>Tue, 23 May 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2017/05/23/git-conflict-resolving.html</guid>
         </item>
@@ -604,7 +600,7 @@ git push origin gh-pages&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2017/05/22/git-remote-and-github.html"/>
+          <link>https://www.qixiaodong.tk/en/2017/05/22/git-remote-and-github.html</link>
           <pubDate>Mon, 22 May 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2017/05/22/git-remote-and-github.html</guid>
         </item>
@@ -709,7 +705,7 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2017/05/21/a-theory-and-practices-on-systematic-task-management.html"/>
+          <link>https://www.qixiaodong.tk/en/2017/05/21/a-theory-and-practices-on-systematic-task-management.html</link>
           <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2017/05/21/a-theory-and-practices-on-systematic-task-management.html</guid>
         </item>
@@ -747,7 +743,7 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2017/05/20/2017-summer-study.html"/>
+          <link>https://www.qixiaodong.tk/en/2017/05/20/2017-summer-study.html</link>
           <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2017/05/20/2017-summer-study.html</guid>
         </item>
@@ -767,7 +763,7 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2016/12/16/squint-2017-talk.html"/>
+          <link>https://www.qixiaodong.tk/en/2016/12/16/squint-2017-talk.html</link>
           <pubDate>Fri, 16 Dec 2016 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2016/12/16/squint-2017-talk.html</guid>
         </item>
@@ -1171,7 +1167,7 @@ dW = randn(step).*dt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html"/>
+          <link>https://www.qixiaodong.tk/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html</link>
           <pubDate>Sat, 23 Jul 2016 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html</guid>
         </item>
@@ -1208,7 +1204,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2016/06/23/nvidia-driver-update-for-matlab-2016a.html"/>
+          <link>https://www.qixiaodong.tk/en/2016/06/23/nvidia-driver-update-for-matlab-2016a.html</link>
           <pubDate>Thu, 23 Jun 2016 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2016/06/23/nvidia-driver-update-for-matlab-2016a.html</guid>
         </item>
@@ -1274,7 +1270,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2016/05/26/2016-summer-study-on-quantum-optics-II.html"/>
+          <link>https://www.qixiaodong.tk/en/2016/05/26/2016-summer-study-on-quantum-optics-II.html</link>
           <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2016/05/26/2016-summer-study-on-quantum-optics-II.html</guid>
         </item>
@@ -1304,7 +1300,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2016/02/17/SQuInT-workshop-2016.html"/>
+          <link>https://www.qixiaodong.tk/en/2016/02/17/SQuInT-workshop-2016.html</link>
           <pubDate>Wed, 17 Feb 2016 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2016/02/17/SQuInT-workshop-2016.html</guid>
         </item>
@@ -1338,7 +1334,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/29/automate_tests.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/29/automate_tests.html</link>
           <pubDate>Fri, 29 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/29/automate_tests.html</guid>
         </item>
@@ -1384,7 +1380,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/16/track_issues.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/16/track_issues.html</link>
           <pubDate>Sat, 16 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/16/track_issues.html</guid>
         </item>
@@ -1420,7 +1416,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/15/write_tests.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/15/write_tests.html</link>
           <pubDate>Fri, 15 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/15/write_tests.html</guid>
         </item>
@@ -1465,7 +1461,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/14/write_docstrings.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/14/write_docstrings.html</link>
           <pubDate>Thu, 14 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/14/write_docstrings.html</guid>
         </item>
@@ -1525,7 +1521,7 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/13/add_a_readme.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/13/add_a_readme.html</link>
           <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/13/add_a_readme.html</guid>
         </item>
@@ -1556,7 +1552,7 @@ git push -u origin master&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/12/code_in_the_open.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/12/code_in_the_open.html</link>
           <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/12/code_in_the_open.html</guid>
         </item>
@@ -1607,7 +1603,7 @@ git add project_file2
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/11/use_version_control.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/11/use_version_control.html</link>
           <pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/11/use_version_control.html</guid>
         </item>
@@ -1680,7 +1676,7 @@ git add project_file2
 
 &lt;/div&gt;
 </description>
-          <link href="https://www.qixiaodong.tk/en/2015/05/10/rock_solid_code.html"/>
+          <link>https://www.qixiaodong.tk/en/2015/05/10/rock_solid_code.html</link>
           <pubDate>Sun, 10 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/10/rock_solid_code.html</guid>
         </item>

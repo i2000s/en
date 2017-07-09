@@ -288,12 +288,13 @@ ExecStart=/bin/bash /home/qxd/powertop_tune.sh
 
 [Install]
 WantedBy=multi-user.target</code></pre>
-<p>More details on customizing a systemctl service can be found <a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html">here</a>. Of course, I have created a file at <code>/home/qxd/powertop_tune.sh</code> with content:</p>
+<p>More details on customizing a systemctl service can be found <a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html">here</a>. Note that my username on my computer is <code>qxd</code>, which you may want to adapt to your own case. Of course, I have created a file at <code>/home/qxd/powertop_tune.sh</code> with the following content:</p>
 <pre><code>#!/bin/sh
 # Run Powertop auto-tune.
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
-declare -a usbs=(&quot;1-2&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-9&quot; &quot;1-10&quot; &quot;1-13&quot; &quot;1-14&quot; &quot;usb1&quot; &quot;usb2&quot;)
+# 1-2.1 1-2.2 1-2.4 2-2 2-2.4 ports are for my USB3.0 dock station.
+declare -a usbs=(&quot;1-2&quot; &quot;1-2.1&quot; &quot;1-2.2&quot; &quot;1-2.4&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-9&quot; &quot;1-10&quot; &quot;1-13&quot; &quot;1-14&quot; &quot;2-2&quot; &quot;2-2.4&quot; &quot;usb1&quot; &quot;usb2&quot;)
 sleep 5;
 for i in &quot;${usbs[@]}&quot;
 do
@@ -332,6 +333,30 @@ STOP_CHARGE_THRESH_BAT1=85</code></pre>
 <pre><code>systemctl enable tlp.service  
 systemctl enable tlp-sleep.service</code></pre>
 <p>And reboot.</p>
+<h2 id="enabling-displaylink-based-dock-station-to-connect-with-external-monitors-on-ubuntu">Enabling DisplayLink-based dock station to connect with external monitors on Ubuntu</h2>
+<p>A dock station can be useful if one wants to collect USB, display and audio ports in one connected device to the computer. I use the <a href="https://support.lenovo.com/us/en/solutions/pd028106">Lenovo Thinkpad USB 3.0 Docking Station</a> as the port collector. Despite it is an old-fashion docking station, there have been stable Linux supports to the device by <a href="http://www.displaylink.org/">DisplayLink</a>. Since I am using relative new linux kernels, I have to customize some settings to make the driver work properly.</p>
+<p>To install the latest DisplayLink driver for the device on recent kernels, please follow the instructions on <a href="https://github.com/AdnanHodzic/displaylink-debian">the displaylink-debian repo</a>. After that, I added two aliases to the <code>~/.bashrc</code> file:</p>
+<pre><code># Define alias for the Dock station display layout.
+# two
+alias two=&quot;xrandr --setprovideroutputsource 1 0 &amp;&amp; xrandr --setprovideroutputsource 2 0 &amp;&amp; xrandr --output DVI-I-2-1 --auto --left-of eDP-1-1&quot;
+
+# one
+alias one=&quot;xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos 0x0 --rotate normal&quot;</code></pre>
+<p>On the terminal, run <code>source ~/.bashrc</code> to update the commands. Then reboot with an external monitor connected. On the terminal, I type <code>two</code> to switch to two-monitor mode with the external monitor on the left-hand-side of my laptop; type <code>one</code> to switch back to the default laptop mode.</p>
+<p>To make sure DisplayLink is running, use</p>
+<pre><code>systemctl status dlm.service</code></pre>
+<p>If it’s not running, start it with</p>
+<pre><code>sudo systemctl start dlm.service</code></pre>
+<p>To start DisplayLink automatically at boot, run</p>
+<pre><code>sudo systemctl enable dlm.service</code></pre>
+<p>You only need to enable the service once after installing the driver.</p>
+<p>Note that, in writing the aliases in <code>~/.bashrc</code>, I have checked the display source providers via (need to reboot after installing the driver)</p>
+<pre><code>xrandr --listproviders</code></pre>
+<p>If you find more than one provider while at least one external monitor is connected, it means the driver and the DisplayLink service are working. Then use</p>
+<pre><code>xrandr --setprovideroutputsource 1 0
+xrandr --setprovideroutputsource 2 0</code></pre>
+<p>to display with two monitors for the first time. You can manually change the display resolution and relative positions in your Display setting of your desktop environment. The names of displays/monitors (shown as <code>DVI-I-2-1</code> and <code>eDP-1-1</code> in my <code>~/.bashrc</code> script) can found by running <code>xrandr</code> on a terminal. You may need to adapt my script with your case. More details can be found in the <a href="https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md">post-installation setting</a>.</p>
+<p>Once everything is working, after every boot, you just need to run <code>two</code> on a terminal to enable the second monitor, or run <code>one</code> to switch back to one monitor display setting.</p>
 <h2 id="using-lvm-and-btrfs-filesystem-to-partition-disks">Using LVM and btrfs filesystem to partition disks</h2>
 <p>LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future. On the other hand, <code>btrfs</code> filesystem is very flexible and convenient to make snapshot backups and secure &amp; safe to manage system files in Linux. Combining these two, we can have a very flexible and convenient way to run Linux. Below are some common scenarios that I have encountered to use LVM with the btrfs filesystem.</p>
 <h3 id="i.-creating-lvm-managed-volume-groups-and-logical-volumes-for-installing-ubuntu-along-side-with-windows.">I. creating LVM managed volume groups and logical volumes for installing Ubuntu along side with Windows.</h3>

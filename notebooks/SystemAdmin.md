@@ -179,13 +179,15 @@ ExecStart=/bin/bash /home/qxd/powertop_tune.sh
 WantedBy=multi-user.target
 ```
 More details on customizing a systemctl service can be found [here](https://www.freedesktop.org/software/systemd/man/systemd.service.html).
-Of course, I have created a file at `/home/qxd/powertop_tune.sh` with content:
+Note that my username on my computer is `qxd`, which you may want to adapt to your own case.
+Of course, I have created a file at `/home/qxd/powertop_tune.sh` with the following content:
 ```
 #!/bin/sh
 # Run Powertop auto-tune.
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
-declare -a usbs=("1-2" "1-5" "1-8" "1-9" "1-10" "1-13" "1-14" "usb1" "usb2")
+# 1-2.1 1-2.2 1-2.4 2-2 2-2.4 ports are for my USB3.0 dock station.
+declare -a usbs=("1-2" "1-2.1" "1-2.2" "1-2.4" "1-5" "1-8" "1-9" "1-10" "1-13" "1-14" "2-2" "2-2.4" "usb1" "usb2")
 sleep 5;
 for i in "${usbs[@]}"
 do
@@ -242,6 +244,57 @@ systemctl enable tlp.service
 systemctl enable tlp-sleep.service
 ```
 And reboot.
+
+## Enabling DisplayLink-based dock station to connect with external monitors on Ubuntu
+A dock station can be useful if one wants to collect USB, display and audio ports in one connected device to the computer.
+I use the [Lenovo Thinkpad USB 3.0 Docking Station](https://support.lenovo.com/us/en/solutions/pd028106) as the port collector.
+Despite it is an old-fashion docking station, there have been stable Linux supports to the device by [DisplayLink](http://www.displaylink.org/).
+Since I am using relative new linux kernels, I have to customize some settings to make the driver work properly.
+
+To install the latest DisplayLink driver for the device on recent kernels, please follow the instructions on [the displaylink-debian repo](https://github.com/AdnanHodzic/displaylink-debian).
+After that, I added two aliases to the `~/.bashrc` file:
+```
+# Define alias for the Dock station display layout.
+# two
+alias two="xrandr --setprovideroutputsource 1 0 && xrandr --setprovideroutputsource 2 0 && xrandr --output DVI-I-2-1 --auto --left-of eDP-1-1"
+
+# one
+alias one="xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos 0x0 --rotate normal"
+```
+On the terminal, run `source ~/.bashrc` to update the commands.
+Then reboot with an external monitor connected.
+On the terminal, I type `two` to switch to two-monitor mode with the external monitor on the left-hand-side of my laptop; type `one` to switch back to the default laptop mode.
+
+To make sure DisplayLink is running, use
+```
+systemctl status dlm.service
+```
+If it's not running, start it with
+```
+sudo systemctl start dlm.service
+```
+To start DisplayLink automatically at boot, run
+```
+sudo systemctl enable dlm.service
+```
+You only need to enable the service once after installing the driver.
+
+Note that, in writing the aliases in `~/.bashrc`, I have checked the display source providers via (need to reboot after installing the driver)
+```
+xrandr --listproviders
+```
+If you find more than one provider while at least one external monitor is connected, it means the driver and the DisplayLink service are working.
+Then use
+```
+xrandr --setprovideroutputsource 1 0
+xrandr --setprovideroutputsource 2 0
+```
+to display with two monitors for the first time. You can manually change the display resolution and relative positions in your Display setting of your desktop environment.
+The names of displays/monitors (shown as `DVI-I-2-1` and `eDP-1-1` in my `~/.bashrc` script) can found by running `xrandr` on a terminal.
+You may need to adapt my script with your case.
+More details can be found in the [post-installation setting](https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md).
+
+Once everything is working, after every boot, you just need to run `two` on a terminal to enable the second monitor, or run `one` to switch back to one monitor display setting. 
 
 ## Using LVM and btrfs filesystem to partition disks
 LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future.

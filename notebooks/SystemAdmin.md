@@ -2,6 +2,42 @@
 layout: default
 title: Some notes on computer system administration
 ---
+# BIOS setting tips on Lenovo Thinkpads
+## Customize BIOS splash screen
+The BIOS screen will show up with the default Lenovo logo if the `Boot Mode` is set to `Quick` (`diagnose` mode will disable the splash screen).
+For old models, you may find the ThinkWiki's instructions under [Windows OS](http://www.thinkwiki.org/wiki/How_to_change_the_BIOS_bootsplash_screen_(under_Windows)) or [without access to Windows](http://www.thinkwiki.org/wiki/How_to_change_the_BIOS_bootsplash_screen) helpful.
+For up-to-2011 models, this [instruction](http://giocc.com/custom-bios-splash-screen-for-new-thinkpad-series.html) may be helpful as well.
+For later models, the process is similar, but the limitations on the image size and format are relaxed and the steps is simpler.
+
+Take P50 for example, I search for "Lenovo BIOS Update Utility Thinkpad P50".
+[Here](http://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-p-series-laptops/thinkpad-p50/downloads)'s the download page for P50 I used: in the BIOS session, there is a Windows version and a bootable CD version of the [BIOS Update Utility](http://support.lenovo.com/us/en/downloads/DS106108).
+Download the correct model's BIOS Update Utility for Windows, in my case. Install it but don't select to install the BIOS update yet.
+You may need to enable the `Allow Rollback` setting in the BIOS for the tool to install the splash image--even though you may be installing the same version of BIOS as your current one.
+Go to `C:\Drivers\FLASH\<random string>\` where the driver is installed.
+Read `BIOS_LOGO.TXT`. The file should mention creating an image called `LOGO.BMP`, `LOGO.JPG` or `LOGO.GIF`.
+
+Now I make my customized BMP splash image with a size of 768px X 432px using InkScape with the Thinkpad logo downloaded [here](https://www.brandsoftheworld.com/logo/thinkpad) and a few other resources downloaded from the [ThinkWiki page](http://www.thinkwiki.org/wiki/How_to_change_the_BIOS_bootsplash_screen).
+As stated from `BIOS_LOGO.TXT` that the image can be up to 40% size of the default screen resolution (1092x1080 for my P50).
+You may get random garbage on the splash screen if the image is too large in file size, which I don't know the exact file size limit.
+To prevent errors happen, then I use MSPaint tool to open the exported `LOGO.BMP` file and save it as `LOGO.GIF` file (see below), which will reduce the file size dramatically.
+Notice that it may only work for images that have been edited or exported with MSPaint (not GIMP).
+My final version of the splash image is a little above 30KB and the resolution is the same as the BMP file. The image doesn't have to be 16-bit color format for the earlier days.
+
+![My BIOS splash](/en/assets/img/logos/TowardsQuantum.gif)
+
+Copy or save the `LOGO.GIF` image to `C:\Drivers\Flash\<random string>` folder.
+
+Now run `WUNUPTP.exe` which is the actual BIOS Update Utility and should be in the same folder as the image.
+Select "Update ThinkPad BIOS" and hit next.
+A dialogue box should show "A custom start up image file was found. Do you apply the custom startup image file to the system?" Click `Yes`.
+
+Now keep hitting next/yes (but make sure you read these instructions) until seeing "System program updates is continued by BIOS at the next reboot."
+Click `OK` then the computer will reboot and start to flash the BIOS. If you exit out at this point the flash will still happen, but not until you restart.
+
+Make sure you do not touch your power button at all during the reboot/flashing phase since loss of power during a firmware flash can brick your laptop.
+You computer will reboot afterwards, and by the end you should have a custom BIOS splash image at the beginning of the system startup.
+
+Next time you have to flash the BIOS, the BIOS updater will detect a custom boot splash and ask you if you want to preserve it or restore the original.
 
 # Linux/Ubuntu OS
 
@@ -294,7 +330,7 @@ The names of displays/monitors (shown as `DVI-I-2-1` and `eDP-1-1` in my `~/.bas
 You may need to adapt my script with your case.
 More details can be found in the [post-installation setting](https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md).
 
-Once everything is working, after every boot, you just need to run `two` on a terminal to enable the second monitor, or run `one` to switch back to one monitor display setting. 
+Once everything is working, after every boot, you just need to run `two` on a terminal to enable the second monitor, or run `one` to switch back to one monitor display setting.
 
 ## Using LVM and btrfs filesystem to partition disks
 LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future.
@@ -445,3 +481,12 @@ source /etc/environment
 ```
 to reload the setting.
 To check if the new setting has taken effect, one can use `echo $JAVA_HOME` and `javac --version`, for instance.
+
+## Atom
+Since [Atom](https://atom.io) is still not very stable yet, it might crash due to the windows in open during startup.
+One quick life-saving trick is to run the program from command line by `atom --clear-window-state`.
+
+## InkScape
++ Change background color: open `File/Document settings` (shift+ctl+D) and select the color from the `Color/Background` tab. Use `FF` in the transparence setting of the RGB color picker to make the color solid (`00` means completely transparent).
+
++  Cut down an object in a particular shape mask: see [How do I crop in Inkscape?](https://inkscapetutorials.org/2014/04/22/inkscape-faq-how-do-i-crop-in-inkscape/)

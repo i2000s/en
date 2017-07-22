@@ -205,7 +205,20 @@ var _hmt = _hmt || [];
 
 
       <div class="row">
-        <h1 id="linuxubuntu-os">Linux/Ubuntu OS</h1>
+        <h1 id="bios-setting-tips-on-lenovo-thinkpads">BIOS setting tips on Lenovo Thinkpads</h1>
+<h2 id="customize-bios-splash-screen">Customize BIOS splash screen</h2>
+<p>The BIOS screen will show up with the default Lenovo logo if the <code>Boot Mode</code> is set to <code>Quick</code> (<code>diagnose</code> mode will disable the splash screen). For old models, you may find the ThinkWiki’s instructions under <a href="http://www.thinkwiki.org/wiki/How_to_change_the_BIOS_bootsplash_screen_(under_Windows)">Windows OS</a> or <a href="http://www.thinkwiki.org/wiki/How_to_change_the_BIOS_bootsplash_screen">without access to Windows</a> helpful. For up-to-2011 models, this <a href="http://giocc.com/custom-bios-splash-screen-for-new-thinkpad-series.html">instruction</a> may be helpful as well. For later models, the process is similar, but the limitations on the image size and format are relaxed and the steps is simpler.</p>
+<p>Take P50 for example, I search for “Lenovo BIOS Update Utility Thinkpad P50”. <a href="http://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-p-series-laptops/thinkpad-p50/downloads">Here</a>’s the download page for P50 I used: in the BIOS session, there is a Windows version and a bootable CD version of the <a href="http://support.lenovo.com/us/en/downloads/DS106108">BIOS Update Utility</a>. Download the correct model’s BIOS Update Utility for Windows, in my case. Install it but don’t select to install the BIOS update yet. You may need to enable the <code>Allow Rollback</code> setting in the BIOS for the tool to install the splash image–even though you may be installing the same version of BIOS as your current one. Go to <code>C:\Drivers\FLASH\&lt;random string&gt;\</code> where the driver is installed. Read <code>BIOS_LOGO.TXT</code>. The file should mention creating an image called <code>LOGO.BMP</code>, <code>LOGO.JPG</code> or <code>LOGO.GIF</code>.</p>
+<p>Now I make my customized BMP splash image with a size of 768px X 432px using InkScape with the Thinkpad logo downloaded <a href="https://www.brandsoftheworld.com/logo/thinkpad">here</a> and a few other resources downloaded from the <a href="http://www.thinkwiki.org/wiki/How_to_change_the_BIOS_bootsplash_screen">ThinkWiki page</a>. As stated from <code>BIOS_LOGO.TXT</code> that the image can be up to 40% size of the default screen resolution (1092x1080 for my P50). You may get random garbage on the splash screen if the image is too large in file size, which I don’t know the exact file size limit. To prevent errors happen, then I use MSPaint tool to open the exported <code>LOGO.BMP</code> file and save it as <code>LOGO.GIF</code> file (see below), which will reduce the file size dramatically. Notice that it may only work for images that have been edited or exported with MSPaint (not GIMP). My final version of the splash image is a little above 30KB and the resolution is the same as the BMP file. The image doesn’t have to be 16-bit color format for the earlier days.</p>
+<figure>
+<img src="/en/assets/img/logos/TowardsQuantum.gif" alt="My BIOS splash" /><figcaption>My BIOS splash</figcaption>
+</figure>
+<p>Copy or save the <code>LOGO.GIF</code> image to <code>C:\Drivers\Flash\&lt;random string&gt;</code> folder.</p>
+<p>Now run <code>WUNUPTP.exe</code> which is the actual BIOS Update Utility and should be in the same folder as the image. Select “Update ThinkPad BIOS” and hit next. A dialogue box should show “A custom start up image file was found. Do you apply the custom startup image file to the system?” Click <code>Yes</code>.</p>
+<p>Now keep hitting next/yes (but make sure you read these instructions) until seeing “System program updates is continued by BIOS at the next reboot.” Click <code>OK</code> then the computer will reboot and start to flash the BIOS. If you exit out at this point the flash will still happen, but not until you restart.</p>
+<p>Make sure you do not touch your power button at all during the reboot/flashing phase since loss of power during a firmware flash can brick your laptop. You computer will reboot afterwards, and by the end you should have a custom BIOS splash image at the beginning of the system startup.</p>
+<p>Next time you have to flash the BIOS, the BIOS updater will detect a custom boot splash and ask you if you want to preserve it or restore the original.</p>
+<h1 id="linuxubuntu-os">Linux/Ubuntu OS</h1>
 <h2 id="diagnose-display-problems-and-install-the-default-nvidia-driver">Diagnose display problems and install the default NVidia driver</h2>
 <p>The video card driver and display settings are usually tricky on Linux. I have encountered black-screen and dual-monitor display problems while installing and reinstalling Ubuntu 16.04 GNOME and Unity systems on my Lenovo P50 mobile workstation and other computers. Fortunately, I have received helps on the <a href="https://ubuntuforums.org/showthread.php?t=2323113">ubuntu forum</a> and other places from experts and fixed those past issues.</p>
 <p>If a black screen happened in the startup after installation, and in the TTY mode (Ctl+Alt+F1) it shows “a start job is for hold until boot finishes up…” but it never finishes, it might be related to the display settings and drivers. The following worked for me. Boot into the recovery mode with <em>Network</em> or <em>run commands as root</em> from the <strong><em>Advanced Ubuntu Options</em></strong>, and run</p>
@@ -440,6 +453,13 @@ git gc --prune=now</code></pre>
 <p>After this, to change the home directory of Java, one can edit by <code>sudo nano /etc/environment</code> with a line of <code>JAVA_HOME=&quot;/usr/lib/jvm/java-8-oracle&quot;</code>, for example, where the directory path is copied from the <code>sudo update-alternatives --config java</code> setting. After saving the setting, run</p>
 <pre><code>source /etc/environment</code></pre>
 <p>to reload the setting. To check if the new setting has taken effect, one can use <code>echo $JAVA_HOME</code> and <code>javac --version</code>, for instance.</p>
+<h2 id="atom">Atom</h2>
+<p>Since <a href="https://atom.io">Atom</a> is still not very stable yet, it might crash due to the windows in open during startup. One quick life-saving trick is to run the program from command line by <code>atom --clear-window-state</code>.</p>
+<h2 id="inkscape">InkScape</h2>
+<ul>
+<li><p>Change background color: open <code>File/Document settings</code> (shift+ctl+D) and select the color from the <code>Color/Background</code> tab. Use <code>FF</code> in the transparence setting of the RGB color picker to make the color solid (<code>00</code> means completely transparent).</p></li>
+<li><p>Cut down an object in a particular shape mask: see <a href="https://inkscapetutorials.org/2014/04/22/inkscape-faq-how-do-i-crop-in-inkscape/">How do I crop in Inkscape?</a></p></li>
+</ul>
 <div class="references">
 
 </div>

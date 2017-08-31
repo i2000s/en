@@ -445,6 +445,7 @@ git gc --prune=now</code></pre>
 <p>More options can be found <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository">here</a>.</p></li>
 <li><p>To compress loose objects, use</p>
 <pre><code>git gc --aggressive</code></pre></li>
+<li><p><code>git diff --color-words [&lt;path&gt; ...]</code> can highlight the changes of a file or tree since the last commit in color to the word-level. As <code>git diff</code> is not merely comparing indices, <code>git diff --no-index &lt;path1&gt; &lt;path2&gt;</code> can compare two files without <code>git</code> history and highlight the changes in color. The last command can also go with the <code>--color-words</code> switch to show the word differences.</p></li>
 </ul>
 <h2 id="changing-java-settings">Changing Java settings</h2>
 <p>To change the default version of Java commands, one can run</p>

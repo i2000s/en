@@ -468,6 +468,12 @@ git gc --aggressive
 
 * `git diff --color-words [<path> ...]` can highlight the changes of a file or tree since the last commit in color to the word-level. As `git diff` is not merely comparing indices, `git diff --no-index <path1> <path2>` can compare two files without `git` history and highlight the changes in color. The last command can also go with the `--color-words` switch to show the word differences.
 
+* To reset a local repository to be synchronized with the remote, use
+```
+git fetch origin
+git reset --hard origin/master
+```
+
 ## Changing Java settings
 To change the default version of Java commands, one can run
 ```

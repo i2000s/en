@@ -446,6 +446,9 @@ git gc --prune=now</code></pre>
 <li><p>To compress loose objects, use</p>
 <pre><code>git gc --aggressive</code></pre></li>
 <li><p><code>git diff --color-words [&lt;path&gt; ...]</code> can highlight the changes of a file or tree since the last commit in color to the word-level. As <code>git diff</code> is not merely comparing indices, <code>git diff --no-index &lt;path1&gt; &lt;path2&gt;</code> can compare two files without <code>git</code> history and highlight the changes in color. The last command can also go with the <code>--color-words</code> switch to show the word differences.</p></li>
+<li><p>To reset a local repository to be synchronized with the remote, use</p>
+<pre><code>git fetch origin
+git reset --hard origin/master</code></pre></li>
 </ul>
 <h2 id="changing-java-settings">Changing Java settings</h2>
 <p>To change the default version of Java commands, one can run</p>

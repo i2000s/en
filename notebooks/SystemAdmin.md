@@ -440,13 +440,14 @@ git branch -d patch-1
 ```
 
 * Remove a file stored in Git history:
-If the change is not committed yet, use
+If the change is not published yet, use
 ```
 git rm --cached FILENAME
+git commit --amend -CHEAD
 ```
 or remove the file and then redo the commits in the past 7 commits in the `dev` branch:
 ```
-git filter-branch --prune-empty -d /dev/shm/scratch --index-filter "git rm --cached -f --ignore-unmatch assets/img/qrcode-DAMOP-talk-page.png" --tag-name-filter cat -- HEAD~7..HEAD
+git filter-branch --prune-empty -d /dev/shm/scratch --index-filter "git rm --cached -f --ignore-unmatch FILEPATH" --tag-name-filter cat -- HEAD~7..HEAD
 git update-ref -d refs/original/refs/heads/dev
 git reflog expire --expire=now --all
 git gc --prune=now
@@ -459,7 +460,7 @@ In the commands above, `-d` names a temporary directory that does not yet exist 
     ```
     to delete the backup first.
 
-    More options can be found [here](https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository).
+    More options can be found [here](https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository) and [here](https://help.github.com/articles/removing-sensitive-data-from-a-repository/).
 
 * To compress loose objects, use
 ```

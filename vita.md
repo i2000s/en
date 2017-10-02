@@ -9,7 +9,7 @@ share: true
 ---
 ## Upcoming event:
 
- - Dissertation defense or my last PhD annual report talk, in the Fall semester of 2017.
+ - Dissertation defense or my last PhD annual report talk, in the Spring semester of 2018.
 
 # Employment
 

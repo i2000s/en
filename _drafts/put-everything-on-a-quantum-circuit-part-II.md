@@ -21,6 +21,15 @@ Generalize to quantum circuit model
 Representation of superoperators
 ================================
 
+Error correction and LLVM
+=========================
+
+Opportunities and challenges on the dawn of Quantum Computing
+=============================================================
+
+New hardware and software development.
+
+For the organization, it is necessary and optimal to find collaborations with research and hardware development groups so that our developers have access to advanced computing facilities in order to lead the software and language development as well as to attract more people to join the development force towards a strong ecosystem. 
 
 
 References

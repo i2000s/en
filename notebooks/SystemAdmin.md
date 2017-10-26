@@ -186,6 +186,18 @@ dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `un
 ```
 Reference: [the solution on Askubuntu](http://askubuntu.com/questions/89710/how-do-i-free-up-more-space-in-boot).
 
+### Remove old backups by Deja Dup
+I use `Deja Dup` to automatically backup my Ubuntu OS and home directory files incrementally.
+Sometimes, the backup folder might take a lot of space and some old backups can be removed safely.
+1. For deleting all but the last full backup, open a terminal and run this:
+```
+duplicity remove-all-but-n-full 1 file:///media/I/Ubuntu --force
+```
+2. Delete files from failed backup sessions:
+```
+duplicity cleanup file:///media/I/Ubuntu --force
+```
+
 ## Mouse scrolls too fast on Chrome browser
 If one scroll of the mouse on the Chrome brower can go a far distance on a page, it might have been affected by [this Ubuntu bug](https://bugs.launchpad.net/ubuntu/+bug/971321).
 This only affects Chrome and a few wireless mouse brands including Microsoft.

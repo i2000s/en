@@ -284,6 +284,13 @@ read-only with the &#39;ro&#39; mount option</code></pre>
 <p>One common problem of upgrading linux kernel is “no enough space” in the /boot partition. This might be due to the old kernels and the new kernel files copied to /boot while compiling. One line of command to remove those unnecessary files is</p>
 <pre><code>dpkg -l linux-{image,headers}-&quot;[0-9]*&quot; | awk &#39;/^ii/{ print $2}&#39; | grep -v -e `uname -r | cut -f1,2 -d&quot;-&quot;` | grep -e &#39;[0-9]&#39; | xargs sudo apt-get -y purge</code></pre>
 <p>Reference: <a href="http://askubuntu.com/questions/89710/how-do-i-free-up-more-space-in-boot">the solution on Askubuntu</a>.</p>
+<h3 id="remove-old-backups-by-deja-dup">Remove old backups by Deja Dup</h3>
+<p>I use <code>Deja Dup</code> to automatically backup my Ubuntu OS and home directory files incrementally. Sometimes, the backup folder might take a lot of space and some old backups can be removed safely. 1. For deleting all but the last full backup, open a terminal and run this:</p>
+<pre><code>duplicity remove-all-but-n-full 1 file:///media/I/Ubuntu --force</code></pre>
+<ol start="2" type="1">
+<li><p>Delete files from failed backup sessions:</p>
+<pre><code>duplicity cleanup file:///media/I/Ubuntu --force</code></pre></li>
+</ol>
 <h2 id="mouse-scrolls-too-fast-on-chrome-browser">Mouse scrolls too fast on Chrome browser</h2>
 <p>If one scroll of the mouse on the Chrome brower can go a far distance on a page, it might have been affected by <a href="https://bugs.launchpad.net/ubuntu/+bug/971321">this Ubuntu bug</a>. This only affects Chrome and a few wireless mouse brands including Microsoft. A workaround before the bug is fixed is to unplug and replug the wireless receiver of the mouse.</p>
 <h2 id="make-powertop-and-tlp-work-together-to-save-battery">Make Powertop and TLP work together to save battery</h2>

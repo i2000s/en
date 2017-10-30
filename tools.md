@@ -45,6 +45,10 @@ Equations can be put into Illustrator by using [MathMagic Pro](http://www.mathma
 
 For 3D modeling and animations, I am starting with [Blender](http://www.blender.org/) and have used [Pov-Ray](http://www.povray.org/) before.
 
+My notes:
++ [Notes on Inkscape](/en/notebooks/inkscape.html)
++ [Notes on Adobe Illustrator](/en/notebooks/illustrator.html)
+
 ## Code
 Most of my coding is done with Matlab because most of collaborators use it and my university--UNM--provides it for free to me as the original home of Matlab.  I also use the following:
 

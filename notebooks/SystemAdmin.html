@@ -429,35 +429,6 @@ alias two=&quot;xrandr --setprovideroutputsource 1 0 &amp;&amp; xrandr --setprov
 alias one=&quot;xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos 0x0 --rotate normal&quot;</code></pre>
 <p>The listed monitors can be found via <code>xrandr --listproviders</code>. A problem with audio is not yet solved with the dock.</p>
 <h1 id="notes-on-using-some-common-tools">Notes on using some common tools</h1>
-<h2 id="git">Git</h2>
-<ul>
-<li><p>One of the common scenario of using Git is to make fixes to a repo <em>A</em> not belonging to me but I have already customized the source in the repo for my personal usage before hand. In this case, I can make a new branch called <em>patch-1</em>, for example, in my personal repo just for the fix:</p>
-<pre><code>git remote add A &lt;url of A&gt;
-git fetch A
-git checkout -b patch-1 A/patch-1</code></pre>
-<p>Once I commit all necessary fixes, I can make a pull request through the web interface of the Git repository. After the PR is merged, I can then delete the <em>patch-1</em> branch remotely and locally by</p>
-<pre><code>git push origin --delete patch-1
-git branch -d patch-1</code></pre></li>
-<li><p>Remove a file stored in Git history: If the change is not published yet, use</p>
-<pre><code>git rm --cached FILENAME
-git commit --amend -CHEAD</code></pre>
-<p>or remove the file and then redo the commits in the past 7 commits in the <code>dev</code> branch:</p>
-<pre><code>git filter-branch --prune-empty -d /dev/shm/scratch --index-filter &quot;git rm --cached -f --ignore-unmatch FILEPATH&quot; --tag-name-filter cat -- HEAD~7..HEAD
-git update-ref -d refs/original/refs/heads/dev
-git reflog expire --expire=now --all
-git gc --prune=now</code></pre>
-<p>In the commands above, <code>-d</code> names a temporary directory that does not yet exist to use for building the filtered history. If you are running on a modern Linux distribution, specifying a tree in <code>/dev/shm</code> will result in faster execution. Without this <code>-d</code> option, it might end up with a large backup blob in the directory after all the operations.</p>
-<p>If the error <code>/refs/original/ backup has exist</code> pops up, use</p>
-<pre><code>rm -r .git/refs/original/</code></pre>
-<p>to delete the backup first.</p>
-<p>More options can be found <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository">here</a> and <a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">here</a>.</p></li>
-<li><p>To compress loose objects, use</p>
-<pre><code>git gc --aggressive</code></pre></li>
-<li><p><code>git diff --color-words [&lt;path&gt; ...]</code> can highlight the changes of a file or tree since the last commit in color to the word-level. As <code>git diff</code> is not merely comparing indices, <code>git diff --no-index &lt;path1&gt; &lt;path2&gt;</code> can compare two files without <code>git</code> history and highlight the changes in color. The last command can also go with the <code>--color-words</code> switch to show the word differences.</p></li>
-<li><p>To reset a local repository to be synchronized with the remote, use</p>
-<pre><code>git fetch origin
-git reset --hard origin/master</code></pre></li>
-</ul>
 <h2 id="changing-java-settings">Changing Java settings</h2>
 <p>To change the default version of Java commands, one can run</p>
 <pre><code>sudo update-alternatives --config java</code></pre>
@@ -465,13 +436,6 @@ git reset --hard origin/master</code></pre></li>
 <p>After this, to change the home directory of Java, one can edit by <code>sudo nano /etc/environment</code> with a line of <code>JAVA_HOME=&quot;/usr/lib/jvm/java-8-oracle&quot;</code>, for example, where the directory path is copied from the <code>sudo update-alternatives --config java</code> setting. After saving the setting, run</p>
 <pre><code>source /etc/environment</code></pre>
 <p>to reload the setting. To check if the new setting has taken effect, one can use <code>echo $JAVA_HOME</code> and <code>javac --version</code>, for instance.</p>
-<h2 id="atom">Atom</h2>
-<p>Since <a href="https://atom.io">Atom</a> is still not very stable yet, it might crash due to the windows in open during startup. One quick life-saving trick is to run the program from command line by <code>atom --clear-window-state</code>.</p>
-<h2 id="inkscape">InkScape</h2>
-<ul>
-<li><p>Change background color: open <code>File/Document settings</code> (shift+ctl+D) and select the color from the <code>Color/Background</code> tab. Use <code>FF</code> in the transparence setting of the RGB color picker to make the color solid (<code>00</code> means completely transparent).</p></li>
-<li><p>Cut down an object in a particular shape mask: see <a href="https://inkscapetutorials.org/2014/04/22/inkscape-faq-how-do-i-crop-in-inkscape/">How do I crop in Inkscape?</a></p></li>
-</ul>
 <div class="references">
 
 </div>

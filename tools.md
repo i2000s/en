@@ -53,11 +53,16 @@ My notes:
 Most of my coding is done with Matlab because most of collaborators use it and my university--UNM--provides it for free to me as the original home of Matlab.  I also use the following:
 
  1. The Jupyter notebook (formerly IPython and IJulia notebook). For interactive running and debugging. And for organizing, recording, and
-    sharing code with animations and mathematics.
+    sharing code with animations and mathematics. It supports multiple programming language kernels.
  2. [Github](http://github.com), [BitBucket](http://bitbucket.com), [GitLab](https://about.gitlab.com/) and [Coding](https://coding.net/).  For collaborative code development.
  3. [Matlab](https://www.mathworks.com/products/matlab.html) is still my main programming language as most of my collaborators do. The program comes with a good UI.
  4. [Eclipse](https://www.eclipse.org/) for C and Java programming IDE. Used for Arduio and others.
- 5. [Vim](http://www.vim.org) for plain programming. [GNU Nano](https://www.nano-editor.org/) is also a simple plain editor without complicated short-keys which I use in Linux.
+ 5. [Atom](https://atom.io) for editing files in markdown and all other languages. Julia has a [Juno plugin for Atom](http://junolab.org/), but now I program Julia mostly in the [JuliaPro](https://juliacomputing.com/products/juliapro.html) version with the builtin Juno IDE.
+ 6. [Vim](http://www.vim.org) for plain programming. [GNU Nano](https://www.nano-editor.org/) is also a simple plain editor without complicated short-keys which I use in Linux.
+
+ Related notes:
+ + [My notes on Git](/en/notebooks/git.html).
+ + [Notes on Atom](/en/notebooks/atom.html).
 
 ## Plotting
 
@@ -73,11 +78,6 @@ For making quantum circuit diagrams, [qcircuit](https://github.com/cquic/qcircui
 I also prototyped a package called [qcircuitz](https://github.com/CQuIC/qcircuitz) (suggested by [Dr. Steve Flammia](http://www.physics.usyd.edu.au/~sflammia)) to provide some macros in Tikz for people who prefer to use the powerful [PGF/TikZ package](https://sourceforge.net/projects/pgf/) including [PGFPlots](http://pgfplots.sourceforge.net/) for graphics in LaTeX.
 While prototyping the package, I found [qpic](https://github.com/qpic/qpic) is also made on a similar direction yet with a Python interface which looks pretty good.
 
-
-[comment] # (## Teaching)
-
-[comment] # ( 1. SageMathCloud)
-[comment] # ( 2. The Jupyter notebook (formerly IPython notebook).)
 
 ## Notes and productivity
 

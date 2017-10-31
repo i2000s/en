@@ -435,6 +435,11 @@ alias one="xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos 0x0 
 The listed monitors can be found via `xrandr --listproviders`.
 A problem with audio is not yet solved with the dock.
 
+## Set time zone reference frame for accurate time synchronization for dual boot systems
+For Ubuntu-Windows dual boot systems, the OS's seem to mess up with each other's time zone reference point when they are reading time from the BIOS and time server.
+This results in a wrong time when switching OS sometimes.
+To eliminate the time difference for both OS's, [these instructions](http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/) might be helpful.
+
 # Notes on using some common tools
 ## Changing Java settings
 To change the default version of Java commands, one can run

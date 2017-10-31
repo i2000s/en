@@ -313,8 +313,8 @@ WantedBy=multi-user.target</code></pre>
 # Run Powertop auto-tune.
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
-# 1-2.1 1-2.2 1-2.4 2-2 2-2.4 ports are for my USB3.0 dock station.
-declare -a usbs=(&quot;1-2&quot; &quot;1-2.1&quot; &quot;1-2.2&quot; &quot;1-2.4&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-9&quot; &quot;1-10&quot; &quot;1-13&quot; &quot;1-14&quot; &quot;2-2&quot; &quot;2-2.4&quot; &quot;usb1&quot; &quot;usb2&quot;)
+# 1-1.1 1-1.2 1-2.1 1-2.2 1-2.4 2-1 2-1.4 2-2 2-2.4 ports are for my USB3.0 dock station.
+declare -a usbs=(&quot;1-1.1&quot; &quot;1-1.2&quot; &quot;1-2&quot; &quot;1-2.1&quot; &quot;1-2.2&quot; &quot;1-2.4&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-9&quot; &quot;1-10&quot; &quot;1-13&quot; &quot;1-14&quot; &quot;2-1&quot; &quot;2-1.4&quot; &quot;2-2&quot; &quot;2-2.4&quot; &quot;usb1&quot; &quot;usb2&quot;)
 sleep 5;
 for i in &quot;${usbs[@]}&quot;
 do

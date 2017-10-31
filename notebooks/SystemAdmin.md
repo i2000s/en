@@ -234,8 +234,8 @@ Of course, I have created a file at `/home/qxd/powertop_tune.sh` with the follow
 # Run Powertop auto-tune.
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
-# 1-2.1 1-2.2 1-2.4 2-2 2-2.4 ports are for my USB3.0 dock station.
-declare -a usbs=("1-2" "1-2.1" "1-2.2" "1-2.4" "1-5" "1-8" "1-9" "1-10" "1-13" "1-14" "2-2" "2-2.4" "usb1" "usb2")
+# 1-1.1 1-1.2 1-2.1 1-2.2 1-2.4 2-1 2-1.4 2-2 2-2.4 ports are for my USB3.0 dock station.
+declare -a usbs=("1-1.1" "1-1.2" "1-2" "1-2.1" "1-2.2" "1-2.4" "1-5" "1-8" "1-9" "1-10" "1-13" "1-14" "2-1" "2-1.4" "2-2" "2-2.4" "usb1" "usb2")
 sleep 5;
 for i in "${usbs[@]}"
 do

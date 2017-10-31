@@ -46,6 +46,7 @@ Equations can be put into Illustrator by using [MathMagic Pro](http://www.mathma
 For 3D modeling and animations, I am starting with [Blender](http://www.blender.org/) and have used [Pov-Ray](http://www.povray.org/) before.
 
 My notes:
+
 + [Notes on Inkscape](/en/notebooks/inkscape.html)
 + [Notes on Adobe Illustrator](/en/notebooks/illustrator.html)
 
@@ -61,8 +62,9 @@ Most of my coding is done with Matlab because most of collaborators use it and m
  6. [Vim](http://www.vim.org) for plain programming. [GNU Nano](https://www.nano-editor.org/) is also a simple plain editor without complicated short-keys which I use in Linux.
 
  Related notes:
- + [My notes on Git](/en/notebooks/git.html).
- + [Notes on Atom](/en/notebooks/atom.html).
+
+ + [My notes on Git](/en/notebooks/git.html)
+ + [Notes on Atom](/en/notebooks/atom.html)
 
 ## Plotting
 
@@ -94,7 +96,7 @@ While prototyping the package, I found [qpic](https://github.com/qpic/qpic) is a
  2. [Coda](https://panic.com/coda/).  
  3. [Wordpress](http://wordpress.org/). I have participated the development of the [CQuIC website](https://cquic.unm.edu) using Wordpress. In making the CQuIC website, I have customized the [bibtexbrowser](https://github.com/monperrus/bibtexbrowser) toolkit so that it is now compatible with APS citation and common standards widely adapted in the physics society for listing publications on a Wordpress website.
 
-## computers
+## Computers
 
 Being a quantum information scientist, I have been developing a deep interest in both software and hardware of computers and artificial intelligence.
 Sometimes, I also need to do hard computing jobs on nanophotonics and many-body quantum simulations.
@@ -119,4 +121,4 @@ Again, Ubuntu OS was installed for its being popular in the research center.
 I have also experiences of using CentOS on a cluster in the earlier days which along side with Scientific Linux OS may be a better choice for dedicated high-performance computing.
 
 
-## Some notes on computer system administration and tool using can be found [here](/en/notebooks/SystemAdmin.html).
+### Some notes on computer system administration and tool using can be found [here](/en/notebooks/SystemAdmin.html).

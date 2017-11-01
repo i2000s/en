@@ -1,0 +1,4 @@
+[submodule "assets/bibliography/refs"]
+	path = assets/bibliography/refs
+	url = https://github.com/i2000s/Archive.git
+	branch = LabNotebook

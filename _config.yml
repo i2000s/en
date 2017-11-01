@@ -93,6 +93,8 @@ scholar:
   query: "@*"
 
 
+## Bibliography Submodule directory
+submodule_directory: assets/bibliography/refs # This is used for pulling the external bibliography repo. Only one submodule is allowed for now.
 
 ## Markdown Parser
 markdown: pandoc

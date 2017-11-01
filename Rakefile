@@ -30,6 +30,10 @@ else
 end
 
 WORKDIR = Dir.pwd
+# Define the directory for the submodule storage folder.
+if CONFIG['submodule_directory']
+  SUBMODULEDIR = CONFIG['submodule_directory'] # This is relative.
+end
 
 #############################################################################
 #
@@ -214,7 +218,12 @@ namespace :site do
     check_destination
 
     sh "git checkout #{SOURCE_BRANCH}"
-    Dir.chdir(EXTERNAL) { sh "git checkout #{DESTINATION_BRANCH}" }
+    Dir.chdir(EXTERNAL) do
+      sh "git checkout #{DESTINATION_BRANCH}"
+      if SUBMODULEDIR
+        sh "rm -rf #{SUBMODULEDIR}/.git" # This is to delete the git file in the submodule folder so that the useful files there won't be recognized as submodule for the destination branch.
+      end
+    end
 
     # Generate the site
     sh "bundle exec jekyll build --trace"

@@ -49,7 +49,7 @@ The first thing to do is to clone the remote repository files to your local comp
 ```
 git clone --recursive https://github.com/i2000s/en.git
 ```
-where the `--recursive` option is to make sure the submodule of bibliography is pulled down completely.
+where the `--recursive` option is to make sure submodules (if any) are pulled down completely.
 
 If you run Jekyll sites for the first time, you may need to install Ruby v2.3.* (tested on v2.3.0 and v2.3.1) and the `gem` development envirenment.
 I was basically following [this instruction](http://tecadmin.net/install-ruby-on-rails-on-ubuntu/) on my Ubuntu,

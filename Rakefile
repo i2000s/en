@@ -219,10 +219,10 @@ namespace :site do
 
     sh "git checkout #{SOURCE_BRANCH}"
     Dir.chdir(EXTERNAL) do
-      sh "git checkout #{DESTINATION_BRANCH}"
       if SUBMODULEDIR
-        sh "rm -rf #{SUBMODULEDIR}/.git" # This is to delete the git file in the submodule folder so that the useful files there won't be recognized as submodule for the destination branch.
+        sh "rm -rf #{SUBMODULEDIR}" # This is to delete the git file in the submodule folder so that git won't complain when switching to the destination branch where the folder is not a submodule.
       end
+      sh "git checkout #{DESTINATION_BRANCH}"
     end
 
     # Generate the site

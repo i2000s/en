@@ -417,10 +417,28 @@ The second type of files are called by the menu files.
 System-wide programs may be located at other places.
 For new programs, one can create the `.menu` and `.desktop` files to let the shortcut shown on the dropdown application menu.
 
-## Shorten bash terminal prompt path
-The path and computer name in the terminal may become very long when working in a deep level of directory.
-This line of path and computer information can be greatly shorten by following [this instruction](https://askubuntu.com/a/145626/390708).
+## Shorten bash terminal (shell) prompt path and show the branch name if the folder is a git repository
+The first concern is that the path and computer name in the terminal may become very long when working in a deep level of directory.
+The second concern is that it would be nice to show the name of the current git branch if the directory is in a git repository.
+
+For the first concern, this line of path and computer information may be greatly shortened following [this instruction](https://askubuntu.com/a/145626/390708).
 The full directory path can still be seen on the top of the terminal window or typing `pwd` command.
+For the second concern, [this code snap](https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt) seems serving the goal, which can show the git branch and status information in red in the terminal prompt if possible.
+By understanding the two code snaps in the [shell prompt language](https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html), I made up the following code to replace the corresponding code session in `~/.bashrc` (yes, the code is used to replace the original PS1 setting code, not to be appended at the end of the file):
+```
+# Add git branch if its present to PS1.
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+# This part is to shorten the prompt path and show the git branch name in red if possible.
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u:\W$(parse_git_branch)\$ '
+fi
+unset color_prompt force_color_prompt
+```
+By reopening a new terminal, you can see the path in the prompt is shortened and the branch name is shown in red if the path is in a git repository.
 
 
 ## Set time zone reference frame for accurate time synchronization for dual boot systems
@@ -435,7 +453,7 @@ If the `session and startup` is set to reopen apps from the last sessions in the
 All those sessions will be available to choose from When logging in to the XFCE desktop environment.
 To delete the useless ones, go to `~/.cache/sessions` and edit the file named as `xfce4-session-QC5-ubuntu:1` or similar with your computer's name.
 There may be a section started with `[Session: Default]` and many others like `[Session: someoneelse]`. Delete the parts for `[Session: someoneelse]` if needed.
-On next login, double click the session to use, or the default one will be opened automatically if there is no other sessions available. 
+On next login, double click the session to use, or the default one will be opened automatically if there is no other sessions available.
 
 # Notes on using some common tools
 ## Changing Java settings

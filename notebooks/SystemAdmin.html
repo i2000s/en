@@ -285,9 +285,10 @@ read-only with the &#39;ro&#39; mount option</code></pre>
 <pre><code>dpkg -l linux-{image,headers}-&quot;[0-9]*&quot; | awk &#39;/^ii/{ print $2}&#39; | grep -v -e `uname -r | cut -f1,2 -d&quot;-&quot;` | grep -e &#39;[0-9]&#39; | xargs sudo apt-get -y purge</code></pre>
 <p>Reference: <a href="http://askubuntu.com/questions/89710/how-do-i-free-up-more-space-in-boot">the solution on Askubuntu</a>.</p>
 <h3 id="remove-old-backups-by-deja-dup">Remove old backups by Deja Dup</h3>
-<p>I use <code>Deja Dup</code> to automatically backup my Ubuntu OS and home directory files incrementally. Sometimes, the backup folder might take a lot of space and some old backups can be removed safely. 1. For deleting all but the last full backup, open a terminal and run this:</p>
-<pre><code>duplicity remove-all-but-n-full 1 file:///media/I/Ubuntu --force</code></pre>
-<ol start="2" type="1">
+<p>I use <code>Deja Dup</code> to automatically backup my Ubuntu OS and home directory files incrementally. Sometimes, the backup folder might take a lot of space and some old backups can be removed safely.</p>
+<ol type="1">
+<li><p>For deleting all but the last full backup, open a terminal and run this:</p>
+<pre><code>duplicity remove-all-but-n-full 1 file:///media/I/Ubuntu --force</code></pre></li>
 <li><p>Delete files from failed backup sessions:</p>
 <pre><code>duplicity cleanup file:///media/I/Ubuntu --force</code></pre></li>
 </ol>
@@ -376,7 +377,7 @@ alias one=&quot;xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos
 <pre><code>xrandr --setprovideroutputsource 1 0
 xrandr --setprovideroutputsource 2 0</code></pre>
 <p>to display with two monitors for the first time. You can manually change the display resolution and relative positions in your Display setting of your desktop environment. The names of displays/monitors (shown as <code>DVI-I-2-1</code> and <code>eDP-1-1</code> in my <code>~/.bashrc</code> script) can found by running <code>xrandr</code> on a terminal. You may need to adapt my script with your case. More details can be found in the <a href="https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md">post-installation setting</a>.</p>
-<p>Once everything is working, after every boot, you just need to run <code>two</code> on a terminal to enable the second monitor, or run <code>one</code> to switch back to one monitor display setting.</p>
+<p>Once everything is working, after every boot, you just need to run <code>two</code> on a terminal to enable the second monitor, or run <code>one</code> to switch back to one monitor display setting. A problem with audio may have not yet been solved with the dock’s DisplayLink driver.</p>
 <h2 id="using-lvm-and-btrfs-filesystem-to-partition-disks">Using LVM and btrfs filesystem to partition disks</h2>
 <p>LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future. On the other hand, <code>btrfs</code> filesystem is very flexible and convenient to make snapshot backups and secure &amp; safe to manage system files in Linux. Combining these two, we can have a very flexible and convenient way to run Linux. Below are some common scenarios that I have encountered to use LVM with the btrfs filesystem.</p>
 <h3 id="i.-creating-lvm-managed-volume-groups-and-logical-volumes-for-installing-ubuntu-along-side-with-windows.">I. creating LVM managed volume groups and logical volumes for installing Ubuntu along side with Windows.</h3>
@@ -420,16 +421,9 @@ sudo vgdisplay -v</code></pre>
 <p>On XFCE or GNOME desktop environment of Linux OS, one can browse applications on a dropdown menu. To manage the menu structure and add shortcuts to the application menu, there are two places to look for: one is located at <code>~/.config/menus</code> with files named as <code>*.menu</code> which define how a particular program’s shortcut is located in the application menu–not every desktop environment has this, neither all programs have a menu file defined here; the other one is located at <code>~/.local/share/applications</code> with files named as <code>*.desktop</code> which define shortcuts with commands of running the target programs. The second type of files are called by the menu files. System-wide programs may be located at other places. For new programs, one can create the <code>.menu</code> and <code>.desktop</code> files to let the shortcut shown on the dropdown application menu.</p>
 <h2 id="shorten-bash-terminal-prompt-path">Shorten bash terminal prompt path</h2>
 <p>The path and computer name in the terminal may become very long when working in a deep level of directory. This line of path and computer information can be greatly shorten by following <a href="https://askubuntu.com/a/145626/390708">this instruction</a>. The full directory path can still be seen on the top of the terminal window or typing <code>pwd</code> command.</p>
-<h2 id="install-and-configure-thinkpad-usb-3.0-dock-with-displaylink-on-ubuntu-16.04">Install and configure Thinkpad USB 3.0 Dock with DisplayLink on Ubuntu 16.04</h2>
-<p>The DisplayLink driver with supports to the recent linux kernels can be installed using a script from <a href="https://github.com/AdnanHodzic/displaylink-debian">this repo</a>.</p>
-<p>I have configured aliases for the <code>xrandr</code> configurations to turn on (with command <code>two</code>) or turn off (with command <code>one</code>) the external display following the instruction <a href="https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md#troubleshooting-most-common-issues">here</a> by adding two lines in <code>~/.bashrc</code> followed by <code>source ~/.bashrc</code>:</p>
-<pre><code># two
-alias two=&quot;xrandr --setprovideroutputsource 1 0 &amp;&amp; xrandr --setprovideroutputsource 2 0 &amp;&amp; xrandr --output DVI-I-2-1 --auto --right-of eDP-1-1&quot;
-# one
-alias one=&quot;xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos 0x0 --rotate normal&quot;</code></pre>
-<p>The listed monitors can be found via <code>xrandr --listproviders</code>. A problem with audio is not yet solved with the dock.</p>
 <h2 id="set-time-zone-reference-frame-for-accurate-time-synchronization-for-dual-boot-systems">Set time zone reference frame for accurate time synchronization for dual boot systems</h2>
 <p>For Ubuntu-Windows dual boot systems, the OS’s seem to mess up with each other’s time zone reference point when they are reading time from the BIOS and time server. This results in a wrong time when switching OS sometimes. To eliminate the time difference for both OS’s, <a href="http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/">these instructions</a> might be helpful.</p>
+<p>What I did is run <code>timedatectl set-local-rtc 1 --adjust-system-clock</code> in Ubuntu to use the local time zone for the machine time (RTC) which is the default setting for Windows. The time zone setting can be checked via command <code>timedatectl</code>.</p>
 <h1 id="notes-on-using-some-common-tools">Notes on using some common tools</h1>
 <h2 id="changing-java-settings">Changing Java settings</h2>
 <p>To change the default version of Java commands, one can run</p>

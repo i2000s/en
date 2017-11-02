@@ -419,8 +419,21 @@ sudo vgdisplay -v</code></pre>
 <p>The last step had verified that all of the commands worked out for this resizing operation between / and /home logical volumes.</p>
 <h2 id="manage-application-menu">Manage application menu</h2>
 <p>On XFCE or GNOME desktop environment of Linux OS, one can browse applications on a dropdown menu. To manage the menu structure and add shortcuts to the application menu, there are two places to look for: one is located at <code>~/.config/menus</code> with files named as <code>*.menu</code> which define how a particular program’s shortcut is located in the application menu–not every desktop environment has this, neither all programs have a menu file defined here; the other one is located at <code>~/.local/share/applications</code> with files named as <code>*.desktop</code> which define shortcuts with commands of running the target programs. The second type of files are called by the menu files. System-wide programs may be located at other places. For new programs, one can create the <code>.menu</code> and <code>.desktop</code> files to let the shortcut shown on the dropdown application menu.</p>
-<h2 id="shorten-bash-terminal-prompt-path">Shorten bash terminal prompt path</h2>
-<p>The path and computer name in the terminal may become very long when working in a deep level of directory. This line of path and computer information can be greatly shorten by following <a href="https://askubuntu.com/a/145626/390708">this instruction</a>. The full directory path can still be seen on the top of the terminal window or typing <code>pwd</code> command.</p>
+<h2 id="shorten-bash-terminal-shell-prompt-path-and-show-the-branch-name-if-the-folder-is-a-git-repository">Shorten bash terminal (shell) prompt path and show the branch name if the folder is a git repository</h2>
+<p>The first concern is that the path and computer name in the terminal may become very long when working in a deep level of directory. The second concern is that it would be nice to show the name of the current git branch if the directory is in a git repository.</p>
+<p>For the first concern, this line of path and computer information may be greatly shortened following <a href="https://askubuntu.com/a/145626/390708">this instruction</a>. The full directory path can still be seen on the top of the terminal window or typing <code>pwd</code> command. For the second concern, <a href="https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt">this code snap</a> seems serving the goal, which can show the git branch and status information in red in the terminal prompt if possible. By understanding the two code snaps in the <a href="https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">shell prompt language</a>, I made up the following code to replace the corresponding code session in <code>~/.bashrc</code> (yes, the code is used to replace the original PS1 setting code, not to be appended at the end of the file):</p>
+<pre><code># Add git branch if its present to PS1.
+parse_git_branch() {
+ git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/(\1)/&#39;
+}
+# This part is to shorten the prompt path and show the git branch name in red if possible.
+if [ &quot;$color_prompt&quot; = yes ]; then
+    PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ &#39;
+else
+    PS1=&#39;${debian_chroot:+($debian_chroot)}\u:\W$(parse_git_branch)\$ &#39;
+fi
+unset color_prompt force_color_prompt</code></pre>
+<p>By reopening a new terminal, you can see the path in the prompt is shortened and the branch name is shown in red if the path is in a git repository.</p>
 <h2 id="set-time-zone-reference-frame-for-accurate-time-synchronization-for-dual-boot-systems">Set time zone reference frame for accurate time synchronization for dual boot systems</h2>
 <p>For Ubuntu-Windows dual boot systems, the OS’s seem to mess up with each other’s time zone reference point when they are reading time from the BIOS and time server. This results in a wrong time when switching OS sometimes. To eliminate the time difference for both OS’s, <a href="http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/">these instructions</a> might be helpful.</p>
 <p>What I did is run <code>timedatectl set-local-rtc 1 --adjust-system-clock</code> in Ubuntu to use the local time zone for the machine time (RTC) which is the default setting for Windows. The time zone setting can be checked via command <code>timedatectl</code>.</p>

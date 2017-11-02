@@ -430,6 +430,13 @@ To eliminate the time difference for both OS's, [these instructions](http://ubun
 
 What I did is run `timedatectl set-local-rtc 1 --adjust-system-clock` in Ubuntu to use the local time zone for the machine time (RTC) which is the default setting for Windows. The time zone setting can be checked via command `timedatectl`.
 
+## Delete old XFCE sessions
+If the `session and startup` is set to reopen apps from the last sessions in the XFCE settings, old sessions might have been stored in the computer for a while.
+All those sessions will be available to choose from When logging in to the XFCE desktop environment.
+To delete the useless ones, go to `~/.cache/sessions` and edit the file named as `xfce4-session-QC5-ubuntu:1` or similar with your computer's name.
+There may be a section started with `[Session: Default]` and many others like `[Session: someoneelse]`. Delete the parts for `[Session: someoneelse]` if needed.
+On next login, double click the session to use, or the default one will be opened automatically if there is no other sessions available. 
+
 # Notes on using some common tools
 ## Changing Java settings
 To change the default version of Java commands, one can run

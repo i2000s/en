@@ -189,6 +189,7 @@ Reference: [the solution on Askubuntu](http://askubuntu.com/questions/89710/how-
 ### Remove old backups by Deja Dup
 I use `Deja Dup` to automatically backup my Ubuntu OS and home directory files incrementally.
 Sometimes, the backup folder might take a lot of space and some old backups can be removed safely.
+
 1. For deleting all but the last full backup, open a terminal and run this:
 ```
 duplicity remove-all-but-n-full 1 file:///media/I/Ubuntu --force
@@ -343,6 +344,7 @@ You may need to adapt my script with your case.
 More details can be found in the [post-installation setting](https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md).
 
 Once everything is working, after every boot, you just need to run `two` on a terminal to enable the second monitor, or run `one` to switch back to one monitor display setting.
+A problem with audio may have not yet been solved with the dock's DisplayLink driver.
 
 ## Using LVM and btrfs filesystem to partition disks
 LVM is a good partition and logical volume management tool to organize disk space, especially for the cases that one Linux directory is spanned onto two physical disks or is to be extended to extra disks in the future.
@@ -420,25 +422,13 @@ The path and computer name in the terminal may become very long when working in 
 This line of path and computer information can be greatly shorten by following [this instruction](https://askubuntu.com/a/145626/390708).
 The full directory path can still be seen on the top of the terminal window or typing `pwd` command.
 
-## Install and configure Thinkpad USB 3.0 Dock with DisplayLink on Ubuntu 16.04
-The DisplayLink driver with supports to the recent linux kernels can be installed using a script from [this repo](https://github.com/AdnanHodzic/displaylink-debian).
-
-I have configured aliases for the `xrandr` configurations to turn on (with command `two`) or turn off (with command `one`) the external display following the instruction [here](https://github.com/AdnanHodzic/displaylink-debian/blob/master/post-install-guide.md#troubleshooting-most-common-issues) by adding two lines in `~/.bashrc` followed by `source ~/.bashrc`:
-
-```
-# two
-alias two="xrandr --setprovideroutputsource 1 0 && xrandr --setprovideroutputsource 2 0 && xrandr --output DVI-I-2-1 --auto --right-of eDP-1-1"
-# one
-alias one="xrandr --output DVI-I-2-1 --off --output eDP-1-1 --primary --pos 0x0 --rotate normal"
-```
-
-The listed monitors can be found via `xrandr --listproviders`.
-A problem with audio is not yet solved with the dock.
 
 ## Set time zone reference frame for accurate time synchronization for dual boot systems
 For Ubuntu-Windows dual boot systems, the OS's seem to mess up with each other's time zone reference point when they are reading time from the BIOS and time server.
 This results in a wrong time when switching OS sometimes.
 To eliminate the time difference for both OS's, [these instructions](http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/) might be helpful.
+
+What I did is run `timedatectl set-local-rtc 1 --adjust-system-clock` in Ubuntu to use the local time zone for the machine time (RTC) which is the default setting for Windows. The time zone setting can be checked via command `timedatectl`.
 
 # Notes on using some common tools
 ## Changing Java settings

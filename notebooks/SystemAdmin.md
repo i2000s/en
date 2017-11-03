@@ -75,6 +75,7 @@ So, the solution is to rebuild the NVidia driver using default settings by
 ```
 sudo apt purge nvidia*
 sudo rm /etc/X11/xorg.conf # Run only when xorg.conf is there.
+sudo find / -type f 2> /dev/null | grep -i nvidia | grep -i \\.ko # If this gives any output, delete those files one by one to make sure there won't be any version mismatch problem after the installation if the driver to be installed is a different version from any previous ones.
 sudo ubuntu-drivers autoinstall
 ```
 The building process will be configuring all installed Linux kernels.
@@ -162,7 +163,7 @@ However, this doesn't mean the Ubuntu OS doesn't update their supported Linux ke
 In fact, for example, Ubuntu-16.04-1 was released with kernel 4.4.X, but then Ubuntu-16.04-2 was released with kernel 4.8.X.
 The default behavior of a local Ubuntu-16.04-0 distribution is to stick to the initially installed kernel series before the OS is upgraded to a new distribution like Ubuntu 18.04 LTS. To change this default behavior and keep receiving updated Ubuntu's officially supported kernel series on a LTS Ubuntu distribution, one can enable the HWE stacks by installing the following packages:
 ```
-sudo apt-get install --install-recommends linux-generic-hwe-16.04 xserver-xorg-hwe-16.04 
+sudo apt-get install --install-recommends linux-generic-hwe-16.04 xserver-xorg-hwe-16.04
 ```
 according to the [official rolling LTS enablement stack page for Ubuntu 16.04 LTS distribution](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack).
 The kernel update will keep rolling in the first two years after the distribution was initally released.

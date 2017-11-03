@@ -445,9 +445,13 @@ By reopening a new terminal, you can see the path in the prompt is shortened and
 ## Set time zone reference frame for accurate time synchronization for dual boot systems
 For Ubuntu-Windows dual boot systems, the OS's seem to mess up with each other's time zone reference point when they are reading time from the BIOS and time server.
 This results in a wrong time when switching OS sometimes.
-To eliminate the time difference for both OS's, [these instructions](http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/) might be helpful.
+To eliminate the time difference for both OS's, [this](http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/) and [this](https://wiki.archlinux.org/index.php/time#UTC_in_Windows) instructions might be helpful.
 
-What I did is run `timedatectl set-local-rtc 1 --adjust-system-clock` in Ubuntu to use the local time zone for the machine time (RTC) which is the default setting for Windows. The time zone setting can be checked via command `timedatectl`.
+What I did is to run `timedatectl set-local-rtc 0 --adjust-system-clock` in Ubuntu to use the UTC time for the machine time (RTC) which could avoid the change of daylight saving time and so on. This should be the default behavior of Ubuntu 16.04 if the setting hasn't been changed before.
+The time synchronization setting can be checked via command `timedatectl status`.
+Certainly, the time can be set to synchronize from a server by `sudo ntpdate pool.ntp.org`.
+On Windows 10, I open a command prompt as admin and run `reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_QWORD /f`.
+This is equivalent to add a `QWORD` with value 1 to a key called `RealTimeIsUniversal` under the `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation` register table.
 
 ## Delete old XFCE sessions
 If the `session and startup` is set to reopen apps from the last sessions in the XFCE settings, old sessions might have been stored in the computer for a while.

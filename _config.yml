@@ -94,7 +94,7 @@ scholar:
 
 
 ## Bibliography Submodule directory
-submodule_directory: assets/bibliography/refs # This is used for pulling the external bibliography repo. 
+submodule_directory: assets/bibliography/refs # This is used for pulling the external bibliography repo.
 
 ## Markdown Parser
 markdown: pandoc
@@ -130,6 +130,7 @@ defaults:
     values:
       layout: "post"
 
+delete_directory: assets/bibliography/refs # This is the directory/file to be deleted in the compiled folder before committing. Separate entries with blank if there are more than one. Use relative address.
 exclude:
   - Gemfile
   - Gemfile.lock

@@ -34,6 +34,10 @@ WORKDIR = Dir.pwd
 if CONFIG['submodule_directory']
   SUBMODULEDIR = CONFIG['submodule_directory'] # This is relative.
 end
+# Define the directories to be deleted (could be a file).
+if CONFIG['delete_directory']
+  DELETEDIR = CONFIG['delete_directory']
+end
 
 #############################################################################
 #
@@ -231,6 +235,9 @@ namespace :site do
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir(EXTERNAL) do
+      if (defined? DELETEDIR)
+        sh "rm -rf #{DELETEDIR}" # This is to delete the directory/files defined in the configure file.
+      end
       sh "rsync -a --delete --exclude='.*' #{WORKDIR}/_site/ ."
       sh "git add --all ."
       sh "git commit -m 'Updating to #{sha}.'"

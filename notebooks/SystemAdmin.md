@@ -237,7 +237,7 @@ Of course, I have created a file at `/home/qxd/powertop_tune.sh` with the follow
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
 # 1-1.1 1-1.2 1-2.1 1-2.2 1-2.4 2-1 2-1.4 2-2 2-2.4 ports are for my USB3.0 dock station.
-declare -a usbs=("1-1.1" "1-1.2" "1-2" "1-2.1" "1-2.2" "1-2.4" "1-5" "1-8" "1-9" "1-10" "1-13" "1-14" "2-1" "2-1.4" "2-2" "2-2.4" "usb1" "usb2")
+declare -a usbs=("1-1.1" "1-1.2" "1-2" "1-2.1" "1-2.2" "1-2.4" "1-5" "1-8" "1-10" "1-14" "2-1" "2-1.4" "2-2" "2-2.4" "usb1" "usb2")
 sleep 5;
 for i in "${usbs[@]}"
 do
@@ -424,8 +424,8 @@ The second concern is that it would be nice to show the name of the current git 
 
 For the first concern, this line of path and computer information may be greatly shortened following [this instruction](https://askubuntu.com/a/145626/390708).
 The full directory path can still be seen on the top of the terminal window or typing `pwd` command.
-For the second concern, [this code snap](https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt) seems serving the goal, which can show the git branch and status information in red in the terminal prompt if possible.
-By understanding the two code snaps in the [shell prompt language](https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html), I made up the following code to replace the corresponding code session in `~/.bashrc` (yes, the code is used to replace the original PS1 setting code, not to be appended at the end of the file):
+For the second concern, [this code snippet](https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt) seems serving the goal, which can show the git branch and status information in red in the terminal prompt if possible.
+By understanding the two code snippets in the [shell prompt language](https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html), I made up the following code to replace the corresponding code session in `~/.bashrc` (yes, the code is used to replace the original PS1 setting code, not to be appended at the end of the file):
 ```
 # Add git branch if its present to PS1.
 parse_git_branch() {

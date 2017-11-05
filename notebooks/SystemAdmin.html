@@ -316,7 +316,7 @@ WantedBy=multi-user.target</code></pre>
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
 # 1-1.1 1-1.2 1-2.1 1-2.2 1-2.4 2-1 2-1.4 2-2 2-2.4 ports are for my USB3.0 dock station.
-declare -a usbs=(&quot;1-1.1&quot; &quot;1-1.2&quot; &quot;1-2&quot; &quot;1-2.1&quot; &quot;1-2.2&quot; &quot;1-2.4&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-9&quot; &quot;1-10&quot; &quot;1-13&quot; &quot;1-14&quot; &quot;2-1&quot; &quot;2-1.4&quot; &quot;2-2&quot; &quot;2-2.4&quot; &quot;usb1&quot; &quot;usb2&quot;)
+declare -a usbs=(&quot;1-1.1&quot; &quot;1-1.2&quot; &quot;1-2&quot; &quot;1-2.1&quot; &quot;1-2.2&quot; &quot;1-2.4&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-10&quot; &quot;1-14&quot; &quot;2-1&quot; &quot;2-1.4&quot; &quot;2-2&quot; &quot;2-2.4&quot; &quot;usb1&quot; &quot;usb2&quot;)
 sleep 5;
 for i in &quot;${usbs[@]}&quot;
 do
@@ -422,7 +422,7 @@ sudo vgdisplay -v</code></pre>
 <p>On XFCE or GNOME desktop environment of Linux OS, one can browse applications on a dropdown menu. To manage the menu structure and add shortcuts to the application menu, there are two places to look for: one is located at <code>~/.config/menus</code> with files named as <code>*.menu</code> which define how a particular program’s shortcut is located in the application menu–not every desktop environment has this, neither all programs have a menu file defined here; the other one is located at <code>~/.local/share/applications</code> with files named as <code>*.desktop</code> which define shortcuts with commands of running the target programs. The second type of files are called by the menu files. System-wide programs may be located at other places. For new programs, one can create the <code>.menu</code> and <code>.desktop</code> files to let the shortcut shown on the dropdown application menu.</p>
 <h2 id="shorten-bash-terminal-shell-prompt-path-and-show-the-branch-name-if-the-folder-is-a-git-repository">Shorten bash terminal (shell) prompt path and show the branch name if the folder is a git repository</h2>
 <p>The first concern is that the path and computer name in the terminal may become very long when working in a deep level of directory. The second concern is that it would be nice to show the name of the current git branch if the directory is in a git repository.</p>
-<p>For the first concern, this line of path and computer information may be greatly shortened following <a href="https://askubuntu.com/a/145626/390708">this instruction</a>. The full directory path can still be seen on the top of the terminal window or typing <code>pwd</code> command. For the second concern, <a href="https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt">this code snap</a> seems serving the goal, which can show the git branch and status information in red in the terminal prompt if possible. By understanding the two code snaps in the <a href="https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">shell prompt language</a>, I made up the following code to replace the corresponding code session in <code>~/.bashrc</code> (yes, the code is used to replace the original PS1 setting code, not to be appended at the end of the file):</p>
+<p>For the first concern, this line of path and computer information may be greatly shortened following <a href="https://askubuntu.com/a/145626/390708">this instruction</a>. The full directory path can still be seen on the top of the terminal window or typing <code>pwd</code> command. For the second concern, <a href="https://askubuntu.com/questions/730754/how-do-i-show-the-git-branch-with-colours-in-bash-prompt">this code snippet</a> seems serving the goal, which can show the git branch and status information in red in the terminal prompt if possible. By understanding the two code snippets in the <a href="https://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">shell prompt language</a>, I made up the following code to replace the corresponding code session in <code>~/.bashrc</code> (yes, the code is used to replace the original PS1 setting code, not to be appended at the end of the file):</p>
 <pre><code># Add git branch if its present to PS1.
 parse_git_branch() {
  git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/(\1)/&#39;
@@ -440,6 +440,22 @@ unset color_prompt force_color_prompt</code></pre>
 <p>What I did is to run <code>timedatectl set-local-rtc 0 --adjust-system-clock</code> in Ubuntu to use the UTC time for the machine time (RTC) which could avoid the change of daylight saving time and so on. This should be the default behavior of Ubuntu 16.04 if the setting hasn’t been changed before. The time synchronization setting can be checked via command <code>timedatectl status</code>. Certainly, the time can be set to synchronize from a server by <code>sudo ntpdate pool.ntp.org</code>. On Windows 10, I open a command prompt as admin and run <code>reg add &quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation&quot; /v RealTimeIsUniversal /d 1 /t REG_QWORD /f</code>. This is equivalent to add a <code>QWORD</code> with value 1 to a key called <code>RealTimeIsUniversal</code> under the <code>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation</code> register table.</p>
 <h2 id="delete-old-xfce-sessions">Delete old XFCE sessions</h2>
 <p>If the <code>session and startup</code> is set to reopen apps from the last sessions in the XFCE settings, old sessions might have been stored in the computer for a while. All those sessions will be available to choose from When logging in to the XFCE desktop environment. To delete the useless ones, go to <code>~/.cache/sessions</code> and edit the file named as <code>xfce4-session-QC5-ubuntu:1</code> or similar with your computer’s name. There may be a section started with <code>[Session: Default]</code> and many others like <code>[Session: someoneelse]</code>. Delete the parts for <code>[Session: someoneelse]</code> if needed. On next login, double click the session to use, or the default one will be opened automatically if there is no other sessions available.</p>
+<h2 id="an-issue-with-slow-boot">An issue with slow boot</h2>
+<p>I reported <a href="https://askubuntu.com/questions/973084/very-slow-boot-and-broken-elements-on-ubuntu-16-04">here</a> and <a href="https://www.reddit.com/r/linuxquestions/comments/7b0meb/need_debug_advice_on_slow_boot_with_ubuntu_1604/">here</a> about the issue. I saw people suggesting to mask the <code>systemd-udev-settle.service</code> service which is responsible to the biggest fraction of the slowdown, but I am using LVM which would need the service to startup. Below are some notes on debugging and solving the problem.</p>
+<ul>
+<li>Mask the service: <code>sudo systemctl mask systemd-udev-settle.service</code> and then reload the daemon with <code>sudo systemctl daomon-reload</code>. Unmask with <code>systemctl umask systemd-udev-settle</code>.</li>
+<li><p>Debugging the service loading time:</p>
+<pre><code>system-analyze blame
+systemd-analyze critical-chain systemd-udev-settle.service
+journalctl -b -u systemd-udev-settle.service
+grep -l Wants.*systemd-udev-settle.service -R *</code></pre>
+<p>This here should print who is requiring that service, which might help to decide what to do next:</p>
+<pre><code>systemctl list-dependencies --reverse systemd-udev-settle.service</code></pre></li>
+<li>In case of a problem with <code>acpid</code> module, purge it with <code>dpkg --purge acpid</code> in root.</li>
+<li><p>To further debug, boot with the following added to the kernel command line:</p>
+<pre><code>systemd.debug-shell</code></pre>
+<p>This will give you debug shell on tty9. Switch there and check the output of <code>systemctl list-jobs</code>, <code>ps aux</code> and <code>journalctl -alb</code>.</p></li>
+</ul>
 <h1 id="notes-on-using-some-common-tools">Notes on using some common tools</h1>
 <h2 id="changing-java-settings">Changing Java settings</h2>
 <p>To change the default version of Java commands, one can run</p>

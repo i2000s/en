@@ -460,6 +460,31 @@ To delete the useless ones, go to `~/.cache/sessions` and edit the file named as
 There may be a section started with `[Session: Default]` and many others like `[Session: someoneelse]`. Delete the parts for `[Session: someoneelse]` if needed.
 On next login, double click the session to use, or the default one will be opened automatically if there is no other sessions available.
 
+## An issue with slow boot
+I reported [here](https://askubuntu.com/questions/973084/very-slow-boot-and-broken-elements-on-ubuntu-16-04) and [here](https://www.reddit.com/r/linuxquestions/comments/7b0meb/need_debug_advice_on_slow_boot_with_ubuntu_1604/) about the issue.
+I saw people suggesting to mask the `systemd-udev-settle.service` service which is responsible to the biggest fraction of the slowdown, but I am using LVM which would need the service to startup.
+Below are some notes on debugging and solving the problem.
+
++ Mask the service: `sudo systemctl mask systemd-udev-settle.service` and then reload the daemon with `sudo systemctl daomon-reload`. Unmask with `systemctl umask systemd-udev-settle`.
++ Debugging the service loading time:
+```
+system-analyze blame
+systemd-analyze critical-chain systemd-udev-settle.service
+journalctl -b -u systemd-udev-settle.service
+grep -l Wants.*systemd-udev-settle.service -R *
+```
+  This here should print who is requiring that service, which might help to decide what to do next:
+```
+systemctl list-dependencies --reverse systemd-udev-settle.service
+```
++ In case of a problem with `acpid` module, purge it with `dpkg --purge acpid` in root.
++ To further debug, boot with the following added to the kernel command line:
+```
+systemd.debug-shell
+```
+This will give you debug shell on tty9. Switch there and check the output of `systemctl list-jobs`, `ps aux` and `journalctl -alb`.
+
+
 # Notes on using some common tools
 ## Changing Java settings
 To change the default version of Java commands, one can run

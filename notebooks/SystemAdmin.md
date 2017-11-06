@@ -237,7 +237,7 @@ Of course, I have created a file at `/home/qxd/powertop_tune.sh` with the follow
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
 # 1-1.1 1-1.2 1-2.1 1-2.2 1-2.4 2-1 2-1.4 2-2 2-2.4 ports are for my USB3.0 dock station.
-declare -a usbs=("1-1.1" "1-1.2" "1-2" "1-2.1" "1-2.2" "1-2.4" "1-5" "1-8" "1-10" "1-14" "2-1" "2-1.4" "2-2" "2-2.4" "usb1" "usb2")
+declare -a usbs=("1-1.1" "1-1.2" "1-2" "1-2.1" "1-2.2" "1-2.4" "1-5" "1-8" "1-10" 2-1" "2-1.4" "2-2" "2-2.4" "usb1" "usb2")
 sleep 5;
 for i in "${usbs[@]}"
 do
@@ -465,7 +465,7 @@ I reported [here](https://askubuntu.com/questions/973084/very-slow-boot-and-brok
 I saw people suggesting to mask the `systemd-udev-settle.service` service which is responsible to the biggest fraction of the slowdown, but I am using LVM which would need the service to startup.
 Below are some notes on debugging and solving the problem.
 
-+ Mask the service: `sudo systemctl mask systemd-udev-settle.service` and then reload the daemon with `sudo systemctl daomon-reload`. Unmask with `systemctl umask systemd-udev-settle`.
++ Mask the service: `sudo systemctl mask systemd-udev-settle.service` and then reload the daemon with `sudo systemctl daomon-reload`. Unmask with `systemctl unmask systemd-udev-settle`.
 + Debugging the service loading time:
 ```
 system-analyze blame
@@ -483,6 +483,10 @@ systemctl list-dependencies --reverse systemd-udev-settle.service
 systemd.debug-shell
 ```
 This will give you debug shell on tty9. Switch there and check the output of `systemctl list-jobs`, `ps aux` and `journalctl -alb`.
++ To check the HDD and SSD partition mounting info, use `blkid` and `cat /etc/fstab`.
++ Since the `NetworkManager-wait-online` also uses a lot of booting time, I checked which services use the network at boot: `systemctl show network-online.target | grep -E 'WantedBy|Before'`.
+    To see the internet configuration, I use `ifconfig -a`.
++ Debugging USB see [this page](https://wiki.ubuntu.com/Kernel/Debugging/USB). The Ubuntu official wiki page on general tricks and tips on [kernel debugging](https://wiki.ubuntu.com/Kernel/Debugging).
 
 
 # Notes on using some common tools

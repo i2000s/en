@@ -316,7 +316,7 @@ WantedBy=multi-user.target</code></pre>
 /usr/sbin/powertop --auto-tune
 # Disable USB auto-suspend for my mouse and wireless keyboard on startup.
 # 1-1.1 1-1.2 1-2.1 1-2.2 1-2.4 2-1 2-1.4 2-2 2-2.4 ports are for my USB3.0 dock station.
-declare -a usbs=(&quot;1-1.1&quot; &quot;1-1.2&quot; &quot;1-2&quot; &quot;1-2.1&quot; &quot;1-2.2&quot; &quot;1-2.4&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-10&quot; &quot;1-14&quot; &quot;2-1&quot; &quot;2-1.4&quot; &quot;2-2&quot; &quot;2-2.4&quot; &quot;usb1&quot; &quot;usb2&quot;)
+declare -a usbs=(&quot;1-1.1&quot; &quot;1-1.2&quot; &quot;1-2&quot; &quot;1-2.1&quot; &quot;1-2.2&quot; &quot;1-2.4&quot; &quot;1-5&quot; &quot;1-8&quot; &quot;1-10&quot; 2-1&quot; &quot;2-1.4&quot; &quot;2-2&quot; &quot;2-2.4&quot; &quot;usb1&quot; &quot;usb2&quot;)
 sleep 5;
 for i in &quot;${usbs[@]}&quot;
 do
@@ -443,7 +443,7 @@ unset color_prompt force_color_prompt</code></pre>
 <h2 id="an-issue-with-slow-boot">An issue with slow boot</h2>
 <p>I reported <a href="https://askubuntu.com/questions/973084/very-slow-boot-and-broken-elements-on-ubuntu-16-04">here</a> and <a href="https://www.reddit.com/r/linuxquestions/comments/7b0meb/need_debug_advice_on_slow_boot_with_ubuntu_1604/">here</a> about the issue. I saw people suggesting to mask the <code>systemd-udev-settle.service</code> service which is responsible to the biggest fraction of the slowdown, but I am using LVM which would need the service to startup. Below are some notes on debugging and solving the problem.</p>
 <ul>
-<li>Mask the service: <code>sudo systemctl mask systemd-udev-settle.service</code> and then reload the daemon with <code>sudo systemctl daomon-reload</code>. Unmask with <code>systemctl umask systemd-udev-settle</code>.</li>
+<li>Mask the service: <code>sudo systemctl mask systemd-udev-settle.service</code> and then reload the daemon with <code>sudo systemctl daomon-reload</code>. Unmask with <code>systemctl unmask systemd-udev-settle</code>.</li>
 <li><p>Debugging the service loading time:</p>
 <pre><code>system-analyze blame
 systemd-analyze critical-chain systemd-udev-settle.service
@@ -454,7 +454,10 @@ grep -l Wants.*systemd-udev-settle.service -R *</code></pre>
 <li>In case of a problem with <code>acpid</code> module, purge it with <code>dpkg --purge acpid</code> in root.</li>
 <li><p>To further debug, boot with the following added to the kernel command line:</p>
 <pre><code>systemd.debug-shell</code></pre>
-<p>This will give you debug shell on tty9. Switch there and check the output of <code>systemctl list-jobs</code>, <code>ps aux</code> and <code>journalctl -alb</code>.</p></li>
+This will give you debug shell on tty9. Switch there and check the output of <code>systemctl list-jobs</code>, <code>ps aux</code> and <code>journalctl -alb</code>.</li>
+<li>To check the HDD and SSD partition mounting info, use <code>blkid</code> and <code>cat /etc/fstab</code>.</li>
+<li>Since the <code>NetworkManager-wait-online</code> also uses a lot of booting time, I checked which services use the network at boot: <code>systemctl show network-online.target | grep -E 'WantedBy|Before'</code>. To see the internet configuration, I use <code>ifconfig -a</code>.</li>
+<li><p>Debugging USB see <a href="https://wiki.ubuntu.com/Kernel/Debugging/USB">this page</a>. The Ubuntu official wiki page on general tricks and tips on <a href="https://wiki.ubuntu.com/Kernel/Debugging">kernel debugging</a>.</p></li>
 </ul>
 <h1 id="notes-on-using-some-common-tools">Notes on using some common tools</h1>
 <h2 id="changing-java-settings">Changing Java settings</h2>

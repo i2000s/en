@@ -417,7 +417,7 @@ sudo btrfs filesystem resize +10G /dev/media/root
 sudo mount /dev/ubuntuvg/home /mnt
 df -h
 sudo vgdisplay -v</code></pre>
-<p>The last step had verified that all of the commands worked out for this resizing operation between / and /home logical volumes.</p>
+<p>The last step had verified that all of the commands worked out for this resizing operation between / and /home logical volumes. In case that <code>/etc/fstab</code> has used UUID to mount the volume groups, you may also need to update the new UUID in <code>/etc/fstab</code> accordingly. The new UUIDs can be found by <code>sudo blkid</code>.</p>
 <h2 id="manage-application-menu">Manage application menu</h2>
 <p>On XFCE or GNOME desktop environment of Linux OS, one can browse applications on a dropdown menu. To manage the menu structure and add shortcuts to the application menu, there are two places to look for: one is located at <code>~/.config/menus</code> with files named as <code>*.menu</code> which define how a particular program’s shortcut is located in the application menu–not every desktop environment has this, neither all programs have a menu file defined here; the other one is located at <code>~/.local/share/applications</code> with files named as <code>*.desktop</code> which define shortcuts with commands of running the target programs. The second type of files are called by the menu files. System-wide programs may be located at other places. For new programs, one can create the <code>.menu</code> and <code>.desktop</code> files to let the shortcut shown on the dropdown application menu.</p>
 <h2 id="shorten-bash-terminal-shell-prompt-path-and-show-the-branch-name-if-the-folder-is-a-git-repository">Shorten bash terminal (shell) prompt path and show the branch name if the folder is a git repository</h2>
@@ -441,7 +441,7 @@ unset color_prompt force_color_prompt</code></pre>
 <h2 id="delete-old-xfce-sessions">Delete old XFCE sessions</h2>
 <p>If the <code>session and startup</code> is set to reopen apps from the last sessions in the XFCE settings, old sessions might have been stored in the computer for a while. All those sessions will be available to choose from When logging in to the XFCE desktop environment. To delete the useless ones, go to <code>~/.cache/sessions</code> and edit the file named as <code>xfce4-session-QC5-ubuntu:1</code> or similar with your computer’s name. There may be a section started with <code>[Session: Default]</code> and many others like <code>[Session: someoneelse]</code>. Delete the parts for <code>[Session: someoneelse]</code> if needed. On next login, double click the session to use, or the default one will be opened automatically if there is no other sessions available.</p>
 <h2 id="an-issue-with-slow-boot">An issue with slow boot</h2>
-<p>I reported <a href="https://askubuntu.com/questions/973084/very-slow-boot-and-broken-elements-on-ubuntu-16-04">here</a> and <a href="https://www.reddit.com/r/linuxquestions/comments/7b0meb/need_debug_advice_on_slow_boot_with_ubuntu_1604/">here</a> about the issue. I saw people suggesting to mask the <code>systemd-udev-settle.service</code> service which is responsible to the biggest fraction of the slowdown, but I am using LVM which would need the service to startup. Below are some notes on debugging and solving the problem.</p>
+<p>I reported <a href="https://askubuntu.com/questions/973084/very-slow-boot-and-broken-elements-on-ubuntu-16-04">here</a> and <a href="https://www.reddit.com/r/linuxquestions/comments/7b0meb/need_debug_advice_on_slow_boot_with_ubuntu_1604/">here</a> about the issue. I have filed a bug report <a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1730278">on launchpad</a>. I saw people suggesting to mask the <code>systemd-udev-settle.service</code> service which is responsible to the biggest fraction of the slowdown, but I am using LVM which would need the service to startup. Below are some notes on debugging and solving the problem.</p>
 <ul>
 <li>Mask the service: <code>sudo systemctl mask systemd-udev-settle.service</code> and then reload the daemon with <code>sudo systemctl daomon-reload</code>. Unmask with <code>systemctl unmask systemd-udev-settle</code>.</li>
 <li><p>Debugging the service loading time:</p>
@@ -450,7 +450,27 @@ systemd-analyze critical-chain systemd-udev-settle.service
 journalctl -b -u systemd-udev-settle.service
 grep -l Wants.*systemd-udev-settle.service -R *</code></pre>
 <p>This here should print who is requiring that service, which might help to decide what to do next:</p>
-<pre><code>systemctl list-dependencies --reverse systemd-udev-settle.service</code></pre></li>
+<pre><code>systemctl list-dependencies --reverse systemd-udev-settle.service</code></pre>
+<p>Detailed log only related to the <code>systemd-udevd</code> service can be found using</p>
+<pre><code>journalctl -u systemd-udevd</code></pre>
+<p>My output is <a href="https://paste.ubuntu.com/25906309/">here</a>. The <code>systemd-udev-settle</code> service runs the command <code>udevadm settle [Options]</code>. Related setting of the service can be found by</p>
+<pre><code>systemctl cat systemd-udev-settle.service</code></pre>
+<p>It has the session of commands like</p>
+<pre><code>[Service]
+Type=oneshot
+TimeoutSec=180
+RemainAfterExit=yes
+ExecStart=/bin/udevadm settle</code></pre>
+<p>That <em>settle</em> option has a parameter <code>-t SECONDS</code> that one could add. One can override just the <code>ExecStart</code> line of the service by creating a directory: <code>/etc/systemd/system/systemd-udev-settle.service.d/</code>. Then inside that new directory a file <code>override.conf</code>: <code>/etc/systemd/system/systemd-udev-settle.service.d/override.conf</code> With these contents:</p>
+<pre><code>[Service]
+ExecStart=/bin/udevadm settle -t 7</code></pre>
+<p>It will quite if it takes longer than 7 seconds. I hope its quitting doesn’t make it seem like an error to the system. If that’s a problem, one could make it quit without error exit code like this:</p>
+<pre><code>[Service]
+ExecStart=/bin/sh -c &quot;/bin/udevadm settle -t 7; true&quot;</code></pre>
+<p>You can check if systemd sees the override.conf file like this:</p>
+<pre><code>sudo systemctl daemon-reload
+systemctl cat systemd-udev-settle.service</code></pre>
+<p>To check if this issue is caused by the mismatched information for mounting partitions, use <code>sudo blkid</code> and <code>sudo cat /etc/fstab</code> to compare the UUIDs and volume names/types.</p></li>
 <li>In case of a problem with <code>acpid</code> module, purge it with <code>dpkg --purge acpid</code> in root.</li>
 <li><p>To further debug, boot with the following added to the kernel command line:</p>
 <pre><code>systemd.debug-shell</code></pre>

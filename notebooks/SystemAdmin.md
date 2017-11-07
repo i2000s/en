@@ -408,6 +408,8 @@ sudo vgdisplay -v
 ```
 
 The last step had verified that all of the commands worked out for this resizing operation between / and /home logical volumes.
+In case that `/etc/fstab` has used UUID to mount the volume groups, you may also need to update the new UUID in `/etc/fstab` accordingly.
+The new UUIDs can be found by `sudo blkid`.
 
 ## Manage application menu
 On XFCE or GNOME desktop environment of Linux OS, one can browse applications on a dropdown menu.
@@ -462,6 +464,7 @@ On next login, double click the session to use, or the default one will be opene
 
 ## An issue with slow boot
 I reported [here](https://askubuntu.com/questions/973084/very-slow-boot-and-broken-elements-on-ubuntu-16-04) and [here](https://www.reddit.com/r/linuxquestions/comments/7b0meb/need_debug_advice_on_slow_boot_with_ubuntu_1604/) about the issue.
+I have filed a bug report [on launchpad](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1730278).
 I saw people suggesting to mask the `systemd-udev-settle.service` service which is responsible to the biggest fraction of the slowdown, but I am using LVM which would need the service to startup.
 Below are some notes on debugging and solving the problem.
 
@@ -477,6 +480,45 @@ grep -l Wants.*systemd-udev-settle.service -R *
 ```
 systemctl list-dependencies --reverse systemd-udev-settle.service
 ```
+Detailed log only related to the `systemd-udevd` service can be found using
+```
+journalctl -u systemd-udevd
+```
+My output is [here](https://paste.ubuntu.com/25906309/).
+The `systemd-udev-settle` service runs the command `udevadm settle [Options]`.
+Related setting of the service can be found by
+```
+systemctl cat systemd-udev-settle.service
+```
+It has the session of commands like
+```
+[Service]
+Type=oneshot
+TimeoutSec=180
+RemainAfterExit=yes
+ExecStart=/bin/udevadm settle
+```
+That *settle* option has a parameter `-t SECONDS` that one could add. One can override just the `ExecStart` line of the service by creating a directory:
+`/etc/systemd/system/systemd-udev-settle.service.d/`.
+Then inside that new directory a file `override.conf`: `/etc/systemd/system/systemd-udev-settle.service.d/override.conf`
+With these contents:
+```
+[Service]
+ExecStart=/bin/udevadm settle -t 7
+```
+It will quite if it takes longer than 7 seconds. I hope its quitting doesn't make it seem like an error to the system.
+If that's a problem, one could make it quit without error exit code like this:
+```
+[Service]
+ExecStart=/bin/sh -c "/bin/udevadm settle -t 7; true"
+```
+You can check if systemd sees the override.conf file like this:
+```
+sudo systemctl daemon-reload
+systemctl cat systemd-udev-settle.service
+```
+To check if this issue is caused by the mismatched information for mounting partitions, use `sudo blkid` and `sudo cat /etc/fstab` to compare the UUIDs and volume names/types. 
+
 + In case of a problem with `acpid` module, purge it with `dpkg --purge acpid` in root.
 + To further debug, boot with the following added to the kernel command line:
 ```

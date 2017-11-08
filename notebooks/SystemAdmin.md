@@ -443,6 +443,12 @@ unset color_prompt force_color_prompt
 ```
 By reopening a new terminal, you can see the path in the prompt is shortened and the branch name is shown in red if the path is in a git repository.
 
+In fact, there have been a lot of bash prompt customization tools available on the internet.
+For example, the customization code snippet from the official Git Bash repo may be found [here](https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh) which gives the bash prompt the capability to display more git status information on the command lines.
+One can save the code snippet as `.git-prompt.sh` under the user's root folder (`~`).
+In the `~/.bashrc` file, one just need to add `source ~/.git-prompt.sh` to replace the lines defining `parse_git_branch()` in my code sample, and then replace the `parse_git_branch` with `__git_ps1 "(%s)"` on the lines about `PS1`.
+The code allows the prompt to display a reminder if the local repository is in the process of merging or rebasing and other helpful information.
+Similarly, one can also define some alias of commands in the `~/.bashrc` file as shortcuts.
 
 ## Set time zone reference frame for accurate time synchronization for dual boot systems
 For Ubuntu-Windows dual boot systems, the OS's seem to mess up with each other's time zone reference point when they are reading time from the BIOS and time server.
@@ -517,7 +523,7 @@ You can check if systemd sees the override.conf file like this:
 sudo systemctl daemon-reload
 systemctl cat systemd-udev-settle.service
 ```
-To check if this issue is caused by the mismatched information for mounting partitions, use `sudo blkid` and `sudo cat /etc/fstab` to compare the UUIDs and volume names/types. 
+To check if this issue is caused by the mismatched information for mounting partitions, use `sudo blkid` and `sudo cat /etc/fstab` to compare the UUIDs and volume names/types.
 
 + In case of a problem with `acpid` module, purge it with `dpkg --purge acpid` in root.
 + To further debug, boot with the following added to the kernel command line:

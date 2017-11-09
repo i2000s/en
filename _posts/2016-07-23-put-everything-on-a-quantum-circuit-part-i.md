@@ -242,7 +242,12 @@ I hope the following notes can help understand those content intuitively.
 
 References
 ----------
-{% bibliography --cited_in_order --file References %}
+<style>
+.referencelist ol{list-style-type:none;padding-left:0;margin-left:0;}
+</style>  
+<ul class="referencelist">
+{% bibliography --cited_in_order --file References --style assets/bibliography/APS.csl --template bibtemplate_link %}
+</ul>
 
 Footnotes
 ---------

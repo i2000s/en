@@ -127,7 +127,7 @@ var _hmt = _hmt || [];
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54f225a84524edd3" async="async"></script>
 
-  <body>
+  <body onload="load()"> <!-- load() is to offset the navbar for anchor links. -->
 
   
 <!-- Navbar  ================================================== -->
@@ -288,7 +288,7 @@ $(document).ready(function() {
     property="dc:created">16 May 2015</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-06-25 09:15:55 +0000"
+            datetime="2017-06-25 09:47:19 +0000"
             property="dc:modified">25 Jun 2017</time></small></p>
   
 <!-- page.modified datetime="" -->
@@ -333,7 +333,7 @@ $(document).ready(function() {
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/392570c81f1cc2eecef13b07e6836a427207cef6/_posts/2015-05-16-track_issues.md"> 392570c</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/620d5f49a2982860d24d5d6fa4c2c41422386da4/_posts/2015-05-16-track_issues.md"> 620d5f4</a></tiny></p>
 </aside>
 
 <br /><br />
@@ -506,6 +506,12 @@ $(document).ready(function() {
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!--<script src = "https://code.jquery.com/jquery.js"></script>-->
 
+    <!-- Offset the navbar for anchor tab links. Ref: https://github.com/twbs/bootstrap/issues/1768 -->
+    <script>
+      var shiftWindow = function() { scrollBy(0, -50) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { if (window.location.hash) shiftWindow(); }
+    </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src = "/en/assets/js/bootstrap.min.js"></script>
 

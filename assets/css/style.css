@@ -586,3 +586,15 @@ figcaption {
     font-size: 14px;
     text-align: left;
 }
+
+/* -- This is to shift the anchor tag link by the height of the navigation bar. T fixed navbar height is 50. --*/
+/* -- Ref: https://stackoverflow.com/questions/4086107/html-positionfixed-page-header-and-in-page-anchors -- */
+/* -- But there is a conflict with the pandoc footnoteRef class, so using a Javascript from the header.html instead now. -- */
+/* --
+:target:before {
+content:"";
+display:block;
+height:50px;
+margin:-50px 0 0;
+visibility: hidden;
+} -- */

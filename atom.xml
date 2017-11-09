@@ -881,277 +881,140 @@ dW = randn(step).*dt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;On the other hand, quantum simulation packages like the &lt;em&gt;Quantum Optics Toolbox in Matlab&lt;/em&gt;&lt;a href=&quot;#Tan1999Computational&quot;&gt; [8]&lt;/a&gt; and its Python version &lt;em&gt;QuTiP&lt;/em&gt;&lt;a href=&quot;#Johansson2013Qutip&quot;&gt; [9]&lt;/a&gt; becomes widely used while the input quantities can be classified into a few object classes is mainly due to the mathematical fact that the quantum dynamics equations and quantum systems those toolboxes can simulate all have nice mathematical structures. For example, a lot of quantum dynamics problems can be described by the Lindblad form of master equations, which in the end is completely positive maps (CP-maps) and can be fully characterized by the hierarchy of complete positive operators and superoperators as mathematical objects&lt;a href=&quot;#fn5&quot; class=&quot;footnoteRef&quot; id=&quot;fnref5&quot;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;. To my perspective, the existing JuliaQuantum libraries can be improved by extending its representation types to the operator and superoperator system and build more general solvers to cover the stochastic equations, and we can make better program libraries with in-depth mathematical insights and high-performance programming language. I will also touch the base of some mathematical fundation in the next part.&lt;/p&gt;
 &lt;p&gt;With the basic stochastic language introduced, we are ready to explore more complicated differential equations and start appreciating the nature of quantum measurements and how all of these can be connected to the quantum circuit model. Content is mainly based on my hand-written lecture notes taught by my supervisor &lt;a href=&quot;https://cquic.unm.edu/deutsch-group/&quot;&gt;Ivan Deutsch&lt;/a&gt; and my daily journals on reading, meeting and playing. I hope the following notes can help understand those content intuitively.&lt;/p&gt;
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;style&gt;
+.referencelist ol{list-style-type:none;padding-left:0;margin-left:0;}
+&lt;/style&gt;  
+&lt;ul class=&quot;referencelist&quot;&gt;
 &lt;ol class=&quot;bibliography&quot; reversed=&quot;reversed&quot;&gt;&lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Dum1992Monte&quot;&gt;R. Dum, A. S. Parkins, P. Zoller, and C. W. Gardiner, &lt;i&gt;Monte Carlo simulation of master equations in quantum optics for vacuum, thermal, and squeezed reservoirs&lt;/i&gt;, Physical Review A &lt;b&gt;46&lt;/b&gt;, 4382 (1992).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Dum1992Monte-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Dum1992Monte-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Dum1992Monte&quot;&gt;[1] R. Dum, A. S. Parkins, P. Zoller, and C. W. Gardiner, Physical Review A &lt;b&gt;46&lt;/b&gt;, 4382 (1992).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
-
-&lt;!----&gt;
 
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Dum1992Monte-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@article{Dum1992Monte,
-  title = {Monte Carlo simulation of master equations in quantum optics for vacuum, thermal, and squeezed reservoirs},
-  author = {Dum, R and Parkins, AS and Zoller, P and Gardiner, CW},
-  journal = {Physical Review A},
-  volume = {46},
-  number = {7},
-  pages = {4382},
-  year = {1992},
-  publisher = {APS}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Molmer1993Monte&quot;&gt;K. Mølmer, Y. Castin, and J. Dalibard, &lt;i&gt;Monte Carlo wave-function method in quantum optics&lt;/i&gt;, JOSA B &lt;b&gt;10&lt;/b&gt;, 524 (1993).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Molmer1993Monte-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Molmer1993Monte-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Molmer1993Monte&quot;&gt;[2] K. Mølmer, Y. Castin, and J. Dalibard, JOSA B &lt;b&gt;10&lt;/b&gt;, 524 (1993).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
-
-&lt;!----&gt;
 
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Molmer1993Monte-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@article{Molmer1993Monte,
-  title = {Monte Carlo wave-function method in quantum optics},
-  author = {M{\o}lmer, Klaus and Castin, Yvan and Dalibard, Jean},
-  journal = {JOSA B},
-  volume = {10},
-  number = {3},
-  pages = {524--538},
-  year = {1993},
-  publisher = {Optical Society of America}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Molmer1996Monte&quot;&gt;K. Mølmer and Y. Castin, &lt;i&gt;Monte Carlo wavefunctions in quantum optics&lt;/i&gt;, Quantum and Semiclassical Optics: Journal of the European Optical Society Part B &lt;b&gt;8&lt;/b&gt;, 49 (1996).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Molmer1996Monte-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Molmer1996Monte-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Molmer1996Monte&quot;&gt;[3] K. Mølmer and Y. Castin, Quantum and Semiclassical Optics: Journal of the European Optical Society Part B &lt;b&gt;8&lt;/b&gt;, 49 (1996).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
-
-&lt;!----&gt;
 
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Molmer1996Monte-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@article{Molmer1996Monte,
-  title = {Monte Carlo wavefunctions in quantum optics},
-  author = {M{\o}lmer, Klaus and Castin, Yvan},
-  journal = {Quantum and Semiclassical Optics: Journal of the European Optical Society Part B},
-  volume = {8},
-  number = {1},
-  pages = {49},
-  year = {1996},
-  publisher = {IOP Publishing}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Plenio1998Quantum&quot;&gt;M. B. Plenio and P. L. Knight, &lt;i&gt;The quantum-jump approach to dissipative dynamics in quantum optics&lt;/i&gt;, Reviews of Modern Physics &lt;b&gt;70&lt;/b&gt;, 101 (1998).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Plenio1998Quantum-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Plenio1998Quantum-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Plenio1998Quantum&quot;&gt;[4] M. B. Plenio and P. L. Knight, Reviews of Modern Physics &lt;b&gt;70&lt;/b&gt;, 101 (1998).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
-
-&lt;!----&gt;
 
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Plenio1998Quantum-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@article{Plenio1998Quantum,
-  title = {The quantum-jump approach to dissipative dynamics in quantum optics},
-  author = {Plenio, MB and Knight, PL},
-  journal = {Reviews of Modern Physics},
-  volume = {70},
-  number = {1},
-  pages = {101},
-  year = {1998},
-  publisher = {APS}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Gardiner1985Handbook&quot;&gt;C. W. Gardiner, &lt;i&gt;Handbook of Stochastic Methods&lt;/i&gt;, 2nd ed. (Springer Berlin, 1985).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Gardiner1985Handbook-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Gardiner1985Handbook-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Gardiner1985Handbook&quot;&gt;[5] C. W. Gardiner, &lt;i&gt;Handbook of Stochastic Methods&lt;/i&gt;, 2nd ed. (Springer Berlin, 1985).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
-
-&lt;!----&gt;
 
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Gardiner1985Handbook-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@book{Gardiner1985Handbook,
-  title = {Handbook of stochastic methods},
-  author = {Gardiner, Crispin W},
-  edition = {2nd},
-  year = {1985},
-  publisher = {Springer Berlin}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Wiseman1993Interpretation&quot;&gt;H. M. Wiseman and G. J. Milburn, &lt;i&gt;Interpretation of quantum jump and diffusion processes illustrated on the Bloch sphere&lt;/i&gt;, Phys. Rev. A &lt;b&gt;47&lt;/b&gt;, 1652 (1993).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Wiseman1993Interpretation-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Wiseman1993Interpretation-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Wiseman1993Interpretation&quot;&gt;[6] H. M. Wiseman and G. J. Milburn, Phys. Rev. A &lt;b&gt;47&lt;/b&gt;, 1652 (1993).&lt;/span&gt;
 &lt;/li&gt;
 
 &lt;li&gt;
-&lt;a href=&quot;https://dx.doi.org/10.1103/PhysRevA.47.1652&quot; target=&quot;_blank&quot;&gt;Link&lt;/a&gt;
+&lt;a style=&quot;margin-top:-10px;padding-top=0px;padding-bottom:0px;&quot; href=&quot;https://dx.doi.org/10.1103/PhysRevA.47.1652&quot; target=&quot;_blank&quot;&gt;Link&lt;/a&gt;
 &lt;/li&gt;
 
 
-
-&lt;!----&gt;
 
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Wiseman1993Interpretation-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@article{Wiseman1993Interpretation,
-  title = {Interpretation of quantum jump and diffusion processes illustrated on the Bloch sphere},
-  author = {Wiseman, H. M. and Milburn, G. J.},
-  journal = {Phys. Rev. A},
-  volume = {47},
-  issue = {3},
-  pages = {1652--1666},
-  numpages = {0},
-  year = {1993},
-  month = mar,
-  publisher = {American Physical Society},
-  doi = {10.1103/PhysRevA.47.1652},
-  url = {http://link.aps.org/doi/10.1103/PhysRevA.47.1652}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Gardiner2004Quantum&quot;&gt;C. Gardiner and P. Zoller, &lt;i&gt;Quantum Noise: a Handbook of Markovian and Non-Markovian Quantum Stochastic Methods with Applications to Quantum Optics&lt;/i&gt; (Springer Science &amp;amp; Business Media, 2004).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Gardiner2004Quantum-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Gardiner2004Quantum-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Gardiner2004Quantum&quot;&gt;[7] C. Gardiner and P. Zoller, &lt;i&gt;Quantum Noise: a Handbook of Markovian and Non-Markovian Quantum Stochastic Methods with Applications to Quantum Optics&lt;/i&gt; (Springer Science &amp;amp; Business Media, 2004).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
-
-&lt;!----&gt;
 
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Gardiner2004Quantum-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@book{Gardiner2004Quantum,
-  title = {Quantum noise: a handbook of Markovian and non-Markovian quantum stochastic methods with applications to quantum optics},
-  author = {Gardiner, Crispin and Zoller, Peter},
-  volume = {56},
-  year = {2004},
-  publisher = {Springer Science \&amp; Business Media}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Tan1999Computational&quot;&gt;S. M. Tan, &lt;i&gt;A computational toolbox for quantum and atomic optics&lt;/i&gt;, Journal of Optics B: Quantum and Semiclassical Optics &lt;b&gt;1&lt;/b&gt;, 424 (1999).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Tan1999Computational-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Tan1999Computational-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Tan1999Computational&quot;&gt;[8] S. M. Tan, Journal of Optics B: Quantum and Semiclassical Optics &lt;b&gt;1&lt;/b&gt;, 424 (1999).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
 
-&lt;!----&gt;
-
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Tan1999Computational-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@article{Tan1999Computational,
-  title = {A computational toolbox for quantum and atomic optics},
-  author = {Tan, Sze M},
-  journal = {Journal of Optics B: Quantum and Semiclassical Optics},
-  volume = {1},
-  number = {4},
-  pages = {424},
-  year = {1999},
-  publisher = {IOP Publishing}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;!----&gt;
-&lt;p&gt;&lt;span id=&quot;Johansson2013Qutip&quot;&gt;J. R. Johansson, P. D. Nation, and F. Nori, &lt;i&gt;QuTiP 2: A Python framework for the dynamics of open quantum systems&lt;/i&gt;, Computer Physics Communications &lt;b&gt;184&lt;/b&gt;, 1234 (2013).&lt;/span&gt;&lt;/p&gt;
-&lt;br /&gt;
 &lt;div id=&quot;Johansson2013Qutip-materials&quot;&gt;
-&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:-34px&quot;&gt;
-
+&lt;ul class=&quot;nav nav-pills&quot; style=&quot;margin-top:0px;padding-top:2px;padding-bottom:2px;&quot;&gt;
 &lt;li&gt;
-&lt;a data-toggle=&quot;collapse&quot; href=&quot;#Johansson2013Qutip-bibtex&quot;&gt;BibTeX&lt;/a&gt;
+&lt;span id=&quot;Johansson2013Qutip&quot;&gt;[9] J. R. Johansson, P. D. Nation, and F. Nori, Computer Physics Communications &lt;b&gt;184&lt;/b&gt;, 1234 (2013).&lt;/span&gt;
 &lt;/li&gt;
 
 
 
 
-&lt;!----&gt;
-
 &lt;/ul&gt;
 
-&lt;pre id=&quot;Johansson2013Qutip-bibtex&quot; class=&quot;pre pre-scrollable collapse&quot;&gt;@article{Johansson2013Qutip,
-  title = {QuTiP 2: A Python framework for the dynamics of open quantum systems},
-  author = {Johansson, JR and Nation, PD and Nori, Franco},
-  journal = {Computer Physics Communications},
-  volume = {184},
-  number = {4},
-  pages = {1234--1240},
-  year = {2013},
-  publisher = {Elsevier}
-}
-&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/li&gt;&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;references&quot;&gt;
 &lt;h2&gt;Footnotes&lt;/h2&gt;

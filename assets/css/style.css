@@ -598,3 +598,6 @@ height:50px;
 margin:-50px 0 0;
 visibility: hidden;
 } -- */
+
+/* -- This is to make the references of citations list in the citation order and numbered correctly. See the source code of the post github.com/i2000s/en/_posts/2016-07-23... for example. --*/
+.referencelist ol{list-style-type:none;padding-left:0;margin-left:0;}

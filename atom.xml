@@ -8,6 +8,25 @@
 
    
         <item>
+          <title>My SQuInT 2018 poster presentation</title>
+          <description>&lt;p&gt;My poster submission to the &lt;a href=&quot;http://squint.unm.edu/events/2018.html&quot;&gt;20th Annual SQuInT Workshop&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Day, Date&lt;/em&gt;&lt;/strong&gt;: February 22-24, 2018 (TBD)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Time, Session&lt;/em&gt;&lt;/strong&gt;: TBD&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Title&lt;/em&gt;&lt;/strong&gt;: Enhanced cooperativity of quantum measurement for spin squeezing of atoms coupled to a nanophotonic waveguide&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Authors&lt;/em&gt;&lt;/strong&gt;: Xiaodong Qi, Yuan-Yu Jau, Jongmin Lee, and Ivan H. Deutsch&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Abstract&lt;/em&gt;&lt;/strong&gt;: We study the enhancement of cooperativity in the atom-light interface near a nanophotonic waveguide for application to quantum nondemolition (QND) measurement of atomic spins. Here the cooperativity per atom is determined by the ratio between the measurement strength and the decoherence rate. Counterintuitively, we find that by placing the atoms at an azimuthal position where the guided probe mode has the lowest intensity, we increase the cooperativity. This arises because the QND measurement strength depends on the interference between the probe and scattered light guided into an orthogonal polarization mode, while the decoherence rate depends on the local intensity of the probe. Thus, by proper choice of geometry, the ratio of good to bad scattering can be strongly enhanced for highly anisotropic modes. We apply this to study spin squeezing resulting from QND measurement of spin projection noise via the Faraday effect in two nanophotonic geometries, a cylindrical nanofiber and a square waveguide. By using a two-color scheme to cancel the tensor light shift, we find, with about 2500 atoms using realistic experimental parameters, &lt;span class=&quot;math&quot;&gt;\[ \sim 6 \]&lt;/span&gt; dB and &lt;span class=&quot;math&quot;&gt;\[ \sim 13 \]&lt;/span&gt; dB of squeezing can be achieved on the nanofiber and square waveguide, respectively.&lt;/p&gt;
+&lt;p&gt;Files can be downloaded from the &lt;a href=&quot;https://github.com/i2000s/2018SQuInT-EnhancedCooperativityForSpinSqueezing/releases&quot;&gt;repo&lt;/a&gt; (to be uploaded).&lt;/p&gt;
+&lt;p&gt;Feel free to comment as an &lt;a href=&quot;https://github.com/i2000s/2018SQuInT-EnhancedCooperativityForSpinSqueezing/issues&quot;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+          <link>https://www.qixiaodong.tk/en/2017/11/20/squint-2018-poster.html</link>
+          <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+          <guid isPermaLink="true">https://purl.org/qxd/en/2017/11/20/squint-2018-poster.html</guid>
+        </item>
+   
+        <item>
           <title>My DAMOP 2017 talk</title>
           <description>&lt;p&gt;My submission has been accepted to be presented as a talk at the &lt;a href=&quot;http://www.aps.org/meetings/meeting.cfm?name=DAMOP17&quot;&gt;APS 48th Annual Meeting of Atomic, Molecular and Optical Physics&lt;/a&gt; and is currently on the program schedule.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Day, Date&lt;/em&gt;&lt;/strong&gt;: Friday, June 9th, 2017&lt;/p&gt;
@@ -1466,79 +1485,6 @@ git add project_file2
           <link>https://www.qixiaodong.tk/en/2015/05/11/use_version_control.html</link>
           <pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/11/use_version_control.html</guid>
-        </item>
-   
-        <item>
-          <title>12 steps toward rock-solid scientific Python code</title>
-          <description>&lt;p&gt;Much of my research is based on computer code. My code has bugs.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Does that mean that my research has errors?&lt;/em&gt; Quite possibly.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Are you, my fellow scientist, in the same boat?&lt;/em&gt; Probably.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;What can we do about it?&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;We must adopt practices that are known to lead to more correct code. We must be willing to devote the time and energy that those practices require. Most of the time, this is neither fun nor glorious. We don’t try to cut corners when developing a mathematical proof or preparing an experiment – we know that leads to error. Writing computer code is no different; if anything, it requires that we take an even more methodical approach. It is time for computational scientists to own up to this. If we want to have confidence in our results, and if we want others to be able to build on them, there is no other choice.&lt;/p&gt;
-&lt;p&gt;The bonus is that adopting these practices can lead to cleaner, simpler code that is easier to understand, maintain, and debug. In the long term, I believe that these practices lead to an overall time &lt;em&gt;savings&lt;/em&gt;, and the opportunity to spend more time using our computational tools to perform research.&lt;/p&gt;
-&lt;p&gt;In short, what I’m about to show you will allow you to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Have confidence in your computed results&lt;/li&gt;
-&lt;li&gt;Accelerate your research&lt;/li&gt;
-&lt;li&gt;Better communicate your research&lt;/li&gt;
-&lt;li&gt;Collaborate more effectively&lt;/li&gt;
-&lt;li&gt;Help others build on your work&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;twelve-baby-steps&quot;&gt;Twelve (baby) steps&lt;/h2&gt;
-&lt;p&gt;So here it is: my 12-step program to writing scientific code that you can believe in:&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;/en/2015/05/11/use_version_control.html&quot;&gt;Use version control&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;Put your code in the cloud, in the open&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/en/2015/05/13/add_a_readme.html&quot;&gt;Add a README and a License&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/en/2015/05/14/write_docstrings.html&quot;&gt;Write docstrings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/en/2015/05/15/write_tests.html&quot;&gt;Write tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/en/2015/05/16/track_issues.html&quot;&gt;Keep track of issues&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/en/2015/05/29/automate_tests.html&quot;&gt;Automate the tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Automate the build (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Use continuous integration (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Monitor test coverage (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Write narrative documentation (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Catch errors as you type them (&lt;em&gt;coming soon&lt;/em&gt;)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I know what you’re thinking: that sounds like a lot of work. It is. But my goal in this series is to make each of these steps as straightforward and painless as possible. Thanks to a number of recently-developed tools, &lt;strong&gt;most of these tasks can be done very quickly&lt;/strong&gt;, at least for small and simple projects.&lt;/p&gt;
-&lt;p&gt;There is nothing magical about this precise set of steps; I could have broken them down in a different way or included others. What’s essential are the underlying principles:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Automation (steps 1, 5, 6,7, 8, 9, 10, 12): Removal of manual processes makes code more reliable.&lt;/li&gt;
-&lt;li&gt;Documentation (steps 3, 4, 5, 6, 11): Writing and thinking about the code makes it more reliable.&lt;/li&gt;
-&lt;li&gt;Communication/collaboration (steps 1, 2, 3, 4, 5, 6, 11): Code that is read and used by more than one person is more reliable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;the-12-step-challenge&quot;&gt;The 12-step challenge&lt;/h2&gt;
-&lt;p&gt;You could casually read through this series of posts and think about implementing these changes someday. But don’t. &lt;strong&gt;Pick a current scientific project with code&lt;/strong&gt;, and commit yourself now to getting it in order by following these steps. Then go through the posts and &lt;strong&gt;apply the instructions at each step&lt;/strong&gt; to the project you’ve chosen. When you’re done, you’ll have one rock-solid code project and the know-how to run all of your projects that way. The next one will be even easier.&lt;/p&gt;
-&lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
-&lt;p&gt;I’ve tried to make these posts very simple, but there is a minimal amount of know-how I assume. In particular, you must be able to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Open a terminal, navigate your file system, and execute commands&lt;/li&gt;
-&lt;li&gt;Edit text files&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you’ve taken a &lt;a href=&quot;http://software-carpentry.org/&quot;&gt;Software Carpentry&lt;/a&gt; course, you’re more than prepared.&lt;/p&gt;
-&lt;h2 id=&quot;what-these-steps-wont-do&quot;&gt;What these steps won’t do&lt;/h2&gt;
-&lt;p&gt;I’m not going to tell you how to actually &lt;em&gt;design&lt;/em&gt; better code. That’s much harder! For that, you should read a book on programming style, like &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer&quot;&gt;The Pragmatic Programmer&lt;/a&gt; or &lt;a href=&quot;http://cc2e.com/&quot;&gt;Code Complete&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I’m not going to make you an expert in the topics listed above. My goal is just to get you over the initial psychological bump, from “&lt;em&gt;I have no idea what that is&lt;/em&gt;” to “&lt;em&gt;yeah, I can basically do that&lt;/em&gt;”. This is the 20% effort that gives 80% of the benefit.&lt;/p&gt;
-&lt;h2 id=&quot;questions&quot;&gt;Questions&lt;/h2&gt;
-&lt;h3 id=&quot;my-code-is-just-some-simple-scripts-does-this-stuff-still-apply&quot;&gt;My code is just some simple scripts; does this stuff still apply?&lt;/h3&gt;
-&lt;p&gt;Yes! In fact, I suggest starting with a small and simple project – the smaller the better. To demonstrate, I’ve written &lt;a href=&quot;https://github.com/ketch/rock-solid-code-demo&quot;&gt;a tiny package that does LU factorization (Gaussian elimination) for square matrices&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;why-python&quot;&gt;Why Python?&lt;/h3&gt;
-&lt;p&gt;Useful tutorials need to be concrete. The steps are applicable to any language, but the best tools for achieving them vary by language. Python is a popular language, and is what I use most.&lt;/p&gt;
-&lt;h3 id=&quot;why-are-you-so-sure-my-code-has-bugs&quot;&gt;Why are you so sure my code has bugs?&lt;/h3&gt;
-&lt;p&gt;If you’re asking this, go read &lt;a href=&quot;http://statweb.stanford.edu/~donoho/Reports/2008/15YrsReproResch-20080426.pdf&quot;&gt;Donoho et. al.’s paper on reproducible computing&lt;/a&gt;, from which I quote:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“&lt;em&gt;Error is ubiquitous in scientific computing, and one needs to work very diligently and energetically to eliminate it.&lt;/em&gt;”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Okay, what are you waiting for? Go read &lt;a href=&quot;/en/2015/05/11/use_version_control.html&quot;&gt;step one&lt;/a&gt;!&lt;/p&gt;
-&lt;h4 id=&quot;note-this-post-was-originally-written-by-david-ketcheson-and-posted-at-httpwww.davidketcheson.info20150510rock_solid_code.html&quot;&gt;Note: this post was originally written by David Ketcheson and posted at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/10/rock_solid_code.html&quot;&gt;http://www.davidketcheson.info/2015/05/10/rock_solid_code.html&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
-</description>
-          <link>https://www.qixiaodong.tk/en/2015/05/10/rock_solid_code.html</link>
-          <pubDate>Sun, 10 May 2015 00:00:00 +0000</pubDate>
-          <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/10/rock_solid_code.html</guid>
         </item>
    
   </channel>

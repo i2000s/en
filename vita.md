@@ -9,6 +9,7 @@ share: true
 ---
 ## Upcoming event:
 
+ - [20th Annual SQuInT Workshop presentation](/en/2017/11/20/squint-2018-poster.html)
  - Dissertation defense or my last PhD annual report talk, in the Spring semester of 2018.
 
 # Employment
@@ -46,7 +47,7 @@ share: true
  - Feb 21, 2015: JuliaMeetup opening up talk @ Berkeley, CA, USA.
  - Feb 18-21, 2015: Poster presentation at the 17th SQuInT workshop, Berkeley, CA, USA.
  - Oct, 1, 2014: PhD Candidate exam presentation, Department of physics and astronomy, UNM @ Albuquerque, NM, USA. ([slides repo](https://github.com/i2000s/2014Candidacy))
- - July 27-July 1: Poster presentation, Gordon Research Workshop on Quantum Science, Easton, MI, USA.
+ - July 27-July 1, 2014: Poster presentation, Gordon Research Workshop on Quantum Science, Easton, MI, USA.
  - July 26, 2014: Poster presentation, Gordon Research Seminar on Quantum Science, Easton, MI, USA.
  - May 26-30, 2014: Research retreat with collaborators from UofA, @ Flagstaff, AZ, USA.
  - Feb, 2014: Poster presentation in the 16th SQuInT Workshop, Santa Fe, NM, USA.

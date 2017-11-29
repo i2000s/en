@@ -553,3 +553,7 @@ source /etc/environment
 ```
 to reload the setting.
 To check if the new setting has taken effect, one can use `echo $JAVA_HOME` and `javac --version`, for instance.
+
+## Automate system configuration and package installations
+The software [Ansible](https://www.ansible.com/) looks promising to automate some system admin jobs, which is especially useful when migrating to another computer of similar/same model.
+Also see project [Thinkpad X1 Yoga (gen 2)](https://github.com/Redsandro/thinkpad-x1-yoga) for real case scenario of using it.

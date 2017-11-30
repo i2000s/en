@@ -488,6 +488,8 @@ This will give you debug shell on tty9. Switch there and check the output of <co
 <p>After this, to change the home directory of Java, one can edit by <code>sudo nano /etc/environment</code> with a line of <code>JAVA_HOME=&quot;/usr/lib/jvm/java-8-oracle&quot;</code>, for example, where the directory path is copied from the <code>sudo update-alternatives --config java</code> setting. After saving the setting, run</p>
 <pre><code>source /etc/environment</code></pre>
 <p>to reload the setting. To check if the new setting has taken effect, one can use <code>echo $JAVA_HOME</code> and <code>javac --version</code>, for instance.</p>
+<h2 id="automate-system-configuration-and-package-installations">Automate system configuration and package installations</h2>
+<p>The software <a href="https://www.ansible.com/">Ansible</a> looks promising to automate some system admin jobs, which is especially useful when migrating to another computer of similar/same model. Also see project <a href="https://github.com/Redsandro/thinkpad-x1-yoga">Thinkpad X1 Yoga (gen 2)</a> for real case scenario of using it.</p>
 <div class="references">
 
 </div>

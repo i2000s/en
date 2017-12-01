@@ -67,9 +67,73 @@ Another example is my derivation of the spin dynamic equations, in which I have 
 one is based on the collective operator approach which have been used in the previous spin squeezing studies in our group; the other one is fully based on the local quantum operators on each atoms, which not only avoids the approximation assumptions one has to make in using the collective operator approach, but also leads to the possibility of calculating the many-body correlations beyond the Gaussian state limit which we would like to reach eventually.
 
 # Quantum software development
-Quantum information processing will be a complicated system which is better to
+Quantum information processing will be a complicated system which is better to be built on top of mature technique that have been well tested in the classical computing world rather than starting everything new from scratch.
+I regard developing software for simulating quantum systems as a step towards a fully functional software modules of controlling a real quantum device.
+As my experiences on high-performance computing for simulating complex quantum systems grow, my interests on building the software interface for current and future computing devices turn into real actions.
+Particularly, I am interested in the theory of implement efficient algorithms and representations to handle the computing tasks of quantum systems on a classical and near-term quantum computers.
+I have to point out that most of these actions towards the quantum software development are out of my own passion and are not part of my main research projects funded by my research institute.
+Beside the software I developed to simulate the real quantum systems for the research project discussed in the last section, the time I spend on this direction is far less than my paid research and has been stagnated for a while due to the amount of research projects at hand, but it should be a good start for me to push this interest forward after my graduation.
+Below, I will highlight a couple of research projects along this line, particularly on the JuliaQuantum project I started a few years ago (more can be found in my CV).
+
+One is to work with the open-source software community to build a comprehensive computing library to simulate quantum systems on our current classical computers using a new programming language called Julia.
+I choose to use this new language is mainly because of three reasons:
+
+1. it has a good programming abstraction and easy to implement functional programming libraries and handle abstract objects without knowing the content of the object.
+It might not be obvious to understand why this feature is useful.
+But considering the conventional programming languages usually involve "if-then", "while-do", "case-i-switch-to-j" conditional structures, which are done in condition of a measurement and may also involve copying objects.
+These may not be allowed on a quantum machine, because a measurement may destroy the quantum state and blind copying is forbidden by no-cloning theorem.
+By treating objects in a more abstract way, a measurement or clone operation may not be involved in the algorithm of computing.
+2. Julia is fast and high-level programming language, which makes it easy to program and runs in high performance.
+Like the Quipper language for simulating quantum algorithms on a classical computer, if the program is done by turning the abstract object after some calculation into a concrete circuit but in a much fast way and in an user-friendly programming interface as Julia does, it becomes very promising to use this language for prototyping new algorithms.  
+3. Julia has a Just-In-Time (JIT) compiling mechanism to handle programs in many layers.
+This feature could be particularly useful for simulating and handling quantum error corrections.
+In the case of simulating error correction codes, for instance, the compiler can have a layer dedicated to simulate random error generations while another layer can be used to simulate the action of the error correction code after detecting the error syndromes, it becomes implicit how the error correction code simulation can be done in program.
+Notice that, different from other programming languages, the two layers of compiling can naturally run in parallel and can dynamically adapt the operation based on the on-going result emerged from one layer or the other, which make it fast to perform the computations.
+
+My hope on building the library on this new platform in a fresh approach is that the techniques and codes might be useful for future software and control algorithms adaptable to real quantum systems.
+The experience of developing software in Julia could also be a seed to migrate the techniques and algorithms to future practical quantum software developments in any new languages to be invented.
+
+Another activity in the JuliaQuantum organization for me is to start a broad collaboration crossing disciplines to work on open-science projects and learn the skills and strategies to accelerate research efforts in a coherent way for future models of research cooperation.
+I was starting a theoretical research discussion in the organization to find memory-efficient approaches to better prepare ourselves to study quantum theories when we have to tackle a large Hilbert space or many-body systems--either to use classical computers or with near-term quantum devices.
+Since in the end, we might only interested in quarrying the machine for a classical output by giving a classical input, it becomes possible to use some tricks to make it resources efficient in handling the information processing in the middle step on classical or quantum devices.
+There are a few possible openings based on our current discussions, including symbolic computations based on representation theories, computing without calculating everything based on symmetry, using the tensor network representation or truncated N-body moments (like N-design approach) approaches to represent quantum states and operators, as well as using quantum devices as an oracle to solve quantum control and optimization problems (for example, the self-guided tomography method to obtain the fidelity parameter directly from the quantum state annihilations on a copy of the quantum device).
+Of course, we may have been using these approaches in our current theoretical researches.  
+The research on this direction itself is more about generalization, studying the spatial computational complexity and accumulating programming libraries as an open-science project.
+For example, in my research of simulating collective spin dynamics of thousands of atoms, I have been using the exchange symmetry and truncating the many-body Hilbert space to a few-body subspace using the N-body moment truncations.
+By using the truncation trick, the equations required to fully describe the spin dynamics becomes sparse and can be efficiently calculated on a classical computing.
+I can merge my code into the project library as an example of handling this particular many-body problem in case other researchers find it useful.
+The equivalence between the N-moment approach and tensor network representation approach is an interesting topic for me to study towards resource-efficient way to studying quantum physics in a new perspective.
+As the quantum system I am studying involves more levels of complexity and decreasing of symmetries, I have to learn how to handle those quantum systems resource-efficiently.
+Of course, the project could grow forever and involves people from every aspect of the quantum theory study.
+This is the beauty of the project and the longevity of such collaborations.
+
+As you can see, my funded research projects and the self-guided studies could underpin each other in a positive spiral towards the goal of the next generation of information processing.
+I am happy to put most of my time on a main research project while investigate a little time and efforts on new directions that is risky and in the embryo stage moving forward.
+If you can offer me a job on the theoretical study of quantum software, I could continue the directions I started yet not have much time to work on in the past few years.
 
 # Future directions
-Time-correlations, randomness and robustness.
+My interests of research fall into two categories: one on the study of a particular physics system; and other one is on the abstract level of formulating the theory and code implementations for physics-system-independent software development. Both aspects share the common foundations solid based on the physics and mathematical nature of quantum systems, and tie together towards applications to invent efficient and fast computing techniques to tackle hard problems in general.
+I am happy to take job opportunities focusing more on one or the other aspects of my interests.
+Below, I will only highlight some future research directions of the atom-nanophotonic interface research that I could immediately immerse in.
 
-Universal control.
+First, in our current studies, we haven't include many-body correlations into our simulations other than up to two-body correlations.
+As we can approach non-Gaussian states by using more atoms, putting atoms closer to the surface of the waveguide or adding photon circulating mechanisms to the waveguide, it should be immediate next step to study the entanglement of many atoms in the QND measurement or light scattering process.
+In the process of derive the spin dynamics equations, as I have developed an approach based on evolving the microscopic operators and I have partially finished the generalization to including many-body moment terms, this research direction could be finished in a short term.
+
+Second, in our current research on the atom-nanophotonic waveguide interface study, we focus on the dispersive regime where the multiple scattering of photons can be ignored.
+But to complete the study for future quantum simulations on the platform, I think we have to include the multiple scattering process into our theory.
+In fact, there have been research publications including those collective effects with applications to high-efficient quantum memories (see, for instance, PRA 95, 033818; arXiv:1710.06312 and arXiv:1703.03382).
+We have carefully studied some of the published papers and have indeed done some analysis for an on-going project with Prof. Perry Rice at the Miami University.
+Beside what we have done with Perry, I think the theoretical study on the imperfections of optical lattice in 1D dimension could be generalized to look at their impact on matrix product states generations.
+The theory needed might involve to derive the input-output relationship including the time-correlations of operators beyond the long-time limit that we have done.
+Of course, some ideas on generating the matrix product states have been mentioned in the summary part of our spin squeezing paper based on the Faraday interaction to be submitted.
+As naturally connected to the matrix product state description, we might want to use the tensor network approach alongside the N-moment approach to study this subject to verify the result and to study the equivalence of the two approaches.
+This direction of study might give us some insights on the robustness of collective state generations and how the break of symmetry changes the properties of the many-body system.
+
+Third, our study on the cooling and individual state preparation is to apply a global operations on all atoms.
+As the nano-technique enable labs to control atoms individually, it might be interesting to study the universal control theory involving both global and local controls on the atom-nanophotonic waveguide platform on top of our current framework of theory.
+This direction could lead us to implement arbitrary collective state generation and measurement-based quantum computing using the nanophotonic waveguides and atoms.
+
+Certainly, I am open to other research directions in a relatively broad range.
+
+Thank you for considering my job application!

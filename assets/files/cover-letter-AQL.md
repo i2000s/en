@@ -20,7 +20,7 @@ We have also formed a big network of collaborations across disciplines.
 4. Studied nano- and micro-device design and physics, and developed theories for designing THz-radiation sources and proposed a new type of semiconductor lasers.
 
 # Positions I am applying for
-I am interested in applying for the Research Engineer if qualified or a PostDoc position in the Alibaba Quantum Labs.
+I am interested in applying for the Research Engineer if qualified or the PostDoc position in the Alibaba Quantum Labs to continue my theoretical research on atom-nanophotonic quantum interface and quantum software development for quantum information processing.
 I am considering the Research Engineer position as my top choice mainly because I think the community now need more engineers than scientists that we have before to start the industry of building quantum computing elements and devices.
 I would be happy to conduct theoretical and practical researches focusing either on some particular quantum hardware--particularly based on atom-light interaction theories--or the software and device-independent aspect of quantum simulations and quantum computing tasks.
 I could also work as a Research Scientist if the job review committee think that is a better fit for me.
@@ -33,6 +33,7 @@ I don't have any restrictions on the locations I am going to work at in the fore
 # Work samples
 You can find my work samples online from the publication list of CV.
 Here I can highlight a few of them:
+
 1. Xiaodong Qi, Ben Q. Baragiola, Poul S. Jessen, and Ivan H. Deutsch. Dispersive response of atoms trapped near the surface of an optical nanofiber with applications to quantum nondemolition measurement and spin squeezing, Phys. Rev. A 93, 023817 (2016)
 2. Xiaodong Qi, Yuan-Yu Jau, and Ivan H. Deutsch. Enhanced cooperativity for quantum nondemolition measurement-induced spin squeezing of atoms coupled to a nanophotonic waveguide (to be submitted)
 3. Xiaodong Qi. Modeling and deciphering on two spin-polariton entanglement experiments on NV centers of diamond. arXiv:1111.5532 [physics.gen-ph].
@@ -44,9 +45,11 @@ However, since this work is fully funded by the Sandia National Lab and the Sand
 Thank you for your attention! Please don't hesitate to let me know if you have any questions.
 
 Sincerely,
+
 Xiaodong Qi
+
 Center for Quantum Information and control
+
 University of New Mexico
+
 1919 Lomas Blvd NE, Albuquerque, NM 87131, USA
-Email:  
-Mobile:

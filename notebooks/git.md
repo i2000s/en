@@ -52,3 +52,15 @@ git gc --aggressive
 git fetch origin
 git reset --hard origin/master
 ```
+
+* Remove a submodule from a Git repository:
+
+1. Delete the relevant section from the `.gitmodules` file.
+2. Stage the `.gitmodules` changes `git add .gitmodules`
+3. Delete the relevant section from `.git/config`.
+4. Run `git rm --cached path_to_submodule` (no trailing slash).
+5. Run `rm -rf .git/modules/path_to_submodule`
+6. Commit `git commit -m "Removed submodule <name>"`
+7. Delete the now untracked submodule files<br/>`rm -rf path_to_submodule`
+
+Ref: [this one](ttps://git.wiki.kernel.org/index.php/GitSubmoduleTutorial#Removal).

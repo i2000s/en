@@ -132,6 +132,9 @@ We could then find the optimal geometry of probing for robust and high-efficient
 
 Third, our study on the cooling and individual state preparation is achieved by applying a global operations on all atoms{% cite Deutsch1998Quantum Deutsch2010a --file refs/Archive %}.
 As the nano-technique enables labs to control atoms individually{% cite Thompson2013a --file refs/Archive %}, it might be interesting to study the universal control theory involving both global and local controls on the atom-nanophotonic waveguide platform.
+In the meantime, I plan to generalize our cooling and state preparation theory to the 2D and 3D cases.
+Using the different guided modes of photonic crystals or plasmonic structures, two or more groups of atoms can be prepared in some target states similar to the 1D optical lattice case{% cite Deutsch1995a Deutsch1998Quantum --file refs/Archive %} to simulate molecules or many-body systems on a chip.
+I would like to study the key theoretical problems to implement these systems on nanophotonic quantum interface and the basic properties of such systems for practical applications, which pave the road to realize my long-pursuing dream.
 This direction could lead us to implement arbitrary collective state generation, quantum simulations and maybe measurement-based quantum computing using the nanophotonic waveguides and atoms.
 
 Certainly, I am open to other research directions as long as they are aligned with my long-term goal.

@@ -233,7 +233,18 @@ git gc --prune=now</code></pre>
 <li><p>To reset a local repository to be synchronized with the remote, use</p>
 <pre><code>git fetch origin
 git reset --hard origin/master</code></pre></li>
+<li><p>Remove a submodule from a Git repository:</p></li>
 </ul>
+<ol type="1">
+<li>Delete the relevant section from the <code>.gitmodules</code> file.</li>
+<li>Stage the <code>.gitmodules</code> changes <code>git add .gitmodules</code></li>
+<li>Delete the relevant section from <code>.git/config</code>.</li>
+<li>Run <code>git rm --cached path_to_submodule</code> (no trailing slash).</li>
+<li>Run <code>rm -rf .git/modules/path_to_submodule</code></li>
+<li>Commit <code>git commit -m &quot;Removed submodule &lt;name&gt;&quot;</code></li>
+<li>Delete the now untracked submodule files<br/><code>rm -rf path_to_submodule</code></li>
+</ol>
+<p>Ref: <a href="ttps://git.wiki.kernel.org/index.php/GitSubmoduleTutorial#Removal">this one</a>.</p>
 <div class="references">
 
 </div>

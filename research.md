@@ -9,8 +9,9 @@ time: 2016-03-03 03:06:00.000000000 -07:00
 ## Current projects
 
 My research involves theoretical studies on the strong coupling between atoms and photons on an optical nanofiber (see figure below) and other nanophotonic platforms.
-My current focus is the nanofiber trapped cold atom system.
+My current focus is about the atom-nanophotonic interface.
 This study was initially motivated as an upgrade to the free space atom-light quantum interface platforms implemented in cold atom labs towards a stronger coupling between atoms and light.
+My Research Statement for the purpose of job applications can be found [here](/en/assets/files/research-statement.html). 
 
 <center>
 {% include image.html img="/en/assets/img/NanofiberModeMatching.png" width="400px" title="Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems" caption="Fig 1. Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems. Figure is adapted from <a href='http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817' target='_blank'>X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)</a>." %}

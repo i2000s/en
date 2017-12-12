@@ -18,7 +18,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Files can be downloaded from the &lt;a href=&quot;https://github.com/i2000s/2018SQuInT-EnhancedCooperativityForSpinSqueezing/releases&quot;&gt;repo&lt;/a&gt; (to be uploaded).&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Feel free to comment as an &lt;a href=&quot;https://github.com/i2000s/2018SQuInT-EnhancedCooperativityForSpinSqueezing/issues&quot;&gt;issue&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Reference: &lt;a href=&quot;https://arxiv.org/abs/1712.02916&quot;&gt;arXiv:1712.02916&lt;/a&gt; (comments are welcome). Related news report for general public can be found &lt;a href=&quot;https://cquic.unm.edu/news-deutsch-group/nanophotonic-waveguides-enhance-atom-light-coupling-with-a-weak-local-field/&quot;&gt;on CQuIC website&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Reference: &lt;a href=&quot;https://arxiv.org/abs/1712.02916&quot;&gt;arXiv:1712.02916&lt;/a&gt; (comments are welcome)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Previous related work: &lt;a href=&quot;http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817&quot;&gt;X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&quot;references&quot;&gt;
@@ -48,13 +48,12 @@
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Abstract&lt;/em&gt;&lt;/strong&gt;: Nanophotonic waveguides strongly enhance the entangling strength of the atom-light interface. We study their application to the generation of spin squeezed states of trapped ultracold cesium atoms in two geometries — cylindrical optical nanofibers and square waveguides. We consider two different protocols — squeezing the clock transition by the birefringence coupling and squeezing a spin coherent state via the Faraday interaction. We unify our analysis based on a universal parameter — the optical depth per atom. In calculating the spin squeezing parameter, we have established a set of stochastic master equations to describe the individual and collective spin dynamics. Our simulation shows that $ \sim 10$ dB of spin squeezing may be achievable with a few thousands of atoms on these nanophotonic waveguides. Our result can be generalized to other nanophotonic platforms, for implementing non-Gaussian states, and to improve quantum sensing precision using spin squeezing techniques.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Presentation Slides and Audio Records&lt;/em&gt;&lt;/strong&gt;: can be downloaded from &lt;a href=&quot;https://github.com/i2000s/2017DAMOP-spin-squeezing-on-nanophotonic-waveguides/releases&quot;&gt;this link&lt;/a&gt; under the &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC-BY-4.0 license&lt;/a&gt;. Cite with the &lt;a href=&quot;https://zenodo.org/badge/latestdoi/93832855&quot;&gt;&lt;img src=&quot;https://zenodo.org/badge/93832855.svg&quot; alt=&quot;DOI&quot; /&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;center&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;figure&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;figure&gt;
 &lt;img src=&quot;/en/assets/img/qrcode_DAMOP_talk_page.png&quot;   height=&quot;210px&quot; align=&quot;center&quot; alt=&quot;Scan to load on your mobile device&quot;   /&gt;
 &lt;figcaption&gt;
 QR code for this page.
-&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
+&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
+
 &lt;/center&gt;
 
 
@@ -634,38 +633,30 @@ git push origin gh-pages&lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&quot;a-lifecycle-model-of-productivity&quot;&gt;A lifecycle model of productivity&lt;/h1&gt;
 As having been often observed, when we work on a subject, we usually experience the following productivity curve over time as plotted in the figure below.
 &lt;center&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;figure&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;figure&gt;
 &lt;img src=&quot;/en/assets/img/productcurve.png&quot;   width=&quot;500px&quot;   align=&quot;center&quot; alt=&quot;A lifecycle curve of productivity over time.&quot;   /&gt;
 &lt;figcaption&gt;
 Fig 1. Lifecycle curve of productivity level when working on a task over time.
-&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
+&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
+
 &lt;/center&gt;
 &lt;p&gt;The curve is the lifecycle on how working on the subject yields valuable outputs, which typically includes a slow and low-efficient starting phase, a rapid climbing phase, a flat peaking phase and a slow decaying phase. In fact, this not only can be seen in task productivity but also occurs on almost everything in our daily lives, like people’s activity level over days and ages, the profit level a fashion or a product follows, the population growth curve of species in a resources-limited environment and so on.&lt;/p&gt;
 &lt;p&gt;Now, imagine you have a bunch of subjects to work on over time and each of them has a similar lifecycle curve. You can arrange when you start to work on your subjects, and your peak productivity level working on the next subject might grow a little bit higher than the previous one.&lt;/p&gt;
 We consider two scenarios. First, as shown in the figure on the left below, we continue working on new subjects before the previous subject’s productivity level decays.
 &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;figure&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;figure&gt;
 &lt;img src=&quot;/en/assets/img/productcurveaccum.png&quot;   width=&quot;400px&quot;   align=&quot;center&quot; alt=&quot;The way to have a continuous growth of productivity level over time. Dashed lines are the individual productivity lifecycle curves. Solid line is the sum of individual curves.&quot;   /&gt;
 &lt;figcaption&gt;
 &lt;ol type=&quot;A&quot;&gt;
 &lt;li&gt;a continuous growth case
-&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
+&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
 &lt;/center&gt;
-&lt;/td&gt;&lt;td&gt;&lt;center&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;figure&gt;
+&lt;/td&gt;&lt;td&gt;&lt;center&gt;&lt;div class=&quot;row&quot;&gt;&lt;figure&gt;
 &lt;img src=&quot;/en/assets/img/productcurveaccumless.png&quot;   width=&quot;400px&quot;   align=&quot;center&quot; alt=&quot;Dippings occur when task interval increases.&quot;   /&gt;
 &lt;figcaption&gt;
 &lt;ol start=&quot;2&quot; type=&quot;A&quot;&gt;
 &lt;li&gt;little-overlap case
-&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
+&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
 &lt;/center&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;em&gt;Fig 2. A continuous growth (A) and oscillations (B) of productivity levels over time. Dashed lines are the individual productivity lifecycle curves. Solid line is the sum of individual curves.&lt;/em&gt;&lt;br /&gt;
@@ -1099,12 +1090,9 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Title: Advanced Topics in Quantum Optics (II)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;(Yeah, we have tagged part I &lt;a href=&quot;//iciq.github.io/entangle/QuantumOpticsGroup.html&quot;&gt;two years before&lt;/a&gt; already.)&lt;/p&gt;
-&lt;center&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;figure&gt;
+&lt;center&gt;&lt;div class=&quot;row&quot;&gt;&lt;figure&gt;
 &lt;img src=&quot;//media.wiley.com/product_data/coverImage300/73/35274070/3527407073.jpg&quot;  scale=&quot;95%&quot;    align=&quot;center&quot; alt=&quot;optical pumping and laser cooling&quot;   /&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
+&lt;/figure&gt;&lt;/div&gt;
 &lt;/center&gt;
   
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
@@ -1171,11 +1159,9 @@ sudo apt install NVidia-367&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;More details can be found in our publication: &lt;a href=&quot;https://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817&quot;&gt;X. Qi, B. Q. Baragiola, P. S. Jessen, and I. H. Deutsch, Phys. Rev. A 93, 023817 (2016)&lt;/a&gt;. ArXiv online: &lt;a href=&quot;https://arxiv.org/abs/1509.02625&quot;&gt;https://arxiv.org/abs/1509.02625&lt;/a&gt;. The full title is &lt;strong&gt;&lt;em&gt;Dispersive response of atoms trapped near the surface of an optical nanofiber with applications to quantum nondemolition measurement and spin squeezing&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;To cite this poster, please use the following &lt;a href=&quot;https://en.wikipedia.org/wiki/Digital_object_identifier&quot;&gt;DOI&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;https://zenodo.org/badge/latestdoi/75506383&quot;&gt;
-&lt;div class=&quot;row&quot;&gt;
-&lt;figure&gt;
+&lt;div class=&quot;row&quot;&gt;&lt;figure&gt;
 &lt;img src=&quot;https://zenodo.org/badge/75506383.svg&quot;   width=&quot;200px&quot;   align=&quot;center&quot;    /&gt;
-&lt;/figure&gt;
-&lt;/div&gt;
+&lt;/figure&gt;&lt;/div&gt;
 &lt;p&gt;&lt;/a&gt; or &lt;a href=&quot;https://doi.org/10.5281/zenodo.192474&quot;&gt;10.5281/zenodo.192474&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Thanks for your interest, and hopefully see you in SQuInT!&lt;/p&gt;

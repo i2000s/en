@@ -11,6 +11,7 @@ come to be an essential part of my workflow.
 
 I use **LaTeX** for typesetting and [TexStudio](http://texstudio.org/)
 as the editor.
+Some of my notes on writing `LaTeX` can be found [here](/en/notebooks/LaTeX.html).
 References are managed using **Bibtex**.  I also use
 [JabRef](http://jabref.org/), which is a simple GUI frontend for
 Bibtex reference database.

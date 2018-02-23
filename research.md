@@ -8,10 +8,9 @@ time: 2016-03-03 03:06:00.000000000 -07:00
 
 ## Current projects
 
-My research involves theoretical studies on the strong coupling between atoms and photons on an optical nanofiber (see figure below) and other nanophotonic platforms.
-My current focus is about the atom-nanophotonic interface.
+My research involves theoretical studies on the strong coupling between atoms and photons on an optical nanofiber (see figure below) and other nanophotonic platforms, especially to study the fundamental limits and possibilities of state preparation, control and readout (measurement) operations on an ensemble of atoms using waveguide interfaces as a data bus towards quantum computing, quantum communication and quantum sensing applications.
 This study was initially motivated as an upgrade to the free space atom-light quantum interface platforms implemented in cold atom labs towards a stronger coupling between atoms and light.
-My Research Statement for the purpose of job applications can be found [here](/en/assets/files/research-statement.html). 
+My Research Statement for the purpose of some job applications can be found [here](/en/assets/files/research-statement.html).
 
 <center>
 {% include image.html img="/en/assets/img/NanofiberModeMatching.png" width="400px" title="Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems" caption="Fig 1. Comparison of mode matching in free-space (a and b) and optical nanofiber (c) systems. Figure is adapted from <a href='http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817' target='_blank'>X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)</a>." %}
@@ -23,9 +22,9 @@ Either way, the effective atom number that can be strongly coupled to the light 
 In contrast, if the atoms are trapped around an optical nanofiber using the fiber's evanescent field as shown in subfigure (c), not only all atoms could be all evenly and strongly coupled to the light, but also the forwarding light signal can be efficiently collected due to good mode matching.
 In the end, compared to the free-space case, far less number of atoms are needed using the nanofiber platform to generate a considerable amount of light-atomic ensemble coupling strength, which could open up possibilities, for example, to generate non-Gaussian collective spin states using quantum measurement.
 
-We have outlined and proposed in our recent theory paper ([Phys. Rev. A 93, 023817(2016)](http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817)) that, in the dispersive regime, this nanofiber system can generate a strong coupling with the alkali metal atom ensembles, which can be used for precise quantum non-demolition (QND) measurement as a Ramsey interferometer as well as for spin squeezing beyond the Gaussian state limit with fewer atoms than the free-space case.
+We have outlined and proposed in our recent theory paper ([Phys. Rev. A 93, 023817(2016)](http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817)) that, in the dispersive regime, this nanofiber system can generate a strong coupling with the alkali metal atom ensembles, which can be used for precise quantum non-demolition (QND) measurement of atomic clocks as a Ramsey interferometer as well as for spin squeezing beyond the Gaussian state limit with fewer atoms than the free-space case.
 All of these findings imply a promising future for the nanofiber platform for atomic clocks, precise measurements, quantum data bus and other quantum information processing applications.
-During the study, our group has been closely involved with our experimental collaborators, and the future of our project is tightly orientated by the new findings and inevitable challenges that our experimental collaborators have concluded and based on our theoretical insights which can make a fundamental difference for the frontier research of quantum information and quantum computing community.
+During the study, our group has been closely working with our experimental collaborators, and the future of our project is tightly orientated by the new findings and inevitable challenges that our experimental collaborators have concluded and based on our theoretical insights which can make a fundamental difference for the frontier research of quantum information and quantum computing community.
 My current on-going theory research projects include the following and are open for new directions:
 
  - Optimal QND measurement protocols on the nanofiber trapped atomic systems.

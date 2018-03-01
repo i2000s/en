@@ -307,11 +307,11 @@ description: Xiaodong's self-described contribution to the community.
      </div>
 
     <div class="col-md-4 col-xs-11">
-     <h4> <a href="https://github.com/{{ site.author.github }}/Archive/commits/master/Archive.bib" onClick="recordOutboundLink(this, 'Outbound Links', 'Github'); return false;" > <!-- The link is different for different people.-->
+     <h4> <a href="https://github.com/{{ site.author.github }}/{{site.author.readingrepo}}/commits/master/" onClick="recordOutboundLink(this, 'Outbound Links', 'Github'); return false;" >
       <img src="{{site.baseurl}}/assets/img/icon-stackoverflow.png" height=40px></img> Reading </a></h4>
        <div class="excerpt" height="300px">
            <div class="scroll">
-                {% github_repo_feed i2000s, Archive, 5 %}
+                {% github_repo_feed i2000s, Archive, 5 %} <!-- The link is different for different people. Use author's github repo and readingrepo names here. -->
            </div>
        </div>
     </div>

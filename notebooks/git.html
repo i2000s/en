@@ -214,6 +214,13 @@ git checkout -b patch-1 A/patch-1</code></pre>
 <p>Once I commit all necessary fixes, I can make a pull request through the web interface of the Git repository. After the PR is merged, I can then delete the <em>patch-1</em> branch remotely and locally by</p>
 <pre><code>git push origin --delete patch-1
 git branch -d patch-1</code></pre></li>
+</ul>
+<p>If we just want to make a quick fix and then push it back right away, there is <a href="https://stackoverflow.com/questions/5884784/how-to-pull-remote-branch-from-somebody-elses-repo">another way</a> by calling the remote url directly without adding it:</p>
+<pre><code>git fetch https://github.com/theirusername/reponame.git theirbranch:ournameforbranch</code></pre>
+<p>where <code>ournameforbranch</code> should be the target branch haven’t been created. Then <code>git checkout FETCH_HEAD</code> to make changes in the new branch. Once things are done,</p>
+<pre><code>git push https://github.com/theirusername/reponame.git HEAD:theirbranch</code></pre>
+<p>If working in detached state worries you, by all means create a branch using <code>:ournameforbranch</code> and replace <code>FETCH_HEAD</code> and <code>HEAD</code> above with <code>ournameforbranch</code>.</p>
+<ul>
 <li><p>Remove a file stored in Git history: If the change is not published yet, use</p>
 <pre><code>git rm --cached FILENAME
 git commit --amend -CHEAD</code></pre>

@@ -17,6 +17,19 @@ git push origin --delete patch-1
 git branch -d patch-1
 ```
 
+If we just want to make a quick fix and then push it back right away, there is [another way](https://stackoverflow.com/questions/5884784/how-to-pull-remote-branch-from-somebody-elses-repo) by calling the remote url directly without adding it:
+```
+git fetch https://github.com/theirusername/reponame.git theirbranch:ournameforbranch
+```
+where `ournameforbranch` should be the target branch haven't been created.
+Then `git checkout FETCH_HEAD` to make changes in the new branch.
+Once things are done,
+```
+git push https://github.com/theirusername/reponame.git HEAD:theirbranch
+```
+If working in detached state worries you, by all means create a branch using `:ournameforbranch` and replace `FETCH_HEAD` and `HEAD` above with `ournameforbranch`.
+
+
 * Remove a file stored in Git history:
 If the change is not published yet, use
 ```

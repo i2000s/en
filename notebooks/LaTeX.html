@@ -213,6 +213,14 @@ var _hmt = _hmt || [];
 <li><p>The <code>standalone</code> package: Once <code>\usepackage{standalone}</code> or <code>\RequiredPackage{standalone}</code> is used, the included external files can be a complete LaTeX file. Otherwise, the external files should be code fractions in most cases. Note that, when standalone package is used, the included sub-document will use the preamble from the main document instead. See <a href="https://tex.stackexchange.com/questions/11311/how-to-include-a-document-into-another-document">here</a> for more information.</p></li>
 <li><p>The <code>CatchFilesBetweenTags</code> package: This package allows to include external code fractions enclosed inside of a pair of <code>tag</code> (can be any words) in the format of <code>%&lt;*tag&gt;</code> and <code>%&lt;/tag&gt;</code>. The command <code>\ExecuteMetaData[path/to/file]{tag}</code> is commonly used to execute/expand tagged code into the current document. See <a href="https://texblog.org/2012/12/04/keeping-things-organized-in-large-documents/">this example</a>. It might have problems due to conflicts with other packages or settings. For example, see <a href="https://tex.stackexchange.com/questions/234585/workaround-to-make-catchbetweenfiletags-work-with-lualatex">here for LuaTeX compiling</a> and <a href="https://tex.stackexchange.com/questions/164074/why-does-executemetadata-break-my-paragraphs/164163#164163">here for endline characters</a>.</p></li>
 </ol>
+<h2 id="tips-on-using-the-makeindex-package-imakeidx">Tips on using the makeindex package (<code>imakeidx</code>)</h2>
+<ol type="1">
+<li><p>For index word started with a special character (like accents or math symbols), use <code>\index{example@\'example}</code> syntax to format the real word after the <code>@</code> symbol.</p></li>
+<li><p>Subentries can be nestled using the <code>!</code> symbol. For example, <code>\index{main!sub}</code>.</p></li>
+<li><p>Cross-referencing may be defined using the <code>|</code> symbol. For example, <code>\index{bird|see {flying animal}}</code>.</p></li>
+<li><p>If the <code>hyperref</code> package is included at the end of the preamble, indexed works will be hyperlinked to the page. Otherwise, no hyperlinks to the page numbers.</p></li>
+<li><p>It may cause conflicts if the <code>\index</code> is used twice after the same word. The error message may be <code>use of \@index doesn't match its definition</code>.</p></li>
+</ol>
 <h2 id="formatting-tricks">Formatting tricks</h2>
 <ul>
 <li>Use <code>\hfill</code>, <code>\vfill</code>, <code>\hspace{&lt;length&gt;}</code> and <code>vspace{&lt;length&gt;}</code> to insert blank spaces in horizontal (h) and vertical (v) directions. <code>\vskip &lt;length&gt;</code> and <code>\hskip &lt;length&gt;</code> can also be used for similar effects.</li>

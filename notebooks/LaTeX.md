@@ -78,7 +78,7 @@ title: Notes on LaTeX
 Then place `\FloatBarrier` to where the bottom line of allowed floating for figures before in TeX.
 
 ## Tips on using TikZ and PGFplots
-+ To not use the `,` separation delimits and use the usual digit decimal `.` sign, put the following code after `\usepackage{tikz,pgfplots}`:
++ To not use the `,` separation delimiters and use the usual digit decimal `.` sign for numbers, put the following code after `\usepackage{tikz,pgfplots}`:
 ```
 \pgfplotsset{
   compat=1.8, % Which version of pgfplots do we want to use?

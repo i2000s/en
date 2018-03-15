@@ -16,31 +16,31 @@ title: Notes on LaTeX
 4. The `CatchFilesBetweenTags` package:
   This package allows to include external code fractions enclosed inside of a pair of `tag` (can be any words) in the format of `%<*tag>` and `%</tag>` (`tag` can be any name). The command ` \ExecuteMetaData[path/to/file]{tag}` is commonly used to execute/expand tagged code into the current document. See [this example](https://texblog.org/2012/12/04/keeping-things-organized-in-large-documents/). It might have problems due to conflicts with other packages or settings. For example, see [here for LuaTeX compiling](https://tex.stackexchange.com/questions/234585/workaround-to-make-catchbetweenfiletags-work-with-lualatex) and [here for endline characters](https://tex.stackexchange.com/questions/164074/why-does-executemetadata-break-my-paragraphs/164163#164163).
 
-  When using these packages, you might encounter some errors, which otherwise may not occur. Here are some and the corresponding solutions.
-  + Error "Too many math alphabets in math normal". Put the following lines before using the `bm` and/or `bbm` or other font packages if used (see [here](https://tex.stackexchange.com/questions/3676/too-many-math-alphabets-error)):
-  ```
-  \newcommand\hmmax{0}
-  \newcommand\bmmax{0}
-  \usepackage{bm}
-  \usepackage{bbm}
-  ```
-  + The authors of `CatchFilesBetweenTags` decided to issue `\endlinechar=-1`, which causes the linebreaks vanish. The following codes is a workaround from tex.stackexchange article "\input only part of a file using catchfilebetweentags package."
-  ```
-  \makeatletter
-  \def\CatchFBT@Fin@l#1[#2]{%
-     \begingroup
-        %\endlinechar\m@ne % <- this is the guilty party
-        \makeatletter #2%
-        \scantokens\expandafter{%
-           \expandafter\CatchFBT@tok\expandafter{\the\CatchFBT@tok}}%
-        \CatchFBT@IsAToken{#1}
-           {\global#1\expandafter{\the\CatchFBT@tok}}
-           {\xdef#1{\the\CatchFBT@tok}}%
-        \ifx\CatchFBT@tok#1\else\global\CatchFBT@tok{}\fi
-     \endgroup
-  }% \CatchFBT@Final
-  \makeatother
-  ```
+    When using these packages, you might encounter some errors, which otherwise may not occur. Here are some and the corresponding solutions.
+    + Error "Too many math alphabets in math normal". Put the following lines before using the `bm` and/or `bbm` or other font packages if used (see [here](https://tex.stackexchange.com/questions/3676/too-many-math-alphabets-error)):
+    ```
+    \newcommand\hmmax{0}
+    \newcommand\bmmax{0}
+    \usepackage{bm}
+    \usepackage{bbm}
+    ```
+    + The authors of `CatchFilesBetweenTags` decided to issue `\endlinechar=-1`, which causes the linebreaks vanish. The following codes is a workaround from tex.stackexchange article "\input only part of a file using catchfilebetweentags package."
+    ```
+    \makeatletter
+    \def\CatchFBT@Fin@l#1[#2]{
+       \begingroup
+          %\endlinechar\m@ne % <- this is the guilty party
+          \makeatletter #2%
+          \scantokens\expandafter{
+             \expandafter\CatchFBT@tok\expandafter{\the\CatchFBT@tok}}
+          \CatchFBT@IsAToken{#1}
+             {\global#1\expandafter{\the\CatchFBT@tok}}
+             {\xdef#1{\the\CatchFBT@tok}}%
+          \ifx\CatchFBT@tok#1\else\global\CatchFBT@tok{}\fi
+       \endgroup
+    }% \CatchFBT@Final
+    \makeatother
+    ```
 
 ## Tips on using the makeindex package (`imakeidx`)
 1. For index word started with a special character (like accents or math symbols), use `\index{example@\'example}` syntax to format the real word after the `@` symbol.
@@ -65,7 +65,7 @@ title: Notes on LaTeX
 ```
 \usepackage{placeins}
 \makeatletter
-\AtBeginDocument{%
+\AtBeginDocument{
   \expandafter\renewcommand\expandafter\subsection\expandafter
     {\expandafter\@fb@secFB\subsection}%
   \newcommand\@fb@secFB{\FloatBarrier
@@ -80,7 +80,7 @@ Then place `\FloatBarrier` to where the bottom line of allowed floating for figu
 ## Tips on using TikZ and PGFplots
 + To not use the `,` separation delimits and use the usual digit decimal `.` sign, put the following code after `\usepackage{tikz,pgfplots}`:
 ```
-\pgfplotsset{ % Here we specify options for all figures in the document
+\pgfplotsset{
   compat=1.8, % Which version of pgfplots do we want to use?
   legend style =
   {font=\small\sffamily},

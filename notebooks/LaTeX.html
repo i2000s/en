@@ -211,7 +211,30 @@ var _hmt = _hmt || [];
 <li><p><code>\input{}</code> and <code>\include{}</code>: Both allow including external tex files into the current file. <code>\input</code> doesn’t start from a new page, but <code>\include</code> does; <code>\include</code> allow nested file including while <code>\input</code> doesn’t.</p></li>
 <li><p><code>\import{&lt;directory&gt;}{&lt;filename&gt;}</code> and <code>\subimport{}{}</code>: Similar to <code>\input</code>, but allows compiling the external files in their own directory. See <a href="ftp://sunsite.icm.edu.pl/pub/CTAN/macros/latex/contrib/import/import.pdf">document</a>.</p></li>
 <li><p>The <code>standalone</code> package: Once <code>\usepackage{standalone}</code> or <code>\RequiredPackage{standalone}</code> is used, the included external files can be a complete LaTeX file. Otherwise, the external files should be code fractions in most cases. Note that, when standalone package is used, the included sub-document will use the preamble from the main document instead. See <a href="https://tex.stackexchange.com/questions/11311/how-to-include-a-document-into-another-document">here</a> for more information.</p></li>
-<li><p>The <code>CatchFilesBetweenTags</code> package: This package allows to include external code fractions enclosed inside of a pair of <code>tag</code> (can be any words) in the format of <code>%&lt;*tag&gt;</code> and <code>%&lt;/tag&gt;</code>. The command <code>\ExecuteMetaData[path/to/file]{tag}</code> is commonly used to execute/expand tagged code into the current document. See <a href="https://texblog.org/2012/12/04/keeping-things-organized-in-large-documents/">this example</a>. It might have problems due to conflicts with other packages or settings. For example, see <a href="https://tex.stackexchange.com/questions/234585/workaround-to-make-catchbetweenfiletags-work-with-lualatex">here for LuaTeX compiling</a> and <a href="https://tex.stackexchange.com/questions/164074/why-does-executemetadata-break-my-paragraphs/164163#164163">here for endline characters</a>.</p></li>
+<li><p>The <code>CatchFilesBetweenTags</code> package: This package allows to include external code fractions enclosed inside of a pair of <code>tag</code> (can be any words) in the format of <code>%&lt;*tag&gt;</code> and <code>%&lt;/tag&gt;</code> (<code>tag</code> can be any name). The command <code>\ExecuteMetaData[path/to/file]{tag}</code> is commonly used to execute/expand tagged code into the current document. See <a href="https://texblog.org/2012/12/04/keeping-things-organized-in-large-documents/">this example</a>. It might have problems due to conflicts with other packages or settings. For example, see <a href="https://tex.stackexchange.com/questions/234585/workaround-to-make-catchbetweenfiletags-work-with-lualatex">here for LuaTeX compiling</a> and <a href="https://tex.stackexchange.com/questions/164074/why-does-executemetadata-break-my-paragraphs/164163#164163">here for endline characters</a>.</p>
+When using these packages, you might encounter some errors, which otherwise may not occur. Here are some and the corresponding solutions.
+<ul>
+<li><p>Error “Too many math alphabets in math normal”. Put the following lines before using the <code>bm</code> and/or <code>bbm</code> or other font packages if used (see <a href="https://tex.stackexchange.com/questions/3676/too-many-math-alphabets-error">here</a>):</p>
+<pre><code>\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+\usepackage{bm}
+\usepackage{bbm}</code></pre></li>
+<li><p>The authors of <code>CatchFilesBetweenTags</code> decided to issue <code>\endlinechar=-1</code>, which causes the linebreaks vanish. The following codes is a workaround from tex.stackexchange article “only part of a file using catchfilebetweentags package.”</p>
+<pre><code>\makeatletter
+\def\CatchFBT@Fin@l#1[#2]{
+   \begingroup
+  %\endlinechar\m@ne % &lt;- this is the guilty party
+  \makeatletter #2%
+  \scantokens\expandafter{
+     \expandafter\CatchFBT@tok\expandafter{\the\CatchFBT@tok}}
+  \CatchFBT@IsAToken{#1}
+     {\global#1\expandafter{\the\CatchFBT@tok}}
+     {\xdef#1{\the\CatchFBT@tok}}%
+  \ifx\CatchFBT@tok#1\else\global\CatchFBT@tok{}\fi
+   \endgroup
+}% \CatchFBT@Final
+\makeatother</code></pre></li>
+</ul></li>
 </ol>
 <h2 id="tips-on-using-the-makeindex-package-imakeidx">Tips on using the makeindex package (<code>imakeidx</code>)</h2>
 <ol type="1">
@@ -224,6 +247,41 @@ var _hmt = _hmt || [];
 <h2 id="formatting-tricks">Formatting tricks</h2>
 <ul>
 <li>Use <code>\hfill</code>, <code>\vfill</code>, <code>\hspace{&lt;length&gt;}</code> and <code>vspace{&lt;length&gt;}</code> to insert blank spaces in horizontal (h) and vertical (v) directions. <code>\vskip &lt;length&gt;</code> and <code>\hskip &lt;length&gt;</code> can also be used for similar effects.</li>
+</ul>
+<h2 id="handling-figures">Handling figures</h2>
+<h3 id="on-placing-figures-in-place">On placing figures in place</h3>
+<ol type="1">
+<li><p>Use <code>\begin{figure}[!tbp] ... \end{figure}</code> environment to fix the position of figures as in the tex. The <code>[h]</code> (here) position option might generate some problems, which will push figures to the end of a chapter or before a new page break.</p></li>
+<li><p>If the <code>float</code> package and command is used, the <code>placeins</code> package might be helpful to place the float figures at a more controllable manner. Otherwise, the float figures might go to the end of the document or chapter. The following code, for instance, will fix the placement of figures to corresponding subsections level. See <a href="https://tex.stackexchange.com/questions/118662/use-placeins-for-subsections">reference here</a>.</p>
+<pre><code>\usepackage{placeins}
+\makeatletter
+\AtBeginDocument{
+  \expandafter\renewcommand\expandafter\subsection\expandafter
+{\expandafter\@fb@secFB\subsection}%
+  \newcommand\@fb@secFB{\FloatBarrier
+\gdef\@fb@afterHHook{\@fb@topbarrier \gdef\@fb@afterHHook{}}}%
+  \g@addto@macro\@afterheading{\@fb@afterHHook}%
+  \gdef\@fb@afterHHook{}%
+}
+\makeatother</code></pre>
+<p>Then place <code>\FloatBarrier</code> to where the bottom line of allowed floating for figures before in TeX.</p></li>
+</ol>
+<h2 id="tips-on-using-tikz-and-pgfplots">Tips on using TikZ and PGFplots</h2>
+<ul>
+<li><p>To not use the <code>,</code> separation delimits and use the usual digit decimal <code>.</code> sign, put the following code after <code>\usepackage{tikz,pgfplots}</code>:</p>
+<pre><code>\pgfplotsset{
+  compat=1.8, % Which version of pgfplots do we want to use?
+  legend style =
+  {font=\small\sffamily},
+  label style = {font=\small\sffamily},
+  xticklabel style={/pgf/number format/.cd, 1000 sep={}}
+  }</code></pre>
+<p>Of course, a few other commonly used options are included above.</p></li>
+<li><p>To precompile TikZ pictures into PDF files for the first run, use</p>
+<pre><code>\usetikzlibrary{external} \tikzset{external/system call={lualatex
+\tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname &quot;\image&quot; &quot;\texsource&quot;}}
+\tikzexternalize[prefix=fig/autofig/]</code></pre>
+<p>This will call LuaLaTeX to compile the TeX file and put compiled TikZ figures into the <code>fig/autofig</code> directory.</p></li>
 </ul>
 <div class="references">
 

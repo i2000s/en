@@ -77,6 +77,10 @@ title: Notes on LaTeX
 ```
 Then place `\FloatBarrier` to where the bottom line of allowed floating for figures before in TeX.
 
+### Troubleshooting figure issues
+1. If encountering the "missing $ inserted" error for content inside of the shortname of a figure caption, it might be caused by a square bracket in an inline equation. The shortname of a caption is defined in a pair of square brackets by `\caption[]{}` syntax and will close whenever it finds a close square bracket, including the square bracket inside an equation environment, like `$a=\left[f(x)\right]$`. To avoid this problem, put any square brackets in a pair of curly brackets before placing them in the caption shortname environment. 
+
+
 ## Tips on using TikZ and PGFplots
 + To not use the `,` separation delimiters and use the usual digit decimal `.` sign for numbers, put the following code after `\usepackage{tikz,pgfplots}`:
 ```

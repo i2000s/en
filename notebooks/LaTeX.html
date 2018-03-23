@@ -266,6 +266,11 @@ When using these packages, you might encounter some errors, which otherwise may 
 \makeatother</code></pre>
 <p>Then place <code>\FloatBarrier</code> to where the bottom line of allowed floating for figures before in TeX.</p></li>
 </ol>
+<h3 id="troubleshooting-figure-issues">Troubleshooting figure issues</h3>
+<ol type="1">
+<li><p>If encountering the “missing $ inserted” error for content inside of the shortname of a figure caption, it might be caused by a square bracket in an inline equation. The shortname of a caption is defined in a pair of square brackets by <code>\caption[]{}</code> syntax and will close whenever it finds a close square bracket, including the square bracket inside an equation environment, like <code>$a=\left[f(x)\right]$</code>. To avoid this problem, put any square brackets in a pair of curly brackets before placing them in the caption shortname environment.</p></li>
+<li><p>Errors <code>Undefined control sequence</code> and <code>Missing \endgroup inserted</code> may occur if a macro is not defined correctly; if a macro or a self-defined shorthand is used in the shortname part of the caption of a figure and the list of figures is compiled to generate, these errors may also occur, which is caused by the fact that compiling the list of figures may not call the self-defined commands (including citations) in the process.</p></li>
+</ol>
 <h2 id="tips-on-using-tikz-and-pgfplots">Tips on using TikZ and PGFplots</h2>
 <ul>
 <li><p>To not use the <code>,</code> separation delimiters and use the usual digit decimal <code>.</code> sign for numbers, put the following code after <code>\usepackage{tikz,pgfplots}</code>:</p>

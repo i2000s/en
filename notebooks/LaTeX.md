@@ -78,7 +78,9 @@ title: Notes on LaTeX
 Then place `\FloatBarrier` to where the bottom line of allowed floating for figures before in TeX.
 
 ### Troubleshooting figure issues
-1. If encountering the "missing $ inserted" error for content inside of the shortname of a figure caption, it might be caused by a square bracket in an inline equation. The shortname of a caption is defined in a pair of square brackets by `\caption[]{}` syntax and will close whenever it finds a close square bracket, including the square bracket inside an equation environment, like `$a=\left[f(x)\right]$`. To avoid this problem, put any square brackets in a pair of curly brackets before placing them in the caption shortname environment. 
+1. If encountering the "missing $ inserted" error for content inside of the shortname of a figure caption, it might be caused by a square bracket in an inline equation. The shortname of a caption is defined in a pair of square brackets by `\caption[]{}` syntax and will close whenever it finds a close square bracket, including the square bracket inside an equation environment, like `$a=\left[f(x)\right]$`. To avoid this problem, put any square brackets in a pair of curly brackets before placing them in the caption shortname environment.
+
+2. Errors `Undefined control sequence` and `Missing \endgroup inserted` may occur if a macro is not defined correctly; if a macro or a self-defined shorthand is used in the shortname part of the caption of a figure and the list of figures is compiled to generate, these errors may also occur, which is caused by the fact that compiling the list of figures may not call the self-defined commands (including citations) in the process.
 
 
 ## Tips on using TikZ and PGFplots

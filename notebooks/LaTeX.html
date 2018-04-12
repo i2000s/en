@@ -235,6 +235,14 @@ When using these packages, you might encounter some errors, which otherwise may 
 }% \CatchFBT@Final
 \makeatother</code></pre></li>
 </ul></li>
+<li>In organizing Table of Content, here are some tips:
+<ul>
+<li><p>One can include the <code>Index</code> in the TOC by using</p>
+<pre><code>\usepackage{imakeidx}
+\makeindex[columns=2, title=Index, intoc]</code></pre></li>
+<li><p>To insert a self-defined section/chapter name to the TOC, place the following line at proper section/chaper positions in the main text:</p>
+<pre><code>\addcontentsline{toc}{section/chapter}{Unnumbered Section name}</code></pre></li>
+</ul></li>
 </ol>
 <h2 id="tips-on-using-the-makeindex-package-imakeidx">Tips on using the makeindex package (<code>imakeidx</code>)</h2>
 <ol type="1">
@@ -243,6 +251,8 @@ When using these packages, you might encounter some errors, which otherwise may 
 <li><p>Cross-referencing may be defined using the <code>|</code> symbol. For example, <code>\index{bird|see {flying animal}}</code>.</p></li>
 <li><p>If the <code>hyperref</code> package is included at the end of the preamble, indexed works will be hyperlinked to the page. Otherwise, no hyperlinks to the page numbers.</p></li>
 <li><p>It may cause conflicts if the <code>\index</code> is used twice after the same word. The error message may be <code>use of \@index doesn't match its definition</code>.</p></li>
+<li><p>When math equations are used in the section/chapter names, use <code>\texorpdfstring{equations}{textreplacement}</code> to define a pure text phrase to replace the math symbols. This will prevent <a href="https://tex.stackexchange.com/questions/53513/hyperref-token-not-allowed">warning</a> <code>Token not allowed in a PDF string</code> for bookmarks in PDF. Line break symbol <code>\\</code> should be removed in the simplified version of section names in the format of <code>\section[shortname]{full \\ name}</code>.</p></li>
+<li><p>When compiling a tex file including the <code>imakeidx</code> package, the <code>makeindex *.idx</code> command will be automatically running with <code>pdflatex</code> or <code>pdftex</code>. To avoid the <code>Label(s) may have been changed. Rerun the command to update the index</code> error, it is better to run <code>pdflatex</code> for at least 3 times.</p></li>
 </ol>
 <h2 id="formatting-tricks">Formatting tricks</h2>
 <ul>

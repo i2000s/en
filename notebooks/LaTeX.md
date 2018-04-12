@@ -42,6 +42,17 @@ title: Notes on LaTeX
     \makeatother
     ```
 
+5. In organizing Table of Content, here are some tips:
+    + One can include the `Index` in the TOC by using
+    ```
+    \usepackage{imakeidx}
+    \makeindex[columns=2, title=Index, intoc]
+    ```
+    + To insert a self-defined section/chapter name to the TOC, place the following line at proper section/chaper positions in the main text:
+    ```
+    \addcontentsline{toc}{section/chapter}{Unnumbered Section name}
+    ```
+
 ## Tips on using the makeindex package (`imakeidx`)
 1. For index word started with a special character (like accents or math symbols), use `\index{example@\'example}` syntax to format the real word after the `@` symbol.
 
@@ -53,6 +64,9 @@ title: Notes on LaTeX
 
 5. It may cause conflicts if the `\index` is used twice after the same word. The error message may be `use of \@index doesn't match its definition`.
 
+6. When math equations are used in the section/chapter names, use `\texorpdfstring{equations}{textreplacement}` to define a pure text phrase to replace the math symbols. This will prevent [warning](https://tex.stackexchange.com/questions/53513/hyperref-token-not-allowed) ` Token not allowed in a PDF string` for bookmarks in PDF. Line break symbol `\\` should be removed in the simplified version of section names in the format of `\section[shortname]{full \\ name}`.
+
+7. When compiling a tex file including the `imakeidx` package, the `makeindex *.idx` command will be automatically running with `pdflatex` or `pdftex`. To avoid the `Label(s) may have been changed. Rerun the command to update the index` error, it is better to run `pdflatex` for at least 3 times.
 
 ## Formatting tricks
 + Use `\hfill`, `\vfill`, `\hspace{<length>}` and `vspace{<length>}` to insert blank spaces in horizontal (h) and vertical (v) directions. `\vskip <length>` and `\hskip <length>` can also be used for similar effects.

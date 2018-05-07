@@ -256,7 +256,8 @@ When using these packages, you might encounter some errors, which otherwise may 
 </ol>
 <h2 id="formatting-tricks">Formatting tricks</h2>
 <ul>
-<li>Use <code>\hfill</code>, <code>\vfill</code>, <code>\hspace{&lt;length&gt;}</code> and <code>vspace{&lt;length&gt;}</code> to insert blank spaces in horizontal (h) and vertical (v) directions. <code>\vskip &lt;length&gt;</code> and <code>\hskip &lt;length&gt;</code> can also be used for similar effects.</li>
+<li><p>Use <code>\hfill</code>, <code>\vfill</code>, <code>\hspace{&lt;length&gt;}</code> and <code>vspace{&lt;length&gt;}</code> to insert blank spaces in horizontal (h) and vertical (v) directions. <code>\vskip &lt;length&gt;</code> and <code>\hskip &lt;length&gt;</code> can also be used for similar effects.</p></li>
+<li><p>The warning <code>Underfull \hbox (badness 10000) in paragraph</code> might occur if LaTeX cannot determine the boundary of a box (a paragraph, an equation or a figure). It may be fixed by using <code>\setlength{\parskip}{6pt}</code> to refill the space in the horizontal direction; if it’s caused by <code>\\</code> or other line breaks for a paragraph with long equations, putting the paragraph inside the <code>\begin{sloppypar}...\end{sloppypar}</code> environment might solve the problem (see <a href="https://tex.stackexchange.com/questions/10850/stop-latex-from-breaking-an-inline-math-equation">here</a>).</p></li>
 </ul>
 <h2 id="handling-figures">Handling figures</h2>
 <h3 id="on-placing-figures-in-place">On placing figures in place</h3>

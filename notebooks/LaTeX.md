@@ -71,6 +71,8 @@ title: Notes on LaTeX
 ## Formatting tricks
 + Use `\hfill`, `\vfill`, `\hspace{<length>}` and `vspace{<length>}` to insert blank spaces in horizontal (h) and vertical (v) directions. `\vskip <length>` and `\hskip <length>` can also be used for similar effects.
 
++ The warning `Underfull \hbox (badness 10000) in paragraph` might occur if LaTeX cannot determine the boundary of a box (a paragraph, an equation or a figure). It may be fixed by using `\setlength{\parskip}{6pt}` to refill the space in the horizontal direction; if it's caused by `\\` or other line breaks for a paragraph with long equations, putting the paragraph inside the `\begin{sloppypar}...\end{sloppypar}` environment might solve the problem (see [here](https://tex.stackexchange.com/questions/10850/stop-latex-from-breaking-an-inline-math-equation)).
+
 ## Handling figures
 ### On placing figures in place
 1. Use `\begin{figure}[!tbp] ... \end{figure}` environment to fix the position of figures as in the tex. The `[h]` (here) position option might generate some problems, which will push figures to the end of a chapter or before a new page break.

@@ -7,14 +7,14 @@ image:
   feature: "{{site.url}}{{site.baseurl}}/assets/img/qi2016.jpg"
 share: true
 ---
-## Upcoming event:
+## Upcoming events:
 
- - [20th Annual SQuInT Workshop presentation](/en/2017/11/20/squint-2018-poster.html)
- - Dissertation defense or my last PhD annual report talk, in the Spring semester of 2018.
+ - May 20th--25th, 2018: annual retreat with our Arizona collaborators at Flagstaff, AZ, USA.
+ - Back to China in mid of June. Plan to visit Beijing, Taiyuan and more cities. Let me know if you are interested in inviting me to deliver a talk and/or to have a short-term visit at your institute.
 
 # Employment
 
-- 2012-current: Research Assistant, Center for Quantum Information and Control, University of New Mexico, Albuquerque, NM, USA 87131.
+- 2012-2018: Research Assistant, Center for Quantum Information and Control, University of New Mexico, Albuquerque, NM, USA 87131.
 
 
 # Publications
@@ -30,6 +30,8 @@ share: true
 
 # Selected Talks and Conferences:
 
+ - April 18th, 2018: Dissertation defense talk -- [Dispersive quantum interface with atoms and nanophotonic waveguides](https://github.com/i2000s/PhD_DefenseTalk) (video and PPT available).
+ - Feb 22nd--24th, 2018: [20th Annual SQuInT Workshop presentation](/en/2017/11/20/squint-2018-poster.html)
  - June 9, 2017: [APS 48th Annual Meeting of DAMOP 2017 presentation](http://meetings.aps.org/Meeting/DAMOP17/Session/T7.8) ([Generation of atomic spin squeezed states in nanophotonic waveguides using QND measurement](/en/2017/06/04/damop-2017-talk.html), slides and audio records can be downloaded from the link), Sacramento, California, USA.
  - February 24, 2017: [19th Annual SQuInT Workshop 2017 talk](http://physics.unm.edu/SQuInT/2017/abstracts.php?person_id=480) ([Spin Squeezing on Nanophotonic Waveguides](/en/2016/12/16/squint-2017-talk.html), slides can be downloaded form the link), Baton Rouge, Louisiana, USA.
  - Nov 16th, 2016: Annual research report, CQuIC @ Albuquerque, NM, USA.

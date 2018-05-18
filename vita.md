@@ -25,8 +25,7 @@ share: true
 
 ## Theses
 
- {% bibliography --file QiPublications --query @phdthesis %}
- {% bibliography --file QiPublications --query @mastersthesis %}
+ {% bibliography --file QiPublications --query "@phdthesis && @mastersthesis" %}
 
 # Selected Talks and Conferences:
 

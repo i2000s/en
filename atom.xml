@@ -8,7 +8,7 @@
 
    
         <item>
-          <title>2018 summer study on Tensor Networks</title>
+          <title>2018 summer study on Tensor Network Methods</title>
           <description>&lt;p&gt;This year might be the last year that I will be participating a summer self-study with my CQuIC fellows. Our focus of the summer study is &lt;strong&gt;&lt;em&gt;Tensor Network Methods&lt;/em&gt;&lt;/strong&gt; for quantum information science. The study is mainly self-organized with our main instructor Rafael Alexander as now an official summer course for credits in UNM. Students and professors will be voluneering lectures until early August when the course ends. Courteous of Raf, the self-study materials are now open to view through &lt;a href=&quot;https://www.dropbox.com/sh/cgex2tyxblnxu2c/AAD8weXAu4_Y_1QuNurnxHgda?dl=0&quot;&gt;Dropbox&lt;/a&gt;. The material will closely follow these lecture notes: &lt;a href=&quot;https://arxiv.org/abs/1603.03039&quot;&gt;arxiv:1603.03039&lt;/a&gt;. Questions and discussions can also go to &lt;a href=&quot;//reddit.com/r/tensornetwork/&quot;&gt;Reddit at /r/TensorNetwork&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;From the syllabus&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
@@ -33,19 +33,15 @@
 &lt;ol type=&quot;1&quot;&gt;
 &lt;li&gt;Classifying gapped phases in 1D&lt;/li&gt;
 &lt;li&gt;Simulations of open system dynamics&lt;/li&gt;
-&lt;li&gt;Tensor networks in quantum error correction&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;Tensor networks in quantum error correction
 &lt;ol type=&quot;a&quot;&gt;
 &lt;li&gt;Tensor network decoders&lt;/li&gt;
 &lt;li&gt;Holographic quantum error correcting codes&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol start=&quot;4&quot; type=&quot;1&quot;&gt;
-&lt;li&gt;Tensor networks in high energy physics&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Tensor networks in high energy physics
 &lt;ol type=&quot;a&quot;&gt;
 &lt;li&gt;Connection to holography&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol start=&quot;5&quot; type=&quot;1&quot;&gt;
+&lt;/ol&gt;&lt;/li&gt;
 &lt;li&gt;Tensor networks for critical frustration-free spin chains&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;references&quot;&gt;

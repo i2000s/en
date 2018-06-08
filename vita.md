@@ -9,8 +9,7 @@ share: true
 ---
 ## Upcoming events:
 
- - May 20th--25th, 2018: annual retreat with our Arizona collaborators at Flagstaff, AZ, USA.
- - Back to China in mid of June. Plan to visit Beijing, Taiyuan and more cities. Let me know if you are interested in inviting me to deliver a talk and/or to have a short-term visit at your institute.
+ - Back to China in mid of June. Plan to visit Beijing, Taiyuan and more cities. Let me know if you are interested in inviting me to deliver a talk and/or to have a brief visit at your institute.
 
 # Employment
 
@@ -29,6 +28,7 @@ share: true
 
 # Selected Talks and Conferences:
 
+ - May 20th--25th, 2018: annual retreat talk and working closely with experimental collaborators from the University of Arizona, at Flagstaff, AZ, USA.
  - April 18th, 2018: Dissertation defense talk -- [Dispersive quantum interface with atoms and nanophotonic waveguides](https://github.com/i2000s/PhD_DefenseTalk) (video and PPT available).
  - Feb 22nd--24th, 2018: [20th Annual SQuInT Workshop presentation](/en/2017/11/20/squint-2018-poster.html)
  - June 9, 2017: [APS 48th Annual Meeting of DAMOP 2017 presentation](http://meetings.aps.org/Meeting/DAMOP17/Session/T7.8) ([Generation of atomic spin squeezed states in nanophotonic waveguides using QND measurement](/en/2017/06/04/damop-2017-talk.html), slides and audio records can be downloaded from the link), Sacramento, California, USA.

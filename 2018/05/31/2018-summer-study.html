@@ -3,7 +3,7 @@
 
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#"> <!-- namespaces used in metadata.html -->
     <!--<meta charset="utf-8">-->
-    <title>A curious upwind implicit scheme for advection</title>
+    <title>2018 summer study on Tensor Networks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv = "X-UA-Compatible" content = "IE = edge"> -->
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
@@ -11,54 +11,54 @@
       <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
-    <meta name="subtitle" content="Understanding the CFL condition">
+    <meta name="subtitle" content="">
     
     <meta name="author" content="Xiaodong Qi | 戚晓东">
     
 
     <!-- HTML5 metadata -->
 
-  <meta name="keywords" content="Xiaodong Qi, 戚晓东, numerical-analysis, CFL-condition, advection, hyperbolic-PDEs" />
+  <meta name="keywords" content="Xiaodong Qi, 戚晓东, summer study, tensor network" />
   
 
 
 
-  <meta name="description" content="Understanding the CFL condition" />
+  <meta name="description" content="2018 summer study on Tensor Networks" />
   
 
 
 <meta http-equiv="Content-Language" content="en">
 <!-- RDFa Metadata (in DublinCore) -->
-<meta property="dc:title" content="A curious upwind implicit scheme for advection" />
+<meta property="dc:title" content="2018 summer study on Tensor Networks" />
 <meta property="dc:creator" content="Xiaodong Qi" />
-<meta property="dc:date" content="2012-10-11 00:00:00 +0000" />
+<meta property="dc:date" content="2018-05-31 00:00:00 +0000" />
 <meta property="dc:format" content="text/html" />
 <meta property="dc:language" content="en" />
-<meta property="dc:identifier" content="https://purl.org/qxd/en/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html" />
+<meta property="dc:identifier" content="https://purl.org/qxd/en/2018/05/31/2018-summer-study.html" />
 <meta property="dc:rights" content="CC-BY" />
 <meta property="dc:source" content="A Notebook of Xiaodong Qi's" />
 <meta property="dc:subject" content="Physics" />
 <meta property="dc:type" content="website" />
 <meta name="dc.language" content="en">
 <!-- RDFa Metadata (in OpenGraph) -->
-<meta property="og:title" content="A curious upwind implicit scheme for advection" />
+<meta property="og:title" content="2018 summer study on Tensor Networks" />
 <meta property="og:author" content="https://purl.org/qxd/en/index.html" />  <!-- Should be Liquid? URI? -->
 <meta property="https://ogp.me/ns/profile#first_name" content="Xiaodong"/>
 <meta property="https://ogp.me/ns/profile#last_name" content="Qi"/>
-<meta property="https://ogp.me/ns/article#published_time" content="2012-10-11 00:00:00 +0000" />
+<meta property="https://ogp.me/ns/article#published_time" content="2018-05-31 00:00:00 +0000" />
 <meta property="og:site_name" content="A Notebook of Xiaodong Qi's" /> <!-- Same as dc:source? -->
-<meta property="og:url" content="https://purl.org/qxd/en/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html" />
+<meta property="og:url" content="https://purl.org/qxd/en/2018/05/31/2018-summer-study.html" />
 <meta property="og:type" content="website" />
 <!-- Google Scholar Metadata -->
 <meta name="citation_author" content="Xiaodong Qi"/>
-<meta name="citation_date" content="2012-10-11 00:00:00 +0000"/>
-<meta name="citation_title" content="A curious upwind implicit scheme for advection"/>
+<meta name="citation_date" content="2018-05-31 00:00:00 +0000"/>
+<meta name="citation_title" content="2018 summer study on Tensor Networks"/>
 <meta name="citation_journal_title" content="A Notebook of Xiaodong Qi's"/>
 <!--NOTE: see also the COinS Metadata in span element in coins.html and footer. -->
 <!-- Twitter card summary -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@i2000s" />
-<meta name="twitter:title" content="A curious upwind implicit scheme for advection" />
+<meta name="twitter:title" content="2018 summer study on Tensor Networks" />
 <meta name="twitter:description" content="" />
 <meta name="twitter:image" content="https://purl.org/qxd/en/assets/img/qi2016.jpg" />
 <!-- Baidu website verification code -->
@@ -199,9 +199,7 @@ var _hmt = _hmt || [];
     <!-- Custom masthead (big titles) -->
 
 <header class="jumbotron subhead">
-    <h1 class="entry-title">A curious upwind implicit scheme for advection</h1>
-    
-      <h3> Understanding the CFL condition </h3>
+    <h1 class="entry-title">2018 summer study on Tensor Networks</h1>
     
 </header>
 
@@ -234,31 +232,45 @@ $(document).ready(function() {
       <div class="row">
         <div class="col-md-8 col-md-offset-1 col-sm-12"> 
           <article>
-          <p>Note: This post was originally published on the KAUST Mathwiki <a href="https://mathwiki.kaust.edu.sa/david/A%20curious%20upwind%20implicit%20scheme%20for%20advection">here</a> (login required) by <a href="http://www.davidketcheson.info/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html">David Ketcheson</a>.</p>
-<h2 id="the-cfl-condition">The CFL condition</h2>
-<p>The CFL condition is one of the most basic and intuitive principles in the numerical solution of hyperbolic PDEs. First formulated by Courant, Friedrichs and Lewy in their seminal paper (in English for free <a href="http://www.stat.uchicago.edu/~lekheng/courses/302/classics/courant-friedrichs-lewy.pdf">here</a>), it states that the domain of dependence of a numerical method for solving a PDE must contain the true domain of dependence. Otherwise, the numerical method cannot be convergent.</p>
-<p>The CFL condition is geometric and easily understood in the context of, say, a first-order upwind discretization of advection. Usually it says nothing interesting about implicit schemes, since they include all points in their domain of dependence. But sometimes understanding the CFL condition for a particular scheme can be subtle.</p>
-<h3 id="an-implicit-scheme">An implicit scheme</h3>
-<p>Consider the advection equation</p>
-<p><span class="math">\[u_t + a u_x = 0.\]</span></p>
-<p>Discretization using a backward difference in space and in time gives the scheme</p>
-<p><span class="math">\[U^{n+1}_j = U^n_j - \nu(U^{n+1}_j - U^{n+1}_{j-1}).\]</span></p>
-<p>Where <span class="math">\(\nu = ka/h\)</span> is the CFL number and <span class="math">\(k,h\)</span> are the step sizes in time and space, respectively. This very simple scheme illustrates the concepts of the CFL condition and stability in a remarkable way.</p>
-<p>For simplicity, suppose that the problem is posed on the domain <span class="math">\(0\le x \le 1\)</span>, with an appropriate boundary condition. Since this scheme computes <span class="math">\(U^{n+1}_j\)</span> in terms of <span class="math">\(U^n_j\)</span> and <span class="math">\(U^{n+1}_{j-1}\)</span>, it seems that the numerical domain of dependence for <span class="math">\(U^n_j\)</span> is <span class="math">\((x,t)\in (0,x_j)\times[0,t_n]\)</span>. Based on this, we may conclude that the scheme is not convergent for <span class="math">\(\nu&lt;0\)</span>. Simple enough.</p>
-<p>But what if <span class="math">\(\nu=-1\)</span>? Then the scheme reads <span class="math">\[U^{n+1}_{j-1} = U^n_j,\]</span> which gives <strong>the exact solution</strong>! This is a sort of “anti-unit CFL condition”.</p>
-<p>How can this scheme be convergent (in fact, exact!) for a negative CFL number when it doesn’t use any values to the right?</p>
-<h3 id="understanding-the-cfl-condition">Understanding the CFL condition</h3>
-<p>Look at the exact formula above. In this case the scheme is not a method for computing <span class="math">\(U^{n+1}_j\)</span> but for computing <span class="math">\(U^{n+1}_{j-1}\)</span>, and it <em>does</em> use a value from the previous time step that lies to the right.</p>
-<p>So we can view the scheme with <span class="math">\(\nu=-1\)</span> as a method for computing <span class="math">\(U^{n+1}_j\)</span>, in which case the CFL condition is satisfied only for <span class="math">\(\nu\ge0\)</span>, or we can view the scheme as a method for computing <span class="math">\(U^{n+1}_{j-1}\)</span>, in which case the CFL condition is satisfied only for <span class="math">\(\nu\le-1\)</span>. <strong>Which viewpoint is correct?</strong></p>
-<p>To answer that question, remember that the CFL condition is purely algebraic – that is, it relates to which values are actually used to compute which other values. To understand this scheme, we need to think about how we actually solve for <span class="math">\(U^{n+1}\)</span> when using it. Notice that the scheme can be written as <span class="math">\[A U^{n+1} = U^n\]</span> where the matrix <span class="math">\(A\)</span> is lower-triangular. Hence the system can be solved by substitution. To go further, we must consider two cases:</p>
+          <p>This year might be the last year that I will be participating a summer self-study with my CQuIC fellows. Our focus of the summer study is <strong><em>Tensor Network Methods</em></strong> for quantum information science. The study is mainly self-organized with our main instructor Rafael Alexander as now an official summer course for credits in UNM. Students and professors will be voluneering lectures until early August when the course ends. Courteous of Raf, the self-study materials are now open to view through <a href="https://www.dropbox.com/sh/cgex2tyxblnxu2c/AAD8weXAu4_Y_1QuNurnxHgda?dl=0">Dropbox</a>. The material will closely follow these lecture notes: <a href="https://arxiv.org/abs/1603.03039">arxiv:1603.03039</a>. Questions and discussions can also go to <a href="//reddit.com/r/tensornetwork/">Reddit at /r/TensorNetwork</a>.</p>
+<p><strong><em>From the syllabus</em></strong>:</p>
+<ul>
+<li>Core:</li>
+</ul>
 <ol type="1">
-<li><p><span class="math">\(\nu&gt;0\)</span>: in this case, boundary values must be supplied along the left boundary at <span class="math">\(x=0\)</span>. Then, starting from the known value at the boundary, we work to the right by substitution: <span class="math">\[U^{n+1}_j = \frac{U^n_j+\nu U^{n+1}_{j-1}}{1+\nu}.\]</span> Hence the scheme is truly a way of computing <span class="math">\(U^{n+1}_j\)</span> based on <span class="math">\(U^n_j, U^{n+1}_{j-1}\)</span> and the resulting CFL condition is <span class="math">\(\nu\ge0\)</span>.</p></li>
-<li><p><span class="math">\(\nu&lt;0\)</span>: in this case, boundary values must be supplied along the right boundary at <span class="math">\(x=1\)</span>. Then, starting from the known value at the boundary, we work to the left by substitution: <span class="math">\[U^{n+1}_{j-1} = \frac{(1+\nu)U^{n+1}_j - U^n_j}{\nu}.\]</span> Hence the scheme is truly a way of computing <span class="math">\(U^{n+1}_{j-1}\)</span> based on <span class="math">\(U^n_j, U^{n+1}_{j}\)</span> and the resulting CFL condition is <span class="math">\(\nu\le-1\)</span>.</p></li>
+<li>Tensor network notation</li>
+<li>Examples in Quantum Information</li>
+<li>Matrix Product States (MPS)</li>
+<li>Tensor network algorithms
+<ol type="a">
+<li>Density Matrix Renormalization Group (DMRG)</li>
+<li>Time Evolved Block Decimation (TEBD)</li>
+</ol></li>
+<li>Projected Entangled Pair States (PEPS)</li>
+<li>Multiscale Entanglement Renormalization Ansatz (MERA)</li>
 </ol>
-<h2 id="references">References:</h2>
-<p><a href="http://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition">CFL condition</a>.</p>
-<p><a href="http://http://dx.doi.org/10.1007%2FBF01448839">their seminal paper</a>.</p>
-<p><a href="http://www.stanford.edu/class/cme324/classics/courant-friedrichs-lewy.pdf">here</a>.</p>
+<p>In the final 4 weeks we will focus on some recent developments involving tensor networks, including results from high energy physics, quantum information, and condensed matter (selected based on interest). Each lecture will be a review of one or two research articles. Some examples are listed below.</p>
+<ul>
+<li>Possible Electives:</li>
+</ul>
+<ol type="1">
+<li>Classifying gapped phases in 1D</li>
+<li>Simulations of open system dynamics</li>
+<li>Tensor networks in quantum error correction</li>
+</ol>
+<ol type="a">
+<li>Tensor network decoders</li>
+<li>Holographic quantum error correcting codes</li>
+</ol>
+<ol start="4" type="1">
+<li>Tensor networks in high energy physics</li>
+</ol>
+<ol type="a">
+<li>Connection to holography</li>
+</ol>
+<ol start="5" type="1">
+<li>Tensor networks for critical frustration-free spin chains</li>
+</ol>
 <div class="references">
 
 </div>
@@ -276,32 +288,32 @@ $(document).ready(function() {
 
 <aside prefix="og:https://ogp.me/ns/article#">
   <p> <i class="glyphicon glyphicon-calendar"></i><small>
-    <time datetime="2012-10-11 00:00:00 +0000"
-    property="dc:created">11 Oct 2012</time></small></p>
+    <time datetime="2018-05-31 00:00:00 +0000"
+    property="dc:created">31 May 2018</time></small></p>
   
   <p><small> Updated: <time
-            datetime="2017-12-04 07:02:33 +0000"
-            property="dc:modified">04 Dec 2017</time></small></p>
+            datetime="2018-06-08 10:02:23 +0000"
+            property="dc:modified">08 Jun 2018</time></small></p>
   
 <!-- page.modified datetime="" -->
  <br />
           
-            <p><a class="btn btn-default" href='/en/2012/08/22/habits-of-open-scientist-3-pre.html'><i class="glyphicon glyphicon-chevron-left"></i> prev</a>
+            <p><a class="btn btn-default" href='/en/2017/11/20/squint-2018-poster.html'><i class="glyphicon glyphicon-chevron-left"></i> prev</a>
           
           
-            <a class="btn btn-default" href='/en/2012/10/11/Internal_stability.html'>next <i class="glyphicon glyphicon-chevron-right"></i></a></p>
+            </p>
           
 
 
  <a  onclick="recordOutboundLink(this, 'Outbound Links', 'history'); return false;"  class="btn btn-default"
-   href="https://github.com/i2000s/en/commits/dev/_posts/2012-10-11-A_curious_upwind_implicit_scheme_for_advection.md"><i class="glyphicon glyphicon-time"></i> edit history</a>
+   href="https://github.com/i2000s/en/commits/dev/_posts/2018-05-31-2018-summer-study.md"><i class="glyphicon glyphicon-time"></i> edit history</a>
 
   <br><br>
 
   <p><i class="glyphicon glyphicon-list"></i> Posted in
     
       <a rel="dc:subject" class="category"
-         href="/en/categories.html#labnotebook">labnotebook</a>
+         href="/en/categories.html#community">community</a>
     
     </p>
 
@@ -309,19 +321,11 @@ $(document).ready(function() {
     
     <!-- http://schema.org/BlogPosting/keywords -->
     <a rel="og:tag" class="tag"
-       href="/en/tags.html#numerical-analysis">#numerical-analysis</a>, 
+       href="/en/tags.html#summer+study">#summer study</a>, 
     
     <!-- http://schema.org/BlogPosting/keywords -->
     <a rel="og:tag" class="tag"
-       href="/en/tags.html#CFL-condition">#CFL-condition</a>, 
-    
-    <!-- http://schema.org/BlogPosting/keywords -->
-    <a rel="og:tag" class="tag"
-       href="/en/tags.html#advection">#advection</a>, 
-    
-    <!-- http://schema.org/BlogPosting/keywords -->
-    <a rel="og:tag" class="tag"
-       href="/en/tags.html#hyperbolic-PDEs">#hyperbolic-PDEs</a>
+       href="/en/tags.html#tensor+network">#tensor network</a>
     </p>
 
    <br/>
@@ -329,7 +333,7 @@ $(document).ready(function() {
   
 
    <br/>
-   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/5ef56e1cd697ca236730763bb66febe57f1ef94b/_posts/2012-10-11-A_curious_upwind_implicit_scheme_for_advection.md"> 5ef56e1</a></tiny></p>
+   <p><tiny> <i class="glyphicon glyphicon-barcode"></i> SHA Hash: <a href="https://github.com/i2000s/en/commit/8dc10b0222f629298630390ae179fd549e442a58/_posts/2018-05-31-2018-summer-study.md"> 8dc10b0</a></tiny></p>
 </aside>
 
 <br /><br />
@@ -347,11 +351,11 @@ $(document).ready(function() {
   <h2>Related Posts</h2>
   <ul class="posts">
     
-      <li><span>14 Oct 2013</span> &raquo; <a href="/en/2013/10/14/CFL-disk.html">A Tale of Two Theorems</a></li>
+      <li><span>26 May 2016</span> &raquo; <a href="/en/2016/05/26/2016-summer-study-on-quantum-optics-II.html">2016 summer study on selected topics in Quantum Optics</a></li>
     
       <li><span>23 Jul 2016</span> &raquo; <a href="/en/2016/07/23/put-everything-on-a-quantum-circuit-part-i.html">Put everything on a quantum circuit--part I</a></li>
     
-      <li><span>11 Oct 2012</span> &raquo; <a href="/en/2012/10/11/Internal_stability.html">Internal stability of Runge-Kutta methods</a></li>
+      <li><span>20 May 2017</span> &raquo; <a href="/en/2017/05/20/2017-summer-study.html">2017 summer study in CQuIC</a></li>
     
   </ul>
 </div>
@@ -421,12 +425,12 @@ $(document).ready(function() {
       title="ctx_ver=Z39.88-2004
       &amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc
       &amp;rfr_id=info%3Asid%2Focoins.info%3Agenerator
-      &amp;rft.title=A curious upwind implicit scheme for advection
+      &amp;rft.title=2018 summer study on Tensor Networks
       &amp;rft.creator=Xiaodong Qi
-      &amp;rft.date=2012-10-11
+      &amp;rft.date=2018-05-31
       &amp;rft.language='en-US'
       &amp;rft.rights='CC-BY'
-      &amp;rft_id=https://purl.org/qxd/en/2012/10/11/A_curious_upwind_implicit_scheme_for_advection.html">
+      &amp;rft_id=https://purl.org/qxd/en/2018/05/31/2018-summer-study.html">
   </span>
 
     </footer>

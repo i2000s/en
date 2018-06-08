@@ -8,6 +8,56 @@
 
    
         <item>
+          <title>2018 summer study on Tensor Networks</title>
+          <description>&lt;p&gt;This year might be the last year that I will be participating a summer self-study with my CQuIC fellows. Our focus of the summer study is &lt;strong&gt;&lt;em&gt;Tensor Network Methods&lt;/em&gt;&lt;/strong&gt; for quantum information science. The study is mainly self-organized with our main instructor Rafael Alexander as now an official summer course for credits in UNM. Students and professors will be voluneering lectures until early August when the course ends. Courteous of Raf, the self-study materials are now open to view through &lt;a href=&quot;https://www.dropbox.com/sh/cgex2tyxblnxu2c/AAD8weXAu4_Y_1QuNurnxHgda?dl=0&quot;&gt;Dropbox&lt;/a&gt;. The material will closely follow these lecture notes: &lt;a href=&quot;https://arxiv.org/abs/1603.03039&quot;&gt;arxiv:1603.03039&lt;/a&gt;. Questions and discussions can also go to &lt;a href=&quot;//reddit.com/r/tensornetwork/&quot;&gt;Reddit at /r/TensorNetwork&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;From the syllabus&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Core:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;Tensor network notation&lt;/li&gt;
+&lt;li&gt;Examples in Quantum Information&lt;/li&gt;
+&lt;li&gt;Matrix Product States (MPS)&lt;/li&gt;
+&lt;li&gt;Tensor network algorithms
+&lt;ol type=&quot;a&quot;&gt;
+&lt;li&gt;Density Matrix Renormalization Group (DMRG)&lt;/li&gt;
+&lt;li&gt;Time Evolved Block Decimation (TEBD)&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Projected Entangled Pair States (PEPS)&lt;/li&gt;
+&lt;li&gt;Multiscale Entanglement Renormalization Ansatz (MERA)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the final 4 weeks we will focus on some recent developments involving tensor networks, including results from high energy physics, quantum information, and condensed matter (selected based on interest). Each lecture will be a review of one or two research articles. Some examples are listed below.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Possible Electives:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;Classifying gapped phases in 1D&lt;/li&gt;
+&lt;li&gt;Simulations of open system dynamics&lt;/li&gt;
+&lt;li&gt;Tensor networks in quantum error correction&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol type=&quot;a&quot;&gt;
+&lt;li&gt;Tensor network decoders&lt;/li&gt;
+&lt;li&gt;Holographic quantum error correcting codes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&quot;4&quot; type=&quot;1&quot;&gt;
+&lt;li&gt;Tensor networks in high energy physics&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol type=&quot;a&quot;&gt;
+&lt;li&gt;Connection to holography&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&quot;5&quot; type=&quot;1&quot;&gt;
+&lt;li&gt;Tensor networks for critical frustration-free spin chains&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+          <link>https://www.qixiaodong.tk/en/2018/05/31/2018-summer-study.html</link>
+          <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
+          <guid isPermaLink="true">https://purl.org/qxd/en/2018/05/31/2018-summer-study.html</guid>
+        </item>
+   
+        <item>
           <title>My SQuInT 2018 poster presentation</title>
           <description>&lt;p&gt;My poster submission to the &lt;a href=&quot;http://squint.unm.edu/events/2018.html&quot;&gt;20th Annual SQuInT Workshop&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Day, Date&lt;/em&gt;&lt;/strong&gt;: February 22, 2018&lt;/p&gt;
@@ -22,9 +72,10 @@
 &lt;li&gt;&lt;p&gt;Previous related work: &lt;a href=&quot;http://journals.aps.org/pra/abstract/10.1103/PhysRevA.93.023817&quot;&gt;X. Qi, B. Q. Baragiola, P. S. Jessen, I. H. Deutsch, Phys. Rev. A 93, 023817(2016)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Cite this poster: &lt;a href=&quot;https://zenodo.org/badge/latestdoi/111471228&quot;&gt;&lt;img src=&quot;https://zenodo.org/badge/111471228.svg&quot; alt=&quot;DOI&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure&gt;
-&lt;embed src=&quot;/en/assets/img/squint2018_posterchat.jpg%20=500x&quot; title=&quot;Chat with researchers during the poster session. Thank Leanne for taking the photo.&quot; /&gt;&lt;figcaption&gt;Poster session chats&lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;center&gt;
+&lt;img src=&quot;/en/assets/img/squint2018_posterchat.jpg&quot; width=&quot;500px&quot; title=&quot;Chat with researchers during the poster session. Thank Leanne for taking the photo.&quot; /&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 
 &lt;/div&gt;
@@ -739,7 +790,7 @@ We consider two scenarios. First, as shown in the figure on the left below, we c
    
         <item>
           <title>2017 summer study in CQuIC</title>
-          <description>&lt;p&gt;Here in &lt;a href=&quot;https://cquic.unm.edu&quot;&gt;CQuIC&lt;/a&gt;, we are organizing some topic summer self-studies. This includes a 3-session IT workshop organized by students Travis Scholten, Jonathan Gross, Anupam Mitra and me to share some scientific programming skills to CQuIC students. The second main focus of our summer study is led by Prof. Ivan Deutsch on quantum chaos, randomness and scrambling which will be going on on Wednesday afternoons until mid August from 4pm to 5pm, Mountain time. Students and professors, as volunteers, will be picking up topics to chair those sessions.&lt;/p&gt;
+          <description>&lt;p&gt;Here in &lt;a href=&quot;https://cquic.unm.edu&quot;&gt;CQuIC&lt;/a&gt;, we are organizing some topic summer self-studies. This includes a 3-session IT workshop organized by students Travis Scholten, Jonathan Gross, Anupam Mitra and me to share some scientific programming skills to CQuIC students. The second main focus of our summer study is led by Prof. Ivan Deutsch on quantum chaos, randomness and scrambling which will be going on Wednesday afternoons until mid August from 4pm to 5pm, Mountain time. Students and professors, as volunteers, will be picking up topics to chair those sessions.&lt;/p&gt;
 &lt;p&gt;We hope to end the IT workshop with followup projects that participants would like to use all the skills learned during the workshop and the &lt;a href=&quot;https://cquic.github.io&quot;&gt;CQuIC@Github&lt;/a&gt; repositories to finish some programming tasks related to their researches. Travis, Jonathan, Anupam and I will be helping around and do the code review for the followup project. If you would like to participate, we may be able to let you in as well.&lt;/p&gt;
 &lt;p&gt;For the rest of the summer study, we used to add people from outside of CQuIC via telecom, but this time it seems our telecom has been fully booked by Arizona collaborators. But I am happy to discuss questions related to those topics, personally.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Detailed schedule&lt;/em&gt;:&lt;/p&gt;
@@ -1442,57 +1493,6 @@ git push -u origin master&lt;/code&gt;&lt;/pre&gt;
           <link>https://www.qixiaodong.tk/en/2015/05/12/code_in_the_open.html</link>
           <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
           <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/12/code_in_the_open.html</guid>
-        </item>
-   
-        <item>
-          <title>Step 1 - Use version control</title>
-          <description>&lt;p&gt;Welcome to step 1 in &lt;a href=&quot;/en/2015/05/10/rock_solid_code.html&quot;&gt;your training as a scientific Python code ninja&lt;/a&gt;: version control. This is not going to be an in-depth course, so if you’re already using distributed version control (like Git or Mercurial), feel free to skip ahead to &lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;step 2&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;life-before-version-control&quot;&gt;&lt;a href=&quot;http://phdcomics.com/comics.php?f=1531&quot;&gt;Life before version control&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Programs change. That script I wrote last week to process my data needs to be adapted to a new file format or to produce a different kind of analysis. So I copy it to a new file and make some changes. I add a few lines and comment out others. The next week, I copy everything to a new directory so I can apply the code to a new project. A couple of months later, I realize that I have a mess of seven different directories, each with a dozen almost-identically-named files, and I am no longer sure which is the latest or what file does what. I spend a lot of time searching through and comparing the various files and directories to find what I need.&lt;/p&gt;
-&lt;p&gt;Meanwhile, I email some version of the script to my collaborator, who also copies and modifies it. Each of us makes different improvements to it. I’d like to have one version with all the improvements, but how to extract the right bits from all the copies?&lt;/p&gt;
-&lt;p&gt;Later, I find that my current version of the script doesn’t work with some old data that I need to re-analyze in order to revise a paper. Where is the old version of the script that worked with that data? Or does it even exist?&lt;/p&gt;
-&lt;h2 id=&quot;version-control&quot;&gt;Version control&lt;/h2&gt;
-&lt;p&gt;Version control software can help you solve all of these problems. It keeps a record of the history of your code and shows you the changes you made at each step. You can easily switch between different versions, or merge contributions from different authors.&lt;/p&gt;
-&lt;p&gt;There are many version control systems in use. If you haven’t used one before, it’s best to find out what your collaborators use and start with that. If nobody you work with is using version control, I recommend that you use Git. It has become the most widely used version control system for new projects.&lt;/p&gt;
-&lt;h2 id=&quot;two-minutes-to-version-control&quot;&gt;Two minutes to version control&lt;/h2&gt;
-&lt;p&gt;If you’re on a Mac- or Linux-based system, you probably already have git. To check, just open a terminal and type&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you don’t have it, get it here: http://git-scm.com/downloads. Then take a moment to &lt;a href=&quot;https://help.github.com/articles/set-up-git/#setting-up-git&quot;&gt;set up git&lt;/a&gt;. You’ll only have to do that once on a given computer.&lt;/p&gt;
-&lt;p&gt;Then do the following (replacing the directory and file names with the directory and files pertaining to your project):&lt;/p&gt;
-&lt;pre class=&quot;sh&quot;&gt;&lt;code&gt;cd my/project/
-git init
-git add project_file1
-git add project_file2
-...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Go ahead and add all the relevant files. When you’re done, tell git to start keeping track of them by doing&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git commit -m &amp;quot;Starting to keep this project under version control.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;That’s it! To get a first idea of what’s going on, try&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;and&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git log&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To get a much better idea, take 15 minutes and go read the &lt;a href=&quot;http://swcarpentry.github.io/git-novice/&quot;&gt;first software carpentry lesson on version control&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can get by for awhile with just the few git commands listed above. Eventually, you will want to go beyond what is described in the Software Carpentry lesson. When you do, it’s worth reading an extended introduction &lt;a href=&quot;http://git-scm.com/book/en/v2&quot;&gt;like this one&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/en/2015/05/12/code_in_the_open.html&quot;&gt;Continue to step two&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;extra-credit-dont-copy-paste&quot;&gt;Extra credit: Don’t copy-paste&lt;/h2&gt;
-&lt;p&gt;Version control is really just one tool that will help you with a general principle of code development:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Don’t duplicate.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;In practice, this means things like:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;If you have two functions that are almost identical, combine them (or the identical parts of them) into one.&lt;/li&gt;
-&lt;li&gt;Don’t comment/uncomment lines of code in order to control the behavior of your code. Instead, use “if” statements and function arguments.&lt;/li&gt;
-&lt;li&gt;If you need to apply some code to two different projects, don’t copy the file. Put it on your path.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;note-this-post-is-modified-on-top-of-david-ketchesons-post-at-httpwww.davidketcheson.info20150511use_version_control.html&quot;&gt;Note: this post is modified on top of David Ketcheson’s post at &lt;a href=&quot;http://www.davidketcheson.info/2015/05/11/use_version_control.html&quot;&gt;http://www.davidketcheson.info/2015/05/11/use_version_control.html&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/deed.en_US&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&quot;references&quot;&gt;
-
-&lt;/div&gt;
-</description>
-          <link>https://www.qixiaodong.tk/en/2015/05/11/use_version_control.html</link>
-          <pubDate>Mon, 11 May 2015 00:00:00 +0000</pubDate>
-          <guid isPermaLink="true">https://purl.org/qxd/en/2015/05/11/use_version_control.html</guid>
         </item>
    
   </channel>

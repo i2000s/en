@@ -9,7 +9,7 @@ share: true
 ---
 ## Upcoming events:
 
- - Back to China in mid of June. Plan to visit Beijing, Taiyuan and more cities. Let me know if you are interested in inviting me to deliver a talk and/or to have a brief visit at your institute.
+ - Back to China in mid of June. Plan to visit Beijing, Taiyuan and more cities. Let me know if you are interested in inviting me to deliver a talk and/or to have a brief visit at your institute. I will contact researchers as well if I can possibly visit soon. 
 
 # Employment
 

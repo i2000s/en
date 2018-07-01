@@ -7,9 +7,7 @@ image:
   feature: "{{site.url}}{{site.baseurl}}/assets/img/qi2016.jpg"
 share: true
 ---
-## Upcoming events:
 
- - Back to China in mid of June. Plan to visit Beijing, Taiyuan and more cities. Let me know if you are interested in inviting me to deliver a talk and/or to have a brief visit at your institute. I will contact researchers as well if I can possibly visit soon. 
 
 # Employment
 
@@ -28,7 +26,12 @@ share: true
 
 # Selected Talks and Conferences:
 
- - May 20th--25th, 2018: annual retreat talk and working closely with experimental collaborators from the University of Arizona, at Flagstaff, AZ, USA.
+- June 26, 2018: seminar talk at the Hefei National Laboratory of Physical Sciences at the Microscale, Division of Quantum Physics and Quantum Information, Hefei, China. Visit USTC from June 26 to 27.
+- June 25, 2018: seminar talk at the Wuhan Institute of Physics and Mathematics, Wuhan, China. Visit WIPM from June 23 to 25.
+- June 19, 2018: colloquium talk at the Institute of Laser Spectroscopy, Shanxi University, Taiyuan, China. Visit Shanxi University from June 18 to 22.
+- June 15, 2018: seminar talk at the Department of Physics, Tsinghua University, Beijing, China.
+- June 13, 2018: seminar talk at the Academy of Mathematics and Systems Science, CAS, Beijing, China. Visit AMSS from June 13 to 17. Visit the Institute of Physics on June 14.
+- May 20th--25th, 2018: annual retreat talk. Work closely with experimental collaborators from the University of Arizona, at Flagstaff, AZ, USA.
  - April 18th, 2018: Dissertation defense talk -- [Dispersive quantum interface with atoms and nanophotonic waveguides](https://github.com/i2000s/PhD_DefenseTalk) (video and PPT available).
  - Feb 22nd--24th, 2018: [20th Annual SQuInT Workshop presentation](/en/2017/11/20/squint-2018-poster.html)
  - June 9, 2017: [APS 48th Annual Meeting of DAMOP 2017 presentation](http://meetings.aps.org/Meeting/DAMOP17/Session/T7.8) ([Generation of atomic spin squeezed states in nanophotonic waveguides using QND measurement](/en/2017/06/04/damop-2017-talk.html), slides and audio records can be downloaded from the link), Sacramento, California, USA.

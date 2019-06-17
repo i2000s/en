@@ -25,7 +25,7 @@ Permanent link registration:
 ===========================
 To prevent some trouble caused by lose/change of domain name, I am using a PURL, or permanent universal resource link, to associate with my current domain name.
 I registered a user ID on [purl.org](http://purl.org) and then created a domain name `/qxd` for my site.
-In the domain name setting of `/qxd`, I selected `partial` or partial redirection as the type of PURL and put the `https://qixiaodong.tk` as the target address.
+In the domain name setting of `/qxd`, I selected `partial` or partial redirection as the type of PURL and put the `https://qixiaodong.com` as the target address.
 This way, if my site's domain name got changed, I can just update the PURL for the site for people to find my new website.
 Notice that, the partial redirection function will ensure every page under the registered domain name can be visited using the `purl.org/qxd` domain name plus the subdomain or page address related to the site address.
 If you use the `301` or `302` or other types, your registered domain name cannot recognize the association of subdomain names on your website.

@@ -1,6 +1,7 @@
 require 'feedjira' # atom/rss API
 require 'octokit'   # Github API
 require 'nokogiri'  # Parse HTML
+require 'httparty' # To use feedjira v3.0
 
 # Github feed based on feedzirra rather than the Github API
 

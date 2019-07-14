@@ -15,7 +15,8 @@ module Jekyll
     end
     def render(context)
       puts "RSS feeds with rss_feed.rb"
-      feed = Feedjira::Feed.fetch_and_parse(@text)
+      xml = HTTParty.get(@text) # Updated for Feedjira v3.0
+      feed = Feedjira.parse(xml)
       if defined?(feed.entries)
         out = "<ul>"
         # consider formatting properly

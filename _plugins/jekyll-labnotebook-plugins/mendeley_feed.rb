@@ -15,7 +15,7 @@ module Jekyll
     end
     def render(context)
       puts "Mendeley feed by RSS with mendeley_feed.rb"
-      xml = HTTParty.get("http://www.mendeley.com/groups/" + @text + "/feed/rss/") # Updated for Feedjira 3.0
+      xml = HTTParty.get("http://www.mendeley.com/groups/" + @text + "/feed/rss/").body # Updated for Feedjira 3.0
       feed = Feedjira.parse(xml)
       if defined?(feed.entries)
         out = "<ul>"

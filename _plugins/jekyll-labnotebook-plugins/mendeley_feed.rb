@@ -1,5 +1,6 @@
 require 'feedjira' # atom/rss API
 require 'nokogiri'  # Parse HTML
+require 'httparty' # To use feedjira v3.0
 
 
 module Jekyll

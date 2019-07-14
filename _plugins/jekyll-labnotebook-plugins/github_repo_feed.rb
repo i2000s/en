@@ -1,6 +1,7 @@
 require 'feedjira' # atom/rss API
 require 'octokit'   # Github API
 require 'nokogiri'  # Parse HTML
+require 'httparty' # To use feedjira v3.0
 
 # Github repo commit feed based on feedzirra rather than the Github API.
 # By Xiaodong Qi, based on the github_feed.rb plugin.
